@@ -1,67 +1,73 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
-  "height": 420,
+  "width": 500,
+  "height": 300,
   "background": null,
+
   "config": {
     "view": {
       "stroke": null
     },
-    "axis": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "gridColor": "#d9e2df",
-      "domainColor": "#9aa7a4",
-      "labelFont": "Inter",
-      "titleFont": "Inter"
-    },
-    "legend": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "orient": "bottom"
-    },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
+    "text": {
+      "font": "Inter"
     }
   },
+
   "layer": [
     {
       "data": {
         "url": "data/flow_links.json"
       },
+
+      "transform": [
+        {
+          "calculate": "datum.gradient === 'Flat' ? 0.10 : datum.gradient === 'Gentle hills' ? 0.30 : datum.gradient === 'Short steep hills' ? 0.50 : datum.gradient === 'Very steep' ? 0.70 : 0.90",
+          "as": "sourceY"
+        },
+        {
+          "calculate": "datum.experience === 'No experience required' ? 0.15 : datum.experience === 'Bushwalking experience recommended' ? 0.40 : datum.experience === 'Experienced bushwalkers' ? 0.65 : 0.90",
+          "as": "targetY"
+        },
+        {
+          "calculate": "datum.sourceY + (datum.targetY - datum.sourceY) * (3 * pow(datum.x, 2) - 2 * pow(datum.x, 3))",
+          "as": "fixedY"
+        }
+      ],
+
       "mark": {
         "type": "line",
         "interpolate": "basis",
         "opacity": 0.5,
         "strokeCap": "round"
       },
+
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
           "scale": {
-            "domain": [
-              -0.06,
-              1.06
-            ]
+            "domain": [0, 1]
           },
           "axis": null
         },
+
+        "y": {
+          "field": "fixedY",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
+          "axis": null
+        },
+
         "detail": {
           "field": "link"
         },
+
         "order": {
           "field": "order"
         },
+
         "color": {
           "field": "gradient",
           "type": "nominal",
@@ -70,17 +76,16 @@
           },
           "legend": null
         },
+
         "size": {
           "field": "count",
           "type": "quantitative",
           "scale": {
-            "range": [
-              2,
-              28
-            ]
+            "range": [2, 24]
           },
           "legend": null
         },
+
         "tooltip": [
           {
             "field": "gradient",
@@ -88,7 +93,7 @@
           },
           {
             "field": "experience",
-            "title": "Experience"
+            "title": "Recommended experience"
           },
           {
             "field": "count",
@@ -97,28 +102,46 @@
         ]
       }
     },
+
     {
       "data": {
         "url": "data/flow_nodes.json"
       },
+
+      "transform": [
+        {
+          "calculate": "datum.side === 'Gradient' ? (datum.label === 'Flat' ? 0.10 : datum.label === 'Gentle hills' ? 0.30 : datum.label === 'Short steep hills' ? 0.50 : datum.label === 'Very steep' ? 0.70 : 0.90) : (datum.label === 'No experience required' ? 0.15 : datum.label === 'Bushwalking experience recommended' ? 0.40 : datum.label === 'Experienced bushwalkers' ? 0.65 : 0.90)",
+          "as": "fixedY"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "size": 220,
+        "size": 240,
         "color": "#0f766e",
         "stroke": "#ffffff",
         "strokeWidth": 1.5
       },
+
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "y": {
-          "field": "y",
+          "field": "fixedY",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "tooltip": [
           {
             "field": "label",
@@ -131,66 +154,111 @@
         ]
       }
     },
+
     {
       "data": {
         "url": "data/flow_nodes.json"
       },
+
       "transform": [
         {
           "filter": "datum.side === 'Gradient'"
+        },
+        {
+          "calculate": "datum.label === 'Flat' ? 0.10 : datum.label === 'Gentle hills' ? 0.30 : datum.label === 'Short steep hills' ? 0.50 : datum.label === 'Very steep' ? 0.70 : 0.90",
+          "as": "fixedY"
+        },
+        {
+          "calculate": "datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label",
+          "as": "displayLabel"
         }
       ],
+
       "mark": {
         "type": "text",
-        "fontSize": 15,
-        "fontWeight": 650
+        "fontSize": 14,
+        "fontWeight": 650,
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "color": "#173b37"
       },
+
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "y": {
-          "field": "y",
+          "field": "fixedY",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "text": {
-          "field": "label"
+          "field": "displayLabel"
         }
       }
     },
+
     {
       "data": {
         "url": "data/flow_nodes.json"
       },
+
       "transform": [
         {
           "filter": "datum.side === 'Experience'"
+        },
+        {
+          "calculate": "datum.label === 'No experience required' ? 0.15 : datum.label === 'Bushwalking experience recommended' ? 0.40 : datum.label === 'Experienced bushwalkers' ? 0.65 : 0.90",
+          "as": "fixedY"
+        },
+        {
+          "calculate": "datum.label === 'Bushwalking experience recommended' ? 'Experience recommended' : datum.label === 'Experienced bushwalkers' ? 'Experienced' : datum.label === 'Very experienced bushwalkers' ? 'Very experienced' : datum.label",
+          "as": "displayLabel"
         }
       ],
+
       "mark": {
         "type": "text",
-        "fontSize": 12,
+        "fontSize": 14,
         "fontWeight": 650,
         "align": "left",
+        "baseline": "middle",
         "dx": 12,
         "color": "#173b37"
       },
+
       "encoding": {
         "x": {
           "field": "x",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "y": {
-          "field": "y",
+          "field": "fixedY",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          },
           "axis": null
         },
+
         "text": {
-          "field": "label"
+          "field": "displayLabel"
         }
       }
     }
