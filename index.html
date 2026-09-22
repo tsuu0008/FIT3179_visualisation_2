@@ -9,6 +9,76 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .grade-guide {
+      margin: 0 0 2rem;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid #cbd7d3;
+      border-radius: 24px;
+      background: #f7faf8;
+    }
+
+    .grade-guide-head {
+      max-width: 760px;
+      margin-bottom: 1.25rem;
+    }
+
+    .grade-guide-head h3 {
+      margin: 0.35rem 0 0.5rem;
+      color: #12332f;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .grade-guide-head p,
+    .grade-note {
+      color: #556b67;
+      line-height: 1.65;
+    }
+
+    .grade-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .grade-item {
+      min-height: 150px;
+      padding: 1rem;
+      border-top: 6px solid var(--grade-colour);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(18, 51, 47, 0.07);
+    }
+
+    .grade-item strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #12332f;
+      font-size: 1.05rem;
+    }
+
+    .grade-item span {
+      color: #556b67;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .grade-note {
+      margin: 1.25rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid #dbe4e1;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .grade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .grade-grid { grid-template-columns: 1fr; }
+      .grade-item { min-height: auto; }
+    }
+  </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23143f3a'/%3E%3Cpath d='M5 25 13 8l4 8 3-6 7 15Z' fill='%23f4a261'/%3E%3Cpath d='M9 25 16 12l3 6 2-4 5 11Z' fill='%23f8faf7'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -17,6 +87,7 @@
     <nav aria-label="Story sections">
       <a href="#where">Where</a>
       <a href="#challenge">Challenge</a>
+      <a href="#grades">Grades</a>
       <a href="#fit">Fit</a>
       <a href="#access">Access</a>
     </nav>
@@ -71,6 +142,21 @@
           <span class="chapter-no">02</span>
           <div><p class="eyebrow">What challenge looks like</p><h2>Most walks sit in the middle—until distance changes the task</h2></div>
         </header>
+        <aside id="grades" class="grade-guide" aria-labelledby="grade-guide-title">
+          <div class="grade-guide-head">
+            <p class="eyebrow">How to read the colours</p>
+            <h3 id="grade-guide-title">What does a walking-track grade mean?</h3>
+            <p>Grade describes the overall difficulty of a walk—not just how steep it is. It also considers the track surface, signage, distance, obstacles and the experience walkers may need.</p>
+          </div>
+          <div class="grade-grid">
+            <div class="grade-item" style="--grade-colour:#2a9d8f"><strong>Grade 1 · Accessible</strong><span>Flat, well-formed tracks with no steps. Suitable for assisted wheelchair users.</span></div>
+            <div class="grade-item" style="--grade-colour:#69b578"><strong>Grade 2 · Easy</strong><span>Clearly formed tracks with gentle hills and occasional steps. Suitable for families with young children.</span></div>
+            <div class="grade-item" style="--grade-colour:#e9c46a"><strong>Grade 3 · Moderate</strong><span>Some short steep sections, rough surfaces or obstacles. Suitable for most ages with a reasonable level of fitness.</span></div>
+            <div class="grade-item" style="--grade-colour:#f4a261"><strong>Grade 4 · Difficult</strong><span>Long, steep or rough tracks with limited signage. Bushwalking experience is recommended.</span></div>
+            <div class="grade-item" style="--grade-colour:#e76f51"><strong>Grade 5 · Very difficult</strong><span>Very rough, steep or unmarked routes. Intended for highly experienced bushwalkers with specialised skills.</span></div>
+          </div>
+          <p class="grade-note"><strong>About the data:</strong> Australia’s standard grading system runs from Grade 1 to Grade 5. “Unknown” means no usable grade was recorded. Any Grade 6 value shown in the source data is not an official Australian walking-track grade and should be reviewed before submission.</p>
+        </aside>
         <div class="two-col">
           <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 4</span><h3>Grade and gradient move together</h3><p>Grade 3 covers both gentle hills and short steep sections, so a grade alone cannot describe the whole experience.</p></div><div id="chart-04" class="chart" aria-label="Heatmap of trail grades and gradients"></div></article>
           <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 5</span><h3>Distance profiles overlap</h3><p>The ridgelines show many short walks across Grades 2–4, alongside a thin tail of much longer Grade 3 and 4 routes.</p></div><div id="chart-05" class="chart" aria-label="Ridgeline distribution of trail lengths by grade"></div></article>
