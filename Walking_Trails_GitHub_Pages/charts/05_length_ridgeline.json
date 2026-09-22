@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 46,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/trails.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.grade !== 'Unknown' && isValid(datum.length_km) && datum.length_km <= 25"
+    },
+    {
+      "density": "length_km",
+      "groupby": [
+        "grade"
+      ],
+      "as": [
+        "length_km",
+        "density"
+      ],
+      "extent": [
+        0,
+        25
+      ],
+      "steps": 80
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "opacity": 0.72,
+    "line": true
+  },
+  "encoding": {
+    "x": {
+      "field": "length_km",
+      "type": "quantitative",
+      "title": "Trail distance (km)"
+    },
+    "y": {
+      "field": "density",
+      "type": "quantitative",
+      "stack": "zero",
+      "axis": null
+    },
+    "color": {
+      "field": "grade",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Grade 6",
+          "Unknown"
+        ],
+        "range": [
+          "#2a9d8f",
+          "#69b578",
+          "#e9c46a",
+          "#f4a261",
+          "#e76f51",
+          "#8f2d56",
+          "#9aa2a6"
+        ]
+      },
+      "title": "Grade"
+    },
+    "row": {
+      "field": "grade",
+      "type": "nominal",
+      "sort": [
+        "Grade 1",
+        "Grade 2",
+        "Grade 3",
+        "Grade 4",
+        "Grade 5",
+        "Grade 6"
+      ],
+      "header": {
+        "title": null,
+        "labelAngle": 0,
+        "labelAlign": "left"
+      }
+    }
+  },
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 330,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/trails.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Grade 6"
+          ],
+          "title": "Australian walking track grade"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": [
+            "Very steep and difficult",
+            "Very steep",
+            "Short steep hills",
+            "Gentle hills",
+            "Flat"
+          ],
+          "title": "Typical gradient"
+        },
+        "color": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "yellowgreenblue"
+          },
+          "title": "Trail count"
+        },
+        "tooltip": [
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "gradient",
+            "title": "Gradient"
+          },
+          {
+            "aggregate": "count",
+            "title": "Trails"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Grade 6"
+          ]
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": [
+            "Very steep and difficult",
+            "Very steep",
+            "Short steep hills",
+            "Gentle hills",
+            "Flat"
+          ]
+        },
+        "text": {
+          "aggregate": "count"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.count > 22",
+            "value": "white"
+          },
+          "value": "#12332f"
+        }
+      }
+    }
+  ]
+}

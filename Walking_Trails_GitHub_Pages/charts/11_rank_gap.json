@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 470,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/lga_stats.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.trail_count > 0 && datum.population_rank <= 18"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "#a8b8b4",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank"
+          },
+          "title": null
+        },
+        "x": {
+          "field": "population_rank",
+          "type": "quantitative",
+          "title": "Rank among LGAs with recorded trails (1 = highest)"
+        },
+        "x2": {
+          "field": "supply_rank"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "population_rank",
+            "supply_rank"
+          ],
+          "as": [
+            "measure",
+            "rank"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 95
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank"
+          },
+          "title": null
+        },
+        "x": {
+          "field": "rank",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "measure",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "population_rank",
+              "supply_rank"
+            ],
+            "range": [
+              "#264653",
+              "#e76f51"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "labelExpr": "datum.label === 'population_rank' ? 'Population rank' : 'Trail supply rank'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "LGA"
+          },
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          }
+        ]
+      }
+    }
+  ]
+}

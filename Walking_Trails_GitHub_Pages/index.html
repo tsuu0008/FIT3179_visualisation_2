@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive story about the distribution, challenge and accessibility of Victoria's promoted state-forest walking trails.">
+  <title>Walking the Uneven Map | Victoria's State-Forest Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23143f3a'/%3E%3Cpath d='M5 25 13 8l4 8 3-6 7 15Z' fill='%23f4a261'/%3E%3Cpath d='M9 25 16 12l3 6 2-4 5 11Z' fill='%23f8faf7'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="Back to top">WT</a>
+    <nav aria-label="Story sections">
+      <a href="#where">Where</a>
+      <a href="#challenge">Challenge</a>
+      <a href="#fit">Fit</a>
+      <a href="#access">Access</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro wrap">
+      <p class="eyebrow">Walking trails · Victoria · 2026</p>
+      <h1>Walking the<br><em>uneven map</em></h1>
+      <div class="intro-grid">
+        <p class="standfirst">Victoria’s promoted state-forest trails offer hundreds of kilometres of walking. But the supply is concentrated far from where most Victorians live—and only a small share records any disabled access.</p>
+        <p class="scope"><strong>Scope matters.</strong> This story covers recreation tracks actively promoted and maintained by Victoria’s environment department, mainly in State Forest. It does not represent every urban path, national-park walk or informal trail.</p>
+      </div>
+      <div class="stat-strip" aria-label="Dataset summary">
+        <div><strong id="stat-trails">194</strong><span>promoted trails</span></div>
+        <div><strong id="stat-km">872 km</strong><span>recorded distance</span></div>
+        <div><strong id="stat-median">2.2 km</strong><span>median trail</span></div>
+        <div><strong id="stat-access">15</strong><span>full or partial access</span></div>
+      </div>
+    </section>
+
+    <section id="where" class="chapter chapter-dark">
+      <div class="wrap">
+        <header class="chapter-head">
+          <span class="chapter-no">01</span>
+          <div><p class="eyebrow">Where the trails are</p><h2>The network follows the ranges, not the population</h2></div>
+        </header>
+        <p class="chapter-lede">The promoted network clusters through the Central Highlands, Gippsland and the north-east. Use the grade legend to isolate easier or harder walks.</p>
+        <article class="chart-card chart-card-wide dark-card">
+          <div class="chart-copy"><span class="chart-number">Map 1</span><h3>A route map of the promoted network</h3><p>Grade 3 dominates the mapped system. Long Grade 4 routes—including the 95 km Upper Yarra Walking Track—stretch across the ranges.</p></div>
+          <div id="chart-01" class="chart" aria-label="Route map of Victorian state-forest walking trails"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter chapter-paper">
+      <div class="wrap two-col">
+        <article class="chart-card">
+          <div class="chart-copy"><span class="chart-number">Map 2</span><h3>Trail supply per resident</h3><p>Murrindindi records about <strong>844 km per 100,000 residents</strong>. High supply appears in smaller regional LGAs, not metropolitan Melbourne.</p></div>
+          <div id="chart-02" class="chart" aria-label="Choropleth map of trail kilometres per 100,000 residents"></div>
+        </article>
+        <article class="chart-card">
+          <div class="chart-copy"><span class="chart-number">Map 3</span><h3>Long walks are regional anchors</h3><p>Each circle is a trail; size represents distance and colour represents grade. The largest walks are also among the most demanding.</p></div>
+          <div id="chart-03" class="chart" aria-label="Proportional symbol map of trail length and grade"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="challenge" class="chapter chapter-paper ruled-top">
+      <div class="wrap">
+        <header class="chapter-head">
+          <span class="chapter-no">02</span>
+          <div><p class="eyebrow">What challenge looks like</p><h2>Most walks sit in the middle—until distance changes the task</h2></div>
+        </header>
+        <div class="two-col">
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 4</span><h3>Grade and gradient move together</h3><p>Grade 3 covers both gentle hills and short steep sections, so a grade alone cannot describe the whole experience.</p></div><div id="chart-04" class="chart" aria-label="Heatmap of trail grades and gradients"></div></article>
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 5</span><h3>Distance profiles overlap</h3><p>The ridgelines show many short walks across Grades 2–4, alongside a thin tail of much longer Grade 3 and 4 routes.</p></div><div id="chart-05" class="chart" aria-label="Ridgeline distribution of trail lengths by grade"></div></article>
+        </div>
+        <article class="chart-card chart-card-wide feature-card"><div class="chart-copy"><span class="chart-number">Chart 6</span><h3>A trail is more than one number</h3><p>These profiles compare distance, time, grade, steps and signage on a common scale. Select a grade to reveal its varied combinations.</p></div><div id="chart-06" class="chart" aria-label="Parallel coordinates plot of trail characteristics"></div></article>
+        <div class="two-col">
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 7</span><h3>Terrain signals experience</h3><p>Flows connect the recorded gradient to the experience recommended. Thicker curves represent more trails.</p></div><div id="chart-07" class="chart" aria-label="Flow network connecting gradient and experience"></div></article>
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 8</span><h3>Steeper terrain changes the mix</h3><p>Rectangle width represents terrain’s share of all recorded kilometres; height divides that terrain into grades.</p></div><div id="chart-08" class="chart" aria-label="Mosaic plot of trail kilometres by terrain and grade"></div></article>
+        </div>
+        <article class="chart-card chart-card-wide"><div class="chart-copy"><span class="chart-number">Chart 9</span><h3>Every dot is a choice</h3><p>The beeswarm keeps individual walks visible. Hover to find short options without hiding the exceptional long-distance routes.</p></div><div id="chart-09" class="chart" aria-label="Beeswarm plot of trail distances by grade"></div></article>
+      </div>
+    </section>
+
+    <section id="fit" class="chapter chapter-orange">
+      <div class="wrap">
+        <header class="chapter-head">
+          <span class="chapter-no">03</span>
+          <div><p class="eyebrow">Who the network fits</p><h2>Recorded accessibility remains the exception</h2></div>
+        </header>
+        <div class="access-layout">
+          <div class="access-message"><p class="big-number">8%</p><p>Of trails with a recorded disabled-access rating, only about eight in every hundred indicate full or partial access.</p><p class="small-note">Fifteen trails have no recorded rating and are excluded from this percentage. “Access” here is an administrative field, not an independent accessibility audit.</p></div>
+          <article class="chart-card orange-card"><div class="chart-copy"><span class="chart-number">Chart 10</span><h3>One square equals one percent</h3></div><div id="chart-10" class="chart" aria-label="Waffle chart of disabled access ratings"></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="access" class="chapter chapter-paper">
+      <div class="wrap">
+        <header class="chapter-head">
+          <span class="chapter-no">04</span>
+          <div><p class="eyebrow">The access gap</p><h2>Population and trail supply tell opposite stories</h2></div>
+        </header>
+        <div class="two-col">
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 11</span><h3>Large LGAs do not lead on supply</h3><p>Lines connect each LGA’s population rank with its trail-kilometres-per-person rank. Longer lines reveal the strongest mismatch.</p></div><div id="chart-11" class="chart" aria-label="Dumbbell plot comparing population and trail supply rank"></div></article>
+          <article class="chart-card"><div class="chart-copy"><span class="chart-number">Chart 12</span><h3>Distance usually predicts time</h3><p>The relationship is clear, but trails above the dashed trend take longer than distance alone suggests—often reflecting grade or terrain.</p></div><div id="chart-12" class="chart" aria-label="Scatterplot of trail distance and estimated duration"></div></article>
+        </div>
+        <div class="conclusion">
+          <p class="eyebrow">The takeaway</p>
+          <h2>Victoria has a rich regional trail network. Equal access is the unfinished path.</h2>
+          <p>The data points to two different planning questions: how to protect and maintain distinctive regional routes, and how to give a growing metropolitan population easier access to nature. Better accessibility records—and more consistently accessible trails—would make the network easier to choose and fairer to use.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="methodology">
+      <div class="wrap method-grid">
+        <div><p class="eyebrow">Data and method</p><h2>What is included</h2><p>Trail locations and characteristics come from the Victorian Government <a href="https://discover.data.vic.gov.au/dataset/recreation-tracks">Recreation Tracks</a> dataset, updated 20 September 2026. Population and LGA boundaries come from the ABS <a href="https://www.abs.gov.au/statistics/people/population/regional-population/latest-release">Regional population 2024–25</a> release.</p></div>
+        <div><h3>Processing</h3><p>Walking records were filtered from the recreation network. Grade labels and spelling variants were standardised. Each trail was assigned to the LGA containing its midpoint, so routes crossing boundaries are counted once. Geometry was simplified to keep downloads below one megabyte.</p></div>
+        <div><h3>Reading the results</h3><p>“Trail supply” means recorded walking kilometres in this dataset per 100,000 residents. It is not the total walking infrastructure of an LGA. Missing fields remain missing rather than being estimated.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <p><strong>Walking the Uneven Map</strong><br>Created by Tony Su · September 2026</p>
+      <p>Built with Vega-Lite. Generative AI was used to assist with code, editing and design development; all data transformations and claims should be reviewed by the author before submission.</p>
+      <p><a href="charts/01_trail_network.json">View chart specifications</a><br><a href="data/trails.json">View processed trail data</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+  <script src="app.js"></script>
+</body>
+</html>

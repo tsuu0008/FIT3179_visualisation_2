@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 500,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/lga.geojson"
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#f8fafc",
+    "strokeWidth": 0.7
+  },
+  "encoding": {
+    "color": {
+      "field": "properties.trail_km_per_100k",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "tealblues",
+        "type": "sqrt"
+      },
+      "title": "Trail km per 100k people"
+    },
+    "tooltip": [
+      {
+        "field": "properties.name",
+        "type": "nominal",
+        "title": "LGA"
+      },
+      {
+        "field": "properties.trail_count",
+        "type": "quantitative",
+        "title": "Trails"
+      },
+      {
+        "field": "properties.trail_km",
+        "type": "quantitative",
+        "title": "Recorded km",
+        "format": ".1f"
+      },
+      {
+        "field": "properties.population",
+        "type": "quantitative",
+        "title": "Population (2025)",
+        "format": ","
+      },
+      {
+        "field": "properties.trail_km_per_100k",
+        "type": "quantitative",
+        "title": "Km per 100k",
+        "format": ".1f"
+      }
+    ]
+  }
+}

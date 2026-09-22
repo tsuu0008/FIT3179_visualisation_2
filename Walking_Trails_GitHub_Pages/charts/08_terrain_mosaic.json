@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 380,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/mosaic.json"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "#f8fafc",
+    "strokeWidth": 1.5,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "x0",
+      "type": "quantitative",
+      "axis": {
+        "format": ".0%",
+        "title": "Share of recorded trail kilometres by terrain"
+      }
+    },
+    "x2": {
+      "field": "x1"
+    },
+    "y": {
+      "field": "y0",
+      "type": "quantitative",
+      "axis": null
+    },
+    "y2": {
+      "field": "y1"
+    },
+    "color": {
+      "field": "grade",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Grade 6",
+          "Unknown"
+        ],
+        "range": [
+          "#2a9d8f",
+          "#69b578",
+          "#e9c46a",
+          "#f4a261",
+          "#e76f51",
+          "#8f2d56",
+          "#9aa2a6"
+        ]
+      },
+      "title": "Grade"
+    },
+    "tooltip": [
+      {
+        "field": "gradient",
+        "title": "Terrain"
+      },
+      {
+        "field": "grade",
+        "title": "Grade"
+      },
+      {
+        "field": "km",
+        "title": "Recorded km",
+        "format": ".1f"
+      }
+    ]
+  }
+}

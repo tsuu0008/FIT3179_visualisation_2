@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 500,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/lga.geojson"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f1f5f4",
+        "stroke": "#c8d4d1",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.68,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.45
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "range": [
+              18,
+              900
+            ]
+          },
+          "title": "Distance (km)"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Grade 6",
+              "Unknown"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51",
+              "#8f2d56",
+              "#9aa2a6"
+            ]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)",
+            "format": ".1f"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "access",
+            "title": "Disabled access"
+          }
+        ]
+      }
+    }
+  ]
+}

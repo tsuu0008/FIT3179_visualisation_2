@@ -1,0 +1,37 @@
+[
+  {
+    "grade": "Grade 1",
+    "count": 4,
+    "total_km": 2.8,
+    "median_km": 0.7,
+    "accessible_pct": 75.0
+  },
+  {
+    "grade": "Grade 2",
+    "count": 42,
+    "total_km": 74.5,
+    "median_km": 1.4,
+    "accessible_pct": 21.1
+  },
+  {
+    "grade": "Grade 3",
+    "count": 115,
+    "total_km": 478.0,
+    "median_km": 2.4,
+    "accessible_pct": 3.8
+  },
+  {
+    "grade": "Grade 4",
+    "count": 27,
+    "total_km": 271.8,
+    "median_km": 5.6,
+    "accessible_pct": 0.0
+  },
+  {
+    "grade": "Grade 5",
+    "count": 2,
+    "total_km": 42.0,
+    "median_km": 34.0,
+    "accessible_pct": 0.0
+  }
+]

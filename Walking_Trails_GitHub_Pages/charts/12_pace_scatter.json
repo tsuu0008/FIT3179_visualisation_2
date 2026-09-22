@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 390,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/trails.json"
+  },
+  "transform": [
+    {
+      "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0 && datum.length_km <= 35"
+    },
+    {
+      "calculate": "datum.length_km / datum.hours",
+      "as": "pace_kmh"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.68,
+        "size": 72
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "title": "Distance (km)"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "title": "Estimated time (hours)"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Grade 6",
+              "Unknown"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51",
+              "#8f2d56",
+              "#9aa2a6"
+            ]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "pace_kmh",
+            "title": "Implied pace (km/h)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "regression": "hours",
+          "on": "length_km",
+          "method": "linear"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "color": "#153e3a",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

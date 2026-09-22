@@ -1,0 +1,201 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 420,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/flow_links.json"
+      },
+      "mark": {
+        "type": "line",
+        "interpolate": "basis",
+        "opacity": 0.3,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.06,
+              1.06
+            ]
+          },
+          "axis": null
+        },
+        "detail": {
+          "field": "link"
+        },
+        "order": {
+          "field": "order"
+        },
+        "color": {
+          "field": "gradient",
+          "type": "nominal",
+          "scale": {
+            "scheme": "bluegreen"
+          },
+          "legend": null
+        },
+        "size": {
+          "field": "count",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              1.5,
+              18
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "gradient",
+            "title": "Gradient"
+          },
+          {
+            "field": "experience",
+            "title": "Experience"
+          },
+          {
+            "field": "count",
+            "title": "Trails"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/flow_nodes.json"
+      },
+      "mark": {
+        "type": "circle",
+        "size": 220,
+        "color": "#0f766e",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "title": "Category"
+          },
+          {
+            "field": "count",
+            "title": "Trails"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/flow_nodes.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.side === 'Gradient'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 650,
+        "align": "right",
+        "dx": -12,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/flow_nodes.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.side === 'Experience'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 650,
+        "align": "left",
+        "dx": 12,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ]
+}

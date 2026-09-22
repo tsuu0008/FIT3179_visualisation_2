@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 360,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/beeswarm.json"
+  },
+  "mark": {
+    "type": "circle",
+    "size": 58,
+    "opacity": 0.72,
+    "stroke": "#ffffff",
+    "strokeWidth": 0.4
+  },
+  "encoding": {
+    "x": {
+      "field": "length_km",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt"
+      },
+      "title": "Trail distance (km, square-root scale)"
+    },
+    "y": {
+      "field": "grade",
+      "type": "ordinal",
+      "sort": [
+        "Grade 1",
+        "Grade 2",
+        "Grade 3",
+        "Grade 4",
+        "Grade 5",
+        "Grade 6"
+      ],
+      "title": null
+    },
+    "yOffset": {
+      "field": "lane",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "grade",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Grade 6",
+          "Unknown"
+        ],
+        "range": [
+          "#2a9d8f",
+          "#69b578",
+          "#e9c46a",
+          "#f4a261",
+          "#e76f51",
+          "#8f2d56",
+          "#9aa2a6"
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "name",
+        "title": "Trail"
+      },
+      {
+        "field": "grade",
+        "title": "Grade"
+      },
+      {
+        "field": "length_km",
+        "title": "Distance (km)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

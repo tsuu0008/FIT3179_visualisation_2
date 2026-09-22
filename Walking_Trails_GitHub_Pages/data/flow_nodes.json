@@ -1,0 +1,65 @@
+[
+  {
+    "side": "Gradient",
+    "x": 0,
+    "y": 0.07219251336898395,
+    "label": "Flat",
+    "count": 27
+  },
+  {
+    "side": "Gradient",
+    "x": 0,
+    "y": 0.3155080213903743,
+    "label": "Gentle hills",
+    "count": 64
+  },
+  {
+    "side": "Gradient",
+    "x": 0,
+    "y": 0.7085561497326203,
+    "label": "Short steep hills",
+    "count": 83
+  },
+  {
+    "side": "Gradient",
+    "x": 0,
+    "y": 0.9598930481283422,
+    "label": "Very steep",
+    "count": 11
+  },
+  {
+    "side": "Gradient",
+    "x": 0,
+    "y": 0.9946524064171123,
+    "label": "Very steep and difficult",
+    "count": 2
+  },
+  {
+    "side": "Experience",
+    "x": 1,
+    "y": 0.28342245989304815,
+    "label": "No experience required",
+    "count": 106
+  },
+  {
+    "side": "Experience",
+    "x": 1,
+    "y": 0.7459893048128342,
+    "label": "Bushwalking experience recommended",
+    "count": 67
+  },
+  {
+    "side": "Experience",
+    "x": 1,
+    "y": 0.9598930481283422,
+    "label": "Experienced bushwalkers",
+    "count": 13
+  },
+  {
+    "side": "Experience",
+    "x": 1,
+    "y": 0.9973262032085561,
+    "label": "Very experienced bushwalkers",
+    "count": 1
+  }
+]

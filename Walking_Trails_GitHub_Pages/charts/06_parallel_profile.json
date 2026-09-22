@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 390,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "data": {
+    "url": "data/parallel.json"
+  },
+  "params": [
+    {
+      "name": "gradePick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "grade"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "strokeWidth": 1.2
+  },
+  "encoding": {
+    "x": {
+      "field": "metric",
+      "type": "ordinal",
+      "sort": [
+        "Distance",
+        "Time",
+        "Grade",
+        "Steps",
+        "Signage"
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      },
+      "axis": {
+        "title": "Normalised value",
+        "format": ".0%"
+      }
+    },
+    "detail": {
+      "field": "name"
+    },
+    "order": {
+      "field": "order"
+    },
+    "color": {
+      "field": "grade",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Grade 6",
+          "Unknown"
+        ],
+        "range": [
+          "#2a9d8f",
+          "#69b578",
+          "#e9c46a",
+          "#f4a261",
+          "#e76f51",
+          "#8f2d56",
+          "#9aa2a6"
+        ]
+      },
+      "title": "Grade"
+    },
+    "opacity": {
+      "condition": {
+        "param": "gradePick",
+        "value": 0.62
+      },
+      "value": 0.06
+    },
+    "tooltip": [
+      {
+        "field": "name",
+        "title": "Trail"
+      },
+      {
+        "field": "grade",
+        "title": "Grade"
+      },
+      {
+        "field": "metric",
+        "title": "Measure"
+      },
+      {
+        "field": "value",
+        "format": ".0%",
+        "title": "Relative value"
+      }
+    ]
+  }
+}

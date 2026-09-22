@@ -1,0 +1,133 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 500,
+  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom"
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "gradePick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "properties.grade"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/lga.geojson"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef3f1",
+        "stroke": "#cbd7d3",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.geojson"
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 1.9,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Grade 6",
+              "Unknown"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51",
+              "#8f2d56",
+              "#9aa2a6"
+            ]
+          },
+          "title": "Walking grade"
+        },
+        "opacity": {
+          "condition": {
+            "param": "gradePick",
+            "value": 0.92
+          },
+          "value": 0.1
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "Trail"
+          },
+          {
+            "field": "properties.grade",
+            "type": "nominal",
+            "title": "Grade"
+          },
+          {
+            "field": "properties.length_km",
+            "type": "quantitative",
+            "title": "Distance (km)",
+            "format": ".1f"
+          },
+          {
+            "field": "properties.hours",
+            "type": "quantitative",
+            "title": "Time (hours)",
+            "format": ".1f"
+          },
+          {
+            "field": "properties.lga",
+            "type": "nominal",
+            "title": "LGA"
+          }
+        ]
+      }
+    }
+  ]
+}
