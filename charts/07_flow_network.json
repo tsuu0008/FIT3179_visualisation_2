@@ -36,7 +36,7 @@
       "mark": {
         "type": "line",
         "interpolate": "basis",
-        "opacity": 0.3,
+        "opacity": 0.5,
         "strokeCap": "round"
       },
       "encoding": {
@@ -75,8 +75,8 @@
           "type": "quantitative",
           "scale": {
             "range": [
-              1.5,
-              18
+              2,
+              28
             ]
           },
           "legend": null
@@ -142,11 +142,8 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 12,
-        "fontWeight": 650,
-        "align": "right",
-        "dx": -12,
-        "color": "#173b37"
+        "fontSize": 15,
+        "fontWeight": 650
       },
       "encoding": {
         "x": {
