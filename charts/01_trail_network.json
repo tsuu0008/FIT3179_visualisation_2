@@ -16,10 +16,10 @@
       "titleFont": "Inter"
     },
     "legend": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
+      "labelColor": "#e8f3ef",
+      "titleColor": "#ffffff",
+      "labelFontSize": 13,
+      "titleFontSize": 14,
       "orient": "bottom"
     },
     "header": {
@@ -48,8 +48,8 @@
       "mark": {
         "type": "geoshape",
         "fill": "#eef3f1",
-        "stroke": "#cbd7d3",
-        "strokeWidth": 0.6
+        "stroke": "#9eafaa",
+        "strokeWidth": 0.8
       },
       "encoding": {
         "shape": {
@@ -81,7 +81,7 @@
       "mark": {
         "type": "geoshape",
         "filled": false,
-        "strokeWidth": 1.9,
+        "strokeWidth": 3,
         "strokeCap": "round"
       },
       "encoding": {
