@@ -29,10 +29,19 @@
     }
   },
   "data": {
-    "url": "data/lga.geojson"
+    "url": "data/lga.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
   },
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": [
+      144.8,
+      -37.2
+    ],
+    "scale": 4300
   },
   "mark": {
     "type": "geoshape",
@@ -40,6 +49,10 @@
     "strokeWidth": 0.7
   },
   "encoding": {
+    "shape": {
+      "field": "geometry",
+      "type": "geojson"
+    },
     "color": {
       "field": "properties.trail_km_per_100k",
       "type": "quantitative",

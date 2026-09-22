@@ -29,36 +29,55 @@
     }
   },
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": [
+      144.8,
+      -37.2
+    ],
+    "scale": 4300
   },
-  "params": [
-    {
-      "name": "gradePick",
-      "select": {
-        "type": "point",
-        "fields": [
-          "properties.grade"
-        ]
-      },
-      "bind": "legend"
-    }
-  ],
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson"
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "mark": {
         "type": "geoshape",
         "fill": "#eef3f1",
         "stroke": "#cbd7d3",
         "strokeWidth": 0.6
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        }
       }
     },
     {
       "data": {
-        "url": "data/trails.geojson"
+        "url": "data/trails.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
+      "params": [
+        {
+          "name": "gradePick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "properties.grade"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "filled": false,
@@ -66,6 +85,10 @@
         "strokeCap": "round"
       },
       "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        },
         "color": {
           "field": "properties.grade",
           "type": "nominal",

@@ -29,18 +29,33 @@
     }
   },
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": [
+      144.8,
+      -37.2
+    ],
+    "scale": 4300
   },
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson"
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
       },
       "mark": {
         "type": "geoshape",
         "fill": "#f1f5f4",
         "stroke": "#c8d4d1",
         "strokeWidth": 0.6
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        }
       }
     },
     {
