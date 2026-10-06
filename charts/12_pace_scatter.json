@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
+  "width": 500,
   "height": 390,
   "background": null,
   "config": {
@@ -33,7 +33,7 @@
   },
   "transform": [
     {
-      "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0 && datum.length_km <= 35"
+      "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0"
     },
     {
       "calculate": "datum.length_km / datum.hours",
@@ -57,6 +57,7 @@
         "y": {
           "field": "hours",
           "type": "quantitative",
+          "scale": {"domain": [0, 52]},
           "title": "Estimated time (hours)"
         },
         "color": {
@@ -69,7 +70,6 @@
               "Grade 3",
               "Grade 4",
               "Grade 5",
-              "Grade 6",
               "Unknown"
             ],
             "range": [
@@ -78,7 +78,6 @@
               "#e9c46a",
               "#f4a261",
               "#e76f51",
-              "#8f2d56",
               "#9aa2a6"
             ]
           },
@@ -135,6 +134,17 @@
           "field": "hours",
           "type": "quantitative"
         }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"}
+      ],
+      "mark": {"type": "text", "align": "right", "dx": -7, "dy": -8, "font": "Inter", "fontSize": 11, "fontWeight": 700, "color": "#173b37"},
+      "encoding": {
+        "x": {"field": "length_km", "type": "quantitative"},
+        "y": {"field": "hours", "type": "quantitative"},
+        "text": {"field": "name"}
       }
     }
   ]

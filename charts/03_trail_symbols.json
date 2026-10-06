@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
+  "width": 500,
   "height": 500,
   "background": null,
   "config": {
@@ -99,7 +99,6 @@
               "Grade 3",
               "Grade 4",
               "Grade 5",
-              "Grade 6",
               "Unknown"
             ],
             "range": [
@@ -108,7 +107,6 @@
               "#e9c46a",
               "#f4a261",
               "#e76f51",
-              "#8f2d56",
               "#9aa2a6"
             ]
           },

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
+  "width": 500,
   "height": 500,
   "background": null,
   "config": {
@@ -20,7 +20,10 @@
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "orient": "bottom"
+      "orient": "bottom",
+      "titleLimit": 300,
+      "labelFontSize": 12,
+      "titleFontSize": 13
     },
     "header": {
       "labelFont": "Inter",
@@ -60,7 +63,7 @@
         "scheme": "tealblues",
         "type": "sqrt"
       },
-      "title": "Trail km per 100k people"
+      "title": "Trail km per 100,000 residents"
     },
     "tooltip": [
       {

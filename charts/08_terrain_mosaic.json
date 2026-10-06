@@ -1,125 +1,149 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
-  "height": 380,
+  "width": 500,
+  "height": 300,
   "background": null,
   "config": {
     "view": {
       "stroke": null
     },
-
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "gridColor": "#d9e2df",
-      "domainColor": "#9aa7a4",
       "labelFont": "Inter",
       "titleFont": "Inter",
-
-      "labelFontSize": 14,
-      "titleFontSize": 16,
-      "labelPadding": 7,
-      "titlePadding": 14,
-      "tickSize": 6
+      "labelFontSize": 12,
+      "titleFontSize": 13
     },
-
     "legend": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-
-      "labelFontSize": 14,
-      "titleFontSize": 16,
-      "titlePadding": 10,
-
-      "symbolSize": 160,
-      "symbolType": "square",
-
+      "labelFontSize": 12,
+      "titleFontSize": 13,
       "orient": "bottom",
-      "direction": "horizontal",
-      "columns": 4,
-      "columnPadding": 20,
-      "rowPadding": 8,
-      "offset": 18
+      "direction": "horizontal"
     }
   },
   "data": {
     "url": "data/mosaic.json"
   },
-  "mark": {
-    "type": "rect",
-    "stroke": "#f8fafc",
-    "strokeWidth": 1.5,
-    "cornerRadius": 2
-  },
-  "title": "Share of recorded trail kilometres",
-  "encoding": {
-    "x": {
-      "field": "x0",
-      "type": "quantitative",
-
-      "scale": {
-        "domain": [0, 1],
-        "nice": false
+  "transform": [
+    {
+      "calculate": "(datum.x0 + datum.x1) / 2",
+      "as": "xmid"
+    },
+    {
+      "calculate": "(datum.y0 + datum.y1) / 2",
+      "as": "ymid"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f8fafc",
+        "strokeWidth": 1.5,
+        "cornerRadius": 2
       },
-
-      "axis": {
-        "format": ".0%",
-        "tickCount": 11,
-        "title": "Share of recorded trail kilometres by terrain"
-      }
-    },
-    "x2": {
-      "field": "x1"
-    },
-    "y": {
-      "field": "y0",
-      "type": "quantitative",
-      "axis": null
-    },
-    "y2": {
-      "field": "y1"
-    },
-    "color": {
-      "field": "grade",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
-          "Grade 6",
-          "Unknown"
-        ],
-        "range": [
-          "#2a9d8f",
-          "#69b578",
-          "#e9c46a",
-          "#f4a261",
-          "#e76f51",
-          "#8f2d56",
-          "#9aa2a6"
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "nice": false
+          },
+          "axis": {
+            "format": ".0%",
+            "tickCount": 6,
+            "title": "Share of recorded trail kilometres by terrain"
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51",
+              "#9aa2a6"
+            ]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "km",
+            "title": "Recorded km",
+            "format": ".1f"
+          }
         ]
-      },
-      "title": "Grade"
-    },
-    "tooltip": [
-      {
-        "field": "gradient",
-        "title": "Terrain"
-      },
-      {
-        "field": "grade",
-        "title": "Grade"
-      },
-      {
-        "field": "km",
-        "title": "Recorded km",
-        "format": ".1f"
       }
-    ]
-  }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.km >= 30"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "km",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
+    }
+  ]
 }

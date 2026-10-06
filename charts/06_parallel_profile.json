@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
-  "height": 390,
+  "width": 1000,
+  "height": 340,
   "background": null,
   "config": {
     "view": {
@@ -11,128 +11,171 @@
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "gridColor": "#d9e2df",
-      "domainColor": "#9aa7a4",
       "labelFont": "Inter",
-      "titleFont": "Inter"
+      "titleFont": "Inter",
+      "labelFontSize": 13,
+      "titleFontSize": 13
     },
     "legend": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "orient": "bottom"
-    },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
+      "labelFontSize": 12,
+      "orient": "bottom",
+      "direction": "horizontal"
     }
   },
   "data": {
     "url": "data/parallel.json"
   },
-  "params": [
+  "transform": [
     {
-      "name": "gradePick",
-      "select": {
-        "type": "point",
-        "fields": [
-          "grade"
-        ]
-      },
-      "bind": "legend"
+      "filter": "datum.grade !== 'Unknown'"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "median",
+          "field": "value",
+          "as": "median_value"
+        }
+      ],
+      "groupby": [
+        "grade",
+        "metric",
+        "order"
+      ]
     }
   ],
-  "mark": {
-    "type": "line",
-    "strokeWidth": 1.2
-  },
-  "encoding": {
-    "x": {
-      "field": "metric",
-      "type": "ordinal",
-      "sort": [
-        "Distance",
-        "Time",
-        "Grade",
-        "Steps",
-        "Signage"
-      ],
-      "title": null,
-      "axis": {
-        "labelAngle": 0
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "opacity": 0.82
+      },
+      "encoding": {
+        "x": {
+          "field": "metric",
+          "type": "ordinal",
+          "sort": [
+            "Distance",
+            "Time",
+            "Grade",
+            "Steps",
+            "Signage"
+          ],
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "median_value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          },
+          "axis": {
+            "title": "Median relative value",
+            "format": ".0%"
+          }
+        },
+        "detail": {
+          "field": "grade"
+        },
+        "order": {
+          "field": "order"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51"
+            ]
+          },
+          "title": "Grade"
+        }
       }
     },
-    "y": {
-      "field": "value",
-      "type": "quantitative",
-      "scale": {
-        "domain": [
-          0,
-          1
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 115,
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "metric",
+          "type": "ordinal",
+          "sort": [
+            "Distance",
+            "Time",
+            "Grade",
+            "Steps",
+            "Signage"
+          ],
+          "title": null
+        },
+        "y": {
+          "field": "median_value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51"
+            ]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "metric",
+            "title": "Measure"
+          },
+          {
+            "field": "median_value",
+            "title": "Median relative value",
+            "format": ".0%"
+          }
         ]
-      },
-      "axis": {
-        "title": "Normalised value",
-        "format": ".0%"
       }
-    },
-    "detail": {
-      "field": "name"
-    },
-    "order": {
-      "field": "order"
-    },
-    "color": {
-      "field": "grade",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
-          "Grade 6",
-          "Unknown"
-        ],
-        "range": [
-          "#2a9d8f",
-          "#69b578",
-          "#e9c46a",
-          "#f4a261",
-          "#e76f51",
-          "#8f2d56",
-          "#9aa2a6"
-        ]
-      },
-      "title": "Grade"
-    },
-    "opacity": {
-      "condition": {
-        "param": "gradePick",
-        "value": 0.62
-      },
-      "value": 0.06
-    },
-    "tooltip": [
-      {
-        "field": "name",
-        "title": "Trail"
-      },
-      {
-        "field": "grade",
-        "title": "Grade"
-      },
-      {
-        "field": "metric",
-        "title": "Measure"
-      },
-      {
-        "field": "value",
-        "format": ".0%",
-        "title": "Relative value"
-      }
-    ]
-  }
+    }
+  ]
 }

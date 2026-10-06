@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
+  "width": 500,
   "height": 330,
   "background": null,
   "config": {
@@ -51,8 +51,7 @@
             "Grade 2",
             "Grade 3",
             "Grade 4",
-            "Grade 5",
-            "Grade 6"
+            "Grade 5"
           ],
           "title": "Australian walking track grade"
         },
@@ -107,8 +106,7 @@
             "Grade 2",
             "Grade 3",
             "Grade 4",
-            "Grade 5",
-            "Grade 6"
+            "Grade 5"
           ]
         },
         "y": {
