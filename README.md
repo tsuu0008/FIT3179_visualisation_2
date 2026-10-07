@@ -52,3 +52,13 @@ The page follows one question: how do location, walking demands and recorded acc
 The distance view includes unknown-grade trails. The time view excludes records without a positive time estimate; its count is stated beside the filters. Full-network summary statistics and chapter comparisons remain fixed when the shortlist changes.
 
 Sources appear as numbered in-text citations with linked IEEE-style references at the bottom. The original supplied dataset snapshot is retained; the source-page access date does not imply that the data was downloaded again.
+
+## Area exploration and map zoom
+
+The overview and shortlist area menus contain 80 council/local-area names from the boundary dataset. They are present in the HTML, so the menu does not wait for a data request to populate. Selecting an area fits all three maps to that area's boundary and updates the shortlist. You can also click a boundary or use the five area shortcuts. The +/− buttons and sliders change map magnification; “Fit selected area” restores its extent, and “Show all Victoria” returns to the statewide view.
+
+The geographic units are councils/local government areas, not suburbs. Some areas contain no promoted forest tracks in this dataset; an empty shortlist is reported explicitly. Full-network narrative summaries remain fixed.
+
+`data-bundle.js` includes every chart specification and dataset used by the app. Runtime chart data is embedded in memory, so opening `index.html` directly does not require fetching local JSON files. An internet connection is still needed for the Vega libraries and web fonts. Keep the `charts/` and `data/` folders for source inspection.
+
+When updating GitHub Pages, upload all files, including `data-bundle.js`, `app.js`, `index.html` and `styles.css`. The page uses versioned script and stylesheet links to reduce stale browser-cache problems.

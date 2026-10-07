@@ -1,3 +1,5 @@
+(() => {
+"use strict";
 const charts = [
   ["#chart-01", "charts/01_trail_network.json"],
   ["#chart-02", "charts/02_lga_access.json"],
@@ -14,8 +16,70 @@ const charts = [
 ];
 const linkedCharts = new Set(["#chart-03", "#chart-09", "#chart-12"]);
 const linkedViews = new Map();
+const mapViews = new Map();
+const mapSizes = new Map();
+const mapCharts = new Set(["#chart-01", "#chart-02", "#chart-03"]);
+const bundle = window.TRAIL_BUNDLE;
+let mapZoom = 1;
+const clone = (value) => JSON.parse(JSON.stringify(value));
+const areas = bundle["data/lga.geojson"].features;
+function inlineData(node) {
+  if (Array.isArray(node)) { node.forEach(inlineData); return; }
+  if (!node || typeof node !== "object") return;
+  if (node.data?.url && bundle[node.data.url]) {
+    const source = bundle[node.data.url];
+    const property = node.data.format?.property;
+    node.data = { values: clone(property ? source[property] : source) };
+  }
+  Object.values(node).forEach(inlineData);
+}
+function mercatorY(latitude) {
+  return Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
+}
+function mapPosition(selector) {
+  const selected = state.chosenLga === "All" ? areas : areas.filter(area => area.properties.name === state.chosenLga);
+  let west=Infinity, east=-Infinity, south=Infinity, north=-Infinity;
+  function visit(coordinates) {
+    if (typeof coordinates[0] === "number") {
+      west=Math.min(west,coordinates[0]); east=Math.max(east,coordinates[0]);
+      south=Math.min(south,coordinates[1]); north=Math.max(north,coordinates[1]);
+    } else coordinates.forEach(visit);
+  }
+  selected.forEach(area => visit(area.geometry.coordinates));
+  const [width,height] = mapSizes.get(selector);
+  const y0=mercatorY(south), y1=mercatorY(north);
+  const centerLat=(2*Math.atan(Math.exp((y0+y1)/2))-Math.PI/2)*180/Math.PI;
+  return {
+    mapCenter: [(west+east)/2,centerLat],
+    mapScale: Math.min((width-60)/Math.max((east-west)*Math.PI/180,0.001),(height-60)/Math.max(y1-y0,0.001))*mapZoom,
+  };
+}
+function mapSpec(spec, selector) {
+  mapSizes.set(selector,[spec.width,spec.height]);
+  const position=mapPosition(selector);
+  spec.params=[...(spec.params || []),
+    ...(!linkedCharts.has(selector) ? [{name:"chosenLga",value:state.chosenLga}] : []),
+    ...Object.entries(position).map(([name,value])=>({name,value}))];
+  spec.projection={type:"mercator",center:{expr:"mapCenter"},scale:{expr:"mapScale"},
+    translate:[spec.width/2,spec.height/2],clipExtent:[[0,0],[spec.width,spec.height]]};
+  if(selector === "#chart-01") {
+    spec.layer[1].transform=[...(spec.layer[1].transform || []),{filter:"chosenLga === 'All' || datum.properties.lga === chosenLga"}];
+    spec.layer.slice(2).forEach(layer=>{
+      layer.transform=[...(layer.transform || []),{filter:"chosenLga === 'All' || datum.lga === chosenLga"}];
+    });
+  }
+  if(selector === "#chart-02") {
+    spec.encoding.color.scale.domain=[0,Math.max(...areas.map(area=>area.properties.trail_km_per_100k || 0))];
+    spec.transform=[...(spec.transform || []),{filter:"chosenLga === 'All' || datum.properties.name === chosenLga"}];
+  }
+  if(spec.layer) spec.layer.push({
+    data:{values:clone(areas)},transform:[{filter:"chosenLga !== 'All' && datum.properties.name === chosenLga"}],
+    mark:{type:"geoshape",fill:null,stroke:"#b74924",strokeWidth:2},encoding:{shape:{field:"geometry",type:"geojson"}},
+  });
+  return spec;
+}
 const state = { chosenGrade: "All", chosenLga: "All", maximumKm: 95, accessOnly: false, selectedTrail: "" };
-let trails = [];
+let trails = clone(bundle["data/trails.json"]);
 const embedOptions = {
   actions: { export: true, source: true, compiled: false, editor: false },
   renderer: "svg", tooltip: { theme: "light" },
@@ -34,17 +98,17 @@ function linkSpec(spec, selector) {
     condition: { test: "selectedTrail !== '' && datum.name === selectedTrail", value: 3 }, value: 0.5,
   };
   // Fit the whole state in the shortlist map rather than reusing the wide map's fixed scale.
-  if (selector === "#chart-03") spec.projection = { type: "mercator" };
+  if (selector === "#chart-03") { spec.projection = { type: "mercator" }; spec.layer[1].encoding.size.scale.domain=[0,95]; }
   return spec;
 }
 
 async function loadChart(selector, specUrl) {
   const host = document.querySelector(selector);
   try {
-    const response = await fetch(specUrl);
-    if (!response.ok) throw new Error(`Could not load ${specUrl}`);
-    let spec = await response.json();
+    let spec = clone(bundle[specUrl]);
+    inlineData(spec);
     if (linkedCharts.has(selector)) spec = linkSpec(spec, selector);
+    if (mapCharts.has(selector)) spec = mapSpec(spec, selector);
     const result = await vegaEmbed(host, spec, embedOptions);
     if (linkedCharts.has(selector)) {
       linkedViews.set(selector, result.view);
@@ -54,8 +118,17 @@ async function loadChart(selector, specUrl) {
         state.selectedTrail = state.selectedTrail === name ? "" : name;
         updateShortlist();
       });
-      syncViews();
     }
+    if (mapCharts.has(selector)) {
+      mapViews.set(selector,result.view);
+      result.view.addEventListener("click", (_event,item) => {
+        const area=item?.datum?.properties?.name;
+        if (areas.some(feature=>feature.properties.name === area)) {
+          state.chosenLga=area; mapZoom=1; updateShortlist();
+        }
+      });
+    }
+    syncViews();
   } catch (error) {
     const message = document.createElement("p");
     message.className = "chart-error";
@@ -73,12 +146,27 @@ function matchingTrails() {
   );
 }
 function syncViews() {
-  for (const view of linkedViews.values()) {
-    for (const [name, value] of Object.entries(state)) view.signal(name, value);
-    view.runAsync().catch((error) => console.error("Could not update linked view", error));
+  for (const selector of new Set([...linkedViews.keys(),...mapViews.keys()])) {
+    const view=linkedViews.get(selector) || mapViews.get(selector);
+    if (linkedViews.has(selector)) for (const [name,value] of Object.entries(state)) view.signal(name,value);
+    if (mapViews.has(selector)) {
+      view.signal("chosenLga",state.chosenLga);
+      for (const [name,value] of Object.entries(mapPosition(selector))) view.signal(name,value);
+    }
+    view.runAsync().catch(error=>console.error("Could not update view",error));
   }
 }
+function syncAreaControls() {
+  document.querySelector("#filter-lga").value=state.chosenLga;
+  document.querySelector("#overview-area").value=state.chosenLga;
+  document.querySelectorAll("[data-map-zoom]").forEach(control=>{control.value=String(mapZoom);});
+  document.querySelectorAll("[data-zoom-label]").forEach(label=>{label.textContent=`${mapZoom}×`;});
+  document.querySelectorAll("[data-area]").forEach(button=>{
+    button.setAttribute("aria-pressed",String(button.dataset.area === state.chosenLga));
+  });
+}
 function updateShortlist() {
+  syncAreaControls();
   const matching = matchingTrails();
   if (!matching.some((trail) => trail.name === state.selectedTrail)) state.selectedTrail = "";
   const timed = matching.filter((trail) => Number.isFinite(trail.hours) && trail.hours > 0).length;
@@ -101,39 +189,33 @@ function updateShortlist() {
   document.querySelector("#distance-value").textContent = `${state.maximumKm} km`;
   syncViews();
 }
-async function loadSummaryAndFilters() {
-  try {
-    const [statsResponse, trailsResponse] = await Promise.all([fetch("data/stats.json"), fetch("data/trails.json")]);
-    if (!statsResponse.ok || !trailsResponse.ok) throw new Error("Could not load trail summary");
-    const [stats, records] = await Promise.all([statsResponse.json(), trailsResponse.json()]);
-    trails = records;
-    document.querySelector("#stat-trails").textContent = stats.trail_count.toLocaleString();
-    document.querySelector("#stat-km").textContent = `${Math.round(stats.total_km).toLocaleString()} km`;
-    document.querySelector("#stat-median").textContent = `${stats.median_km.toFixed(1)} km`;
-    document.querySelector("#stat-access").textContent = stats.accessible_count.toLocaleString();
-    const lgaPicker = document.querySelector("#filter-lga");
-    [...new Set(trails.map((trail) => trail.lga))].sort().forEach((lga) => lgaPicker.add(new Option(lga, lga)));
-    updateShortlist();
-  } catch (error) {
-    document.querySelector("#shortlist-count").textContent = "The shortlist data could not be loaded. Reload this page to try again.";
-    document.querySelectorAll("#shortlist-controls input, #shortlist-controls select, #filter-trail").forEach((control) => { control.disabled = true; });
-  }
+function loadSummaryAndFilters() {
+  const stats=bundle["data/stats.json"];
+  document.querySelector("#stat-trails").textContent=stats.trail_count.toLocaleString();
+  document.querySelector("#stat-km").textContent=`${Math.round(stats.total_km).toLocaleString()} km`;
+  document.querySelector("#stat-median").textContent=`${stats.median_km.toFixed(1)} km`;
+  document.querySelector("#stat-access").textContent=stats.accessible_count.toLocaleString();
+  updateShortlist();
 }
 const form = document.querySelector("#shortlist-controls");
 form.addEventListener("submit", (event) => event.preventDefault());
-form.addEventListener("input", () => {
+function readFilters() {
+  if (state.chosenLga !== document.querySelector("#filter-lga").value) mapZoom=1;
   state.chosenGrade = document.querySelector("#filter-grade").value;
   state.chosenLga = document.querySelector("#filter-lga").value;
   state.maximumKm = Number(document.querySelector("#filter-distance").value);
   state.accessOnly = document.querySelector("#filter-access").checked;
   updateShortlist();
-});
+}
+form.addEventListener("input",readFilters);
+form.addEventListener("change",readFilters);
 form.addEventListener("reset", (event) => {
   event.preventDefault();
   document.querySelector("#filter-grade").value = "All";
   document.querySelector("#filter-lga").value = "All";
   document.querySelector("#filter-distance").value = "95";
   document.querySelector("#filter-access").checked = false;
+  mapZoom=1;
   Object.assign(state, { chosenGrade: "All", chosenLga: "All", maximumKm: 95, accessOnly: false, selectedTrail: "" });
   updateShortlist();
 });
@@ -143,3 +225,21 @@ document.querySelector("#filter-trail").addEventListener("change", (event) => {
 });
 loadSummaryAndFilters();
 charts.forEach(([selector, url]) => loadChart(selector, url));
+
+document.querySelector("#overview-area").addEventListener("change",event=>{
+  state.chosenLga=event.target.value; mapZoom=1; updateShortlist();
+});
+document.querySelectorAll("[data-area]").forEach(button=>button.addEventListener("click",()=>{
+  state.chosenLga=button.dataset.area; mapZoom=1; updateShortlist();
+}));
+document.querySelectorAll("[data-map-zoom]").forEach(control=>control.addEventListener("input",()=>{
+  mapZoom=Number(control.value); syncAreaControls(); syncViews();
+}));
+document.querySelectorAll("[data-map-action]").forEach(button=>button.addEventListener("click",()=>{
+  const action=button.dataset.mapAction;
+  if (action === "reset") { state.chosenLga="All"; mapZoom=1; }
+  else if (action === "fit") mapZoom=1;
+  else mapZoom=Math.max(1,Math.min(6,mapZoom+(action === "in" ? 0.5 : -0.5)));
+  updateShortlist();
+}));
+})();
