@@ -29,8 +29,8 @@ Then open `http://localhost:8000`.
 
 ## Data sources
 
-- Victorian Government, [Recreation Tracks](https://discover.data.vic.gov.au/dataset/recreation-tracks), updated 20 September 2026.
-- Australian Bureau of Statistics, [Regional population 2024–25](https://www.abs.gov.au/statistics/people/population/regional-population/latest-release), released 31 March 2026.
+- Victorian Government, [Recreation Tracks](https://discover.data.vic.gov.au/dataset/recreation-tracks), supplied dataset snapshot.
+- Australian Bureau of Statistics, [Regional population 2024–25](https://www.abs.gov.au/statistics/people/population/regional-population/2024-25), released 31 March 2026.
 
 ## Important scope limitation
 
@@ -39,3 +39,16 @@ The Victorian recreation dataset represents promoted tracks managed mainly in St
 ## AI acknowledgement
 
 Generative AI was used to assist with code, editing and design development. The author remains responsible for checking the data transformations, claims and final submission.
+
+## Story and connected views
+
+The page follows one question: how do location, walking demands and recorded accessibility shape usable trail choices?
+
+1. Place: the route network leads into per-resident supply and the population–supply rank comparison.
+2. Demands: grades, distances, combined profiles, terrain and experience describe different aspects of difficulty.
+3. Shortlist: one set of grade, local government area, maximum distance and access filters updates the individual-trail map, distance view and time comparison. Clicking a trail or choosing its name highlights it across those views. Reset restores the full shortlist.
+4. Access: the story returns to the whole network, explains the accessibility denominator and connects that constraint back to the shortlist.
+
+The distance view includes unknown-grade trails. The time view excludes records without a positive time estimate; its count is stated beside the filters. Full-network summary statistics and chapter comparisons remain fixed when the shortlist changes.
+
+Sources appear as numbered in-text citations with linked IEEE-style references at the bottom. The original supplied dataset snapshot is retained; the source-page access date does not imply that the data was downloaded again.
