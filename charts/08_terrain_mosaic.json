@@ -63,9 +63,27 @@
             "nice": false
           },
           "axis": {
-            "format": ".0%",
-            "tickCount": 6,
-            "title": "Share of recorded trail kilometres by terrain"
+            "values": [
+              0.024420095923542263,
+              0.17797682140535606,
+              0.5885887292765913,
+              0.9045800856167394,
+              0.969548081821962
+            ],
+            "labelExpr": "datum.value < 0.10119845866444917 ? \"Flat\" : (datum.value < 0.3832827753409737 ? \"Gentle hills\" : (datum.value < 0.7465844074466654 ? \"Short steep hills\" : (datum.value < 0.9370640837193507 ? \"Very steep\" : (\"Very steep and difficult\"))))",
+            "labelAngle": -45,
+            "labelAlign": "right",
+            "labelBaseline": "middle",
+            "labelPadding": 9,
+            "labelLimit": 180,
+            "labelFontSize": 11,
+            "ticks": true,
+            "tickSize": 5,
+            "grid": false,
+            "title": "Terrain (column width = share of kilometres)",
+            "titlePadding": 16,
+            "titleFontSize": 12,
+            "labelOverlap": false
           }
         },
         "x2": {
@@ -74,7 +92,29 @@
         "y": {
           "field": "y0",
           "type": "quantitative",
-          "axis": null
+          "axis": {
+            "format": ".0%",
+            "values": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
+            "title": "Grade share within each terrain (%)",
+            "titleFontSize": 12,
+            "titlePadding": 10,
+            "grid": false,
+            "labelFontSize": 11
+          },
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "nice": false
+          }
         },
         "y2": {
           "field": "y1"

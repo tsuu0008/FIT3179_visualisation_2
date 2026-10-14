@@ -96,3 +96,7 @@ Verification: main overview geometry stayed unchanged through area, zoom and gra
 The heatmap and median-distance cards share their text and plot tracks on desktop, giving them matching top/bottom edges and aligned plotting starts. Both plotting areas are 360 units high. The heatmap legend sits within its empty upper-left cells, and the median chart uses a tighter axis range with enough room for the two-line Grade 5 annotation. On narrow screens the cards stack normally.
 
 Verified aligned card edges and plot starts at 1440 px and 1024 px, and no page overflow at 390 px. All 12 charts rendered successfully.
+
+## Mosaic chart axes
+
+Chart 8 labels all five terrain categories on the x-axis. Its title explains that column width represents the share of recorded kilometres. The y-axis is labelled Grade share within each terrain (%) with ticks from 0% to 100%. Rotated terrain labels are retained for every column. Source JSON and the offline data bundle match. All 12 charts and the map controls were verified in Chromium, including the phone layout.
