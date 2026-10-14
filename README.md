@@ -90,3 +90,9 @@ The first large map remains a fixed Victoria overview. Area selection changes it
 The Victoria outline is a display outline dissolved from the existing simplified LGA boundaries; it is used only for drawing selection borders, not assigning trails or calculating statistics. Labels have white halos and space between their leader lines and text.
 
 Verification: main overview geometry stayed unchanged through area, zoom and grade changes. Selecting Grade 3 showed 115 trails in the detail map; reset restored Victoria and 194 trails. The selected outline was verified as one Victoria feature or the chosen council, and an empty Monash selection displayed its in-map message. All 12 main charts and the inset rendered at desktop and phone widths.
+
+## Aligned terrain and distance comparison
+
+The heatmap and median-distance cards share their text and plot tracks on desktop, giving them matching top/bottom edges and aligned plotting starts. Both plotting areas are 360 units high. The heatmap legend sits within its empty upper-left cells, and the median chart uses a tighter axis range with enough room for the two-line Grade 5 annotation. On narrow screens the cards stack normally.
+
+Verified aligned card edges and plot starts at 1440 px and 1024 px, and no page overflow at 390 px. All 12 charts rendered successfully.

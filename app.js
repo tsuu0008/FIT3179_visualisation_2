@@ -131,6 +131,9 @@ async function loadChart(selector, specUrl) {
       const width = Math.round(host.getBoundingClientRect().width);
       const axisRoom = selector === "#chart-04" || selector === "#chart-07" || selector === "#chart-11" ? 175 : selector === "#chart-09" || selector === "#chart-12" ? 95 : 65;
       spec.width = selector === "#chart-10" ? Math.min(500, width - 34) : Math.max(200, width - axisRoom);
+      if (selector === "#chart-05") {
+        for (const layer of spec.layer) layer.encoding.x.scale = {domain:[0,spec.width < 320 ? 32 : 27],nice:false};
+      }
       if (selector === "#chart-10") {
         spec.height = Math.round(spec.width * 10 / 14);
         spec.layer[0].mark.size = Math.pow(spec.width / 14 * 0.88, 2);

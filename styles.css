@@ -211,3 +211,14 @@ h3 { font-size: 1.15rem; }
 @media(max-width:700px) {
   #network-inset { position: relative; right: auto; top: auto; width: 100%; min-width: 0; max-width: none; margin-top: 12px; }
 }
+
+/* Pair the terrain and median cards on shared text and plot tracks. */
+.challenge-comparison { grid-template-rows: auto auto; row-gap: 0; align-items: stretch; margin: 20px 0; }
+.challenge-comparison > .chart-card { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 16px; align-items: start; margin: 0; }
+.challenge-comparison .chart-copy { margin-bottom: 0; }
+.challenge-comparison .chart { margin-top: 0; align-self: start; }
+@media(max-width:860px) {
+  .challenge-comparison { row-gap: 20px; }
+  .challenge-comparison > .chart-card { display: block; grid-row: auto; }
+  .challenge-comparison .chart-copy { margin-bottom: 14px; }
+}
