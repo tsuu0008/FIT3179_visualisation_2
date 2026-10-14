@@ -55,7 +55,7 @@ Sources appear as numbered in-text citations with linked IEEE-style references a
 
 ## Area exploration and map zoom
 
-The overview and shortlist area menus contain 80 council/local-area names from the boundary dataset. They are present in the HTML, so the menu does not wait for a data request to populate. Selecting an area fits all three maps to that area's boundary and updates the shortlist. You can also click a boundary or use the five area shortcuts. The +/− buttons and sliders change map magnification; “Fit selected area” restores its extent, and “Show all Victoria” returns to the statewide view.
+The overview and shortlist area menus contain 80 council/local-area names from the boundary dataset. They are present in the HTML, so the menu does not wait for a data request to populate. Selecting an area fits the detail inset, supply map and shortlist map to that area's boundary; the large overview keeps the state extent and outlines the selection. You can also click a boundary or use the five area shortcuts. The +/− buttons and sliders change map magnification; “Fit selected area” restores its extent, and “Show all Victoria” returns to the statewide view.
 
 The geographic units are councils/local government areas, not suburbs. Some areas contain no promoted forest tracks in this dataset; an empty shortlist is reported explicitly. Full-network narrative summaries remain fixed.
 
@@ -77,8 +77,16 @@ The walking-grade explanation now appears before the first route map, so the col
 
 External annotation boxes have been removed. The narrative and reading instructions remain above each figure. Data annotations now sit within the plotting area: labelled and ringed outliers, a leader pointing to the 69-trail heatmap cell, median sample sizes, a highlighted Grade 3 alluvial node with its count and percentage, a 48-trail label inside its experience bar, a terrain value and percentage within the mosaic, a filtered short-distance count and outlier in the strip plot, an access callout connected to the highlighted waffle squares, rank mismatch labels and a regression slope annotation.
 
-The overview map includes a zoomed inset of Murrindindi's 32 trails and labels Rubicon Dam Walk at 11.6 km. A dashed boundary links the regional detail to the statewide map. The inset is hidden for unrelated area selections and on narrow screens so it does not cover the main map. Existing area zoom controls remain available on phones.
+The overview map's inset follows the selected area, zoom and grade. Its title states the matching trail count, and a labelled ring identifies the longest matching trail. The main map outlines only the selected region, with Victoria outlined for the statewide selection. On phones the detail panel is placed below the overview within the same chart card.
 
 Grade explanation remains before the first map, Grade remains the leftmost alluvial column, maps retain their enlarged cards, and the repeated alluvial legend stays removed.
 
 Validation: all 12 main charts and the regional inset rendered in Chromium. Highlighting, area filters, inset visibility, empty results and reset were checked. Desktop (1440 px) and phone (390 px) layouts were inspected; no external annotation boxes remain.
+
+## Detail-map controls — 14 October 2026
+
+The first large map remains a fixed Victoria overview. Area selection changes its outline only; the small map fits the selected area and follows the zoom controls. Selecting Victoria outlines the state instead of automatically highlighting Murrindindi. The grade legend filters the detail map while leaving the main route network visible. The inset title and longest-trail annotation follow its current area and grade; empty selections are stated within the map. The detail panel appears below the overview on phones so its controls remain useful.
+
+The Victoria outline is a display outline dissolved from the existing simplified LGA boundaries; it is used only for drawing selection borders, not assigning trails or calculating statistics. Labels have white halos and space between their leader lines and text.
+
+Verification: main overview geometry stayed unchanged through area, zoom and grade changes. Selecting Grade 3 showed 115 trails in the detail map; reset restored Victoria and 194 trails. The selected outline was verified as one Victoria feature or the chosen council, and an empty Monash selection displayed its in-map message. All 12 main charts and the inset rendered at desktop and phone widths.

@@ -23,6 +23,7 @@ const bundle = window.TRAIL_BUNDLE;
 let mapZoom = 1;
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const areas = bundle["data/lga.geojson"].features;
+const victoriaOutline = bundle["data/victoria_outline.geojson"];
 function inlineData(node) {
   if (Array.isArray(node)) { node.forEach(inlineData); return; }
   if (!node || typeof node !== "object") return;
@@ -37,7 +38,8 @@ function mercatorY(latitude) {
   return Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
 }
 function mapPosition(selector) {
-  const selected = state.chosenLga === "All" ? areas : areas.filter(area => area.properties.name === state.chosenLga);
+  const areaName = selector === "#chart-01" ? "All" : state.chosenLga;
+  const selected = areaName === "All" ? areas : areas.filter(area => area.properties.name === areaName);
   let west=Infinity, east=-Infinity, south=Infinity, north=-Infinity;
   function visit(coordinates) {
     if (typeof coordinates[0] === "number") {
@@ -51,7 +53,7 @@ function mapPosition(selector) {
   const centerLat=(2*Math.atan(Math.exp((y0+y1)/2))-Math.PI/2)*180/Math.PI;
   return {
     mapCenter: [(west+east)/2,centerLat],
-    mapScale: Math.min((width-60)/Math.max((east-west)*Math.PI/180,0.001),(height-60)/Math.max(y1-y0,0.001))*mapZoom,
+    mapScale: Math.min((width-60)/Math.max((east-west)*Math.PI/180,0.001),(height-60)/Math.max(y1-y0,0.001))*(selector === "#chart-01" ? 1 : mapZoom),
   };
 }
 function mapSpec(spec, selector) {
@@ -62,19 +64,16 @@ function mapSpec(spec, selector) {
     ...Object.entries(position).map(([name,value])=>({name,value}))];
   spec.projection={type:"mercator",center:{expr:"mapCenter"},scale:{expr:"mapScale"},
     translate:[spec.width/2,spec.height/2],clipExtent:[[0,0],[spec.width,spec.height]]};
-  if(selector === "#chart-01") {
-    spec.layer[1].transform=[...(spec.layer[1].transform || []),{filter:"chosenLga === 'All' || datum.properties.lga === chosenLga"}];
-    spec.layer.slice(2).forEach(layer=>{
-      layer.transform=[...(layer.transform || []),{filter:"chosenLga === 'All' || datum.lga === chosenLga"}];
-    });
-  }
   if(selector === "#chart-02") {
     spec.layer[0].encoding.color.scale.domain=[0,Math.max(...areas.map(area=>area.properties.trail_km_per_100k || 0))];
     spec.transform=[...(spec.transform || []),{filter:"chosenLga === 'All' || datum.properties.name === chosenLga"}];
   }
   if(spec.layer) spec.layer.push({
-    data:{values:clone(areas)},transform:[{filter:"chosenLga !== 'All' && datum.properties.name === chosenLga"}],
-    mark:{type:"geoshape",fill:null,stroke:"#b74924",strokeWidth:2},encoding:{shape:{field:"geometry",type:"geojson"}},
+    name:"selectedRegion",
+    data:{values:[...clone(areas),clone(victoriaOutline)]},
+    transform:[{filter:"chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"}],
+    mark:{type:"geoshape",fill:null,stroke:"#d95d39",strokeWidth:2.5,strokeDash:[5,3]},
+    encoding:{shape:{field:"geometry",type:"geojson"},tooltip:[{field:"properties.name",title:"Selected area"}]},
   });
   return spec;
 }
@@ -117,10 +116,10 @@ async function loadChart(selector, specUrl) {
       spec.config.legend.labelLimit = spec.width < 560 ? 150 : 240;
       if (spec.width < 560) {
         if (selector === "#chart-01") {
-          spec.layer.splice(4, 1);
-          spec.layer[3].mark.align = "right";
-          spec.layer[3].mark.dx = -8;
-          spec.layer[3].encoding.text.value = "Upper Yarra · 95 km";
+          for (const layer of spec.layer.slice(3)) {
+            layer.mark.align = "right"; layer.mark.dx = -8;
+            layer.encoding.text.value = "Upper Yarra · 95 km";
+          }
         }
         for (const layer of spec.layer || []) {
           if (layer.mark?.type === "text") { layer.mark.fontSize = 11; layer.mark.limit = 145; }
@@ -178,12 +177,19 @@ async function loadChart(selector, specUrl) {
       mapViews.set(selector,result.view);
       result.view.addEventListener("click", (_event,item) => {
         const area=item?.datum?.properties?.name;
-        if (areas.some(feature=>feature.properties.name === area)) {
-          state.chosenLga=area; mapZoom=1; updateShortlist();
+        if (area === "Victoria" || areas.some(feature=>feature.properties.name === area)) {
+          state.chosenLga=area === "Victoria" ? "All" : area; mapZoom=1; updateShortlist();
         }
       });
     }
-    if (selector === "#chart-01") await addNetworkInset();
+    if (selector === "#chart-01") {
+      result.view.addSignalListener("gradePick", (_name, selected) => {
+        const picked = Object.entries(selected || {}).find(([key]) => key.endsWith("grade"))?.[1];
+        detailGrade = Array.isArray(picked) && picked.length ? picked[0] : "All";
+        syncInset();
+      });
+      await addNetworkInset();
+    }
     syncViews();
   } catch (error) {
     const message = document.createElement("p");
@@ -211,6 +217,7 @@ function syncViews() {
     }
     view.runAsync().catch(error=>console.error("Could not update view",error));
   }
+  syncInset();
 }
 function syncAreaControls() {
   document.querySelector("#filter-lga").value=state.chosenLga;
@@ -243,48 +250,71 @@ function updateShortlist() {
     : "Click a trail in any of the three views, or choose its name, to highlight it in the others.";
   detail.replaceChildren(title, copy);
   document.querySelector("#distance-value").textContent = `${state.maximumKm} km`;
-  updateMapInsetVisibility();
   syncViews();
 }
 
 let insetView = null;
-function updateMapInsetVisibility() {
-  const inset = document.querySelector("#network-inset");
-  if (inset) inset.hidden = state.chosenLga !== "All" && state.chosenLga !== "Murrindindi";
+let detailGrade = "All";
+function syncInset() {
+  if (!insetView) return;
+  const areaName = state.chosenLga === "All" ? "Victoria" : state.chosenLga;
+  const selected = trails.filter(t => (state.chosenLga === "All" || t.lga === state.chosenLga) && (detailGrade === "All" || t.grade === detailGrade));
+  const heading = document.querySelector("#network-inset .inset-heading");
+  heading.textContent = `${areaName} · ${selected.length} trails${detailGrade === "All" ? "" : ` · ${detailGrade}`}`;
+  document.querySelector("#network-inset").setAttribute("aria-label", `Detail map of ${areaName}, ${selected.length} recorded trails`);
+  insetView.signal("chosenLga",state.chosenLga).signal("detailGrade",detailGrade).signal("detailCount",selected.length);
+  for (const [name,value] of Object.entries(mapPosition("#network-detail"))) insetView.signal(name,value);
+  insetView.runAsync().catch(error=>console.error("Could not update detail map",error));
 }
 async function addNetworkInset() {
   const host = document.querySelector("#chart-01");
   if (host.querySelector("#network-inset")) return;
-  const box = document.createElement("div");
-  box.id = "network-inset";
-  box.setAttribute("aria-label", "Zoomed map of Murrindindi's 32 trails");
-  const heading = document.createElement("p");
-  heading.className = "inset-heading";
-  heading.textContent = "Murrindindi · 32 trails";
-  const mount = document.createElement("div");
-  box.append(heading, mount); host.append(box);
-  const feature = areas.find(f => f.properties.name === "Murrindindi");
-  let west=Infinity,east=-Infinity,south=Infinity,north=-Infinity;
-  function visit(c) { if (typeof c[0] === "number") {west=Math.min(west,c[0]);east=Math.max(east,c[0]);south=Math.min(south,c[1]);north=Math.max(north,c[1]);} else c.forEach(visit); }
-  visit(feature.geometry.coordinates);
-  const width = Math.max(220,Math.round(box.getBoundingClientRect().width-18)), height = 215;
-  const y0=mercatorY(south),y1=mercatorY(north);
-  const scale=Math.min((width-24)/((east-west)*Math.PI/180),(height-24)/(y1-y0));
+  const box = document.createElement("div");box.id = "network-inset";
+  const heading = document.createElement("p");heading.className = "inset-heading";
+  heading.textContent = "Victoria · 194 trails";
+  const mount = document.createElement("div");box.append(heading, mount);host.append(box);
+  const width = Math.max(220,Math.round(box.getBoundingClientRect().width-18));
+  const height = Math.max(210,Math.min(225,Math.round(width*.65)));
+  mapSizes.set("#network-detail",[width,height]);
+  const position=mapPosition("#network-detail");
   const gradeScale={domain:["Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Unknown"],range:["#2a9d8f","#69b578","#e9c46a","#f4a261","#e76f51","#9aa2a6"]};
+  const filtered=[{filter:"(chosenLga === 'All' || datum.lga === chosenLga) && (detailGrade === 'All' || datum.grade === detailGrade)"},{window:[{op:"row_number",as:"rank"}],sort:[{field:"length_km",order:"descending"},{field:"name",order:"ascending"}]},{filter:"datum.rank === 1"},{calculate:"datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",as:"label"}];
+  const annotationTrails=trails.map(t=>({...t,short_name:t.name.replace(/\b(Walking Track|Walk|Trail|Track)\b/g, "").replace(/\s+/g," ").trim()}));
+  filtered[filtered.length-1].calculate="datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'";
+  filtered.push(
+    {calculate:"width/2 + mapScale * (datum.longitude-mapCenter[0]) * 0.0174532925199433",as:"pointX"},
+    {calculate:"height/2 - mapScale*(log(tan(0.7853981633974483+datum.latitude*0.008726646259971648))-log(tan(0.7853981633974483+mapCenter[1]*0.008726646259971648)))",as:"pointY"},
+    {filter:"datum.pointX > 8 && datum.pointX < width-8 && datum.pointY > 8 && datum.pointY < height-8"},
+    {calculate:"datum.pointX > width/2 ? clamp(datum.pointX-10,155,width-8) : clamp(datum.pointX+10,8,width-155)",as:"labelX"},
+    {calculate:"clamp(datum.pointY-16,30,height-30)",as:"labelY"}
+  );
+  const annotation={data:{values:clone(annotationTrails)},transform:filtered,
+    mark:{type:"text",align:{expr:"datum.longitude > mapCenter[0] ? 'right' : 'left'"},dx:0,dy:0,fontSize:11,fontWeight:700,lineBreak:"\n",limit:150,color:"#173b37"},
+    encoding:{x:{field:"labelX",type:"quantitative",scale:null,axis:null},y:{field:"labelY",type:"quantitative",scale:null,axis:null},text:{field:"label"},tooltip:[{field:"name",title:"Longest matching trail"},{field:"length_km",title:"Distance (km)"}]}};
+  const halo=clone(annotation);halo.mark.stroke="white";halo.mark.strokeWidth=3;
+  const ring={data:{values:clone(annotationTrails)},transform:clone(filtered),mark:{type:"point",filled:false,size:150,stroke:"#a64629",strokeWidth:2},encoding:{longitude:{field:"longitude",type:"quantitative"},latitude:{field:"latitude",type:"quantitative"}}};
   const spec={
-    $schema:"https://vega.github.io/schema/vega-lite/v5.json",width,height,padding:0,
-    background:"#ffffff",config:{view:{stroke:null},text:{font:"Inter"}},
-    projection:{type:"mercator",center:[(west+east)/2,(2*Math.atan(Math.exp((y0+y1)/2))-Math.PI/2)*180/Math.PI],scale,translate:[width/2,height/2],clipExtent:[[0,0],[width,height]]},
+    $schema:"https://vega.github.io/schema/vega-lite/v5.json",width,height,padding:0,background:"#ffffff",
+    config:{view:{stroke:null},text:{font:"Inter"}},
+    params:[{name:"chosenLga",value:state.chosenLga},{name:"detailGrade",value:detailGrade},{name:"detailCount",value:194},...Object.entries(position).map(([name,value])=>({name,value}))],
+    projection:{type:"mercator",center:{expr:"mapCenter"},scale:{expr:"mapScale"},translate:[width/2,height/2],clipExtent:[[0,0],[width,height]]},
     layer:[
-      {data:{values:clone(areas)},mark:{type:"geoshape",fill:"#edf3ef",stroke:"#a3b7ad",strokeWidth:0.6},encoding:{shape:{field:"geometry",type:"geojson"}}},
-      {data:{values:clone(bundle["data/trails.geojson"].features)},transform:[{filter:"datum.properties.lga === 'Murrindindi'"}],mark:{type:"geoshape",filled:false,strokeWidth:2.5},encoding:{shape:{field:"geometry",type:"geojson"},color:{field:"properties.grade",type:"nominal",scale:gradeScale,legend:null},tooltip:[{field:"properties.name",title:"Trail"},{field:"properties.length_km",title:"Distance (km)"},{field:"properties.grade",title:"Grade"}]}},
-      {data:{values:clone(trails)},transform:[{filter:"datum.name === 'Rubicon Dam Walk'"}],mark:{type:"point",size:120,filled:false,stroke:"#a64629",strokeWidth:2},encoding:{longitude:{field:"longitude",type:"quantitative"},latitude:{field:"latitude",type:"quantitative"}}},
-      {data:{values:clone(trails)},transform:[{filter:"datum.name === 'Rubicon Dam Walk'"}],mark:{type:"text",align:"right",dx:-7,dy:-12,fontSize:11,fontWeight:700,lineBreak:"\n",color:"#173b37"},encoding:{longitude:{field:"longitude",type:"quantitative"},latitude:{field:"latitude",type:"quantitative"},text:{value:"Rubicon Dam\n11.6 km"}}}
+      {name:"detailBase",data:{values:clone(areas)},mark:{type:"geoshape",fill:"#edf3ef",stroke:"#b4c4bc",strokeWidth:.6},encoding:{shape:{field:"geometry",type:"geojson"},tooltip:[{field:"properties.name",title:"Area"}]}},
+      {data:{values:clone(bundle["data/trails.geojson"].features)},transform:[{filter:"(chosenLga === 'All' || datum.properties.lga === chosenLga) && (detailGrade === 'All' || datum.properties.grade === detailGrade)"}],mark:{type:"geoshape",filled:false,strokeWidth:2.5},encoding:{shape:{field:"geometry",type:"geojson"},color:{field:"properties.grade",type:"nominal",scale:gradeScale,legend:null},tooltip:[{field:"properties.name",title:"Trail"},{field:"properties.length_km",title:"Distance (km)"},{field:"properties.grade",title:"Grade"}]}},
+      {name:"detailRegion",data:{values:[...clone(areas),clone(victoriaOutline)]},transform:[{filter:"chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"}],mark:{type:"geoshape",fill:null,stroke:"#d95d39",strokeWidth:2},encoding:{shape:{field:"geometry",type:"geojson"},tooltip:[{field:"properties.name",title:"Selected area"}]}},
+      ring,halo,annotation,
+      {data:{values:[{}]},transform:[{filter:"detailCount === 0"}],mark:{type:"text",lineBreak:"\n",fontSize:12,fontWeight:700,color:"#173b37",stroke:"white",strokeWidth:.4},encoding:{x:{value:width/2},y:{value:height/2},text:{value:"No recorded trails\nin this selection"}}}
     ]
   };
   const result=await vegaEmbed(mount,spec,{actions:false,renderer:"svg",tooltip:{theme:"light"}});
   insetView=result.view;
-  updateMapInsetVisibility();
+  insetView.addEventListener("click",(_event,item)=>{
+    const name=item?.datum?.properties?.name;
+    if (name === "Victoria" || areas.some(f=>f.properties.name === name)) {
+      state.chosenLga=name === "Victoria" ? "All" : name;mapZoom=1;updateShortlist();
+    }
+  });
+  syncInset();
 }
 function loadSummaryAndFilters() {
   const stats=bundle["data/stats.json"];
@@ -334,7 +364,11 @@ document.querySelectorAll("[data-map-zoom]").forEach(control=>control.addEventLi
 }));
 document.querySelectorAll("[data-map-action]").forEach(button=>button.addEventListener("click",()=>{
   const action=button.dataset.mapAction;
-  if (action === "reset") { state.chosenLga="All"; mapZoom=1; }
+  if (action === "reset") {
+    state.chosenLga="All"; mapZoom=1; detailGrade="All";
+    const overview=mapViews.get("#chart-01");
+    if (overview) overview.data("gradePick_store",[]).runAsync();
+  }
   else if (action === "fit") mapZoom=1;
   else mapZoom=Math.max(1,Math.min(6,mapZoom+(action === "in" ? 0.5 : -0.5)));
   updateShortlist();
