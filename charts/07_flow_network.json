@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
-  "height": 300,
+  "height": 500,
   "background": null,
   "config": {
     "view": {
@@ -69,7 +69,14 @@
           "aggregate": "count",
           "type": "quantitative",
           "stack": "zero",
-          "title": "Number of trails"
+          "title": "Number of trails",
+          "scale": {
+            "domain": [
+              0,
+              90
+            ],
+            "nice": false
+          }
         },
         "color": {
           "field": "experience_label",
@@ -234,5 +241,15 @@
         }
       }
     }
-  ]
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "padding": {
+    "top": 11,
+    "left": 5,
+    "right": 18,
+    "bottom": 5
+  }
 }

@@ -131,6 +131,26 @@ async function loadChart(selector, specUrl) {
       const width = Math.round(host.getBoundingClientRect().width);
       const axisRoom = selector === "#chart-04" || selector === "#chart-07" || selector === "#chart-11" ? 175 : selector === "#chart-08" || selector === "#chart-09" || selector === "#chart-12" ? 95 : 65;
       spec.width = selector === "#chart-10" ? Math.min(500, width - 34) : Math.max(200, width - axisRoom);
+      if (selector === "#chart-07" || selector === "#chart-08") {
+        // Fit the complete figure, including its axes, into the embed content box.
+        spec.width = width - 38;
+        if (width < 400) {
+          if (selector === "#chart-07") {
+            spec.config.legend.columns = 1;
+            spec.layer[1].mark.fontSize = 9;
+            for (const layer of spec.layer) if (layer.encoding.y.axis) layer.encoding.y.axis.labelLimit = 125;
+          }
+          if (selector === "#chart-08") {
+            spec.layer[0].encoding.x.axis.title = ["Terrain", "Column width = share of kilometres"];
+            spec.layer[0].encoding.x.axis.titleFontSize = 11;
+            spec.layer[0].encoding.x.axis.labelFontSize = 10;
+            spec.layer[0].encoding.x.axis.labelAngle = -55;
+            spec.layer[1].mark.dy = 10;
+            spec.layer[2].mark.fontSize = 11;
+            spec.layer[1].transform[0].filter += " && datum.x1 - datum.x0 > 0.09";
+          }
+        }
+      }
       if (selector === "#chart-05") {
         for (const layer of spec.layer) layer.encoding.x.scale = {domain:[0,spec.width < 320 ? 32 : 27],nice:false};
       }
@@ -140,7 +160,7 @@ async function loadChart(selector, specUrl) {
         spec.layer[1].mark.size = spec.layer[0].mark.size;
       }
       if (width < 560) {
-        spec.config.legend.columns = 2;
+        spec.config.legend.columns = selector === "#chart-07" && width < 400 ? 1 : 2;
         spec.config.legend.direction = "horizontal";
         spec.config.legend.labelLimit = 145;
         for (const layer of spec.layer || []) {

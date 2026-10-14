@@ -100,3 +100,11 @@ Verified aligned card edges and plot starts at 1440 px and 1024 px, and no page 
 ## Mosaic chart axes
 
 Chart 8 labels all five terrain categories on the x-axis. Its title explains that column width represents the share of recorded kilometres. The y-axis is labelled Grade share within each terrain (%) with ticks from 0% to 100%. Rotated terrain labels are retained for every column. Source JSON and the offline data bundle match. All 12 charts and the map controls were verified in Chromium, including the phone layout.
+
+## Aligned experience and mosaic cards
+
+Charts 7 and 8 now share text tracks, matching card edges, and a 500-pixel figure canvas. The bar chart uses the available space for taller bars while the mosaic retains room for its angled labels. Both complete figures fit their content boxes. On phones they stack, the experience legend uses one column, and the mosaic axis title wraps. Narrow mosaic blocks retain tooltip values while labels that would collide are omitted.
+
+The mosaic x-axis now names each terrain with its share of recorded kilometres: Flat 4.9%, Gentle hills 25.8%, Short steep hills 56.3%, Very steep 6.9%, and Very steep and difficult 6.1%. These values describe column widths; the y-axis describes grade shares within each terrain. This avoids confusing a cumulative horizontal percentage with an individual terrain share.
+
+Verified all 12 charts render, matching card and figure bounds at 1440 and 1024 pixels, and no overflow at 390 pixels. The earlier heatmap/median pair remains aligned.
