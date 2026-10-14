@@ -150,6 +150,61 @@
       }
     },
     {
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 240,
+        "stroke": "#b34e2d",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "title": "Distance (km)"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              52
+            ]
+          },
+          "title": "Estimated time (hours)"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "pace_kmh",
+            "title": "Implied pace (km/h)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
+        }
+      ]
+    },
+    {
       "transform": [
         {
           "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
@@ -178,6 +233,42 @@
         "y": {
           "field": "hours",
           "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "regression": "hours",
+          "on": "length_km",
+          "method": "linear",
+          "params": true
+        },
+        {
+          "calculate": "'Fitted trend: ' + format(datum.coef[1], '.2f') + ' h/km'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontSize": 12,
+        "color": "#173b37",
+        "dy": -8
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width - 14"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height * 0.47"
+          }
         },
         "text": {
           "field": "annotation"

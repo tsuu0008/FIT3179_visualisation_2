@@ -199,6 +199,80 @@
           "title": "Typical gradient"
         }
       }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "trail_count",
+              "as": "largest"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#b34e2d",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "datum": "Grade 1",
+          "type": "ordinal"
+        },
+        "x2": {
+          "value": {
+            "expr": "width * 0.4 + 3"
+          }
+        },
+        "y": {
+          "datum": "Very steep",
+          "type": "nominal"
+        },
+        "y2": {
+          "value": {
+            "expr": "height * 0.4 + 3"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "trail_count",
+              "as": "largest"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "align": "left",
+        "dx": -15,
+        "dy": -16,
+        "color": "#a64629"
+      },
+      "encoding": {
+        "x": {
+          "datum": "Grade 1",
+          "type": "ordinal"
+        },
+        "y": {
+          "datum": "Very steep",
+          "type": "nominal"
+        },
+        "text": {
+          "value": "Largest group\n69 trails"
+        }
+      }
     }
   ]
 }

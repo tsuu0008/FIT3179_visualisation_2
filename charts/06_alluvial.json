@@ -3246,7 +3246,7 @@
           "color": "#e9c46a",
           "textx": 103.0,
           "texty": 394.73969072164954,
-          "label": "Grade 3 · 115"
+          "label": "Grade 3 · 115 trails (59%)"
         },
         {
           "axis": 0,
@@ -3538,14 +3538,6 @@
           "label": "Signage"
         }
       ]
-    },
-    {
-      "name": "annotationNote",
-      "values": [
-        {
-          "label": "Grade 3: 115 of 194 trails (59%) — follow its yellow ribbons to compare their characteristics."
-        }
-      ]
     }
   ],
   "marks": [
@@ -3602,6 +3594,12 @@
           },
           "tooltip": {
             "signal": "{'Category':datum.category,'Trails':datum.count}"
+          },
+          "stroke": {
+            "signal": "datum.axis === 0 && datum.category === 'Grade 3' ? '#b34e2d' : '#a3b4ad'"
+          },
+          "strokeWidth": {
+            "signal": "datum.axis === 0 && datum.category === 'Grade 3' ? 3 : 0"
           }
         }
       }
@@ -3717,31 +3715,6 @@
           },
           "cursor": {
             "signal": "datum.axis === 0 ? 'pointer' : 'default'"
-          }
-        }
-      }
-    },
-    {
-      "type": "text",
-      "from": {
-        "data": "annotationNote"
-      },
-      "encode": {
-        "update": {
-          "x": {
-            "value": 90
-          },
-          "y": {
-            "value": 28
-          },
-          "text": {
-            "field": "label"
-          },
-          "fontSize": {
-            "value": 17
-          },
-          "fill": {
-            "value": "#536a64"
           }
         }
       }

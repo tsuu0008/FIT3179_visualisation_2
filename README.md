@@ -73,10 +73,12 @@ This archive contains the complete website, all 12 chart specifications, all ori
 
 The walking-grade explanation now appears before the first route map, so the colour meanings are introduced before any grade-coloured map or chart.
 
-## Annotations and layout — 14 October 2026
+## Annotations inside the plots — 14 October 2026
 
-All twelve figures have a visible, data-grounded annotation. Maps label their notable area or trail, the heatmap outlines its largest cell, medians include sample sizes, experience segments display counts, the mosaic names its largest terrain share, the strip plot marks 5 km and its longest or selected walk, the access waffle states its denominator, the rank plot highlights mismatches and the time plot labels exceptional estimates. The five area/shortlist callouts update with the active filters and handle empty results.
+External annotation boxes have been removed. The narrative and reading instructions remain above each figure. Data annotations now sit within the plotting area: labelled and ringed outliers, a leader pointing to the 69-trail heatmap cell, median sample sizes, a highlighted Grade 3 alluvial node with its count and percentage, a 48-trail label inside its experience bar, a terrain value and percentage within the mosaic, a filtered short-distance count and outlier in the strip plot, an access callout connected to the highlighted waffle squares, rank mismatch labels and a regression slope annotation.
 
-The three maps now have full-width cards and their geographic viewport fits the available card width. Headings and chapter spacing have been reduced, chart-card padding is tighter, paired charts align at their tops, and the access waffle uses a square grid. Grade explanations remain before the first map. The alluvial chart keeps Grade on the left and its duplicate legend removed.
+The overview map includes a zoomed inset of Murrindindi's 32 trails and labels Rubicon Dam Walk at 11.6 km. A dashed boundary links the regional detail to the statewide map. The inset is hidden for unrelated area selections and on narrow screens so it does not cover the main map. Existing area zoom controls remain available on phones.
 
-Validation: all 12 charts rendered in Chromium at 1440 px and 390 px viewport widths. Grade highlighting, area filtering, empty results and reset were checked. The mobile page does not overflow horizontally; the five-attribute alluvial chart scrolls within its own card.
+Grade explanation remains before the first map, Grade remains the leftmost alluvial column, maps retain their enlarged cards, and the repeated alluvial legend stays removed.
+
+Validation: all 12 main charts and the regional inset rendered in Chromium. Highlighting, area filters, inset visibility, empty results and reset were checked. Desktop (1440 px) and phone (390 px) layouts were inspected; no external annotation boxes remain.

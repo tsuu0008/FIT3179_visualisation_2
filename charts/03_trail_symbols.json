@@ -178,6 +178,127 @@
         }
       ],
       "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#b34e2d",
+        "strokeWidth": 2.5,
+        "size": 230
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "filter": "selectedTrail === '' || datum.name === selectedTrail"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "annotation_rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "name",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.annotation_rank === 1"
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -14,
+        "font": "Inter",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "limit": 240,
+        "lineBreak": "\n",
+        "stroke": "white",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "filter": "selectedTrail === '' || datum.name === selectedTrail"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "annotation_rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "name",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.annotation_rank === 1"
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "as": "label"
+        }
+      ],
+      "mark": {
         "type": "text",
         "align": "left",
         "dx": 10,

@@ -177,8 +177,9 @@
         "font": "Inter",
         "fontSize": 12,
         "fontWeight": 700,
-        "dy": -10,
-        "color": "#173b37"
+        "dy": 0,
+        "color": "#173b37",
+        "lineBreak": "\n"
       },
       "encoding": {
         "x": {
@@ -186,16 +187,16 @@
           "type": "quantitative"
         },
         "y": {
-          "value": 0
+          "value": 16
         },
         "text": {
-          "value": "Short steep hills · 56% of known-terrain km"
+          "value": "Short steep hills\n480.7 km (56.3%)"
         }
       }
     }
   ],
   "padding": {
-    "top": 28,
+    "top": 5,
     "left": 5,
     "right": 5,
     "bottom": 5

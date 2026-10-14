@@ -77,6 +77,43 @@
       }
     },
     {
+      "mark": {
+        "type": "rule",
+        "stroke": "#d95d39",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank"
+          },
+          "title": null
+        },
+        "x": {
+          "field": "population_rank",
+          "type": "quantitative",
+          "title": "Rank among LGAs with recorded trails (1 = highest)",
+          "scale": {
+            "domain": [
+              0,
+              33
+            ],
+            "nice": false
+          }
+        },
+        "x2": {
+          "field": "supply_rank"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        }
+      ]
+    },
+    {
       "transform": [
         {
           "fold": [
@@ -147,7 +184,7 @@
           "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
         },
         {
-          "calculate": "datum.population_rank + ' → ' + datum.supply_rank",
+          "calculate": "'Pop. ' + datum.population_rank + ' → Supply ' + datum.supply_rank",
           "as": "annotation"
         }
       ],

@@ -146,12 +146,17 @@
         },
         {
           "filter": "datum.n >= 6"
+        },
+        {
+          "calculate": "datum.gradient === 'Short steep hills' && datum.experience_label === 'Recommended' ? '48 trails\\nRecommended' : format(datum.n, 'd')",
+          "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 12,
-        "fontWeight": 700
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineBreak": "\n"
       },
       "encoding": {
         "x": {
@@ -174,7 +179,7 @@
           }
         },
         "text": {
-          "field": "n"
+          "field": "annotation"
         },
         "color": {
           "condition": {

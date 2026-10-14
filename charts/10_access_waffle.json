@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 340,
+  "width": 476,
   "height": 340,
   "background": null,
   "config": {
@@ -38,54 +38,167 @@
   "data": {
     "url": "data/access_waffle.json"
   },
-  "mark": {
-    "type": "square",
-    "size": 900,
-    "cornerRadius": 3
-  },
-  "encoding": {
-    "x": {
-      "field": "column",
-      "type": "ordinal",
-      "axis": null
-    },
-    "y": {
-      "field": "row",
-      "type": "ordinal",
-      "sort": "descending",
-      "axis": null
-    },
-    "color": {
-      "field": "status",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Full or partial access",
-          "No disabled access"
-        ],
-        "range": [
-          "#e76f51",
-          "#d8e2df"
-        ]
+  "layer": [
+    {
+      "mark": {
+        "type": "square",
+        "size": 900,
+        "cornerRadius": 3
       },
-      "title": "Recorded access"
-    },
-    "tooltip": [
-      {
-        "field": "status",
-        "title": "Each square = 1%"
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.5,
+              13.5
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "row",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.5,
+              9.5
+            ],
+            "nice": false
+          }
+        },
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Full or partial access",
+              "No disabled access"
+            ],
+            "range": [
+              "#e76f51",
+              "#d8e2df"
+            ]
+          },
+          "title": "Recorded access"
+        },
+        "tooltip": [
+          {
+            "field": "status",
+            "title": "Each square = 1%"
+          }
+        ]
       }
-    ]
-  },
-  "title": {
-    "text": "15 of 179 rated trails indicate access",
-    "subtitle": "8 highlighted squares ≈ 8%; exact share: 8.4%",
-    "anchor": "start",
-    "font": "Inter",
-    "fontSize": 15,
-    "subtitleFontSize": 12,
-    "color": "#173b37",
-    "subtitleColor": "#536a64",
-    "offset": 16
-  }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.status === 'Full or partial access'"
+        }
+      ],
+      "mark": {
+        "type": "square",
+        "size": 900,
+        "fillOpacity": 0,
+        "stroke": "#b34e2d",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.5,
+              13.5
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "row",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.5,
+              9.5
+            ],
+            "nice": false
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "squares"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#b34e2d",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "datum": 7.7,
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 10.7
+        },
+        "y": {
+          "datum": 0,
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 1.3
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "squares"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "lineBreak": "\n",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "align": "left",
+        "dx": 0,
+        "color": "#a64629"
+      },
+      "encoding": {
+        "x": {
+          "datum": 10.6,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 1.9,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "15 of 179\nrated trails\n8.4%"
+        }
+      }
+    }
+  ]
 }

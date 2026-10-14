@@ -117,7 +117,7 @@ async function loadChart(selector, specUrl) {
       spec.config.legend.labelLimit = spec.width < 560 ? 150 : 240;
       if (spec.width < 560) {
         if (selector === "#chart-01") {
-          spec.layer.pop();
+          spec.layer.splice(4, 1);
           spec.layer[3].mark.align = "right";
           spec.layer[3].mark.dx = -8;
           spec.layer[3].encoding.text.value = "Upper Yarra · 95 km";
@@ -131,7 +131,12 @@ async function loadChart(selector, specUrl) {
     if (!mapCharts.has(selector) && selector !== "#chart-06") {
       const width = Math.round(host.getBoundingClientRect().width);
       const axisRoom = selector === "#chart-04" || selector === "#chart-07" || selector === "#chart-11" ? 175 : selector === "#chart-09" || selector === "#chart-12" ? 95 : 65;
-      spec.width = selector === "#chart-10" ? Math.min(340, width - 34) : Math.max(200, width - axisRoom);
+      spec.width = selector === "#chart-10" ? Math.min(500, width - 34) : Math.max(200, width - axisRoom);
+      if (selector === "#chart-10") {
+        spec.height = Math.round(spec.width * 10 / 14);
+        spec.layer[0].mark.size = Math.pow(spec.width / 14 * 0.88, 2);
+        spec.layer[1].mark.size = spec.layer[0].mark.size;
+      }
       if (width < 560) {
         spec.config.legend.columns = 2;
         spec.config.legend.direction = "horizontal";
@@ -178,6 +183,7 @@ async function loadChart(selector, specUrl) {
         }
       });
     }
+    if (selector === "#chart-01") await addNetworkInset();
     syncViews();
   } catch (error) {
     const message = document.createElement("p");
@@ -237,33 +243,48 @@ function updateShortlist() {
     : "Click a trail in any of the three views, or choose its name, to highlight it in the others.";
   detail.replaceChildren(title, copy);
   document.querySelector("#distance-value").textContent = `${state.maximumKm} km`;
-  updateChartAnnotations(matching);
+  updateMapInsetVisibility();
   syncViews();
 }
-function annotationCopy(id, title, copy) {
-  const node = document.querySelector(`#annotation-${id}`);
-  if (!node) return;
-  node.querySelector("strong").textContent = title;
-  node.querySelector("span").textContent = copy;
+
+let insetView = null;
+function updateMapInsetVisibility() {
+  const inset = document.querySelector("#network-inset");
+  if (inset) inset.hidden = state.chosenLga !== "All" && state.chosenLga !== "Murrindindi";
 }
-function updateChartAnnotations(matching) {
-  const scope = state.chosenLga === "All" ? "Victoria" : state.chosenLga;
-  const area = areas.find(f => f.properties.name === state.chosenLga)?.properties;
-  if (area) annotationCopy("02", scope, `${area.trail_count || 0} recorded trails; ${(area.trail_km || 0).toFixed(1)} km; ${(area.trail_km_per_100k || 0).toFixed(1)} km per 100,000 residents. The colour scale remains fixed for comparison across areas.`);
-  else annotationCopy("02", "Highest supply", "Murrindindi records 844 km per 100,000 residents. This measures recorded trail supply relative to population, rather than ease of reaching a trail.");
-  const network = state.chosenLga === "All" ? trails : trails.filter(t => t.lga === state.chosenLga);
-  const networkLongest = [...network].sort((x,y) => y.length_km-x.length_km)[0];
-  annotationCopy("01", scope, networkLongest ? `${network.length} recorded trails in this area. Longest: ${networkLongest.name}, ${networkLongest.length_km} km. Route colour identifies walking grade.` : "No promoted trails are recorded for this area in the dataset. Choose another council to explore its network.");
-  const focused = matching.find(t => t.name === state.selectedTrail);
-  const longest = focused || [...matching].sort((x,y) => y.length_km-x.length_km)[0];
-  annotationCopy("03", focused ? "Selected walk" : "Longest matching walk", longest ? `${longest.name}: ${longest.length_km} km, ${longest.grade}, ${longest.lga}. ${matching.length} trails match the shortlist. The map label follows this walk.` : "No matching trails. Adjust the area, grade, distance or access filters.");
-  const short = matching.filter(t => t.length_km <= 5).length;
-  annotationCopy("09", "Current distance mix", matching.length ? `${short} of ${matching.length} matching trails (${Math.round(short / matching.length * 100)}%) are 5 km or shorter. The dashed line marks 5 km; vertical offsets only separate dots.` : "No matching trails. Adjust the shortlist filters to restore the distance view.");
-  const timed = matching.filter(t => Number.isFinite(t.hours) && t.hours > 0);
-  const slow = [...timed].sort((x,y) => y.hours-x.hours)[0];
-  const selectedTimed = focused && focused.hours > 0 ? focused : null;
-  const timeWalk = selectedTimed || slow;
-  annotationCopy("12", selectedTimed ? "Selected time estimate" : "Largest recorded time estimate", timeWalk ? `${timeWalk.name}: ${timeWalk.length_km} km and ${timeWalk.hours} hours. ${timed.length} matching trails have positive time estimates; ${matching.length-timed.length} are omitted from this view. Estimates are source records, not measured speeds.` : "No matching trail has a positive time estimate. Adjust the shortlist filters to see the time comparison.");
+async function addNetworkInset() {
+  const host = document.querySelector("#chart-01");
+  if (host.querySelector("#network-inset")) return;
+  const box = document.createElement("div");
+  box.id = "network-inset";
+  box.setAttribute("aria-label", "Zoomed map of Murrindindi's 32 trails");
+  const heading = document.createElement("p");
+  heading.className = "inset-heading";
+  heading.textContent = "Murrindindi · 32 trails";
+  const mount = document.createElement("div");
+  box.append(heading, mount); host.append(box);
+  const feature = areas.find(f => f.properties.name === "Murrindindi");
+  let west=Infinity,east=-Infinity,south=Infinity,north=-Infinity;
+  function visit(c) { if (typeof c[0] === "number") {west=Math.min(west,c[0]);east=Math.max(east,c[0]);south=Math.min(south,c[1]);north=Math.max(north,c[1]);} else c.forEach(visit); }
+  visit(feature.geometry.coordinates);
+  const width = Math.max(220,Math.round(box.getBoundingClientRect().width-18)), height = 215;
+  const y0=mercatorY(south),y1=mercatorY(north);
+  const scale=Math.min((width-24)/((east-west)*Math.PI/180),(height-24)/(y1-y0));
+  const gradeScale={domain:["Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Unknown"],range:["#2a9d8f","#69b578","#e9c46a","#f4a261","#e76f51","#9aa2a6"]};
+  const spec={
+    $schema:"https://vega.github.io/schema/vega-lite/v5.json",width,height,padding:0,
+    background:"#ffffff",config:{view:{stroke:null},text:{font:"Inter"}},
+    projection:{type:"mercator",center:[(west+east)/2,(2*Math.atan(Math.exp((y0+y1)/2))-Math.PI/2)*180/Math.PI],scale,translate:[width/2,height/2],clipExtent:[[0,0],[width,height]]},
+    layer:[
+      {data:{values:clone(areas)},mark:{type:"geoshape",fill:"#edf3ef",stroke:"#a3b7ad",strokeWidth:0.6},encoding:{shape:{field:"geometry",type:"geojson"}}},
+      {data:{values:clone(bundle["data/trails.geojson"].features)},transform:[{filter:"datum.properties.lga === 'Murrindindi'"}],mark:{type:"geoshape",filled:false,strokeWidth:2.5},encoding:{shape:{field:"geometry",type:"geojson"},color:{field:"properties.grade",type:"nominal",scale:gradeScale,legend:null},tooltip:[{field:"properties.name",title:"Trail"},{field:"properties.length_km",title:"Distance (km)"},{field:"properties.grade",title:"Grade"}]}},
+      {data:{values:clone(trails)},transform:[{filter:"datum.name === 'Rubicon Dam Walk'"}],mark:{type:"point",size:120,filled:false,stroke:"#a64629",strokeWidth:2},encoding:{longitude:{field:"longitude",type:"quantitative"},latitude:{field:"latitude",type:"quantitative"}}},
+      {data:{values:clone(trails)},transform:[{filter:"datum.name === 'Rubicon Dam Walk'"}],mark:{type:"text",align:"right",dx:-7,dy:-12,fontSize:11,fontWeight:700,lineBreak:"\n",color:"#173b37"},encoding:{longitude:{field:"longitude",type:"quantitative"},latitude:{field:"latitude",type:"quantitative"},text:{value:"Rubicon Dam\n11.6 km"}}}
+    ]
+  };
+  const result=await vegaEmbed(mount,spec,{actions:false,renderer:"svg",tooltip:{theme:"light"}});
+  insetView=result.view;
+  updateMapInsetVisibility();
 }
 function loadSummaryAndFilters() {
   const stats=bundle["data/stats.json"];

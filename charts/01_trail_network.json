@@ -267,6 +267,36 @@
           "field": "label"
         }
       }
+    },
+    {
+      "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name === 'Murrindindi' && (chosenLga === 'All' || chosenLga === 'Murrindindi')"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fillOpacity": 0,
+        "stroke": "#d95d39",
+        "strokeWidth": 2.5,
+        "strokeDash": [
+          5,
+          3
+        ]
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        }
+      }
     }
   ]
 }

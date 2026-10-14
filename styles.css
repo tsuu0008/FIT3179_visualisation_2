@@ -185,11 +185,6 @@ h3 { font-size: 1.15rem; }
 .chart-copy .how-to-read { font-size: .83rem; line-height: 1.55; }
 .chart { min-height: 0; display: block; }
 .chart .vega-embed { display: block; }
-.chart-annotation { display: flex; gap: 12px; align-items: baseline; padding: 12px 14px; margin: 14px 0 0; background: #eef5f0; border-left: 3px solid #cf633e; border-radius: 0 6px 6px 0; font-size: .85rem; line-height: 1.55; }
-.chart-annotation strong { flex: 0 0 auto; max-width: 210px; color: #173b37; }
-.chart-annotation span { color: #405e56; }
-.dark-card .chart-annotation { background: #254943; border-color: #f4a261; }
-.dark-card .chart-annotation strong, .dark-card .chart-annotation span { color: #eef7f1; }
 .map-and-comparison { display: block; }
 .two-col { gap: 22px; align-items: start; }
 .two-col > .chart-card .chart { margin-top: 0; }
@@ -204,5 +199,13 @@ h3 { font-size: 1.15rem; }
 .big-number { font-size: clamp(5rem, 9vw, 8rem); }
 .conclusion { margin-top: 40px; padding-top: 26px; }
 #chart-06 .vega-embed { min-width: 940px; }
-@media (max-width: 860px) { .two-col, .access-layout { grid-template-columns: 1fr; } .chart-annotation { flex-direction: column; gap: 4px; } .chart-annotation strong { max-width: none; } }
+@media (max-width: 860px) { .two-col, .access-layout { grid-template-columns: 1fr; }   }
 @media (max-width: 560px) { .wrap { width: calc(100% - 24px); } .chart-card, .chart-card-wide { padding: 14px; } .chapter-head { display: block; } .chapter-no { font-size: 2.2rem; margin-bottom: 8px; } .chapter { padding-block: 36px; } .grade-guide { padding: 16px !important; } .grade-guide .grade-grid { grid-template-columns: 1fr 1fr; } .chart-copy h3 { font-size: 1.05rem; } }
+
+/* Inset and data annotations live inside their plotting areas. */
+#chart-01 { position: relative; }
+#network-inset { position: absolute; right: 16px; top: 18px; width: 31%; min-width: 250px; max-width: 360px; padding: 8px; border: 2px solid #d95d39; border-radius: 8px; background: #ffffff; box-shadow: 0 4px 16px rgba(10,35,30,.18); z-index: 2; }
+#network-inset[hidden] { display: none; }
+.inset-heading { margin: 0 0 5px; font-size: .78rem; font-weight: 750; color: #173b37; line-height: 1.3; }
+#network-inset svg { display: block; max-width: 100%; height: auto; }
+@media(max-width:700px) { #network-inset { display: none; } }

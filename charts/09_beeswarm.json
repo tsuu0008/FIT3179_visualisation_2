@@ -200,6 +200,67 @@
         }
       ],
       "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#b34e2d",
+        "strokeWidth": 2.5,
+        "size": 230
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt"
+          },
+          "title": "Trail distance (km, square-root scale)"
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5"
+          ],
+          "title": null
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "selectedTrail === '' || datum.name === selectedTrail"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "annotation_rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.annotation_rank === 1"
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
         "type": "text",
         "align": "right",
         "dx": -8,
@@ -234,6 +295,56 @@
         "yOffset": {
           "field": "lane",
           "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "datum.length_km <= 5 ? 1 : 0",
+          "as": "short_walk"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "short_walk",
+              "as": "short_count"
+            },
+            {
+              "op": "count",
+              "as": "total"
+            }
+          ]
+        },
+        {
+          "filter": "datum.total > 0"
+        },
+        {
+          "calculate": "datum.short_count + ' of ' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ') ≤ 5 km'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#52716a"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width * 0.38"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height - 10"
+          }
         },
         "text": {
           "field": "annotation"

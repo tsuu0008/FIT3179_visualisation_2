@@ -177,13 +177,67 @@
     },
     {
       "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#a64629",
+        "strokeWidth": 2,
+        "size": 360
+      },
+      "encoding": {
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5"
+          ],
+          "title": null
+        },
+        "x": {
+          "field": "median_km",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              32
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "median_km",
+            "title": "Median distance (km)",
+            "format": ".1f"
+          },
+          {
+            "field": "trail_count",
+            "title": "Trails"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.grade === 'Grade 5'"
+        }
+      ]
+    },
+    {
+      "mark": {
         "type": "text",
         "align": "left",
         "dx": 10,
         "font": "Inter",
         "fontSize": 12,
         "fontWeight": 700,
-        "color": "#173b37"
+        "color": "#173b37",
+        "lineBreak": "\n"
       },
       "encoding": {
         "y": {
@@ -213,7 +267,7 @@
       },
       "transform": [
         {
-          "calculate": "format(datum.median_km, '.2f') + ' km · n=' + datum.trail_count",
+          "calculate": "datum.grade === 'Grade 5' ? format(datum.median_km, '.1f') + ' km\\nOnly ' + datum.trail_count + ' trails' : format(datum.median_km, '.2f') + ' km · n=' + datum.trail_count",
           "as": "annotation"
         }
       ]
