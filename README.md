@@ -72,3 +72,11 @@ Use the dropdown or click a grade label to highlight a grade. Hover a ribbon for
 This archive contains the complete website, all 12 chart specifications, all original processed data and the updated bundle. Unzip and open `index.html`, or upload the contents of this folder to the existing GitHub Pages repository. Internet access is required for the Vega libraries and fonts. The live website has not been changed by creating this archive.
 
 The walking-grade explanation now appears before the first route map, so the colour meanings are introduced before any grade-coloured map or chart.
+
+## Annotations and layout — 14 October 2026
+
+All twelve figures have a visible, data-grounded annotation. Maps label their notable area or trail, the heatmap outlines its largest cell, medians include sample sizes, experience segments display counts, the mosaic names its largest terrain share, the strip plot marks 5 km and its longest or selected walk, the access waffle states its denominator, the rank plot highlights mismatches and the time plot labels exceptional estimates. The five area/shortlist callouts update with the active filters and handle empty results.
+
+The three maps now have full-width cards and their geographic viewport fits the available card width. Headings and chapter spacing have been reduced, chart-card padding is tighter, paired charts align at their tops, and the access waffle uses a square grid. Grade explanations remain before the first map. The alluvial chart keeps Grade on the left and its duplicate legend removed.
+
+Validation: all 12 charts rendered in Chromium at 1440 px and 390 px viewport widths. Grade highlighting, area filtering, empty results and reset were checked. The mobile page does not overflow horizontally; the five-attribute alluvial chart scrolls within its own card.

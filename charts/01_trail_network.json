@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 1000,
-  "height": 500,
+  "height": 560,
   "background": null,
   "config": {
     "view": {
@@ -13,14 +13,19 @@
       "gridColor": "#d9e2df",
       "domainColor": "#9aa7a4",
       "labelFont": "Inter",
-      "titleFont": "Inter"
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6
     },
     "legend": {
       "labelColor": "#e8f3ef",
       "titleColor": "#ffffff",
-      "labelFontSize": 13,
-      "titleFontSize": 14,
-      "orient": "bottom"
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "orient": "bottom",
+      "padding": 8
     },
     "header": {
       "labelFont": "Inter",
@@ -151,23 +156,116 @@
       }
     },
     {
-      "data": {"url": "data/trails.json"},
-      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
-      "mark": {"type": "circle", "size": 130, "filled": true, "color": "#7f1d1d", "stroke": "#ffffff", "strokeWidth": 2},
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Upper Yarra Walking Track'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 130,
+        "filled": true,
+        "color": "#7f1d1d",
+        "stroke": "#ffffff",
+        "strokeWidth": 2
+      },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "tooltip": [{"field": "name", "title": "Trail"}, {"field": "length_km", "title": "Distance (km)"}, {"field": "grade", "title": "Grade"}]
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          }
+        ]
       }
     },
     {
-      "data": {"url": "data/trails.json"},
-      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
-      "mark": {"type": "text", "align": "left", "dx": 10, "dy": -10, "font": "Inter", "fontSize": 13, "fontWeight": 700, "color": "#7f1d1d"},
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Upper Yarra Walking Track'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -10,
+        "font": "Inter",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#7f1d1d",
+        "lineBreak": "\n"
+      },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"value": "Upper Yarra · 95 km"}
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Longest recorded walk\nUpper Yarra · 95 km"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 145.67450984000004,
+            "latitude": -37.28121487409041,
+            "lga": "Murrindindi",
+            "label": "Murrindindi\n32 recorded trails"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "dy": -18,
+        "font": "Inter",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "limit": 240,
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     }
   ]

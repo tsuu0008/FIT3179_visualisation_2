@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
-  "height": 270,
+  "height": 300,
   "background": null,
   "config": {
     "view": {
@@ -13,17 +13,22 @@
       "gridColor": "#d9e2df",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "labelFontSize": 11,
-      "titleFontSize": 12
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6,
+      "tickCount": 7
     },
     "legend": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "orient": "bottom",
-      "columns": 2
+      "columns": 2,
+      "titleFontSize": 13,
+      "padding": 8
     }
   },
   "data": {
@@ -103,6 +108,81 @@
             "title": "Trails"
           }
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "gradient",
+            "experience_label"
+          ]
+        },
+        {
+          "stack": "n",
+          "groupby": [
+            "gradient"
+          ],
+          "sort": [
+            {
+              "field": "experience_label",
+              "order": "ascending"
+            }
+          ],
+          "as": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "calculate": "(datum.start + datum.end) / 2",
+          "as": "mid"
+        },
+        {
+          "filter": "datum.n >= 6"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": [
+            "Flat",
+            "Gentle hills",
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 155
+          }
+        },
+        "text": {
+          "field": "n"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.experience_label === 'None required'",
+            "value": "#173b37"
+          },
+          "value": "white"
+        }
       }
     },
     {

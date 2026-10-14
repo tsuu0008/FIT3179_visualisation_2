@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 610,
-  "height": 360,
+  "width": 340,
+  "height": 340,
   "background": null,
   "config": {
     "view": {
@@ -13,14 +13,21 @@
       "gridColor": "#d9e2df",
       "domainColor": "#9aa7a4",
       "labelFont": "Inter",
-      "titleFont": "Inter"
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6
     },
     "legend": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "orient": "bottom"
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "padding": 8
     },
     "header": {
       "labelFont": "Inter",
@@ -33,7 +40,7 @@
   },
   "mark": {
     "type": "square",
-    "size": 660,
+    "size": 900,
     "cornerRadius": 3
   },
   "encoding": {
@@ -69,5 +76,16 @@
         "title": "Each square = 1%"
       }
     ]
+  },
+  "title": {
+    "text": "15 of 179 rated trails indicate access",
+    "subtitle": "8 highlighted squares ≈ 8%; exact share: 8.4%",
+    "anchor": "start",
+    "font": "Inter",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "color": "#173b37",
+    "subtitleColor": "#536a64",
+    "offset": 16
   }
 }

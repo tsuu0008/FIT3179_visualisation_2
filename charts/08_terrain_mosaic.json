@@ -14,7 +14,9 @@
       "labelFont": "Inter",
       "titleFont": "Inter",
       "labelFontSize": 12,
-      "titleFontSize": 13
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6
     },
     "legend": {
       "labelColor": "#334155",
@@ -24,7 +26,8 @@
       "labelFontSize": 12,
       "titleFontSize": 13,
       "orient": "bottom",
-      "direction": "horizontal"
+      "direction": "horizontal",
+      "padding": 8
     }
   },
   "data": {
@@ -144,6 +147,57 @@
           "format": ".0f"
         }
       }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.gradient === 'Short steep hills'"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "x0",
+              "as": "left"
+            },
+            {
+              "op": "max",
+              "field": "x1",
+              "as": "right"
+            }
+          ]
+        },
+        {
+          "calculate": "(datum.left + datum.right) / 2",
+          "as": "mid"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "dy": -10,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "text": {
+          "value": "Short steep hills · 56% of known-terrain km"
+        }
+      }
     }
-  ]
+  ],
+  "padding": {
+    "top": 28,
+    "left": 5,
+    "right": 5,
+    "bottom": 5
+  }
 }

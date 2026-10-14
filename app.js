@@ -69,7 +69,7 @@ function mapSpec(spec, selector) {
     });
   }
   if(selector === "#chart-02") {
-    spec.encoding.color.scale.domain=[0,Math.max(...areas.map(area=>area.properties.trail_km_per_100k || 0))];
+    spec.layer[0].encoding.color.scale.domain=[0,Math.max(...areas.map(area=>area.properties.trail_km_per_100k || 0))];
     spec.transform=[...(spec.transform || []),{filter:"chosenLga === 'All' || datum.properties.name === chosenLga"}];
   }
   if(spec.layer) spec.layer.push({
@@ -90,7 +90,7 @@ function linkSpec(spec, selector) {
   spec.params = [...(spec.params || []), ...Object.entries(state).map(([name, value]) => ({ name, value }))];
   const dataNode = selector === "#chart-03" ? spec.layer[1] : spec;
   dataNode.transform = [{ filter: filterExpression }, ...(dataNode.transform || [])];
-  const pointNode = selector === "#chart-12" ? spec.layer[0] : dataNode;
+  const pointNode = (selector === "#chart-12" || selector === "#chart-09") ? spec.layer[0] : dataNode;
   pointNode.encoding.opacity = {
     condition: { test: "selectedTrail === '' || datum.name === selectedTrail", value: 0.85 }, value: 0.12,
   };
@@ -108,7 +108,39 @@ async function loadChart(selector, specUrl) {
     let spec = clone(bundle[specUrl]);
     inlineData(spec);
     if (linkedCharts.has(selector)) spec = linkSpec(spec, selector);
-    if (mapCharts.has(selector)) spec = mapSpec(spec, selector);
+    if (mapCharts.has(selector)) {
+      // Match the geographical viewport to the actual card width.
+      spec.width = Math.max(280, Math.round(host.getBoundingClientRect().width - 12));
+      spec.height = Math.max(260, Math.min(720, Math.round(spec.width * 0.68)));
+      spec.config.legend.columns = spec.width < 560 ? 2 : 6;
+      spec.config.legend.direction = "horizontal";
+      spec.config.legend.labelLimit = spec.width < 560 ? 150 : 240;
+      if (spec.width < 560) {
+        if (selector === "#chart-01") {
+          spec.layer.pop();
+          spec.layer[3].mark.align = "right";
+          spec.layer[3].mark.dx = -8;
+          spec.layer[3].encoding.text.value = "Upper Yarra · 95 km";
+        }
+        for (const layer of spec.layer || []) {
+          if (layer.mark?.type === "text") { layer.mark.fontSize = 11; layer.mark.limit = 145; }
+        }
+      }
+      spec = mapSpec(spec, selector);
+    }
+    if (!mapCharts.has(selector) && selector !== "#chart-06") {
+      const width = Math.round(host.getBoundingClientRect().width);
+      const axisRoom = selector === "#chart-04" || selector === "#chart-07" || selector === "#chart-11" ? 175 : selector === "#chart-09" || selector === "#chart-12" ? 95 : 65;
+      spec.width = selector === "#chart-10" ? Math.min(340, width - 34) : Math.max(200, width - axisRoom);
+      if (width < 560) {
+        spec.config.legend.columns = 2;
+        spec.config.legend.direction = "horizontal";
+        spec.config.legend.labelLimit = 145;
+        for (const layer of spec.layer || []) {
+          if (layer.mark?.type === "text") layer.mark.limit = selector === "#chart-09" || selector === "#chart-12" ? 135 : 170;
+        }
+      }
+    }
     const result = await vegaEmbed(host, spec, embedOptions);
     if (selector === "#chart-06") {
       const picker = document.querySelector("#alluvial-grade");
@@ -205,7 +237,33 @@ function updateShortlist() {
     : "Click a trail in any of the three views, or choose its name, to highlight it in the others.";
   detail.replaceChildren(title, copy);
   document.querySelector("#distance-value").textContent = `${state.maximumKm} km`;
+  updateChartAnnotations(matching);
   syncViews();
+}
+function annotationCopy(id, title, copy) {
+  const node = document.querySelector(`#annotation-${id}`);
+  if (!node) return;
+  node.querySelector("strong").textContent = title;
+  node.querySelector("span").textContent = copy;
+}
+function updateChartAnnotations(matching) {
+  const scope = state.chosenLga === "All" ? "Victoria" : state.chosenLga;
+  const area = areas.find(f => f.properties.name === state.chosenLga)?.properties;
+  if (area) annotationCopy("02", scope, `${area.trail_count || 0} recorded trails; ${(area.trail_km || 0).toFixed(1)} km; ${(area.trail_km_per_100k || 0).toFixed(1)} km per 100,000 residents. The colour scale remains fixed for comparison across areas.`);
+  else annotationCopy("02", "Highest supply", "Murrindindi records 844 km per 100,000 residents. This measures recorded trail supply relative to population, rather than ease of reaching a trail.");
+  const network = state.chosenLga === "All" ? trails : trails.filter(t => t.lga === state.chosenLga);
+  const networkLongest = [...network].sort((x,y) => y.length_km-x.length_km)[0];
+  annotationCopy("01", scope, networkLongest ? `${network.length} recorded trails in this area. Longest: ${networkLongest.name}, ${networkLongest.length_km} km. Route colour identifies walking grade.` : "No promoted trails are recorded for this area in the dataset. Choose another council to explore its network.");
+  const focused = matching.find(t => t.name === state.selectedTrail);
+  const longest = focused || [...matching].sort((x,y) => y.length_km-x.length_km)[0];
+  annotationCopy("03", focused ? "Selected walk" : "Longest matching walk", longest ? `${longest.name}: ${longest.length_km} km, ${longest.grade}, ${longest.lga}. ${matching.length} trails match the shortlist. The map label follows this walk.` : "No matching trails. Adjust the area, grade, distance or access filters.");
+  const short = matching.filter(t => t.length_km <= 5).length;
+  annotationCopy("09", "Current distance mix", matching.length ? `${short} of ${matching.length} matching trails (${Math.round(short / matching.length * 100)}%) are 5 km or shorter. The dashed line marks 5 km; vertical offsets only separate dots.` : "No matching trails. Adjust the shortlist filters to restore the distance view.");
+  const timed = matching.filter(t => Number.isFinite(t.hours) && t.hours > 0);
+  const slow = [...timed].sort((x,y) => y.hours-x.hours)[0];
+  const selectedTimed = focused && focused.hours > 0 ? focused : null;
+  const timeWalk = selectedTimed || slow;
+  annotationCopy("12", selectedTimed ? "Selected time estimate" : "Largest recorded time estimate", timeWalk ? `${timeWalk.name}: ${timeWalk.length_km} km and ${timeWalk.hours} hours. ${timed.length} matching trails have positive time estimates; ${matching.length-timed.length} are omitted from this view. Estimates are source records, not measured speeds.` : "No matching trail has a positive time estimate. Adjust the shortlist filters to see the time comparison.");
 }
 function loadSummaryAndFilters() {
   const stats=bundle["data/stats.json"];

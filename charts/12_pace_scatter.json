@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 1000,
   "height": 390,
   "background": null,
   "config": {
@@ -13,14 +13,22 @@
       "gridColor": "#d9e2df",
       "domainColor": "#9aa7a4",
       "labelFont": "Inter",
-      "titleFont": "Inter"
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6,
+      "tickCount": 7
     },
     "legend": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "orient": "bottom"
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "padding": 8
     },
     "header": {
       "labelFont": "Inter",
@@ -57,7 +65,12 @@
         "y": {
           "field": "hours",
           "type": "quantitative",
-          "scale": {"domain": [0, 52]},
+          "scale": {
+            "domain": [
+              0,
+              52
+            ]
+          },
           "title": "Estimated time (hours)"
         },
         "color": {
@@ -138,13 +151,37 @@
     },
     {
       "transform": [
-        {"filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"}
+        {
+          "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km · ' + format(datum.hours, '.0f') + ' hours'",
+          "as": "annotation"
+        }
       ],
-      "mark": {"type": "text", "align": "right", "dx": -7, "dy": -8, "font": "Inter", "fontSize": 11, "fontWeight": 700, "color": "#173b37"},
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -7,
+        "dy": -12,
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n"
+      },
       "encoding": {
-        "x": {"field": "length_km", "type": "quantitative"},
-        "y": {"field": "hours", "type": "quantitative"},
-        "text": {"field": "name"}
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
       }
     }
   ]
