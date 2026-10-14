@@ -156,3 +156,12 @@ section[id], aside[id], li[id] { scroll-margin-top: 84px; }
 .area-shortcuts button[aria-pressed=true] { background: var(--teal); color: white; border-color: var(--teal); }
 .map-help { margin: 16px 0 0; max-width: 850px; color: var(--muted); font-size: .87rem; }
 @media (max-width:560px) { .map-controls { padding: 16px; } .map-zoom { gap: 8px; } .area-shortcuts button { font-size: .82rem; } }
+
+/* Alluvial chart: grade is the first axis and serves as the colour key. */
+.alluvial-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+.alluvial-controls label { font-weight: 650; }
+.alluvial-controls select { padding: 8px 12px; border: 1px solid #a5b5ad; border-radius: 6px; color: #143f3a; background: white; font: inherit; }
+#alluvial-summary { flex-basis: 100%; margin: 0; color: var(--muted); font-size: .86rem; }
+#chart-06 { display: block; overflow-x: auto; min-height: 0; }
+#chart-06 .vega-embed { min-width: 1000px; }
+.alluvial-note { color: var(--muted); font-size: .82rem; line-height: 1.65; margin-bottom: 0; }

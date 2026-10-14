@@ -24,7 +24,7 @@ Then open `http://localhost:8000`.
 - `index.html` — single-page visual story
 - `styles.css` — responsive page styling
 - `app.js` — loads the chart specifications
-- `charts/` — 12 human-readable Vega-Lite JSON specifications
+- `charts/` — 12 human-readable chart specifications (11 Vega-Lite and one Vega alluvial)
 - `data/` — processed data files used by the charts
 
 ## Data sources
@@ -45,7 +45,7 @@ Generative AI was used to assist with code, editing and design development. The 
 The page follows one question: how do location, walking demands and recorded accessibility shape usable trail choices?
 
 1. Place: the route network leads into per-resident supply and the population–supply rank comparison.
-2. Demands: grades, distances, combined profiles, terrain and experience describe different aspects of difficulty.
+2. Demands: grades, distances, alluvial combinations, terrain and experience describe different aspects of difficulty.
 3. Shortlist: one set of grade, local government area, maximum distance and access filters updates the individual-trail map, distance view and time comparison. Clicking a trail or choosing its name highlights it across those views. Reset restores the full shortlist.
 4. Access: the story returns to the whole network, explains the accessibility denominator and connects that constraint back to the shortlist.
 
@@ -62,3 +62,13 @@ The geographic units are councils/local government areas, not suburbs. Some area
 `data-bundle.js` includes every chart specification and dataset used by the app. Runtime chart data is embedded in memory, so opening `index.html` directly does not require fetching local JSON files. An internet connection is still needed for the Vega libraries and web fonts. Keep the `charts/` and `data/` folders for source inspection.
 
 When updating GitHub Pages, upload all files, including `data-bundle.js`, `app.js`, `index.html` and `styles.css`. The page uses versioned script and stylesheet links to reduce stale browser-cache problems.
+
+## Alluvial diagram update — 14 October 2026
+
+Chart 6 now follows Grade → Distance → Estimated time → Steps → Signage. Grade is the first column and identifies the ribbon colours; no separate legend is repeated below the chart. Ribbon width encodes counts of trails with the same complete combination, not median normalised values. All 194 trails are retained across 99 distinct combinations, with missing values as Unknown. Every column totals 194; 45 trails have no recorded time estimate.
+
+Use the dropdown or click a grade label to highlight a grade. Hover a ribbon for its full combination and trail count. Double-click to reset. This chart describes the full network and is independent of shortlist filters. It uses Vega v5; the other charts use Vega-Lite. Both are supported by vegaEmbed. The matching source JSON and embedded data-bundle entry have been updated together.
+
+This archive contains the complete website, all 12 chart specifications, all original processed data and the updated bundle. Unzip and open `index.html`, or upload the contents of this folder to the existing GitHub Pages repository. Internet access is required for the Vega libraries and fonts. The live website has not been changed by creating this archive.
+
+The walking-grade explanation now appears before the first route map, so the colour meanings are introduced before any grade-coloured map or chart.

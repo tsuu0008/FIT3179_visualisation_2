@@ -6,7 +6,7 @@ const charts = [
   ["#chart-03", "charts/03_trail_symbols.json"],
   ["#chart-04", "charts/04_challenge_heatmap.json"],
   ["#chart-05", "charts/05_length_ridgeline.json"],
-  ["#chart-06", "charts/06_parallel_profile.json"],
+  ["#chart-06", "charts/06_alluvial.json"],
   ["#chart-07", "charts/07_flow_network.json"],
   ["#chart-08", "charts/08_terrain_mosaic.json"],
   ["#chart-09", "charts/09_beeswarm.json"],
@@ -110,6 +110,24 @@ async function loadChart(selector, specUrl) {
     if (linkedCharts.has(selector)) spec = linkSpec(spec, selector);
     if (mapCharts.has(selector)) spec = mapSpec(spec, selector);
     const result = await vegaEmbed(host, spec, embedOptions);
+    if (selector === "#chart-06") {
+      const picker = document.querySelector("#alluvial-grade");
+      const summary = document.querySelector("#alluvial-summary");
+      const counts = trails.reduce((out, trail) => { out[trail.grade] = (out[trail.grade] || 0) + 1; return out; }, {});
+      function showSelection(grade) {
+        picker.value = grade || "All";
+        summary.textContent = grade
+          ? `${grade}: ${counts[grade]} of ${trails.length} trails highlighted. Column totals describe all trails.`
+          : `All ${trails.length} trails shown. Ribbon widths and column totals represent trail counts.`;
+      }
+      picker.addEventListener("change", () => {
+        const grade = picker.value === "All" ? null : picker.value;
+        result.view.signal("selectedGrade", grade).runAsync();
+        showSelection(grade);
+      });
+      result.view.addSignalListener("selectedGrade", (_name, grade) => showSelection(grade));
+      showSelection(null);
+    }
     if (linkedCharts.has(selector)) {
       linkedViews.set(selector, result.view);
       result.view.addEventListener("click", (_event, item) => {
