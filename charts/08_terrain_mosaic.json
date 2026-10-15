@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 525,
   "height": 500,
   "background": null,
   "config": {
@@ -71,18 +71,26 @@
               0.969548081821962
             ],
             "labelExpr": "datum.value < 0.10119845866444917 ? \"Flat (4.9%)\" : (datum.value < 0.3832827753409737 ? \"Gentle hills (25.8%)\" : (datum.value < 0.7465844074466654 ? \"Short steep hills (56.3%)\" : (datum.value < 0.9370640837193507 ? \"Very steep (6.9%)\" : (\"Very steep and difficult (6.1%)\"))))",
-            "labelAngle": -45,
+            "labelAngle": {
+              "expr": "compact ? -55 : -45"
+            },
             "labelAlign": "right",
             "labelBaseline": "middle",
             "labelPadding": 9,
             "labelLimit": 220,
-            "labelFontSize": 11,
+            "labelFontSize": {
+              "expr": "compact ? 10 : 11"
+            },
             "ticks": true,
             "tickSize": 5,
             "grid": false,
-            "title": "Terrain (share of recorded kilometres)",
+            "title": {
+              "expr": "compact ? ['Terrain','Column width = share of kilometres'] : 'Terrain (share of recorded kilometres)'"
+            },
             "titlePadding": 16,
-            "titleFontSize": 12,
+            "titleFontSize": {
+              "expr": "compact ? 11 : 12"
+            },
             "labelOverlap": false
           }
         },
@@ -162,7 +170,7 @@
     {
       "transform": [
         {
-          "filter": "datum.km >= 30"
+          "filter": "datum.km >= 30 && (!compact || datum.x1 - datum.x0 > 0.09)"
         }
       ],
       "mark": {
@@ -170,7 +178,13 @@
         "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#173b37"
+        "color": "#173b37",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        },
+        "dy": {
+          "expr": "compact ? 10 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -215,11 +229,16 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": {
+          "expr": "compact ? 11 : 12"
+        },
         "fontWeight": 700,
         "dy": 0,
         "color": "#173b37",
-        "lineBreak": "\n"
+        "lineBreak": "\n",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -244,5 +263,20 @@
   "autosize": {
     "type": "fit",
     "contains": "padding"
-  }
+  },
+  "usermeta": {
+    "container": "#chart-08",
+    "layout": "paired",
+    "gutter": 95
+  },
+  "params": [
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    }
+  ]
 }

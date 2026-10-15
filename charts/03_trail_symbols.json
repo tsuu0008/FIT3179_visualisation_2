@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
-  "height": 540,
+  "width": 682,
+  "height": 430,
   "background": null,
   "config": {
     "view": {
@@ -27,7 +27,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 6,
+      "direction": "horizontal",
+      "labelLimit": 150
     },
     "header": {
       "labelFont": "Inter",
@@ -37,13 +40,39 @@
   },
   "projection": {
     "type": "mercator",
-    "center": [
-      144.8,
-      -37.2
-    ],
-    "scale": 4300
+    "center": {
+      "expr": "mapCenter"
+    },
+    "scale": {
+      "expr": "mapScale"
+    },
+    "translate": {
+      "expr": "[width/2,height/2]"
+    },
+    "clipExtent": {
+      "expr": "[[0,0],[width,height]]"
+    }
   },
   "layer": [
+    {
+      "data": {
+        "name": "mapBoundsData",
+        "url": "data/map_bounds.json"
+      },
+      "mark": {
+        "type": "point",
+        "opacity": 0,
+        "size": 0
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 0
+        }
+      }
+    },
     {
       "data": {
         "url": "data/lga.geojson",
@@ -88,10 +117,14 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {
-            "type": "sqrt",
+            "type": "linear",
+            "domain": [
+              0,
+              95
+            ],
             "range": [
-              18,
-              900
+              22,
+              650
             ]
           },
           "title": "Distance (km)"
@@ -137,12 +170,31 @@
             "field": "access",
             "title": "Disabled access"
           }
-        ]
-      }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "selectedTrail === '' || datum.name === selectedTrail",
+            "value": 0.85
+          },
+          "value": 0.1
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "selectedTrail !== '' && datum.name === selectedTrail",
+            "value": 3
+          },
+          "value": 0.5
+        }
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        }
+      ]
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trail_labels.json"
       },
       "transform": [
         {
@@ -173,7 +225,7 @@
           "filter": "datum.annotation_rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
           "as": "label"
         }
       ],
@@ -197,7 +249,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trail_labels.json"
       },
       "transform": [
         {
@@ -228,42 +280,71 @@
           "filter": "datum.annotation_rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
           "as": "label"
+        },
+        {
+          "calculate": "width/2 + mapScale * (datum.longitude-mapCenter[0]) * 0.0174532925199433",
+          "as": "pointX"
+        },
+        {
+          "calculate": "height/2 - mapScale * (log(tan(0.7853981633974483+datum.latitude*0.008726646259971648))-log(tan(0.7853981633974483+mapCenter[1]*0.008726646259971648)))",
+          "as": "pointY"
+        },
+        {
+          "filter": "datum.pointX > 0 && datum.pointX < width && datum.pointY > 0 && datum.pointY < height"
+        },
+        {
+          "calculate": "datum.pointX > width/2 ? clamp(datum.pointX-10,width<500?148:208,width-8) : clamp(datum.pointX+10,8,width-(width<500?148:208))",
+          "as": "labelX"
+        },
+        {
+          "calculate": "clamp(datum.pointY-16,28,height-30)",
+          "as": "labelY"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 10,
-        "dy": -14,
+        "align": {
+          "expr": "datum.pointX > width/2 ? \"right\" : \"left\""
+        },
+        "dx": 0,
+        "dy": 0,
         "font": "Inter",
-        "fontSize": 13,
+        "fontSize": {
+          "expr": "width < 500 ? 10 : 13"
+        },
         "fontWeight": 700,
         "color": "#173b37",
-        "limit": 240,
+        "limit": {
+          "expr": "width < 500 ? 140 : 200"
+        },
         "lineBreak": "\n",
         "stroke": "white",
         "strokeWidth": 3,
         "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
         "text": {
           "field": "label"
+        },
+        "x": {
+          "field": "labelX",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "labelY",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
         }
       }
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trail_labels.json"
       },
       "transform": [
         {
@@ -294,35 +375,197 @@
           "filter": "datum.annotation_rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
           "as": "label"
+        },
+        {
+          "calculate": "width/2 + mapScale * (datum.longitude-mapCenter[0]) * 0.0174532925199433",
+          "as": "pointX"
+        },
+        {
+          "calculate": "height/2 - mapScale * (log(tan(0.7853981633974483+datum.latitude*0.008726646259971648))-log(tan(0.7853981633974483+mapCenter[1]*0.008726646259971648)))",
+          "as": "pointY"
+        },
+        {
+          "filter": "datum.pointX > 0 && datum.pointX < width && datum.pointY > 0 && datum.pointY < height"
+        },
+        {
+          "calculate": "datum.pointX > width/2 ? clamp(datum.pointX-10,width<500?148:208,width-8) : clamp(datum.pointX+10,8,width-(width<500?148:208))",
+          "as": "labelX"
+        },
+        {
+          "calculate": "clamp(datum.pointY-16,28,height-30)",
+          "as": "labelY"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 10,
-        "dy": -14,
+        "align": {
+          "expr": "datum.pointX > width/2 ? \"right\" : \"left\""
+        },
+        "dx": 0,
+        "dy": 0,
         "font": "Inter",
-        "fontSize": 13,
+        "fontSize": {
+          "expr": "width < 500 ? 10 : 13"
+        },
         "fontWeight": 700,
         "color": "#173b37",
-        "limit": 240,
+        "limit": {
+          "expr": "width < 500 ? 140 : 200"
+        },
         "lineBreak": "\n"
       },
       "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
         "text": {
           "field": "label"
+        },
+        "x": {
+          "field": "labelX",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "labelY",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "visibleCount === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": {
+          "expr": "width < 500 ? 10 : 14"
+        },
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "limit": {
+          "expr": "width < 500 ? 140 : 200"
+        }
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2"
+          }
+        },
+        "text": {
+          "value": "No recorded trails match\nTry another grade, area or distance"
+        }
+      }
+    },
+    {
+      "name": "selectedRegion",
+      "data": {
+        "url": "data/map_regions.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#d95d39",
+        "strokeWidth": 2.2
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Area"
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All"
+    },
+    {
+      "name": "chosenLga",
+      "value": "All"
+    },
+    {
+      "name": "maximumKm",
+      "value": 95
+    },
+    {
+      "name": "accessOnly",
+      "value": false
+    },
+    {
+      "name": "selectedTrail",
+      "value": ""
+    },
+    {
+      "name": "visibleCount",
+      "value": 194
+    },
+    {
+      "name": "distanceExtent",
+      "value": 40
+    },
+    {
+      "name": "timeExtent",
+      "value": 50
+    },
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    },
+    {
+      "name": "zoom",
+      "value": 1
+    },
+    {
+      "name": "mapBounds",
+      "expr": "data('mapBoundsData')[0]"
+    },
+    {
+      "name": "mapCenter",
+      "expr": "mapBounds ? mapBounds[chosenLga].center : [145,-37]"
+    },
+    {
+      "name": "mapScale",
+      "expr": "mapBounds ? min((width-28)/mapBounds[chosenLga].dx,(height-28)/mapBounds[chosenLga].dy)*zoom : 1"
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-03",
+    "layout": "map",
+    "gutter": 65
+  }
 }

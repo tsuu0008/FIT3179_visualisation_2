@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 476,
-  "height": 340,
+  "width": 500,
+  "height": 357,
   "background": null,
   "config": {
     "view": {
@@ -42,7 +42,9 @@
     {
       "mark": {
         "type": "square",
-        "size": 900,
+        "size": {
+          "expr": "pow(width/14*0.88,2)"
+        },
         "cornerRadius": 3
       },
       "encoding": {
@@ -101,7 +103,9 @@
       ],
       "mark": {
         "type": "square",
-        "size": 900,
+        "size": {
+          "expr": "pow(width/14*0.88,2)"
+        },
         "fillOpacity": 0,
         "stroke": "#b34e2d",
         "strokeWidth": 1.2
@@ -184,7 +188,10 @@
         "fontWeight": 700,
         "align": "left",
         "dx": 0,
-        "color": "#a64629"
+        "color": "#a64629",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -199,6 +206,21 @@
           "value": "15 of 179\nrated trails\n8.4%"
         }
       }
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-10",
+    "layout": "waffle",
+    "gutter": 65
+  },
+  "params": [
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
     }
   ]
 }

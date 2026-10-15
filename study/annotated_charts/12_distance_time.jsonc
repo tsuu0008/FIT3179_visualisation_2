@@ -1,0 +1,474 @@
+// Study copy of charts/12_distance_time.json. The website loads strict JSON, not this file.
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1099,
+  "height": 390,
+  "background": null,
+  // Shared font, axis and legend settings.
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6,
+      "tickCount": 7
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "padding": 8
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    }
+  },
+  // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+  "data": {
+    "url": "data/trails.json"
+  },
+  // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+  "transform": [
+    {
+      "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+    },
+    {
+      "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0"
+    },
+    {
+      "calculate": "datum.length_km / datum.hours",
+      "as": "pace_kmh"
+    }
+  ],
+  // Layers draw in order: context, data, emphasis and annotations.
+  "layer": [
+    {
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.68,
+        "size": 72
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "title": "Distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          },
+          "title": "Estimated time (hours)"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#2a9d8f",
+              "#69b578",
+              "#e9c46a",
+              "#f4a261",
+              "#e76f51",
+              "#9aa2a6"
+            ]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "pace_kmh",
+            "title": "Implied pace (km/h)",
+            "format": ".1f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "selectedTrail === '' || datum.name === selectedTrail",
+            "value": 0.85
+          },
+          "value": 0.1
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "selectedTrail !== '' && datum.name === selectedTrail",
+            "value": 3
+          },
+          "value": 0.5
+        }
+      }
+    },
+    {
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "regression": "hours",
+          "on": "length_km",
+          "method": "linear"
+        }
+      ],
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "line",
+        "color": "#153e3a",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 2
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          }
+        }
+      }
+    },
+    {
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 240,
+        "stroke": "#b34e2d",
+        "strokeWidth": 2
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "title": "Distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          },
+          "title": "Estimated time (hours)"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "pace_kmh",
+            "title": "Implied pace (km/h)",
+            "format": ".1f"
+          }
+        ]
+      },
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
+        }
+      ]
+    },
+    {
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km · ' + format(datum.hours, '.0f') + ' hours'",
+          "as": "annotation"
+        }
+      ],
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -7,
+        "dy": -12,
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "regression": "hours",
+          "on": "length_km",
+          "method": "linear",
+          // Parameters that the short HTML controls update; expressions react to those changes.
+          "params": true
+        },
+        {
+          "calculate": "'Trend: ' + format(datum.coef[1], '.2f') + ' h/km'",
+          "as": "annotation"
+        }
+      ],
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontSize": 12,
+        "color": "#173b37",
+        "dy": -8,
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width - 14"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height * 0.47"
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "filter": "visibleCount === 0"
+        }
+      ],
+      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
+      },
+      // Connect a field to position, colour, area, text or geographic shape.
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2"
+          }
+        },
+        "text": {
+          "value": "No recorded trails match\nTry another grade, area or distance"
+        }
+      }
+    }
+  ],
+  // Parameters that the short HTML controls update; expressions react to those changes.
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All"
+    },
+    {
+      "name": "chosenLga",
+      "value": "All"
+    },
+    {
+      "name": "maximumKm",
+      "value": 95
+    },
+    {
+      "name": "accessOnly",
+      "value": false
+    },
+    {
+      "name": "selectedTrail",
+      "value": ""
+    },
+    {
+      "name": "visibleCount",
+      "value": 149
+    },
+    {
+      "name": "distanceExtent",
+      "value": 40
+    },
+    {
+      "name": "timeExtent",
+      "value": 50
+    },
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    }
+  ],
+  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
+  "usermeta": {
+    "container": "#chart-12",
+    "layout": "standard",
+    "gutter": 95
+  }
+}

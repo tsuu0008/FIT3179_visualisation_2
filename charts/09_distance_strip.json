@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 1099,
   "height": 330,
   "background": null,
   "config": {
@@ -36,7 +36,7 @@
     }
   },
   "data": {
-    "url": "data/beeswarm.json"
+    "url": "data/distance_points.json"
   },
   "layer": [
     {
@@ -52,14 +52,23 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {
-            "type": "sqrt"
+            "type": "sqrt",
+            "domain": [
+              0,
+              {
+                "expr": "maximumKm"
+              }
+            ],
+            "nice": false
           },
-          "title": "Trail distance (km, square-root scale)",
           "axis": {
             "tickCount": 7,
             "grid": true,
             "labelFontSize": 12,
-            "titleFontSize": 13
+            "titleFontSize": 13,
+            "title": {
+              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
+            }
           }
         },
         "y": {
@@ -72,7 +81,17 @@
             "Grade 4",
             "Grade 5"
           ],
-          "title": null
+          "title": null,
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ]
+          }
         },
         "yOffset": {
           "field": "lane",
@@ -115,7 +134,21 @@
             "title": "Distance (km)",
             "format": ".1f"
           }
-        ]
+        ],
+        "opacity": {
+          "condition": {
+            "test": "selectedTrail === '' || datum.name === selectedTrail",
+            "value": 0.85
+          },
+          "value": 0.1
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "selectedTrail !== '' && datum.name === selectedTrail",
+            "value": 3
+          },
+          "value": 0.5
+        }
       }
     },
     {
@@ -138,9 +171,24 @@
       "encoding": {
         "x": {
           "field": "distance",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              {
+                "expr": "maximumKm"
+              }
+            ],
+            "nice": false
+          }
         }
-      }
+      },
+      "transform": [
+        {
+          "filter": "maximumKm >= 5"
+        }
+      ]
     },
     {
       "data": {
@@ -157,12 +205,25 @@
         "dx": 6,
         "dy": -8,
         "fontSize": 12,
-        "color": "#52716a"
+        "color": "#52716a",
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
       },
       "encoding": {
         "x": {
           "field": "distance",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              {
+                "expr": "maximumKm"
+              }
+            ],
+            "nice": false
+          }
         },
         "y": {
           "value": 0
@@ -170,7 +231,12 @@
         "text": {
           "field": "label"
         }
-      }
+      },
+      "transform": [
+        {
+          "filter": "maximumKm >= 5"
+        }
+      ]
     },
     {
       "transform": [
@@ -211,9 +277,20 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {
-            "type": "sqrt"
+            "type": "sqrt",
+            "domain": [
+              0,
+              {
+                "expr": "maximumKm"
+              }
+            ],
+            "nice": false
           },
-          "title": "Trail distance (km, square-root scale)"
+          "axis": {
+            "title": {
+              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
+            }
+          }
         },
         "y": {
           "field": "grade",
@@ -225,7 +302,17 @@
             "Grade 4",
             "Grade 5"
           ],
-          "title": null
+          "title": null,
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ]
+          }
         },
         "yOffset": {
           "field": "lane",
@@ -268,7 +355,9 @@
         "fontSize": 12,
         "fontWeight": 700,
         "lineBreak": "\n",
-        "limit": 240,
+        "limit": {
+          "expr": "small ? 135 : 240"
+        },
         "color": "#173b37"
       },
       "encoding": {
@@ -276,9 +365,20 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {
-            "type": "sqrt"
+            "type": "sqrt",
+            "domain": [
+              0,
+              {
+                "expr": "maximumKm"
+              }
+            ],
+            "nice": false
           },
-          "title": "Trail distance (km, square-root scale)"
+          "axis": {
+            "title": {
+              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
+            }
+          }
         },
         "y": {
           "field": "grade",
@@ -290,7 +390,17 @@
             "Grade 4",
             "Grade 5"
           ],
-          "title": null
+          "title": null,
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ]
+          }
         },
         "yOffset": {
           "field": "lane",
@@ -324,7 +434,7 @@
           "filter": "datum.total > 0"
         },
         {
-          "calculate": "'\u22645 km: ' + datum.short_count + '/' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ')'",
+          "calculate": "'≤5 km: ' + datum.short_count + '/' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ')'",
           "as": "annotation"
         }
       ],
@@ -333,7 +443,10 @@
         "align": "right",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#52716a"
+        "color": "#52716a",
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -350,6 +463,97 @@
           "field": "annotation"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "visibleCount === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2"
+          }
+        },
+        "text": {
+          "value": "No recorded trails match\nTry another grade, area or distance"
+        }
+      }
     }
-  ]
+  ],
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All"
+    },
+    {
+      "name": "chosenLga",
+      "value": "All"
+    },
+    {
+      "name": "maximumKm",
+      "value": 95
+    },
+    {
+      "name": "accessOnly",
+      "value": false
+    },
+    {
+      "name": "selectedTrail",
+      "value": ""
+    },
+    {
+      "name": "visibleCount",
+      "value": 194
+    },
+    {
+      "name": "distanceExtent",
+      "value": 40
+    },
+    {
+      "name": "timeExtent",
+      "value": 50
+    },
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    }
+  ],
+  "transform": [
+    {
+      "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-09",
+    "layout": "standard",
+    "gutter": 95
+  }
 }

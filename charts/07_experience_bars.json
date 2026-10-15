@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 525,
   "height": 500,
   "background": null,
   "config": {
@@ -62,7 +62,9 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 155
+            "labelLimit": {
+              "expr": "compact ? 125 : 155"
+            }
           }
         },
         "x": {
@@ -161,9 +163,14 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": {
+          "expr": "compact ? 9 : 11"
+        },
         "fontWeight": 700,
-        "lineBreak": "\n"
+        "lineBreak": "\n",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -182,7 +189,9 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 155
+            "labelLimit": {
+              "expr": "compact ? 125 : 155"
+            }
           }
         },
         "text": {
@@ -218,7 +227,10 @@
         "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#173b37"
+        "color": "#173b37",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "y": {
@@ -251,5 +263,20 @@
     "left": 5,
     "right": 18,
     "bottom": 5
-  }
+  },
+  "usermeta": {
+    "container": "#chart-07",
+    "layout": "paired",
+    "gutter": 175
+  },
+  "params": [
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    }
+  ]
 }

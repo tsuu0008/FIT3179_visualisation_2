@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 1019,
   "height": 420,
   "background": null,
   "config": {
@@ -195,7 +195,10 @@
         "dy": -9,
         "fontSize": 12,
         "fontWeight": 700,
-        "color": "#b74928"
+        "color": "#b74928",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -214,6 +217,21 @@
           "field": "annotation"
         }
       }
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-11",
+    "layout": "standard",
+    "gutter": 175
+  },
+  "params": [
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
     }
   ]
 }

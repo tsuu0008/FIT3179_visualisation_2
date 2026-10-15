@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
-  "height": 560,
+  "width": 700,
+  "height": 430,
   "background": null,
   "config": {
     "view": {
@@ -20,12 +20,15 @@
       "labelPadding": 6
     },
     "legend": {
-      "labelColor": "#e8f3ef",
-      "titleColor": "#ffffff",
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
       "labelFontSize": 12,
       "titleFontSize": 13,
       "orient": "bottom",
-      "padding": 8
+      "padding": 8,
+      "columns": 6,
+      "direction": "horizontal",
+      "labelLimit": 150
     },
     "header": {
       "labelFont": "Inter",
@@ -35,13 +38,39 @@
   },
   "projection": {
     "type": "mercator",
-    "center": [
-      144.8,
-      -37.2
-    ],
-    "scale": 4300
+    "center": {
+      "expr": "mapCenter"
+    },
+    "scale": {
+      "expr": "mapScale"
+    },
+    "translate": {
+      "expr": "[width/2,height/2]"
+    },
+    "clipExtent": {
+      "expr": "[[0,0],[width,height]]"
+    }
   },
   "layer": [
+    {
+      "data": {
+        "name": "mapBoundsData",
+        "url": "data/map_bounds.json"
+      },
+      "mark": {
+        "type": "point",
+        "opacity": 0,
+        "size": 0
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 0
+        }
+      }
+    },
     {
       "data": {
         "url": "data/lga.geojson",
@@ -196,11 +225,15 @@
         "dx": -12,
         "dy": -16,
         "font": "Inter",
-        "fontSize": 13,
+        "fontSize": {
+          "expr": "width < 500 ? 10 : 11"
+        },
         "fontWeight": 700,
         "color": "#7f1d1d",
         "lineBreak": "\n",
-        "limit": 220,
+        "limit": {
+          "expr": "width < 500 ? 140 : 200"
+        },
         "stroke": "white",
         "strokeWidth": 3,
         "strokeJoin": "round"
@@ -215,7 +248,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Longest recorded walk\nUpper Yarra \u00b7 95 km"
+          "value": "Longest recorded walk\nUpper Yarra · 95 km"
         }
       }
     },
@@ -234,11 +267,15 @@
         "dx": -12,
         "dy": -16,
         "font": "Inter",
-        "fontSize": 13,
+        "fontSize": {
+          "expr": "width < 500 ? 10 : 11"
+        },
         "fontWeight": 700,
         "color": "#7f1d1d",
         "lineBreak": "\n",
-        "limit": 220
+        "limit": {
+          "expr": "width < 500 ? 140 : 200"
+        }
       },
       "encoding": {
         "longitude": {
@@ -250,9 +287,73 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Longest recorded walk\nUpper Yarra \u00b7 95 km"
+          "value": "Longest recorded walk\nUpper Yarra · 95 km"
         }
       }
+    },
+    {
+      "name": "selectedRegion",
+      "data": {
+        "url": "data/map_regions.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#6f8c7e",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Area"
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "params": [
+    {
+      "name": "chosenLga",
+      "value": "All"
+    },
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    },
+    {
+      "name": "zoom",
+      "value": 1
+    },
+    {
+      "name": "mapBounds",
+      "expr": "data('mapBoundsData')[0]"
+    },
+    {
+      "name": "mapCenter",
+      "expr": "mapBounds ? mapBounds[chosenLga].center : [145,-37]"
+    },
+    {
+      "name": "mapScale",
+      "expr": "mapBounds ? min((width-28)/mapBounds[chosenLga].dx,(height-28)/mapBounds[chosenLga].dy)*zoom : 1"
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-01",
+    "layout": "map",
+    "gutter": 65
+  }
 }

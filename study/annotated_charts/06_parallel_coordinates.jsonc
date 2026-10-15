@@ -1,0 +1,822 @@
+// Study copy of charts/06_parallel_coordinates.json. The website loads strict JSON, not this file.
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "One line per trail across four parallel axes; missing attributes are separated from zero.",
+  "width": 1024,
+  "height": 350,
+  "padding": {
+    "top": 42,
+    "bottom": 20,
+    "left": 16,
+    "right": 140
+  },
+  "background": null,
+  // Vega parameters for parallel-coordinate emphasis and trail selection.
+  "signals": [
+    {
+      "name": "selectedGrade",
+      "value": "All"
+    },
+    {
+      "name": "selectedTrail",
+      "value": ""
+    }
+  ],
+  // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+  "data": [
+    {
+      "name": "trails",
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.grade === 'Unknown' ? null : toNumber(substring(datum.grade,6))",
+          "as": "gradeNumber"
+        },
+        {
+          "type": "formula",
+          "expr": "indexof([\"Flat\", \"Gentle hills\", \"Short steep hills\", \"Very steep\", \"Very steep and difficult\"],datum.gradient) < 0 ? null : indexof([\"Flat\", \"Gentle hills\", \"Short steep hills\", \"Very steep\", \"Very steep and difficult\"],datum.gradient)",
+          "as": "terrainNumber"
+        }
+      ],
+      "url": "data/trails.json"
+    },
+    {
+      "name": "points",
+      "source": "trails",
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "type": "fold",
+          "fields": [
+            "gradeNumber",
+            "length_km",
+            "hours",
+            "terrainNumber"
+          ],
+          "as": [
+            "dimension",
+            "value"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "indexof(['gradeNumber','length_km','hours','terrainNumber'],datum.dimension)",
+          "as": "axis"
+        }
+      ]
+    },
+    {
+      "name": "active",
+      "source": "points",
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "selectedGrade === 'All' || datum.grade === selectedGrade"
+        }
+      ]
+    },
+    {
+      "name": "focus",
+      "source": "active",
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "selectedTrail !== '' ? datum.name === selectedTrail : datum.name === 'Track Ninety Six'"
+        }
+      ]
+    },
+    {
+      "name": "callout",
+      "source": "focus",
+      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.axis === 2"
+        }
+      ]
+    },
+    {
+      "name": "axes",
+      "values": [
+        {
+          "axis": 0,
+          "title": "Walking grade"
+        },
+        {
+          "axis": 1,
+          "title": "Distance (km)¹"
+        },
+        {
+          "axis": 2,
+          "title": "Estimated time (h)¹"
+        },
+        {
+          "axis": 3,
+          "title": "Terrain"
+        }
+      ]
+    },
+    {
+      "name": "ticks",
+      "values": [
+        {
+          "axis": 0,
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "axis": 0,
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "axis": 0,
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "axis": 0,
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "axis": 0,
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "axis": 0,
+          "value": null,
+          "label": "Not recorded"
+        },
+        {
+          "axis": 1,
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "axis": 1,
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "axis": 1,
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "axis": 1,
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "axis": 1,
+          "value": 10,
+          "label": "10"
+        },
+        {
+          "axis": 1,
+          "value": 20,
+          "label": "20"
+        },
+        {
+          "axis": 1,
+          "value": 50,
+          "label": "50"
+        },
+        {
+          "axis": 1,
+          "value": 95,
+          "label": "95"
+        },
+        {
+          "axis": 2,
+          "value": 0,
+          "label": "0"
+        },
+        {
+          "axis": 2,
+          "value": 0.5,
+          "label": "0.5"
+        },
+        {
+          "axis": 2,
+          "value": 1,
+          "label": "1"
+        },
+        {
+          "axis": 2,
+          "value": 2,
+          "label": "2"
+        },
+        {
+          "axis": 2,
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "axis": 2,
+          "value": 8,
+          "label": "8"
+        },
+        {
+          "axis": 2,
+          "value": 16,
+          "label": "16"
+        },
+        {
+          "axis": 2,
+          "value": 48,
+          "label": "48"
+        },
+        {
+          "axis": 2,
+          "value": null,
+          "label": "Not recorded"
+        },
+        {
+          "axis": 3,
+          "value": 0,
+          "label": "Flat"
+        },
+        {
+          "axis": 3,
+          "value": 1,
+          "label": "Gentle hills"
+        },
+        {
+          "axis": 3,
+          "value": 2,
+          "label": "Short steep hills"
+        },
+        {
+          "axis": 3,
+          "value": 3,
+          "label": "Very steep"
+        },
+        {
+          "axis": 3,
+          "value": 4,
+          "label": "Very steep / difficult"
+        },
+        {
+          "axis": 3,
+          "value": null,
+          "label": "Not recorded"
+        }
+      ]
+    }
+  ],
+  // Named scales; parallel axes retain their own units.
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "range": "width"
+    },
+    {
+      "name": "gradeY",
+      "type": "linear",
+      "domain": [
+        1,
+        5
+      ],
+      "range": [
+        {
+          "signal": "height-65"
+        },
+        10
+      ],
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "distanceY",
+      "type": "sqrt",
+      "domain": [
+        0,
+        95
+      ],
+      "range": [
+        {
+          "signal": "height-65"
+        },
+        10
+      ],
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "timeY",
+      "type": "sqrt",
+      "domain": [
+        0,
+        48
+      ],
+      "range": [
+        {
+          "signal": "height-65"
+        },
+        10
+      ],
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "terrainY",
+      "type": "linear",
+      "domain": [
+        0,
+        4
+      ],
+      "range": [
+        {
+          "signal": "height-65"
+        },
+        10
+      ],
+      "zero": false,
+      "nice": false
+    },
+    {
+      "name": "colour",
+      "type": "ordinal",
+      "domain": [
+        "Grade 1",
+        "Grade 2",
+        "Grade 3",
+        "Grade 4",
+        "Grade 5",
+        "Unknown"
+      ],
+      "range": [
+        "#2a9d8f",
+        "#69b578",
+        "#e9c46a",
+        "#f4a261",
+        "#e76f51",
+        "#9aa2a6"
+      ]
+    }
+  ],
+  // Vega explicitly groups axis points by trail id before drawing profiles.
+  "marks": [
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": -8
+          },
+          "x2": {
+            "signal": "width+130"
+          },
+          "y": {
+            "signal": "height-28"
+          },
+          "y2": {
+            "signal": "height+5"
+          },
+          "fill": {
+            "value": "#f0f4f1"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "axes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "axis"
+          },
+          "y": {
+            "value": 10
+          },
+          "y2": {
+            "signal": "height-65"
+          },
+          "stroke": {
+            "value": "#b3c5bc"
+          },
+          "strokeWidth": {
+            "value": 1.2
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "axes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "scale": "x",
+            "field": "axis"
+          },
+          "y": {
+            "value": -20
+          },
+          "text": {
+            "field": "title"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#173b37"
+          },
+          "align": {
+            "value": "left"
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "backLines",
+          // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+          "data": "points",
+          "groupby": "id"
+        }
+      },
+      // Vega explicitly groups axis points by trail id before drawing profiles.
+      "marks": [
+        {
+          "type": "line",
+          "from": {
+            // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+            "data": "backLines"
+          },
+          "sort": {
+            "field": "datum.axis"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "scale": "x",
+                "field": "axis"
+              },
+              "y": {
+                "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+              },
+              "stroke": {
+                "value": "#93a69c"
+              },
+              "strokeOpacity": {
+                "value": 0.09
+              },
+              "strokeWidth": {
+                "value": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "frontLines",
+          // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+          "data": "active",
+          "groupby": "id"
+        }
+      },
+      // Vega explicitly groups axis points by trail id before drawing profiles.
+      "marks": [
+        {
+          "name": "trailLine",
+          "type": "line",
+          "from": {
+            // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+            "data": "frontLines"
+          },
+          "sort": {
+            "field": "datum.axis"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "scale": "x",
+                "field": "axis"
+              },
+              "y": {
+                "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+              },
+              "stroke": {
+                "scale": "colour",
+                "field": "grade"
+              },
+              "strokeOpacity": {
+                "signal": "selectedTrail === '' ? (selectedGrade === 'All' ? 0.3 : 0.65) : 0.06"
+              },
+              "strokeWidth": {
+                "value": 1.4
+              },
+              "tooltip": {
+                "signal": "{'Trail':datum.name,'Grade':datum.grade,'Distance (km)':datum.length_km,'Time (h)':isValid(datum.hours) ? datum.hours : 'Not recorded','Terrain':datum.gradient}"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "focusLine",
+          // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+          "data": "focus",
+          "groupby": "id"
+        }
+      },
+      // Vega explicitly groups axis points by trail id before drawing profiles.
+      "marks": [
+        {
+          "type": "line",
+          "from": {
+            // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+            "data": "focusLine"
+          },
+          "sort": {
+            "field": "datum.axis"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "scale": "x",
+                "field": "axis"
+              },
+              "y": {
+                "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+              },
+              "stroke": {
+                "scale": "colour",
+                "field": "grade"
+              },
+              "strokeWidth": {
+                "value": 3.5
+              }
+            }
+          }
+        },
+        {
+          "type": "symbol",
+          "from": {
+            // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+            "data": "focusLine"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "scale": "x",
+                "field": "axis"
+              },
+              "y": {
+                "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+              },
+              "size": {
+                "value": 55
+              },
+              "fill": {
+                "scale": "colour",
+                "field": "grade"
+              },
+              "stroke": {
+                "value": "white"
+              },
+              "strokeWidth": {
+                "value": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "rule",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "ticks"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "axis",
+            "offset": -4
+          },
+          "x2": {
+            "scale": "x",
+            "field": "axis",
+            "offset": 4
+          },
+          "y": {
+            "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+          },
+          "stroke": {
+            "value": "#5c7369"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "ticks"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "axis",
+            "offset": 7
+          },
+          "y": {
+            "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+          },
+          "text": {
+            "field": "label"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#334d43"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "ticks"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "axis",
+            "offset": 7
+          },
+          "y": {
+            "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)"
+          },
+          "text": {
+            "field": "label"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#334d43"
+          },
+          "baseline": {
+            "value": "middle"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "callout"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "axis",
+            "offset": -12
+          },
+          "y": {
+            "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)",
+            "offset": -11
+          },
+          "align": {
+            "value": "right"
+          },
+          "text": {
+            "signal": "[datum.name, isValid(datum.hours) ? format(datum.hours,'.1f')+' h' : 'Time not recorded']"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "value": "#9c4227"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 3
+          },
+          "limit": {
+            "value": 260
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
+        "data": "callout"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "axis",
+            "offset": -12
+          },
+          "y": {
+            "signal": "!isValid(datum.value) ? height-10 : datum.axis === 0 ? scale('gradeY',datum.value) : datum.axis === 1 ? scale('distanceY',datum.value) : datum.axis === 2 ? scale('timeY',datum.value) : scale('terrainY',datum.value)",
+            "offset": -11
+          },
+          "align": {
+            "value": "right"
+          },
+          "text": {
+            "signal": "[datum.name, isValid(datum.hours) ? format(datum.hours,'.1f')+' h' : 'Time not recorded']"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "value": "#9c4227"
+          },
+          "limit": {
+            "value": 260
+          }
+        }
+      }
+    }
+  ],
+  "autosize": "none",
+  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
+  "usermeta": {
+    "container": "#chart-06",
+    "layout": "parallel",
+    "gutter": 65
+  }
+}

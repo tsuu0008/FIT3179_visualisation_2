@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 388,
   "height": 360,
   "background": null,
   "config": {
@@ -131,7 +131,10 @@
       "mark": {
         "type": "text",
         "fontSize": 13,
-        "fontWeight": 700
+        "fontWeight": 700,
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -272,7 +275,10 @@
         "align": "left",
         "dx": -15,
         "dy": -16,
-        "color": "#a64629"
+        "color": "#a64629",
+        "limit": {
+          "expr": "small ? 170 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -287,6 +293,21 @@
           "value": "Largest group\n69 trails"
         }
       }
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-04",
+    "layout": "standard",
+    "gutter": 175
+  },
+  "params": [
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
     }
   ]
 }

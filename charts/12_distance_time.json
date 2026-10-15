@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 1099,
   "height": 390,
   "background": null,
   "config": {
@@ -41,6 +41,9 @@
   },
   "transform": [
     {
+      "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+    },
+    {
       "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0"
     },
     {
@@ -60,7 +63,16 @@
         "x": {
           "field": "length_km",
           "type": "quantitative",
-          "title": "Distance (km)"
+          "title": "Distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
@@ -68,8 +80,11 @@
           "scale": {
             "domain": [
               0,
-              52
-            ]
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
           },
           "title": "Estimated time (hours)"
         },
@@ -118,7 +133,21 @@
             "title": "Implied pace (km/h)",
             "format": ".1f"
           }
-        ]
+        ],
+        "opacity": {
+          "condition": {
+            "test": "selectedTrail === '' || datum.name === selectedTrail",
+            "value": 0.85
+          },
+          "value": 0.1
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "selectedTrail !== '' && datum.name === selectedTrail",
+            "value": 3
+          },
+          "value": 0.5
+        }
       }
     },
     {
@@ -141,11 +170,29 @@
       "encoding": {
         "x": {
           "field": "length_km",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          }
         }
       }
     },
@@ -161,7 +208,16 @@
         "x": {
           "field": "length_km",
           "type": "quantitative",
-          "title": "Distance (km)"
+          "title": "Distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
@@ -169,8 +225,11 @@
           "scale": {
             "domain": [
               0,
-              52
-            ]
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
           },
           "title": "Estimated time (hours)"
         },
@@ -210,7 +269,7 @@
           "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km \u00b7 ' + format(datum.hours, '.0f') + ' hours'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km · ' + format(datum.hours, '.0f') + ' hours'",
           "as": "annotation"
         }
       ],
@@ -223,16 +282,37 @@
         "fontSize": 12,
         "fontWeight": 700,
         "color": "#173b37",
-        "lineBreak": "\n"
+        "lineBreak": "\n",
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
       },
       "encoding": {
         "x": {
           "field": "length_km",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "distanceExtent"
+              }
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              {
+                "expr": "timeExtent"
+              }
+            ],
+            "nice": false
+          }
         },
         "text": {
           "field": "annotation"
@@ -257,7 +337,10 @@
         "align": "right",
         "fontSize": 12,
         "color": "#173b37",
-        "dy": -8
+        "dy": -8,
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
       },
       "encoding": {
         "x": {
@@ -274,6 +357,92 @@
           "field": "annotation"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "visibleCount === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "limit": {
+          "expr": "small ? 135 : 0"
+        }
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2"
+          }
+        },
+        "text": {
+          "value": "No recorded trails match\nTry another grade, area or distance"
+        }
+      }
     }
-  ]
+  ],
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All"
+    },
+    {
+      "name": "chosenLga",
+      "value": "All"
+    },
+    {
+      "name": "maximumKm",
+      "value": 95
+    },
+    {
+      "name": "accessOnly",
+      "value": false
+    },
+    {
+      "name": "selectedTrail",
+      "value": ""
+    },
+    {
+      "name": "visibleCount",
+      "value": 149
+    },
+    {
+      "name": "distanceExtent",
+      "value": 40
+    },
+    {
+      "name": "timeExtent",
+      "value": 50
+    },
+    {
+      "name": "small",
+      "value": false
+    },
+    {
+      "name": "compact",
+      "value": false
+    }
+  ],
+  "usermeta": {
+    "container": "#chart-12",
+    "layout": "standard",
+    "gutter": 95
+  }
 }
