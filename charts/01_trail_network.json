@@ -71,19 +71,6 @@
           "property": "features"
         }
       },
-      "params": [
-        {
-          "name": "gradePick",
-          "select": {
-            "type": "point",
-            "fields": [
-              "properties.grade"
-            ],
-            "toggle": false
-          },
-          "bind": "legend"
-        }
-      ],
       "mark": {
         "type": "geoshape",
         "filled": false,
@@ -116,10 +103,10 @@
               "#9aa2a6"
             ]
           },
-          "title": "Detail map grade"
+          "title": "Grade"
         },
         "opacity": {
-          "value": 0.92
+          "value": 0.9
         },
         "tooltip": [
           {
@@ -228,7 +215,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Longest recorded walk\nUpper Yarra · 95 km"
+          "value": "Longest recorded walk\nUpper Yarra \u00b7 95 km"
         }
       }
     },
@@ -263,7 +250,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Longest recorded walk\nUpper Yarra · 95 km"
+          "value": "Longest recorded walk\nUpper Yarra \u00b7 95 km"
         }
       }
     }

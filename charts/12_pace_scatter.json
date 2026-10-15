@@ -210,7 +210,7 @@
           "filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km · ' + format(datum.hours, '.0f') + ' hours'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km \u00b7 ' + format(datum.hours, '.0f') + ' hours'",
           "as": "annotation"
         }
       ],
@@ -248,7 +248,7 @@
           "params": true
         },
         {
-          "calculate": "'Fitted trend: ' + format(datum.coef[1], '.2f') + ' h/km'",
+          "calculate": "'Trend: ' + format(datum.coef[1], '.2f') + ' h/km'",
           "as": "annotation"
         }
       ],

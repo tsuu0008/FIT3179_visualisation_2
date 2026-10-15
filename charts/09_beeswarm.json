@@ -324,21 +324,21 @@
           "filter": "datum.total > 0"
         },
         {
-          "calculate": "datum.short_count + ' of ' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ') ≤ 5 km'",
+          "calculate": "'\u22645 km: ' + datum.short_count + '/' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ')'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "fontSize": 12,
+        "align": "right",
+        "fontSize": 11,
         "fontWeight": 700,
         "color": "#52716a"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width * 0.38"
+            "expr": "width - 8"
           }
         },
         "y": {
