@@ -1242,3 +1242,15 @@ h3 {
         }
       }
     
+
+/* Vega-Lite creates these inputs directly from params.bind in the JSON. */
+.vega-embed { display: flex !important; flex-direction: column; }
+.vega-bindings { order: -1; display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 0 0 14px; font-size: 0.82rem; color: #234e40; }
+.vega-bind { max-width: 100%; }
+.vega-bind label { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.vega-bind select { max-width: 100%; padding: 7px 9px; border: 1px solid #adc2b6; border-radius: 5px; background: white; color: #173b37; font: inherit; }
+#chart-01 { height: clamp(220px, 27vw, 390px); }
+#chart-02, #chart-03 { height: clamp(260px, 36vw, 450px); margin-bottom: 12px; }
+#detail-map { height: 265px; margin-bottom: 10px; width: 100%; }
+#chart-06 .vega-embed { min-width: 760px; }
+.dark-card .vega-bindings { color: #e8f3ef; }

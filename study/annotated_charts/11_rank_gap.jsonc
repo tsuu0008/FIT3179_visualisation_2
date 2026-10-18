@@ -1,14 +1,94 @@
-// Study copy of charts/11_rank_gap.json. The website loads strict JSON, not this file.
+// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
+// Rules join two ranks for each area; coloured points identify each ranking.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1019,
+  "width": "container",
   "height": 420,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  // Shared font, axis and legend settings.
-  "config": {
-    "view": {
-      "stroke": null
+  // Input records or prepared plotting values.
+  "data": {"url": "data/lga_stats.json"},
+  // Filter, group or calculate before drawing.
+  "transform": [{"filter": "datum.trail_count > 0 && datum.population_rank <= 18"}],
+  // Draw these layers in order, from background to foreground.
+  "layer": [
+    {
+      "mark": {"type": "rule", "stroke": "#a8b8b4", "strokeWidth": 2},
+      "encoding": {
+        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "x": {
+          "field": "population_rank",
+          "type": "quantitative",
+          "title": ["Rank among areas with trails", "1 = highest"],
+          "scale": {"domain": [0, 33], "nice": false}
+        },
+        "x2": {"field": "supply_rank"}
+      }
     },
+    {
+      "mark": {"type": "rule", "stroke": "#d95d39", "strokeWidth": 3},
+      "encoding": {
+        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "x": {
+          "field": "population_rank",
+          "type": "quantitative",
+          "title": ["Rank among areas with trails", "1 = highest"],
+          "scale": {"domain": [0, 33], "nice": false}
+        },
+        "x2": {"field": "supply_rank"}
+      },
+      "transform": [{"filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"}]
+    },
+    {
+      "transform": [{"fold": ["population_rank", "supply_rank"], "as": ["measure", "rank"]}],
+      "mark": {"type": "point", "filled": true, "size": 95},
+      "encoding": {
+        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "x": {"field": "rank", "type": "quantitative"},
+        "color": {
+          "field": "measure",
+          "type": "nominal",
+          "scale": {"domain": ["population_rank", "supply_rank"], "range": ["#264653", "#e76f51"]},
+          "legend": {
+            "title": null,
+            "labelExpr": "datum.label === 'population_rank' ? 'Population rank' : 'Trail supply rank'"
+          }
+        },
+        "tooltip": [
+          {"field": "name", "title": "LGA"},
+          {"field": "measure", "title": "Measure"},
+          {"field": "rank", "title": "Rank"}
+        ]
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"},
+        {
+          "calculate": "'Pop. ' + datum.population_rank + ' → Supply ' + datum.supply_rank",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": -9,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#b74928",
+        "limit": 170
+      },
+      "encoding": {
+        "x": {"field": "supply_rank", "type": "quantitative"},
+        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "text": {"field": "annotation"}
+      }
+    }
+  ],
+  // Shared styling for this chart.
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -29,227 +109,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 1,
+      "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-  "data": {
-    "url": "data/lga_stats.json"
-  },
-  // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-  "transform": [
-    {
-      "filter": "datum.trail_count > 0 && datum.population_rank <= 18"
-    }
-  ],
-  // Layers draw in order: context, data, emphasis and annotations.
-  "layer": [
-    {
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "rule",
-        "stroke": "#a8b8b4",
-        "strokeWidth": 2
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "y": {
-          "field": "name",
-          "type": "nominal",
-          "sort": {
-            "field": "population_rank"
-          },
-          "title": null
-        },
-        "x": {
-          "field": "population_rank",
-          "type": "quantitative",
-          "title": "Rank among LGAs with recorded trails (1 = highest)",
-          "scale": {
-            "domain": [
-              0,
-              33
-            ],
-            "nice": false
-          }
-        },
-        "x2": {
-          "field": "supply_rank"
-        }
-      }
-    },
-    {
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "rule",
-        "stroke": "#d95d39",
-        "strokeWidth": 3
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "y": {
-          "field": "name",
-          "type": "nominal",
-          "sort": {
-            "field": "population_rank"
-          },
-          "title": null
-        },
-        "x": {
-          "field": "population_rank",
-          "type": "quantitative",
-          "title": "Rank among LGAs with recorded trails (1 = highest)",
-          "scale": {
-            "domain": [
-              0,
-              33
-            ],
-            "nice": false
-          }
-        },
-        "x2": {
-          "field": "supply_rank"
-        }
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
-        }
-      ]
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "fold": [
-            "population_rank",
-            "supply_rank"
-          ],
-          "as": [
-            "measure",
-            "rank"
-          ]
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 95
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "y": {
-          "field": "name",
-          "type": "nominal",
-          "sort": {
-            "field": "population_rank"
-          },
-          "title": null
-        },
-        "x": {
-          "field": "rank",
-          "type": "quantitative"
-        },
-        "color": {
-          "field": "measure",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "population_rank",
-              "supply_rank"
-            ],
-            "range": [
-              "#264653",
-              "#e76f51"
-            ]
-          },
-          "legend": {
-            "title": null,
-            "labelExpr": "datum.label === 'population_rank' ? 'Population rank' : 'Trail supply rank'"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "LGA"
-          },
-          {
-            "field": "measure",
-            "title": "Measure"
-          },
-          {
-            "field": "rank",
-            "title": "Rank"
-          }
-        ]
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
-        },
-        {
-          "calculate": "'Pop. ' + datum.population_rank + ' → Supply ' + datum.supply_rank",
-          "as": "annotation"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -6,
-        "dy": -9,
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#b74928",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "field": "supply_rank",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "name",
-          "type": "nominal",
-          "sort": {
-            "field": "population_rank"
-          },
-          "title": null
-        },
-        "text": {
-          "field": "annotation"
-        }
-      }
-    }
-  ],
-  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
-  "usermeta": {
-    "container": "#chart-11",
-    "layout": "standard",
-    "gutter": 175
-  },
-  // Parameters that the short HTML controls update; expressions react to those changes.
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
+  }
 }

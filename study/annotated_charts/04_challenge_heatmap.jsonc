@@ -1,14 +1,150 @@
-// Study copy of charts/04_challenge_heatmap.json. The website loads strict JSON, not this file.
+// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
+// Count trails by grade and terrain. Rectangles show counts; text writes the numbers.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 388,
+  "width": "container",
   "height": 360,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  // Shared font, axis and legend settings.
-  "config": {
-    "view": {
-      "stroke": null
+  // Input records or prepared plotting values.
+  "data": {"url": "data/trails.json"},
+  // Filter, group or calculate before drawing.
+  "transform": [
+    {"filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"},
+    {"aggregate": [{"op": "count", "as": "trail_count"}], "groupby": ["grade", "gradient"]}
+  ],
+  // Draw these layers in order, from background to foreground.
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 4},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": "Walking grade",
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"}
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        },
+        "color": {
+          "field": "trail_count",
+          "type": "quantitative",
+          "scale": {"scheme": "yellowgreenblue"},
+          "title": "Trail count",
+          "legend": {
+            "orient": "none",
+            "legendX": 8,
+            "legendY": 7,
+            "direction": "horizontal",
+            "gradientLength": 105,
+            "gradientThickness": 8,
+            "title": "Trail count",
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "titlePadding": 4,
+            "padding": 0,
+            "tickCount": 3
+          }
+        },
+        "tooltip": [
+          {"field": "grade", "title": "Grade"},
+          {"field": "gradient", "title": "Gradient"},
+          {"field": "trail_count", "title": "Trails"}
+        ]
+      }
     },
+    {
+      "mark": {"type": "text", "fontSize": 13, "fontWeight": 700, "limit": 170},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"},
+          "title": "Walking grade"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        },
+        "text": {"field": "trail_count"},
+        "color": {"condition": {"test": "datum.trail_count > 22", "value": "white"}, "value": "#12332f"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"}],
+      "mark": {"type": "rect", "fillOpacity": 0, "stroke": "#d95d39", "strokeWidth": 3, "cornerRadius": 4},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": "Walking grade",
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"}
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        }
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "max", "field": "trail_count", "as": "largest"}]}],
+      "mark": {"type": "rule", "stroke": "#b34e2d", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {"datum": "Grade 1", "type": "ordinal"},
+        "x2": {"value": {"expr": "width * 0.4 + 3"}},
+        "y": {"datum": "Very steep", "type": "nominal"},
+        "y2": {"value": {"expr": "height * 0.4 + 3"}}
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "max", "field": "trail_count", "as": "largest"}]}],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "align": "left",
+        "dx": -15,
+        "dy": -16,
+        "color": "#a64629",
+        "limit": 170
+      },
+      "encoding": {
+        "x": {"datum": "Grade 1", "type": "ordinal"},
+        "y": {"datum": "Very steep", "type": "nominal"},
+        "text": {"value": "Largest group\n69 trails"}
+      }
+    }
+  ],
+  // Shared styling for this chart.
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -29,305 +165,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 2,
+      "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-  "data": {
-    "url": "data/trails.json"
-  },
-  // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-  "transform": [
-    {
-      "filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"
-    },
-    {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "trail_count"
-        }
-      ],
-      "groupby": [
-        "grade",
-        "gradient"
-      ]
-    }
-  ],
-  // Layers draw in order: context, data, emphasis and annotations.
-  "layer": [
-    {
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "rect",
-        "cornerRadius": 4
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": "Australian walking track grade",
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Typical gradient"
-        },
-        "color": {
-          "field": "trail_count",
-          "type": "quantitative",
-          "scale": {
-            "scheme": "yellowgreenblue"
-          },
-          "title": "Trail count",
-          "legend": {
-            "orient": "none",
-            "legendX": 8,
-            "legendY": 7,
-            "direction": "horizontal",
-            "gradientLength": 105,
-            "gradientThickness": 8,
-            "title": "Trail count",
-            "titleFontSize": 11,
-            "labelFontSize": 10,
-            "titlePadding": 4,
-            "padding": 0,
-            "tickCount": 3
-          }
-        },
-        "tooltip": [
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "gradient",
-            "title": "Gradient"
-          },
-          {
-            "field": "trail_count",
-            "title": "Trails"
-          }
-        ]
-      }
-    },
-    {
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "fontWeight": 700,
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ]
-        },
-        "text": {
-          "field": "trail_count"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.trail_count > 22",
-            "value": "white"
-          },
-          "value": "#12332f"
-        }
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "rect",
-        "fillOpacity": 0,
-        "stroke": "#d95d39",
-        "strokeWidth": 3,
-        "cornerRadius": 4
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": "Australian walking track grade",
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Typical gradient"
-        }
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "max",
-              "field": "trail_count",
-              "as": "largest"
-            }
-          ]
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "rule",
-        "stroke": "#b34e2d",
-        "strokeWidth": 1.5
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "datum": "Grade 1",
-          "type": "ordinal"
-        },
-        "x2": {
-          "value": {
-            "expr": "width * 0.4 + 3"
-          }
-        },
-        "y": {
-          "datum": "Very steep",
-          "type": "nominal"
-        },
-        "y2": {
-          "value": {
-            "expr": "height * 0.4 + 3"
-          }
-        }
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "max",
-              "field": "trail_count",
-              "as": "largest"
-            }
-          ]
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "align": "left",
-        "dx": -15,
-        "dy": -16,
-        "color": "#a64629",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "datum": "Grade 1",
-          "type": "ordinal"
-        },
-        "y": {
-          "datum": "Very steep",
-          "type": "nominal"
-        },
-        "text": {
-          "value": "Largest group\n69 trails"
-        }
-      }
-    }
-  ],
-  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
-  "usermeta": {
-    "container": "#chart-04",
-    "layout": "standard",
-    "gutter": 175
-  },
-  // Parameters that the short HTML controls update; expressions react to those changes.
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
+  }
 }

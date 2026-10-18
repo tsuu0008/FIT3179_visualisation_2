@@ -1,33 +1,46 @@
-# The simple version
+# Start here: three things to understand
 
-There is no app.js. Open **index.html**, search for **INSERT THE CHARTS**, and read the explicit Vega-Embed calls.
+## 1. HTML provides a place
 
 ```html
-<div id="chart-04" class="chart"></div>
+<div id="chart-04"></div>
 ```
+
+This is an empty box with a unique name.
+
+## 2. Vega-Embed inserts a chart
+
+At the bottom of index.html, search for **INSERT THE CHARTS**:
 
 ```js
-await vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", options);
+vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", {actions: false, renderer: "svg"});
 ```
 
-This means: **draw this JSON chart inside this HTML container**.
+Read it as: **draw this JSON chart inside this HTML box**.
 
-| File | Job |
+- `#chart-04` matches the div id.
+- The second argument is the chart file.
+- `actions: false` hides the three-dot menu.
+- `renderer: "svg"` draws a sharp vector chart.
+
+This one-line function call is JavaScript, even though it is inside HTML. It is the only kind of JavaScript you need to read in this page.
+
+The three scripts immediately above it load Vega, Vega-Lite and Vega-Embed. Loading those libraries does not insert a particular chart. The embed call does that. The JSON's `$schema` link identifies the JSON grammar; it does not load the drawing library.
+
+## 3. JSON describes what to draw
+
+Read these keys in order:
+
+| Key | Plain meaning |
 | --- | --- |
-| index.html | Story, chart containers, explicit embeds and a short control section. |
-| styles.css | Colours, fonts, card sizes and responsive layout. |
-| charts/*.json | Data, transforms, marks, encodings, parameters and annotations. |
-| data/* | Records, geometry and prepared tables. |
-| data-bundle.js | Generated copy of JSON inputs for direct-open preview. |
+| data | Where are the records? |
+| transform | Filter, count or calculate something. |
+| mark | Draw a bar, point, line, shape or text. |
+| encoding | Map fields to position, colour, size or text. |
+| layer | Draw several things over one another. Later layers appear on top. |
+| params | A value the reader can change, such as a grade. |
+| config | Fonts, axes and legends. |
 
-Vega-Embed and the custom HTML controls still require a small amount of JavaScript. The HTML control section sends values to one chart's parameters; drawing and filtering definitions now live in the JSON. The regional detail has its own file, **13_region_detail.json**.
+Start with chart 05: a rule and dot show each grade's median distance; a text layer adds its value. Then inspect chart 04: rectangles show counts, and text shows the same numbers.
 
-Read **INTERVIEW_GUIDE.md** next. Commented study copies of all 13 specifications are in **annotated_charts/**; they are not loaded by the website.
-
-After editing a chart or data JSON file, run:
-
-```bash
-python3 study/rebuild_bundle.py
-```
-
-Then reload the page. Internet access is needed for the three visualisation libraries and fonts.
+Open the website through **Live Server**, not by double-clicking the HTML. JSON files can be edited directly; reload afterwards. No rebuild command is needed.

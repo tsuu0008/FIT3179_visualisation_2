@@ -1,99 +1,69 @@
-# Simple interview guide
+# Interview guide
 
-## Explain the project
+## A short introduction
 
-“I use HTML for the story and chart containers, CSS for layout, and Vega/Vega-Lite JSON for chart instructions. Explicit Vega-Embed calls at the bottom of my HTML draw each chart. A short section reads the existing controls and changes one chart's parameters at a time.”
+“My project examines the location, difficulty and recorded accessibility of 194 Victorian walking trails. HTML holds the story, CSS controls the layout, and Vega-Lite JSON describes the charts. One Vega-Embed call inserts each chart into its HTML container.”
 
-## Understand one call
+## Why each chart is here
 
-```js
-await vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", options);
-```
-
-- First argument: **where** to draw; matches an HTML id.
-- Second argument: **what** to draw; the chart specification.
-- options: SVG, export/tooltips and the direct-open data loader.
-- await: finish creating this chart before continuing.
-
-Interactive charts save their `.view`, the live object that receives control updates. Static charts do not need a saved variable.
-
-The HTML's first three CDN scripts load Vega, Vega-Lite and Vega-Embed. The JSON's `$schema` URL identifies its grammar; it does not load the drawing library.
-
-## Read JSON in this order
-
-| Key | Meaning |
-| --- | --- |
-| data | Which records? |
-| transform | Which filtering or calculation? |
-| mark | Draw rectangles, points, lines, text or geographic shapes? |
-| encoding | What controls position, colour, size and text? |
-| layer | What is drawn over earlier things? |
-| params | Which values can controls change? |
-| config | Shared fonts, legends and appearance. |
-
-Chart 06 uses Vega directly: signals, named scales and grouped marks control its parallel axes. The other 12 specification files use Vega-Lite (including the regional detail).
-
-## Each idiom in one sentence
-
-| File | Why it is used | Limitation to recognise |
+| Chart | Why I chose it | Main code idea |
 | --- | --- | --- |
-| 01_trail_network | Actual route geography shows where the network lies. | Overlapping lines do not reveal exact trail counts. |
-| 02_trail_supply | A choropleth reveals geographic patterns in supply per resident or total length. | Small populations can produce high ratios. |
-| 03_trail_symbols | Selectable midpoint circles communicate location, grade and distance. | A midpoint is not necessarily an entrance; symbols overlap. |
-| 04_challenge_heatmap | Colour reveals common grade/terrain combinations in a compact grid. | Bars would support more precise magnitude comparisons. |
-| 05_median_distance | Aligned dots compare typical distances with less influence from extremes. | A median hides variation; Grade 5 has only two records. |
-| 06_parallel_coordinates | One profile traces the same trail across grade, distance, time and terrain. | Lines overlap; slope is not a physical rate or movement. |
-| 07_experience_bars | Stacked bars show terrain totals and experience composition in trail counts. | Middle segments have no common baseline. |
-| 08_terrain_mosaic | Width and height jointly show kilometre shares by terrain and grade. | More complex than bars; small blocks are harder to read. |
-| 09_distance_strip | Individual points reveal distance variation hidden by a median. | Lane offsets only reduce overlaps; they are not another measured attribute. |
-| 10_access_waffle | A percentage grid communicates uncommon recorded access. | Cells round the percentage, so exact text is necessary. |
-| 11_rank_gap | Connected endpoints show population/supply rank mismatch. | Rank gaps cannot give kilometre differences or ratios. |
-| 12_distance_time | A scatterplot shows the relationship between two continuous quantities. | A fitted association is not a causal explanation. |
-| 13_region_detail | A local map separates routes that overlap statewide. | Zoom clips geometry while the counter still counts attribute matches. |
+| 01 Route map | Show the actual network's geography. | geoshape boundaries and route lines; colour = grade. |
+| 02 Supply map | Compare supply across areas. | geoshape fill colour = km per resident or total km. |
+| 03 Circle map | Compare location, distance and grade together. | longitude/latitude position, size = km, colour = grade. |
+| 04 Heatmap | Find common grade/terrain combinations. | aggregate count, rect marks, text values. |
+| 05 Median distance | Compare the typical distance in each grade. | aggregate median, rule + point + text. |
+| 06 Parallel coordinates | Follow one trail across four attributes. | prepared axis positions, grouped line marks, one highlighted example. |
+| 07 Stacked bars | Compare trail counts and experience requirements. | count trails and stack bars by experience. |
+| 08 Mosaic | Compare kilometre shares across terrain and grade. | prepared x0/x1/y0/y1 rectangle coordinates. |
+| 09 Distance strip | Show variation hidden by a median. | one circle per trail; x = distance, y = grade, offset = lane. |
+| 10 Waffle | Make a small access percentage easy to see. | 100 prepared cells; eight coloured cells approximate 8.4%. |
+| 11 Dumbbell | Show the gap between two rankings. | rule joins population/supply ranks; two coloured endpoints. |
+| 12 Scatterplot | Show distance/time relationships and outliers. | x/y quantitative positions, regression line and labels. |
+| 13 Regional detail | Separate routes that overlap statewide. | filter by area; fit the projection to the remaining shapes. |
 
-## Explain one interaction
+## One interaction to explain
 
-1. A reader chooses a grade in the HTML dropdown.
-2. The short `connectPlot()` function reads its value.
-3. It sends the value to that map's `chosenGrade` signal.
-4. The JSON's filter selects matching records.
-5. The chart redraws and the counter updates.
+The distance strip has this parameter:
 
-```js
-view.signal("chosenGrade", grade).runAsync();
+```json
+"params": [{
+  "name": "chosenGrade",
+  "value": "All",
+  "bind": {"input": "select", "options": ["All", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"]}
+}]
 ```
 
-Say: **“Set this chart's grade parameter, then redraw it.”** Other plots have separate Views. The overview receives no filter updates.
+Its transform uses:
 
-The same small helper handles map, distance and time controls. Supply, regional detail and parallel coordinates have short, separate update functions. Zoom calculations and selected-region layers now live in JSON.
+```json
+{"filter": "chosenGrade === 'All' || datum.grade === chosenGrade"}
+```
 
-## Important visual meanings
+Say: **“The dropdown changes chosenGrade. The filter keeps every row when All is selected, or keeps rows with the selected grade. Vega-Lite redraws this plot automatically.”**
 
-- Route line: geographic shape, not a count or a distance-sized stroke.
-- Circle: representative midpoint. Size means symbol area, not radius; its runtime area has a minimum size.
-- Heatmap cell: trail count for that category pair.
-- Median: middle distance, not the mean.
-- Parallel profile: one trail. Missing time has its own lane, not zero hours.
-- Stacked bars count trails. Mosaic blocks measure kilometres.
-- Mosaic width: terrain share. Height: grade share within that terrain. Area: joint share of included kilometres.
-- Waffle: 100 percentage cells; 15 of 179 rated records = about 8.4%, rounded to eight coloured cells.
-- Dumbbell: two ranks, with 1 highest. The arrow is a comparison, not a time trend.
-- Scatter slope: hours per kilometre. Tooltip distance/time is speed in km/h.
+- `datum` means the current data row.
+- `===` means equal to.
+- `||` means OR; `&&` means AND.
+- Each JSON file has separate parameters, so its dropdown affects only that chart.
 
-## Why there is still a generated data file
+No custom JavaScript controls or zoom handlers are involved. The fixed overview has no filter. The small regional map has its own area dropdown.
 
-`data-bundle.js` copies the JSON files so the ZIP can open directly without a local server. The short loader reads it, while the embed calls visibly name the readable specifications. Edit JSON, then rebuild the package; do not manually edit the generated file.
+## A few meanings to remember
 
-`fitSize()` only chooses dimensions and compact legends. Map bounds are prepared data in map_bounds.json, and their reactive projection expressions are inside the map JSON files.
+- A median is the middle value. Grade 5's 21 km median comes from only two trails.
+- In the circle map, symbol area increases with distance, with a minimum size for visibility. A midpoint is not an entrance.
+- In parallel coordinates, each line is one trail, not a journey. Grade/terrain are ordered categories; equal gaps do not mean equal effort.
+- Distance/time positions in parallel coordinates are prepared using square roots. Tick labels show raw km/hours. Missing values have a separate grey lane, never zero.
+- The strip also uses a square-root distance axis. Its vertical offsets separate dots; they are not another measured variable.
+- Stacked bars count trails. Mosaic blocks measure kilometres: width = terrain share, height = grade share within that terrain, area = their combined share.
+- Access is 15/179 rated trails = 8.4%. Fifteen more trails have no rating and are excluded. The waffle rounds to eight cells.
+- A rank gap is not a kilometre gap. A scatterplot association is not proof of a cause.
 
-## Interview answer template
+## A useful answer structure
 
-“I wanted to show ___. I chose ___ because ___. Position/colour/size represents ___. The JSON implements this using ___. One limitation is ___.”
+“I wanted to show ___. I chose ___ because ___. Position/colour/size represents ___. In the JSON, ___ implements it. One limitation is ___.”
 
-Example: “I use a heatmap to compare grade/terrain combinations. Position identifies the categories and colour shows count. I aggregate trails by grade and terrain, then draw rectangles and number labels. Bars would be better for precise magnitude comparisons.”
+Example: “I wanted to find common grade/terrain combinations. A heatmap uses two categorical axes and colour for count. I group and count records, draw rectangles, then add number labels. Colour is less precise than aligned bars, so the numbers help.”
 
-## Be accurate about limitations
-
-The input data is already processed; the original raw-data spatial join is not included. Some annotations and denominators are fixed to this snapshot. Missing fields create different included sets. Dimensions are measured when loading; reload at a new viewport to recalculate them. Label clamping helps clipping but is not a general collision solver.
-
-A small amount of JavaScript is still necessary for Vega-Embed and custom HTML controls. The simpler structure exposes the embed calls and moves the chart definitions into JSON; it does not hide the old application in a different file.
+The supplied inputs are already processed. Do not claim the website performs the original cleaning or spatial boundary assignment. The full dataset has 194 trails; only 149 have positive recorded times, so the time plot has a different denominator.

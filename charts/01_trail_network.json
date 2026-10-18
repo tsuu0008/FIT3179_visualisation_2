@@ -1,12 +1,109 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 430,
+  "width": "container",
+  "height": "container",
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  "config": {
-    "view": {
-      "stroke": null
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {"url": "data/lga.geojson", "format": {"type": "json", "property": "features"}},
+      "mark": {"type": "geoshape", "fill": "#eef3f1", "stroke": "#9eafaa", "strokeWidth": 0.8},
+      "encoding": {}
     },
+    {
+      "data": {"url": "data/trails.geojson", "format": {"type": "json", "property": "features"}},
+      "mark": {"type": "geoshape", "filled": false, "strokeWidth": 3, "strokeCap": "round"},
+      "encoding": {
+        "color": {
+          "field": "properties.grade",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
+          },
+          "title": "Grade",
+          "legend": null
+        },
+        "opacity": {"value": 0.9},
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "Trail"},
+          {"field": "properties.grade", "type": "nominal", "title": "Grade"},
+          {"field": "properties.length_km", "type": "quantitative", "title": "Distance (km)", "format": ".1f"},
+          {"field": "properties.hours", "type": "quantitative", "title": "Time (hours)", "format": ".1f"},
+          {"field": "properties.lga", "type": "nominal", "title": "LGA"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "data/trails.json"},
+      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "mark": {
+        "type": "circle",
+        "size": 130,
+        "filled": true,
+        "color": "#7f1d1d",
+        "stroke": "#ffffff",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "tooltip": [
+          {"field": "name", "title": "Trail"},
+          {"field": "length_km", "title": "Distance (km)"},
+          {"field": "grade", "title": "Grade"}
+        ]
+      }
+    },
+    {
+      "data": {"url": "data/trails.json"},
+      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": -16,
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#7f1d1d",
+        "lineBreak": "\n",
+        "limit": 180,
+        "stroke": "white",
+        "strokeWidth": 3,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"value": "Longest recorded walk\nUpper Yarra · 95 km"}
+      }
+    },
+    {
+      "data": {"url": "data/trails.json"},
+      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "dy": -16,
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#7f1d1d",
+        "lineBreak": "\n",
+        "limit": 180
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"value": "Longest recorded walk\nUpper Yarra · 95 km"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -26,334 +123,10 @@
       "titleFontSize": 13,
       "orient": "bottom",
       "padding": 8,
-      "columns": 6,
+      "columns": 2,
       "direction": "horizontal",
       "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  "projection": {
-    "type": "mercator",
-    "center": {
-      "expr": "mapCenter"
-    },
-    "scale": {
-      "expr": "mapScale"
-    },
-    "translate": {
-      "expr": "[width/2,height/2]"
-    },
-    "clipExtent": {
-      "expr": "[[0,0],[width,height]]"
-    }
-  },
-  "layer": [
-    {
-      "data": {
-        "name": "mapBoundsData",
-        "url": "data/map_bounds.json"
-      },
-      "mark": {
-        "type": "point",
-        "opacity": 0,
-        "size": 0
-      },
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "y": {
-          "value": 0
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/lga.geojson",
-        "format": {
-          "type": "json",
-          "property": "features"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#eef3f1",
-        "stroke": "#9eafaa",
-        "strokeWidth": 0.8
-      },
-      "encoding": {
-        "shape": {
-          "field": "geometry",
-          "type": "geojson"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.geojson",
-        "format": {
-          "type": "json",
-          "property": "features"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "filled": false,
-        "strokeWidth": 3,
-        "strokeCap": "round"
-      },
-      "encoding": {
-        "shape": {
-          "field": "geometry",
-          "type": "geojson"
-        },
-        "color": {
-          "field": "properties.grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#2a9d8f",
-              "#69b578",
-              "#e9c46a",
-              "#f4a261",
-              "#e76f51",
-              "#9aa2a6"
-            ]
-          },
-          "title": "Grade"
-        },
-        "opacity": {
-          "value": 0.9
-        },
-        "tooltip": [
-          {
-            "field": "properties.name",
-            "type": "nominal",
-            "title": "Trail"
-          },
-          {
-            "field": "properties.grade",
-            "type": "nominal",
-            "title": "Grade"
-          },
-          {
-            "field": "properties.length_km",
-            "type": "quantitative",
-            "title": "Distance (km)",
-            "format": ".1f"
-          },
-          {
-            "field": "properties.hours",
-            "type": "quantitative",
-            "title": "Time (hours)",
-            "format": ".1f"
-          },
-          {
-            "field": "properties.lga",
-            "type": "nominal",
-            "title": "LGA"
-          }
-        ]
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "datum.name === 'Upper Yarra Walking Track'"
-        }
-      ],
-      "mark": {
-        "type": "circle",
-        "size": 130,
-        "filled": true,
-        "color": "#7f1d1d",
-        "stroke": "#ffffff",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          }
-        ]
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "datum.name === 'Upper Yarra Walking Track'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -12,
-        "dy": -16,
-        "font": "Inter",
-        "fontSize": {
-          "expr": "width < 500 ? 10 : 11"
-        },
-        "fontWeight": 700,
-        "color": "#7f1d1d",
-        "lineBreak": "\n",
-        "limit": {
-          "expr": "width < 500 ? 140 : 200"
-        },
-        "stroke": "white",
-        "strokeWidth": 3,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "Longest recorded walk\nUpper Yarra · 95 km"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "datum.name === 'Upper Yarra Walking Track'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -12,
-        "dy": -16,
-        "font": "Inter",
-        "fontSize": {
-          "expr": "width < 500 ? 10 : 11"
-        },
-        "fontWeight": 700,
-        "color": "#7f1d1d",
-        "lineBreak": "\n",
-        "limit": {
-          "expr": "width < 500 ? 140 : 200"
-        }
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "Longest recorded walk\nUpper Yarra · 95 km"
-        }
-      }
-    },
-    {
-      "name": "selectedRegion",
-      "data": {
-        "url": "data/map_regions.json"
-      },
-      "transform": [
-        {
-          "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
-        }
-      ],
-      "mark": {
-        "type": "geoshape",
-        "fill": null,
-        "stroke": "#6f8c7e",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "shape": {
-          "field": "geometry",
-          "type": "geojson"
-        },
-        "tooltip": [
-          {
-            "field": "properties.name",
-            "title": "Area"
-          }
-        ]
-      }
-    }
-  ],
-  "params": [
-    {
-      "name": "chosenLga",
-      "value": "All"
-    },
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    },
-    {
-      "name": "zoom",
-      "value": 1
-    },
-    {
-      "name": "mapBounds",
-      "expr": "data('mapBoundsData')[0]"
-    },
-    {
-      "name": "mapCenter",
-      "expr": "mapBounds ? mapBounds[chosenLga].center : [145,-37]"
-    },
-    {
-      "name": "mapScale",
-      "expr": "mapBounds ? min((width-28)/mapBounds[chosenLga].dx,(height-28)/mapBounds[chosenLga].dy)*zoom : 1"
-    }
-  ],
-  "usermeta": {
-    "container": "#chart-01",
-    "layout": "map",
-    "gutter": 65
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
   }
 }

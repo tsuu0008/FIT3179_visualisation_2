@@ -1,12 +1,170 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1099,
+  "width": "container",
   "height": 330,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  "config": {
-    "view": {
-      "stroke": null
+  "data": {"url": "data/distance_points.json"},
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+        "name": "Grade: "
+      }
+    }
+  ],
+  "transform": [{"filter": "chosenGrade === 'All' || datum.grade === chosenGrade"}],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 58, "opacity": 0.72, "stroke": "#ffffff", "strokeWidth": 0.4},
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 95], "nice": false},
+          "axis": {
+            "tickCount": 7,
+            "grid": true,
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "title": ["Trail distance (km)", "square-root scale"]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": null,
+          "scale": {"domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"]}
+        },
+        "yOffset": {"field": "lane", "type": "quantitative"},
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "name", "title": "Trail"},
+          {"field": "grade", "title": "Grade"},
+          {"field": "length_km", "title": "Distance (km)", "format": ".1f"}
+        ]
+      }
     },
+    {
+      "data": {"values": [{"distance": 5}]},
+      "mark": {"type": "rule", "stroke": "#52716a", "strokeDash": [4, 4], "strokeWidth": 1.5},
+      "encoding": {
+        "x": {
+          "field": "distance",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 95], "nice": false}
+        }
+      }
+    },
+    {
+      "data": {"values": [{"distance": 5, "label": "5 km guide"}]},
+      "mark": {"type": "text", "align": "left", "dx": 6, "dy": -8, "fontSize": 12, "color": "#52716a", "limit": 135},
+      "encoding": {
+        "x": {
+          "field": "distance",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 95], "nice": false}
+        },
+        "y": {"value": 0},
+        "text": {"field": "label"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{"op": "row_number", "as": "annotation_rank"}],
+          "sort": [{"field": "length_km", "order": "descending"}]
+        },
+        {"filter": "datum.annotation_rank === 1"},
+        {"calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "annotation"}
+      ],
+      "mark": {"type": "point", "filled": false, "stroke": "#b34e2d", "strokeWidth": 2.5, "size": 230},
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 95], "nice": false},
+          "axis": {"title": ["Trail distance (km)", "square-root scale"]}
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": null,
+          "scale": {"domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"]}
+        },
+        "yOffset": {"field": "lane", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{"op": "row_number", "as": "annotation_rank"}],
+          "sort": [{"field": "length_km", "order": "descending"}]
+        },
+        {"filter": "datum.annotation_rank === 1"},
+        {"calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "annotation"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -13,
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "limit": 180,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "domain": [0, 95], "nice": false},
+          "axis": {"title": ["Trail distance (km)", "square-root scale"]}
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": null,
+          "scale": {"domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"]}
+        },
+        "yOffset": {"field": "lane", "type": "quantitative"},
+        "text": {"field": "annotation"}
+      }
+    },
+    {
+      "transform": [
+        {"calculate": "datum.length_km <= 5 ? 1 : 0", "as": "short_walk"},
+        {
+          "aggregate": [{"op": "sum", "field": "short_walk", "as": "short_count"}, {"op": "count", "as": "total"}]
+        },
+        {"filter": "datum.total > 0"},
+        {"calculate": "'≤5 km: ' + datum.short_count + '/' + datum.total", "as": "annotation"}
+      ],
+      "mark": {"type": "text", "align": "right", "fontSize": 11, "fontWeight": 700, "color": "#52716a", "limit": 135},
+      "encoding": {
+        "x": {"value": {"expr": "width - 8"}},
+        "y": {"value": {"expr": "height - 10"}},
+        "text": {"field": "annotation"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -27,533 +185,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 2,
+      "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  "data": {
-    "url": "data/distance_points.json"
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "circle",
-        "size": 58,
-        "opacity": 0.72,
-        "stroke": "#ffffff",
-        "strokeWidth": 0.4
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              {
-                "expr": "maximumKm"
-              }
-            ],
-            "nice": false
-          },
-          "axis": {
-            "tickCount": 7,
-            "grid": true,
-            "labelFontSize": 12,
-            "titleFontSize": 13,
-            "title": {
-              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
-            }
-          }
-        },
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
-        },
-        "color": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#2a9d8f",
-              "#69b578",
-              "#e9c46a",
-              "#f4a261",
-              "#e76f51",
-              "#9aa2a6"
-            ]
-          },
-          "legend": null
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)",
-            "format": ".1f"
-          }
-        ],
-        "opacity": {
-          "condition": {
-            "test": "selectedTrail === '' || datum.name === selectedTrail",
-            "value": 0.85
-          },
-          "value": 0.1
-        },
-        "strokeWidth": {
-          "condition": {
-            "test": "selectedTrail !== '' && datum.name === selectedTrail",
-            "value": 3
-          },
-          "value": 0.5
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "distance": 5
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "stroke": "#52716a",
-        "strokeDash": [
-          4,
-          4
-        ],
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "x": {
-          "field": "distance",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              {
-                "expr": "maximumKm"
-              }
-            ],
-            "nice": false
-          }
-        }
-      },
-      "transform": [
-        {
-          "filter": "maximumKm >= 5"
-        }
-      ]
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "distance": 5,
-            "label": "5 km guide"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 6,
-        "dy": -8,
-        "fontSize": 12,
-        "color": "#52716a",
-        "limit": {
-          "expr": "small ? 135 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "field": "distance",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              {
-                "expr": "maximumKm"
-              }
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "value": 0
-        },
-        "text": {
-          "field": "label"
-        }
-      },
-      "transform": [
-        {
-          "filter": "maximumKm >= 5"
-        }
-      ]
-    },
-    {
-      "transform": [
-        {
-          "filter": "selectedTrail === '' || datum.name === selectedTrail"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "filled": false,
-        "stroke": "#b34e2d",
-        "strokeWidth": 2.5,
-        "size": 230
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              {
-                "expr": "maximumKm"
-              }
-            ],
-            "nice": false
-          },
-          "axis": {
-            "title": {
-              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
-            }
-          }
-        },
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "selectedTrail === '' || datum.name === selectedTrail"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -8,
-        "dy": -13,
-        "fontSize": 12,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "limit": {
-          "expr": "small ? 135 : 240"
-        },
-        "color": "#173b37"
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              {
-                "expr": "maximumKm"
-              }
-            ],
-            "nice": false
-          },
-          "axis": {
-            "title": {
-              "expr": "small ? ['Trail distance (km)','square-root scale'] : 'Trail distance (km, square-root scale)'"
-            }
-          }
-        },
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "annotation"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "calculate": "datum.length_km <= 5 ? 1 : 0",
-          "as": "short_walk"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "sum",
-              "field": "short_walk",
-              "as": "short_count"
-            },
-            {
-              "op": "count",
-              "as": "total"
-            }
-          ]
-        },
-        {
-          "filter": "datum.total > 0"
-        },
-        {
-          "calculate": "'≤5 km: ' + datum.short_count + '/' + datum.total + ' (' + format(datum.short_count/datum.total, '.0%') + ')'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#52716a",
-        "limit": {
-          "expr": "small ? 135 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "value": {
-            "expr": "width - 8"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height - 10"
-          }
-        },
-        "text": {
-          "field": "annotation"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {}
-        ]
-      },
-      "transform": [
-        {
-          "filter": "visibleCount === 0"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 14,
-        "fontWeight": 700,
-        "color": "#173b37",
-        "lineBreak": "\n",
-        "stroke": "white",
-        "strokeWidth": 0.5,
-        "limit": {
-          "expr": "small ? 135 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "value": {
-            "expr": "width/2"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height/2"
-          }
-        },
-        "text": {
-          "value": "No recorded trails match\nTry another grade, area or distance"
-        }
-      }
-    }
-  ],
-  "params": [
-    {
-      "name": "chosenGrade",
-      "value": "All"
-    },
-    {
-      "name": "chosenLga",
-      "value": "All"
-    },
-    {
-      "name": "maximumKm",
-      "value": 95
-    },
-    {
-      "name": "accessOnly",
-      "value": false
-    },
-    {
-      "name": "selectedTrail",
-      "value": ""
-    },
-    {
-      "name": "visibleCount",
-      "value": 194
-    },
-    {
-      "name": "distanceExtent",
-      "value": 40
-    },
-    {
-      "name": "timeExtent",
-      "value": 50
-    },
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ],
-  "transform": [
-    {
-      "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-    }
-  ],
-  "usermeta": {
-    "container": "#chart-09",
-    "layout": "standard",
-    "gutter": 95
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
   }
 }

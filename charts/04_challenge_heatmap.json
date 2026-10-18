@@ -1,12 +1,144 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 388,
+  "width": "container",
   "height": 360,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  "config": {
-    "view": {
-      "stroke": null
+  "data": {"url": "data/trails.json"},
+  "transform": [
+    {"filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"},
+    {"aggregate": [{"op": "count", "as": "trail_count"}], "groupby": ["grade", "gradient"]}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 4},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": "Walking grade",
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"}
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        },
+        "color": {
+          "field": "trail_count",
+          "type": "quantitative",
+          "scale": {"scheme": "yellowgreenblue"},
+          "title": "Trail count",
+          "legend": {
+            "orient": "none",
+            "legendX": 8,
+            "legendY": 7,
+            "direction": "horizontal",
+            "gradientLength": 105,
+            "gradientThickness": 8,
+            "title": "Trail count",
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "titlePadding": 4,
+            "padding": 0,
+            "tickCount": 3
+          }
+        },
+        "tooltip": [
+          {"field": "grade", "title": "Grade"},
+          {"field": "gradient", "title": "Gradient"},
+          {"field": "trail_count", "title": "Trails"}
+        ]
+      }
     },
+    {
+      "mark": {"type": "text", "fontSize": 13, "fontWeight": 700, "limit": 170},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"},
+          "title": "Walking grade"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        },
+        "text": {"field": "trail_count"},
+        "color": {"condition": {"test": "datum.trail_count > 22", "value": "white"}, "value": "#12332f"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"}],
+      "mark": {"type": "rect", "fillOpacity": 0, "stroke": "#d95d39", "strokeWidth": 3, "cornerRadius": 4},
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
+          "title": "Walking grade",
+          "axis": {"labelAngle": 0, "labelExpr": "replace(datum.label, 'Grade ', '')"}
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Very steep and difficult", "Very steep", "Short steep hills", "Gentle hills", "Flat"],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        }
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "max", "field": "trail_count", "as": "largest"}]}],
+      "mark": {"type": "rule", "stroke": "#b34e2d", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {"datum": "Grade 1", "type": "ordinal"},
+        "x2": {"value": {"expr": "width * 0.4 + 3"}},
+        "y": {"datum": "Very steep", "type": "nominal"},
+        "y2": {"value": {"expr": "height * 0.4 + 3"}}
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "max", "field": "trail_count", "as": "largest"}]}],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "align": "left",
+        "dx": -15,
+        "dy": -16,
+        "color": "#a64629",
+        "limit": 170
+      },
+      "encoding": {
+        "x": {"datum": "Grade 1", "type": "ordinal"},
+        "y": {"datum": "Very steep", "type": "nominal"},
+        "text": {"value": "Largest group\n69 trails"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -27,287 +159,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 2,
+      "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  "data": {
-    "url": "data/trails.json"
-  },
-  "transform": [
-    {
-      "filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"
-    },
-    {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "trail_count"
-        }
-      ],
-      "groupby": [
-        "grade",
-        "gradient"
-      ]
-    }
-  ],
-  "layer": [
-    {
-      "mark": {
-        "type": "rect",
-        "cornerRadius": 4
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": "Australian walking track grade",
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Typical gradient"
-        },
-        "color": {
-          "field": "trail_count",
-          "type": "quantitative",
-          "scale": {
-            "scheme": "yellowgreenblue"
-          },
-          "title": "Trail count",
-          "legend": {
-            "orient": "none",
-            "legendX": 8,
-            "legendY": 7,
-            "direction": "horizontal",
-            "gradientLength": 105,
-            "gradientThickness": 8,
-            "title": "Trail count",
-            "titleFontSize": 11,
-            "labelFontSize": 10,
-            "titlePadding": 4,
-            "padding": 0,
-            "tickCount": 3
-          }
-        },
-        "tooltip": [
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "gradient",
-            "title": "Gradient"
-          },
-          {
-            "field": "trail_count",
-            "title": "Trails"
-          }
-        ]
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "fontWeight": 700,
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ]
-        },
-        "text": {
-          "field": "trail_count"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.trail_count > 22",
-            "value": "white"
-          },
-          "value": "#12332f"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        }
-      ],
-      "mark": {
-        "type": "rect",
-        "fillOpacity": 0,
-        "stroke": "#d95d39",
-        "strokeWidth": 3,
-        "cornerRadius": 4
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": "Australian walking track grade",
-          "axis": {
-            "labelAngle": 0
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Typical gradient"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "max",
-              "field": "trail_count",
-              "as": "largest"
-            }
-          ]
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#b34e2d",
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "x": {
-          "datum": "Grade 1",
-          "type": "ordinal"
-        },
-        "x2": {
-          "value": {
-            "expr": "width * 0.4 + 3"
-          }
-        },
-        "y": {
-          "datum": "Very steep",
-          "type": "nominal"
-        },
-        "y2": {
-          "value": {
-            "expr": "height * 0.4 + 3"
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "max",
-              "field": "trail_count",
-              "as": "largest"
-            }
-          ]
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "align": "left",
-        "dx": -15,
-        "dy": -16,
-        "color": "#a64629",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "datum": "Grade 1",
-          "type": "ordinal"
-        },
-        "y": {
-          "datum": "Very steep",
-          "type": "nominal"
-        },
-        "text": {
-          "value": "Largest group\n69 trails"
-        }
-      }
-    }
-  ],
-  "usermeta": {
-    "container": "#chart-04",
-    "layout": "standard",
-    "gutter": 175
-  },
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
+  }
 }

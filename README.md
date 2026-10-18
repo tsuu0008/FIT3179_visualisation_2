@@ -1,22 +1,36 @@
-# Walking trails — simple HTML version
+# Walking the Uneven Map — lecture-style version
 
-Updated 15 October 2026. There is **no app.js**.
+Open **index.html** with **VS Code Live Server**, as in the Week 7 lecture:
 
-Open index.html. Near its bottom, the **INSERT THE CHARTS** section contains 13 explicit Vega-Embed calls: 12 main plots and the regional detail map. Each call names its HTML container and readable JSON file.
+1. Extract this whole ZIP.
+2. Open the extracted project folder in VS Code.
+3. Right-click index.html and choose **Open with Live Server**.
 
-## Files
+Internet access is needed for the three Vega libraries and the fonts. Open through Live Server rather than double-clicking the HTML, because the browser must fetch the JSON files.
 
-- index.html: narrative, controls, direct embeds and the short control section.
-- styles.css: layout and presentation.
-- charts/: complete specifications, including filters, annotations, responsive settings and reactive map fitting.
-- data/: processed input and prepared tables.
-- data-bundle.js: generated JSON package for direct-open preview.
-- study/: short interview notes and optional commented JSONC copies.
+## The whole setup
 
-Vega-Embed and the existing custom HTML controls still need a small amount of JavaScript. It is visible together in the HTML. The old 1,165-line commented controller has been replaced with a much shorter inline section, and the regional detail definition has moved into 13_region_detail.json. The parallel coordinates, narratives, in-plot annotations, aligned cards and independent controls remain.
+```html
+<div id="chart-04"></div>
+<script>
+  vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", {actions: false, renderer: "svg"});
+</script>
+```
 
-The first three CDN scripts load Vega 5.30.0, Vega-Lite 5.20.1 and Vega-Embed 6.26.0. Chart 06 uses Vega; the others use Vega-Lite. Internet access is needed for those libraries and fonts.
+The three library scripts must load before this call. The actual page repeats this simple call for its 13 charts. There is no app.js, data bundle, custom loader, event handler, View API or JavaScript sizing helper. All charts now use Vega-Lite.
 
-After changing a chart/data JSON file, run `python3 study/rebuild_bundle.py`, then reload. Do not edit the generated bundle manually. JSONC files are study copies, not runnable JSON.
+| File | Purpose |
+| --- | --- |
+| index.html | Story, empty chart containers and 13 embed calls. |
+| styles.css | Layout, colours, spacing and phone styles. |
+| charts/*.json | Chart instructions and a few built-in dropdowns. |
+| data/* | Processed records, boundaries and prepared plotting tables. |
+| study/START_HERE.md | Short code explanation. |
+| study/INTERVIEW_GUIDE.md | Why each chart was chosen. |
+| study/annotated_charts/*.jsonc | Optional study copies with brief comments; not loaded by the website. |
 
-All 12 main plots and regional detail are checked at 1440, 1024 and 390 pixels. Control tests check grade/area filters, metric changes, short-walk presets, zoom, empty results, outlier selection and reset without changing other plots. Desktop and phone figure dimensions are compared with the preceding design. This ZIP does not publish or deploy the site.
+The regional map, supply map, circle map, parallel coordinates and distance strip have simple local controls. Other charts retain hover tooltips. Custom zoom, click selection, presets, resets, counters and linked updates have been removed. Choose All, All Victoria, or None in a dropdown to undo its selection. The regional picker lists areas containing recorded trails.
+
+To edit a chart, change its JSON and reload the page. There is nothing to rebuild. Both axes, value annotations, colour meanings and the narrative remain. The map projection fits its data automatically. Parallel-coordinate positions are prepared data, with raw units labelled on each axis; phones can scroll that plot horizontally.
+
+Checked at desktop, tablet and phone widths. Each remaining control changes one plot only. This package does not publish the website.

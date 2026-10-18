@@ -1,12 +1,122 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 525,
+  "width": "container",
   "height": 500,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  "config": {
-    "view": {
-      "stroke": null
+  "data": {"url": "data/mosaic.json"},
+  "transform": [
+    {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xmid"},
+    {"calculate": "(datum.y0 + datum.y1) / 2", "as": "ymid"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rect", "stroke": "#f8fafc", "strokeWidth": 1.5, "cornerRadius": 2},
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1], "nice": false},
+          "axis": {
+            "values": [
+              0.024420095923542263,
+              0.17797682140535606,
+              0.5885887292765913,
+              0.9045800856167394,
+              0.969548081821962
+            ],
+            "labelExpr": "datum.value < 0.10119845866444917 ? \"Flat (4.9%)\" : (datum.value < 0.3832827753409737 ? \"Gentle hills (25.8%)\" : (datum.value < 0.7465844074466654 ? \"Short steep (56.3%)\" : (datum.value < 0.9370640837193507 ? \"Very steep (6.9%)\" : (\"Steep + difficult (6.1%)\"))))",
+            "labelAngle": -45,
+            "labelAlign": "right",
+            "labelBaseline": "middle",
+            "labelPadding": 9,
+            "labelLimit": 220,
+            "labelFontSize": 11,
+            "ticks": true,
+            "tickSize": 5,
+            "grid": false,
+            "title": ["Terrain", "share of recorded kilometres"],
+            "titlePadding": 16,
+            "titleFontSize": 12,
+            "labelOverlap": false
+          }
+        },
+        "x2": {"field": "x1"},
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": {
+            "format": ".0%",
+            "values": [0, 0.2, 0.4, 0.6, 0.8, 1],
+            "title": "Grade share within each terrain (%)",
+            "titleFontSize": 12,
+            "titlePadding": 10,
+            "grid": false,
+            "labelFontSize": 11
+          },
+          "scale": {"domain": [0, 1], "nice": false}
+        },
+        "y2": {"field": "y1"},
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {"field": "gradient", "title": "Terrain"},
+          {"field": "grade", "title": "Grade"},
+          {"field": "km", "title": "Recorded km", "format": ".1f"}
+        ]
+      }
     },
+    {
+      "transform": [{"filter": "datum.km >= 30"}],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "limit": 170,
+        "dy": 0
+      },
+      "encoding": {
+        "x": {"field": "xmid", "type": "quantitative"},
+        "y": {"field": "ymid", "type": "quantitative"},
+        "text": {"field": "km", "type": "quantitative", "format": ".0f"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.gradient === 'Short steep hills'"},
+        {
+          "aggregate": [{"op": "min", "field": "x0", "as": "left"}, {"op": "max", "field": "x1", "as": "right"}]
+        },
+        {"calculate": "(datum.left + datum.right) / 2", "as": "mid"}
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "dy": 0,
+        "color": "#173b37",
+        "lineBreak": "\n",
+        "limit": 170
+      },
+      "encoding": {
+        "x": {"field": "mid", "type": "quantitative"},
+        "y": {"datum": 0.12, "type": "quantitative"},
+        "text": {"value": "Short steep hills\n480.7 km (56.3%)"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -27,256 +137,10 @@
       "titleFontSize": 13,
       "orient": "bottom",
       "direction": "horizontal",
-      "padding": 8
+      "padding": 8,
+      "columns": 2,
+      "labelLimit": 150
     }
   },
-  "data": {
-    "url": "data/mosaic.json"
-  },
-  "transform": [
-    {
-      "calculate": "(datum.x0 + datum.x1) / 2",
-      "as": "xmid"
-    },
-    {
-      "calculate": "(datum.y0 + datum.y1) / 2",
-      "as": "ymid"
-    }
-  ],
-  "layer": [
-    {
-      "mark": {
-        "type": "rect",
-        "stroke": "#f8fafc",
-        "strokeWidth": 1.5,
-        "cornerRadius": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "x0",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              1
-            ],
-            "nice": false
-          },
-          "axis": {
-            "values": [
-              0.024420095923542263,
-              0.17797682140535606,
-              0.5885887292765913,
-              0.9045800856167394,
-              0.969548081821962
-            ],
-            "labelExpr": "datum.value < 0.10119845866444917 ? \"Flat (4.9%)\" : (datum.value < 0.3832827753409737 ? \"Gentle hills (25.8%)\" : (datum.value < 0.7465844074466654 ? \"Short steep hills (56.3%)\" : (datum.value < 0.9370640837193507 ? \"Very steep (6.9%)\" : (\"Very steep and difficult (6.1%)\"))))",
-            "labelAngle": {
-              "expr": "compact ? -55 : -45"
-            },
-            "labelAlign": "right",
-            "labelBaseline": "middle",
-            "labelPadding": 9,
-            "labelLimit": 220,
-            "labelFontSize": {
-              "expr": "compact ? 10 : 11"
-            },
-            "ticks": true,
-            "tickSize": 5,
-            "grid": false,
-            "title": {
-              "expr": "compact ? ['Terrain','Column width = share of kilometres'] : 'Terrain (share of recorded kilometres)'"
-            },
-            "titlePadding": 16,
-            "titleFontSize": {
-              "expr": "compact ? 11 : 12"
-            },
-            "labelOverlap": false
-          }
-        },
-        "x2": {
-          "field": "x1"
-        },
-        "y": {
-          "field": "y0",
-          "type": "quantitative",
-          "axis": {
-            "format": ".0%",
-            "values": [
-              0,
-              0.2,
-              0.4,
-              0.6,
-              0.8,
-              1
-            ],
-            "title": "Grade share within each terrain (%)",
-            "titleFontSize": 12,
-            "titlePadding": 10,
-            "grid": false,
-            "labelFontSize": 11
-          },
-          "scale": {
-            "domain": [
-              0,
-              1
-            ],
-            "nice": false
-          }
-        },
-        "y2": {
-          "field": "y1"
-        },
-        "color": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#2a9d8f",
-              "#69b578",
-              "#e9c46a",
-              "#f4a261",
-              "#e76f51",
-              "#9aa2a6"
-            ]
-          },
-          "title": "Grade"
-        },
-        "tooltip": [
-          {
-            "field": "gradient",
-            "title": "Terrain"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "km",
-            "title": "Recorded km",
-            "format": ".1f"
-          }
-        ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.km >= 30 && (!compact || datum.x1 - datum.x0 > 0.09)"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#173b37",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        },
-        "dy": {
-          "expr": "compact ? 10 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "field": "xmid",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "ymid",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "km",
-          "type": "quantitative",
-          "format": ".0f"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.gradient === 'Short steep hills'"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "min",
-              "field": "x0",
-              "as": "left"
-            },
-            {
-              "op": "max",
-              "field": "x1",
-              "as": "right"
-            }
-          ]
-        },
-        {
-          "calculate": "(datum.left + datum.right) / 2",
-          "as": "mid"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": {
-          "expr": "compact ? 11 : 12"
-        },
-        "fontWeight": 700,
-        "dy": 0,
-        "color": "#173b37",
-        "lineBreak": "\n",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "field": "mid",
-          "type": "quantitative"
-        },
-        "y": {
-          "value": 16
-        },
-        "text": {
-          "value": "Short steep hills\n480.7 km (56.3%)"
-        }
-      }
-    }
-  ],
-  "padding": {
-    "top": 5,
-    "left": 5,
-    "right": 5,
-    "bottom": 5
-  },
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "usermeta": {
-    "container": "#chart-08",
-    "layout": "paired",
-    "gutter": 95
-  },
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+  "padding": {"top": 5, "left": 5, "right": 5, "bottom": 5}
 }

@@ -1,12 +1,90 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": "container",
   "height": 357,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  "config": {
-    "view": {
-      "stroke": null
+  "data": {"url": "data/access_waffle.json"},
+  "layer": [
+    {
+      "mark": {"type": "square", "size": {"expr": "pow(width/14*0.88,2)"}, "cornerRadius": 3},
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [-0.5, 13.5], "nice": false}
+        },
+        "y": {
+          "field": "row",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [-0.5, 9.5], "nice": false}
+        },
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {"domain": ["Full or partial access", "No disabled access"], "range": ["#e76f51", "#d8e2df"]},
+          "title": "Recorded access"
+        },
+        "tooltip": [{"field": "status", "title": "Each square = 1%"}]
+      }
     },
+    {
+      "transform": [{"filter": "datum.status === 'Full or partial access'"}],
+      "mark": {
+        "type": "square",
+        "size": {"expr": "pow(width/14*0.88,2)"},
+        "fillOpacity": 0,
+        "stroke": "#b34e2d",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [-0.5, 13.5], "nice": false}
+        },
+        "y": {
+          "field": "row",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [-0.5, 9.5], "nice": false}
+        }
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "count", "as": "squares"}]}],
+      "mark": {"type": "rule", "stroke": "#b34e2d", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {"datum": 7.7, "type": "quantitative"},
+        "x2": {"datum": 10.3},
+        "y": {"datum": 0, "type": "quantitative"},
+        "y2": {"datum": 1.3}
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "count", "as": "squares"}]}],
+      "mark": {
+        "type": "text",
+        "lineBreak": "\n",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "align": "left",
+        "dx": 0,
+        "color": "#a64629",
+        "limit": 170
+      },
+      "encoding": {
+        "x": {"datum": 10.6, "type": "quantitative"},
+        "y": {"datum": 1.9, "type": "quantitative"},
+        "text": {"value": "15 of 179\nrated trails\n8.4%"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -27,200 +105,10 @@
       "orient": "bottom",
       "labelFontSize": 12,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "columns": 2,
+      "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  "data": {
-    "url": "data/access_waffle.json"
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "square",
-        "size": {
-          "expr": "pow(width/14*0.88,2)"
-        },
-        "cornerRadius": 3
-      },
-      "encoding": {
-        "x": {
-          "field": "column",
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -0.5,
-              13.5
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "row",
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -0.5,
-              9.5
-            ],
-            "nice": false
-          }
-        },
-        "color": {
-          "field": "status",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Full or partial access",
-              "No disabled access"
-            ],
-            "range": [
-              "#e76f51",
-              "#d8e2df"
-            ]
-          },
-          "title": "Recorded access"
-        },
-        "tooltip": [
-          {
-            "field": "status",
-            "title": "Each square = 1%"
-          }
-        ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.status === 'Full or partial access'"
-        }
-      ],
-      "mark": {
-        "type": "square",
-        "size": {
-          "expr": "pow(width/14*0.88,2)"
-        },
-        "fillOpacity": 0,
-        "stroke": "#b34e2d",
-        "strokeWidth": 1.2
-      },
-      "encoding": {
-        "x": {
-          "field": "column",
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -0.5,
-              13.5
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "field": "row",
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -0.5,
-              9.5
-            ],
-            "nice": false
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "squares"
-            }
-          ]
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#b34e2d",
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "x": {
-          "datum": 7.7,
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 10.3
-        },
-        "y": {
-          "datum": 0,
-          "type": "quantitative"
-        },
-        "y2": {
-          "datum": 1.3
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "squares"
-            }
-          ]
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "lineBreak": "\n",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "align": "left",
-        "dx": 0,
-        "color": "#a64629",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      "encoding": {
-        "x": {
-          "datum": 10.6,
-          "type": "quantitative"
-        },
-        "y": {
-          "datum": 1.9,
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "15 of 179\nrated trails\n8.4%"
-        }
-      }
-    }
-  ],
-  "usermeta": {
-    "container": "#chart-10",
-    "layout": "waffle",
-    "gutter": 65
-  },
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
+  }
 }

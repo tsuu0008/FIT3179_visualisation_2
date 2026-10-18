@@ -1,14 +1,164 @@
-// Study copy of charts/03_trail_symbols.json. The website loads strict JSON, not this file.
+// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
+// Bound grade/access inputs filter trail circles only. A fixed boundary keeps the map stable.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 682,
-  "height": 430,
+  "width": "container",
+  "height": "container",
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  // Shared font, axis and legend settings.
-  "config": {
-    "view": {
-      "stroke": null
+  // Vega-Lite creates these controls; no JavaScript event handler is needed.
+  "params": [
+    {
+      "name": "chosenGrade",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+        "name": "Grade: "
+      }
     },
+    {
+      "name": "accessOnly",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "Full/partial access only: "}
+    }
+  ],
+  "projection": {"type": "mercator"},
+  // Draw these layers in order, from background to foreground.
+  "layer": [
+    {
+      // Input records or prepared plotting values.
+  "data": {"url": "data/lga.geojson", "format": {"type": "json", "property": "features"}},
+      "mark": {"type": "geoshape", "fill": "#f1f5f4", "stroke": "#c8d4d1", "strokeWidth": 0.6},
+      "encoding": {}
+    },
+    {
+      "data": {"url": "data/trails.json"},
+      "mark": {"type": "circle", "opacity": 0.68, "stroke": "#ffffff", "strokeWidth": 0.45},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {"type": "linear", "domain": [0, 95], "range": [22, 650]},
+          "title": "Distance (km)"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
+            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
+          },
+          "title": "Grade"
+        },
+        "tooltip": [
+          {"field": "name", "title": "Trail"},
+          {"field": "length_km", "title": "Distance (km)", "format": ".1f"},
+          {"field": "grade", "title": "Grade"},
+          {"field": "access", "title": "Disabled access"}
+        ]
+      },
+      // Filter, group or calculate before drawing.
+  "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        }
+      ]
+    },
+    {
+      "data": {"url": "data/trail_labels.json"},
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [{"op": "row_number", "as": "annotation_rank"}],
+          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
+        },
+        {"filter": "datum.annotation_rank === 1"},
+        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
+      ],
+      "mark": {"type": "point", "filled": false, "stroke": "#b34e2d", "strokeWidth": 2.5, "size": 230},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {"url": "data/trail_labels.json"},
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [{"op": "row_number", "as": "annotation_rank"}],
+          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
+        },
+        {"filter": "datum.annotation_rank === 1"},
+        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "color": "#173b37",
+        "stroke": "white",
+        "strokeWidth": 3,
+        "limit": 240
+      },
+      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "label"}}
+    },
+    {
+      "data": {"url": "data/trail_labels.json"},
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [{"op": "row_number", "as": "annotation_rank"}],
+          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
+        },
+        {"filter": "datum.annotation_rank === 1"},
+        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "color": "#173b37",
+        "limit": 240
+      },
+      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "label"}}
+    },
+    {
+      "data": {"url": "data/trails.json"},
+      "transform": [
+        {
+          "calculate": "((chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
+          "as": "match"
+        },
+        {"aggregate": [{"op": "sum", "field": "match", "as": "total"}]},
+        {"filter": "datum.total === 0"}
+      ],
+      "mark": {"type": "text", "fontSize": 12, "color": "#173b37"},
+      "encoding": {
+        "x": {"value": {"expr": "width/2"}},
+        "y": {"value": {"expr": "height/2"}},
+        "text": {"value": "No trails match this selection"}
+      }
+    }
+  ],
+  // Shared styling for this chart.
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -30,578 +180,10 @@
       "labelFontSize": 12,
       "titleFontSize": 13,
       "padding": 8,
-      "columns": 6,
+      "columns": 2,
       "direction": "horizontal",
       "labelLimit": 150
     },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    }
-  },
-  // Reactive geographic centre, scale, translation and clipping.
-  "projection": {
-    "type": "mercator",
-    "center": {
-      "expr": "mapCenter"
-    },
-    "scale": {
-      "expr": "mapScale"
-    },
-    "translate": {
-      "expr": "[width/2,height/2]"
-    },
-    "clipExtent": {
-      "expr": "[[0,0],[width,height]]"
-    }
-  },
-  // Layers draw in order: context, data, emphasis and annotations.
-  "layer": [
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "name": "mapBoundsData",
-        "url": "data/map_bounds.json"
-      },
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "point",
-        "opacity": 0,
-        "size": 0
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "y": {
-          "value": 0
-        }
-      }
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/lga.geojson",
-        "format": {
-          "type": "json",
-          "property": "features"
-        }
-      },
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "geoshape",
-        "fill": "#f1f5f4",
-        "stroke": "#c8d4d1",
-        "strokeWidth": 0.6
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "shape": {
-          "field": "geometry",
-          "type": "geojson"
-        }
-      }
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/trails.json"
-      },
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "circle",
-        "opacity": 0.68,
-        "stroke": "#ffffff",
-        "strokeWidth": 0.45
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "size": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              0,
-              95
-            ],
-            "range": [
-              22,
-              650
-            ]
-          },
-          "title": "Distance (km)"
-        },
-        "color": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#2a9d8f",
-              "#69b578",
-              "#e9c46a",
-              "#f4a261",
-              "#e76f51",
-              "#9aa2a6"
-            ]
-          },
-          "title": "Grade"
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)",
-            "format": ".1f"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "access",
-            "title": "Disabled access"
-          }
-        ],
-        "opacity": {
-          "condition": {
-            "test": "selectedTrail === '' || datum.name === selectedTrail",
-            "value": 0.85
-          },
-          "value": 0.1
-        },
-        "strokeWidth": {
-          "condition": {
-            "test": "selectedTrail !== '' && datum.name === selectedTrail",
-            "value": 3
-          },
-          "value": 0.5
-        }
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        }
-      ]
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/trail_labels.json"
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "filter": "selectedTrail === '' || datum.name === selectedTrail"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "name",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "label"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "point",
-        "filled": false,
-        "stroke": "#b34e2d",
-        "strokeWidth": 2.5,
-        "size": 230
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/trail_labels.json"
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "filter": "selectedTrail === '' || datum.name === selectedTrail"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "name",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "label"
-        },
-        {
-          "calculate": "width/2 + mapScale * (datum.longitude-mapCenter[0]) * 0.0174532925199433",
-          "as": "pointX"
-        },
-        {
-          "calculate": "height/2 - mapScale * (log(tan(0.7853981633974483+datum.latitude*0.008726646259971648))-log(tan(0.7853981633974483+mapCenter[1]*0.008726646259971648)))",
-          "as": "pointY"
-        },
-        {
-          "filter": "datum.pointX > 0 && datum.pointX < width && datum.pointY > 0 && datum.pointY < height"
-        },
-        {
-          "calculate": "datum.pointX > width/2 ? clamp(datum.pointX-10,width<500?148:208,width-8) : clamp(datum.pointX+10,8,width-(width<500?148:208))",
-          "as": "labelX"
-        },
-        {
-          "calculate": "clamp(datum.pointY-16,28,height-30)",
-          "as": "labelY"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "align": {
-          "expr": "datum.pointX > width/2 ? \"right\" : \"left\""
-        },
-        "dx": 0,
-        "dy": 0,
-        "font": "Inter",
-        "fontSize": {
-          "expr": "width < 500 ? 10 : 13"
-        },
-        "fontWeight": 700,
-        "color": "#173b37",
-        "limit": {
-          "expr": "width < 500 ? 140 : 200"
-        },
-        "lineBreak": "\n",
-        "stroke": "white",
-        "strokeWidth": 3,
-        "strokeJoin": "round"
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "text": {
-          "field": "label"
-        },
-        "x": {
-          "field": "labelX",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "labelY",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        }
-      }
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/trail_labels.json"
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (chosenLga === 'All' || datum.lga === chosenLga) && isValid(datum.length_km) && datum.length_km <= maximumKm && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "filter": "selectedTrail === '' || datum.name === selectedTrail"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "name",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "label"
-        },
-        {
-          "calculate": "width/2 + mapScale * (datum.longitude-mapCenter[0]) * 0.0174532925199433",
-          "as": "pointX"
-        },
-        {
-          "calculate": "height/2 - mapScale * (log(tan(0.7853981633974483+datum.latitude*0.008726646259971648))-log(tan(0.7853981633974483+mapCenter[1]*0.008726646259971648)))",
-          "as": "pointY"
-        },
-        {
-          "filter": "datum.pointX > 0 && datum.pointX < width && datum.pointY > 0 && datum.pointY < height"
-        },
-        {
-          "calculate": "datum.pointX > width/2 ? clamp(datum.pointX-10,width<500?148:208,width-8) : clamp(datum.pointX+10,8,width-(width<500?148:208))",
-          "as": "labelX"
-        },
-        {
-          "calculate": "clamp(datum.pointY-16,28,height-30)",
-          "as": "labelY"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "align": {
-          "expr": "datum.pointX > width/2 ? \"right\" : \"left\""
-        },
-        "dx": 0,
-        "dy": 0,
-        "font": "Inter",
-        "fontSize": {
-          "expr": "width < 500 ? 10 : 13"
-        },
-        "fontWeight": 700,
-        "color": "#173b37",
-        "limit": {
-          "expr": "width < 500 ? 140 : 200"
-        },
-        "lineBreak": "\n"
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "text": {
-          "field": "label"
-        },
-        "x": {
-          "field": "labelX",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "labelY",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        }
-      }
-    },
-    {
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "values": [
-          {}
-        ]
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "visibleCount === 0"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "fontSize": {
-          "expr": "width < 500 ? 10 : 14"
-        },
-        "fontWeight": 700,
-        "color": "#173b37",
-        "lineBreak": "\n",
-        "stroke": "white",
-        "strokeWidth": 0.5,
-        "limit": {
-          "expr": "width < 500 ? 140 : 200"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "value": {
-            "expr": "width/2"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height/2"
-          }
-        },
-        "text": {
-          "value": "No recorded trails match\nTry another grade, area or distance"
-        }
-      }
-    },
-    {
-      "name": "selectedRegion",
-      // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-      "data": {
-        "url": "data/map_regions.json"
-      },
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "geoshape",
-        "fill": null,
-        "stroke": "#d95d39",
-        "strokeWidth": 2.2
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "shape": {
-          "field": "geometry",
-          "type": "geojson"
-        },
-        "tooltip": [
-          {
-            "field": "properties.name",
-            "title": "Area"
-          }
-        ]
-      }
-    }
-  ],
-  // Parameters that the short HTML controls update; expressions react to those changes.
-  "params": [
-    {
-      "name": "chosenGrade",
-      "value": "All"
-    },
-    {
-      "name": "chosenLga",
-      "value": "All"
-    },
-    {
-      "name": "maximumKm",
-      "value": 95
-    },
-    {
-      "name": "accessOnly",
-      "value": false
-    },
-    {
-      "name": "selectedTrail",
-      "value": ""
-    },
-    {
-      "name": "visibleCount",
-      "value": 194
-    },
-    {
-      "name": "distanceExtent",
-      "value": 40
-    },
-    {
-      "name": "timeExtent",
-      "value": 50
-    },
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    },
-    {
-      "name": "zoom",
-      "value": 1
-    },
-    {
-      "name": "mapBounds",
-      "expr": "data('mapBoundsData')[0]"
-    },
-    {
-      "name": "mapCenter",
-      "expr": "mapBounds ? mapBounds[chosenLga].center : [145,-37]"
-    },
-    {
-      "name": "mapScale",
-      "expr": "mapBounds ? min((width-28)/mapBounds[chosenLga].dx,(height-28)/mapBounds[chosenLga].dy)*zoom : 1"
-    }
-  ],
-  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
-  "usermeta": {
-    "container": "#chart-03",
-    "layout": "map",
-    "gutter": 65
+    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
   }
 }

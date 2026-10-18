@@ -1,14 +1,116 @@
-// Study copy of charts/07_experience_bars.json. The website loads strict JSON, not this file.
+// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
+// Count trails and stack experience categories within each terrain bar.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 525,
+  "width": "container",
   "height": 500,
+  "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  // Shared font, axis and legend settings.
-  "config": {
-    "view": {
-      "stroke": null
+  // Input records or prepared plotting values.
+  "data": {"url": "data/trails.json"},
+  // Filter, group or calculate before drawing.
+  "transform": [
+    {"filter": "datum.gradient !== 'Unknown' && datum.experience !== 'Unknown'"},
+    {
+      "calculate": "datum.experience === 'No experience required' ? 'None required' : datum.experience === 'Bushwalking experience recommended' ? 'Recommended' : datum.experience === 'Experienced bushwalkers' ? 'Experienced' : 'Very experienced'",
+      "as": "experience_label"
+    }
+  ],
+  // Draw these layers in order, from background to foreground.
+  "layer": [
+    {
+      "mark": {"type": "bar", "cornerRadiusEnd": 2},
+      "encoding": {
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"],
+          "title": null,
+          "axis": {"labelLimit": 125}
+        },
+        "x": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Number of trails",
+          "scale": {"domain": [0, 90], "nice": false}
+        },
+        "color": {
+          "field": "experience_label",
+          "type": "nominal",
+          "scale": {
+            "domain": ["None required", "Recommended", "Experienced", "Very experienced"],
+            "range": ["#9bd8ca", "#44a693", "#176b61", "#0b3f3a"]
+          },
+          "title": "Experience"
+        },
+        "order": {"field": "experience_label", "sort": "ascending"},
+        "tooltip": [
+          {"field": "gradient", "title": "Terrain"},
+          {"field": "experience", "title": "Experience"},
+          {"aggregate": "count", "title": "Trails"}
+        ]
+      }
     },
+    {
+      "transform": [
+        {"aggregate": [{"op": "count", "as": "n"}], "groupby": ["gradient", "experience_label"]},
+        {
+          "stack": "n",
+          "groupby": ["gradient"],
+          "sort": [{"field": "experience_label", "order": "ascending"}],
+          "as": ["start", "end"]
+        },
+        {"calculate": "(datum.start + datum.end) / 2", "as": "mid"},
+        {"filter": "datum.n >= 6"},
+        {
+          "calculate": "datum.gradient === 'Short steep hills' && datum.experience_label === 'Recommended' ? '48 trails\\nRecommended' : format(datum.n, 'd')",
+          "as": "annotation"
+        }
+      ],
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": 700, "lineBreak": "\n", "limit": 170},
+      "encoding": {
+        "x": {"field": "mid", "type": "quantitative"},
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"],
+          "title": null,
+          "axis": {"labelLimit": 125}
+        },
+        "text": {"field": "annotation"},
+        "color": {
+          "condition": {"test": "datum.experience_label === 'None required'", "value": "#173b37"},
+          "value": "white"
+        }
+      }
+    },
+    {
+      "transform": [{"aggregate": [{"op": "count", "as": "trail_count"}], "groupby": ["gradient"]}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#173b37",
+        "limit": 170
+      },
+      "encoding": {
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"]
+        },
+        "x": {"field": "trail_count", "type": "quantitative"},
+        "text": {"field": "trail_count"}
+      }
+    }
+  ],
+  // Shared styling for this chart.
+  "config": {
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -28,270 +130,11 @@
       "titleFont": "Inter",
       "labelFontSize": 12,
       "orient": "bottom",
-      "columns": 2,
+      "columns": 1,
       "titleFontSize": 13,
-      "padding": 8
+      "padding": 8,
+      "labelLimit": 200
     }
   },
-  // Input records, geometry or prepared table. The page loader reads the same path from the generated preview package.
-  "data": {
-    "url": "data/trails.json"
-  },
-  // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-  "transform": [
-    {
-      "filter": "datum.gradient !== 'Unknown' && datum.experience !== 'Unknown'"
-    },
-    {
-      "calculate": "datum.experience === 'No experience required' ? 'None required' : datum.experience === 'Bushwalking experience recommended' ? 'Recommended' : datum.experience === 'Experienced bushwalkers' ? 'Experienced' : 'Very experienced'",
-      "as": "experience_label"
-    }
-  ],
-  // Layers draw in order: context, data, emphasis and annotations.
-  "layer": [
-    {
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "bar",
-        "cornerRadiusEnd": 2
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Flat",
-            "Gentle hills",
-            "Short steep hills",
-            "Very steep",
-            "Very steep and difficult"
-          ],
-          "title": null,
-          "axis": {
-            "labelLimit": {
-              "expr": "compact ? 125 : 155"
-            }
-          }
-        },
-        "x": {
-          "aggregate": "count",
-          "type": "quantitative",
-          "stack": "zero",
-          "title": "Number of trails",
-          "scale": {
-            "domain": [
-              0,
-              90
-            ],
-            "nice": false
-          }
-        },
-        "color": {
-          "field": "experience_label",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "None required",
-              "Recommended",
-              "Experienced",
-              "Very experienced"
-            ],
-            "range": [
-              "#9bd8ca",
-              "#44a693",
-              "#176b61",
-              "#0b3f3a"
-            ]
-          },
-          "title": "Experience"
-        },
-        "order": {
-          "field": "experience_label",
-          "sort": "ascending"
-        },
-        "tooltip": [
-          {
-            "field": "gradient",
-            "title": "Terrain"
-          },
-          {
-            "field": "experience",
-            "title": "Experience"
-          },
-          {
-            "aggregate": "count",
-            "title": "Trails"
-          }
-        ]
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            }
-          ],
-          "groupby": [
-            "gradient",
-            "experience_label"
-          ]
-        },
-        {
-          "stack": "n",
-          "groupby": [
-            "gradient"
-          ],
-          "sort": [
-            {
-              "field": "experience_label",
-              "order": "ascending"
-            }
-          ],
-          "as": [
-            "start",
-            "end"
-          ]
-        },
-        {
-          "calculate": "(datum.start + datum.end) / 2",
-          "as": "mid"
-        },
-        {
-          "filter": "datum.n >= 6"
-        },
-        {
-          "calculate": "datum.gradient === 'Short steep hills' && datum.experience_label === 'Recommended' ? '48 trails\\nRecommended' : format(datum.n, 'd')",
-          "as": "annotation"
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "fontSize": {
-          "expr": "compact ? 9 : 11"
-        },
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "x": {
-          "field": "mid",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Flat",
-            "Gentle hills",
-            "Short steep hills",
-            "Very steep",
-            "Very steep and difficult"
-          ],
-          "title": null,
-          "axis": {
-            "labelLimit": {
-              "expr": "compact ? 125 : 155"
-            }
-          }
-        },
-        "text": {
-          "field": "annotation"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.experience_label === 'None required'",
-            "value": "#173b37"
-          },
-          "value": "white"
-        }
-      }
-    },
-    {
-      // Ordered filtering and calculations. These definitions now live here rather than in app.js.
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "trail_count"
-            }
-          ],
-          "groupby": [
-            "gradient"
-          ]
-        }
-      ],
-      // The graphical object to draw. A zero-size point is used only to load map-fit constants.
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 6,
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#173b37",
-        "limit": {
-          "expr": "small ? 170 : 0"
-        }
-      },
-      // Connect a field to position, colour, area, text or geographic shape.
-      "encoding": {
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Flat",
-            "Gentle hills",
-            "Short steep hills",
-            "Very steep",
-            "Very steep and difficult"
-          ]
-        },
-        "x": {
-          "field": "trail_count",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "trail_count"
-        }
-      }
-    }
-  ],
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "padding": {
-    "top": 11,
-    "left": 5,
-    "right": 18,
-    "bottom": 5
-  },
-  // Small sizing metadata read by fitSize() in the HTML; it is not a data encoding.
-  "usermeta": {
-    "container": "#chart-07",
-    "layout": "paired",
-    "gutter": 175
-  },
-  // Parameters that the short HTML controls update; expressions react to those changes.
-  "params": [
-    {
-      "name": "small",
-      "value": false
-    },
-    {
-      "name": "compact",
-      "value": false
-    }
-  ]
+  "padding": {"top": 11, "left": 5, "right": 18, "bottom": 5}
 }
