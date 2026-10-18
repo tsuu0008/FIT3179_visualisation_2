@@ -1,6 +1,6 @@
 # Walking the Uneven Map — lecture-style version
 
-Updated **18 October 2026**: fixed overlapping waffle cells and reduced the side space around the two statewide maps.
+Updated **18 October 2026**: enlarged parallel coordinates to fill its card, added two data-based map insights, fixed overlapping waffle cells, and reduced the side space around the two statewide maps.
 
 Open **index.html** with **VS Code Live Server**, as in the Week 7 lecture:
 
@@ -40,3 +40,7 @@ Checked at desktop, tablet and phone widths. Each remaining control changes one 
 ## Layout changes on 18 October
 
 On wide screens, each supply/circle map sits beside its description. On phones they stack. CSS grid defines this layout; no JavaScript sizing helper was added. The waffle has a fixed aspect ratio, and its square area is `pow(min(width/14,height/10)*0.86,2)`: use the smaller cell spacing, leave a gap, then square the side length. This prevents cell overlap when the available width and height differ.
+
+## Parallel plot and story refinement
+
+Parallel coordinates uses `width: "container"` and a 460 px height. An outer `.parallel-scroll` element provides horizontal scrolling, while the inner chart has a 960 px minimum width so its four axes remain readable on phones. No JavaScript sizing helper is needed. The map narrative explains the 150/194 short-walk count and the Grade 3 access-filter example (115 trails reduced to four); these are full-snapshot examples, not live counters.

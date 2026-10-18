@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Prepared per-axis positions; one grouped line per trail. Missing values occupy a separate lane.",
-  "width": 1000,
-  "height": 400,
+  "width": "container",
+  "height": 460,
   "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
   "params": [
@@ -21,9 +21,9 @@
       "data": {"values": [{}]},
       "mark": {"type": "rect", "color": "#eef3f0"},
       "encoding": {
-        "x": {"datum": -0.05, "type": "quantitative", "axis": null, "scale": {"domain": [-0.05, 3.65]}},
+        "x": {"datum": -0.05, "type": "quantitative", "axis": null, "scale": {"domain": [-0.05, 3.4]}},
         "y": {"datum": -21, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
-        "x2": {"datum": 3.65},
+        "x2": {"datum": 3.4},
         "y2": {"datum": -8}
       }
     },
@@ -38,7 +38,7 @@
       },
       "mark": {"type": "rule", "color": "#a9bfb4"},
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"datum": 0, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
         "y2": {"datum": 100}
       }
@@ -47,7 +47,7 @@
       "data": {"url": "data/parallel_points.json"},
       "mark": {"type": "line", "opacity": 0.22, "strokeWidth": 1.2},
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
         "detail": {"field": "id"},
         "order": {"field": "axis"},
@@ -74,7 +74,7 @@
       "transform": [{"filter": "datum.name === focusTrail"}],
       "mark": {"type": "line", "strokeWidth": 3.5, "point": {"filled": true, "size": 50, "stroke": "white"}},
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
         "detail": {"field": "id"},
         "order": {"field": "axis"},
@@ -137,7 +137,7 @@
         "strokeWidth": 3
       },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
         "text": {"field": "label"}
       }
@@ -175,7 +175,7 @@
       },
       "mark": {"type": "text", "align": "left", "dx": 7, "fontSize": 11, "color": "#334d43"},
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
         "text": {"field": "label"}
       }
@@ -191,7 +191,7 @@
       },
       "mark": {"type": "text", "align": "left", "fontSize": 12, "fontWeight": 700, "color": "#173b37"},
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"datum": 112, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
         "text": {"field": "label"}
       }
@@ -210,7 +210,7 @@
         "color": "#9c4227"
       },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.65]}, "axis": null},
+        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
         "text": {"field": "annotation"}
       }
