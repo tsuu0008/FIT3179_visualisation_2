@@ -37,7 +37,8 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {"type": "linear", "domain": [0, 95], "range": [22, 650]},
-          "title": "Distance (km)"
+          "title": "Distance (km)",
+          "legend": {"values": [1, 5, 20, 95], "columns": 2, "direction": "horizontal", "labelFontSize": 11}
         },
         "color": {
           "field": "grade",
@@ -46,7 +47,8 @@
             "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
             "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
           },
-          "title": "Grade"
+          "title": "Grade",
+          "legend": {"columns": 2, "direction": "horizontal", "labelLimit": 70, "labelFontSize": 11}
         },
         "tooltip": [
           {"field": "name", "title": "Trail"},
@@ -95,7 +97,9 @@
       ],
       "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "align": {
+          "expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"
+        },
         "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
         "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,
@@ -127,7 +131,9 @@
       ],
       "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "align": {
+          "expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"
+        },
         "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
         "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,

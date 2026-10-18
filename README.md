@@ -1,5 +1,7 @@
 # Walking the Uneven Map — lecture-style version
 
+Updated **18 October 2026**: fixed overlapping waffle cells and reduced the side space around the two statewide maps.
+
 Open **index.html** with **VS Code Live Server**, as in the Week 7 lecture:
 
 1. Extract this whole ZIP.
@@ -34,3 +36,7 @@ The regional map, supply map, circle map, parallel coordinates and distance stri
 To edit a chart, change its JSON and reload the page. There is nothing to rebuild. Both axes, value annotations, colour meanings and the narrative remain. The map projection fits its data automatically. Parallel-coordinate positions are prepared data, with raw units labelled on each axis; phones can scroll that plot horizontally.
 
 Checked at desktop, tablet and phone widths. Each remaining control changes one plot only. This package does not publish the website.
+
+## Layout changes on 18 October
+
+On wide screens, each supply/circle map sits beside its description. On phones they stack. CSS grid defines this layout; no JavaScript sizing helper was added. The waffle has a fixed aspect ratio, and its square area is `pow(min(width/14,height/10)*0.86,2)`: use the smaller cell spacing, leave a gap, then square the side length. This prevents cell overlap when the available width and height differ.

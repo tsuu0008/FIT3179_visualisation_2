@@ -1260,7 +1260,7 @@ h3 {
 .vega-bind label { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .vega-bind select { max-width: 100%; padding: 7px 9px; border: 1px solid #adc2b6; border-radius: 5px; background: white; color: #173b37; font: inherit; }
 #chart-01 { height: clamp(220px, 27vw, 390px); }
-#chart-02, #chart-03 { height: clamp(260px, 36vw, 450px); margin-bottom: 12px; }
+#chart-02, #chart-03 { height: clamp(420px, 40vw, 580px); margin: 0; }
 #detail-map { height: 265px; margin-bottom: 10px; width: 100%; }
 #chart-06 .vega-embed { min-width: 760px; }
 .dark-card .vega-bindings { color: #e8f3ef; }
@@ -1271,4 +1271,33 @@ h3 {
     grid-template-columns: 1fr;
     gap: 14px;
   }
+}
+
+
+/* Compact maps and waffle cells. */
+.map-story-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 28px;
+}
+.map-story-card .chart-copy { margin: 0; }
+.map-story-card .chart { min-width: 0; }
+
+/* This aspect ratio reserves a compact, predictable area for 100 square cells. */
+#chart-10 {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 14 / 11;
+  margin-inline: auto;
+}
+#chart-10 .vega-embed { position: absolute; inset: 0; }
+
+@media (max-width: 900px) {
+  .map-story-card { display: block; }
+  .map-story-card .chart-copy { margin-bottom: 14px; }
+  #chart-02 { height: clamp(320px, 72vw, 600px); }
+  #chart-03 { height: clamp(380px, 76vw, 640px); }
 }

@@ -1,12 +1,11 @@
-// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
-// Bound grade/access inputs filter trail circles only. A fixed boundary keeps the map stable.
+// STUDY COPY ONLY; the website loads the matching .json.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": "container",
   "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
-  // Vega-Lite creates these controls; no JavaScript event handler is needed.
+  // Vega-Lite creates these controls directly.
   "params": [
     {
       "name": "chosenGrade",
@@ -24,7 +23,7 @@
     }
   ],
   "projection": {"type": "mercator"},
-  // Draw these layers in order, from background to foreground.
+  // Draw the layers in order.
   "layer": [
     {
       // Input records or prepared plotting values.
@@ -42,7 +41,8 @@
           "field": "length_km",
           "type": "quantitative",
           "scale": {"type": "linear", "domain": [0, 95], "range": [22, 650]},
-          "title": "Distance (km)"
+          "title": "Distance (km)",
+          "legend": {"values": [1, 5, 20, 95], "columns": 2, "direction": "horizontal", "labelFontSize": 11}
         },
         "color": {
           "field": "grade",
@@ -51,7 +51,8 @@
             "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
             "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51", "#9aa2a6"]
           },
-          "title": "Grade"
+          "title": "Grade",
+          "legend": {"columns": 2, "direction": "horizontal", "labelLimit": 70, "labelFontSize": 11}
         },
         "tooltip": [
           {"field": "name", "title": "Trail"},
@@ -60,8 +61,7 @@
           {"field": "access", "title": "Disabled access"}
         ]
       },
-      // Filter, group or calculate before drawing.
-  "transform": [
+      "transform": [
         {
           "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         }
@@ -101,7 +101,9 @@
       ],
       "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "align": {
+          "expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"
+        },
         "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
         "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,
@@ -133,7 +135,9 @@
       ],
       "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "align": {
+          "expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"
+        },
         "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
         "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,
@@ -166,7 +170,7 @@
       }
     }
   ],
-  // Shared styling for this chart.
+  // Shared chart styles.
   "config": {
     "view": {"stroke": null},
     "axis": {

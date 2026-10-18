@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 357,
+  "height": "container",
   "autosize": {"type": "fit", "contains": "padding"},
   "background": null,
   "data": {"url": "data/access_waffle.json"},
   "layer": [
     {
-      "mark": {"type": "square", "size": {"expr": "pow(width/14*0.88,2)"}, "cornerRadius": 3},
+      "mark": {"type": "square", "size": {"expr": "pow(min(width/14,height/10)*0.86,2)"}, "cornerRadius": 3},
       "encoding": {
         "x": {
           "field": "column",
@@ -34,7 +34,7 @@
       "transform": [{"filter": "datum.status === 'Full or partial access'"}],
       "mark": {
         "type": "square",
-        "size": {"expr": "pow(width/14*0.88,2)"},
+        "size": {"expr": "pow(min(width/14,height/10)*0.86,2)"},
         "fillOpacity": 0,
         "stroke": "#b34e2d",
         "strokeWidth": 1.2
