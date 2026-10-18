@@ -44,3 +44,7 @@ On wide screens, each supply/circle map sits beside its description. On phones t
 ## Parallel plot and story refinement
 
 Parallel coordinates uses `width: "container"` and a 460 px height. An outer `.parallel-scroll` element provides horizontal scrolling, while the inner chart has a 960 px minimum width so its four axes remain readable on phones. No JavaScript sizing helper is needed. The map narrative explains the 150/194 short-walk count and the Grade 3 access-filter example (115 trails reduced to four); these are full-snapshot examples, not live counters.
+
+## Storytelling revision
+
+The narrative now follows the findings: where trails gather, how walking demands differ, and why plentiful trails do not always mean plentiful suitable choices. Each chart contributes evidence to that story. Technical reading notes are collected in the expandable “Data and display notes” section under methodology. The chart specifications, data and local controls are unchanged by this narrative revision.
