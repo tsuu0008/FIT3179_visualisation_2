@@ -153,17 +153,22 @@
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "top",
+        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
+        "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,
         "fontWeight": 700,
         "lineBreak": "\n",
         "color": "#173b37",
         "stroke": "white",
         "strokeWidth": 3,
-        "limit": 220
+        "limit": 180
       },
-      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "label"}}
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
     },
     {
       "data": {"url": "data/trail_labels.json"},
@@ -178,15 +183,20 @@
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "top",
+        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
+        "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
+        "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
         "fontSize": 11,
         "fontWeight": 700,
         "lineBreak": "\n",
         "color": "#173b37",
-        "limit": 220
+        "limit": 180
       },
-      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "label"}}
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
     }
   ],
   "config": {"view": {"stroke": null}, "text": {"font": "Inter"}, "legend": {"columns": 2, "labelLimit": 150}},
