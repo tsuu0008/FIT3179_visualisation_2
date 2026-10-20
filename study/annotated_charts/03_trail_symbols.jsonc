@@ -49,7 +49,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#bdd7e7", "#6baed6", "#4292c6", "#2171b5", "#084594", "#9aa2a6"]
+            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
           },
           "title": "Grade",
           "legend": {"columns": 2, "direction": "horizontal", "labelLimit": 70, "labelFontSize": 11}
