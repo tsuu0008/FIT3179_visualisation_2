@@ -45,7 +45,7 @@
     },
     {
       "data": {"url": "data/parallel_points.json"},
-      "mark": {"type": "line", "opacity": 0.6, "strokeWidth": 1.2},
+      "mark": {"type": "line", "opacity": 0.4, "strokeWidth": 1.2},
       "encoding": {
         "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
         "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
