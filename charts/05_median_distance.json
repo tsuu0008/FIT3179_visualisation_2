@@ -34,7 +34,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
-            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51"]
+            "range": ["#bdd7e7", "#6baed6", "#4292c6", "#2171b5", "#084594"]
           },
           "legend": null
         }
@@ -55,7 +55,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"],
-            "range": ["#2a9d8f", "#69b578", "#e9c46a", "#f4a261", "#e76f51"]
+            "range": ["#bdd7e7", "#6baed6", "#4292c6", "#2171b5", "#084594"]
           },
           "legend": null
         },
