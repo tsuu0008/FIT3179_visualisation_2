@@ -77,181 +77,6 @@
           "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "lookup": "id",
-          "from": {
-            "data": {
-              "url": "data/route_label_points.json"
-            },
-            "key": "id",
-            "fields": [
-              "name_label"
-            ]
-          },
-          "as": [
-            "annotation_name"
-          ]
-        },
-        {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
-          "as": "annotation"
-        },
-        {
-          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
-          "as": "callout_lon"
-        },
-        {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
-          "as": "callout_lat"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#5d7269",
-        "strokeWidth": 1.1,
-        "strokeDash": [
-          3,
-          3
-        ]
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "longitude2": {
-          "field": "callout_lon"
-        },
-        "latitude2": {
-          "field": "callout_lat"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
-          "as": "annotation"
-        },
-        {
-          "lookup": "lga",
-          "from": {
-            "data": {
-              "url": "data/lga_label_points.json"
-            },
-            "key": "name",
-            "fields": [
-              "lon",
-              "lat"
-            ]
-          }
-        },
-        {
-          "calculate": "mapFrame[0]+((width-262)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
-          "as": "callout_lon"
-        },
-        {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-127))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
-          "as": "callout_lat"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#5d7269",
-        "strokeWidth": 1.1,
-        "strokeDash": [
-          3,
-          3
-        ]
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "longitude2": {
-          "field": "callout_lon"
-        },
-        "latitude2": {
-          "field": "callout_lat"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
           "aggregate": [
             {
               "op": "count",
@@ -688,6 +513,10 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
+        },
+        {
+          "calculate": "'2 · ' + datum.annotation",
+          "as": "numbered_annotation"
         }
       ],
       "mark": {
@@ -704,7 +533,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-252"
+            "expr": "width-258"
           }
         },
         "y": {
@@ -713,7 +542,140 @@
           }
         },
         "text": {
-          "field": "annotation"
+          "field": "numbered_annotation"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "calculate": "'1 · ' + datum.annotation",
+          "as": "numbered_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "color": "#20343A",
+        "align": "left",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-258"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-132"
+          }
+        },
+        "text": {
+          "field": "numbered_annotation"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "calculate": "((chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
+          "as": "match"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "match",
+              "as": "total"
+            }
+          ]
+        },
+        {
+          "filter": "datum.total === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#173b37",
+        "align": "left"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-252"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-110"
+          }
+        },
+        "text": {
+          "value": "No trails match this selection"
         }
       }
     },
@@ -778,29 +740,31 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 13,
+        "fontSize": 11,
+        "fontWeight": 700,
+        "dx": -15,
+        "dy": -15,
+        "baseline": "middle",
+        "align": "center",
         "color": "#20343A",
-        "align": "left",
-        "baseline": "top"
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "x": {
-          "value": {
-            "expr": "width-252"
-          }
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
         },
-        "y": {
-          "value": {
-            "expr": "height-132"
-          }
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
         },
         "text": {
-          "field": "annotation"
+          "value": "1"
         }
-      }
+      },
+      "name": "areaNumberHalo"
     },
     {
       "data": {
@@ -808,43 +772,83 @@
       },
       "transform": [
         {
-          "calculate": "((chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
-          "as": "match"
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
             {
-              "op": "sum",
-              "field": "match",
-              "as": "total"
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
             }
           ]
         },
         {
-          "filter": "datum.total === 0"
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 10,
-        "color": "#173b37",
-        "align": "left"
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "dx": -15,
+        "dy": -15,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#20343A"
       },
       "encoding": {
-        "x": {
-          "value": {
-            "expr": "width-252"
-          }
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
         },
-        "y": {
-          "value": {
-            "expr": "height-110"
-          }
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
         },
         "text": {
-          "value": "No trails match this selection"
+          "value": "1"
         }
-      }
+      },
+      "name": "areaNumber"
     },
     {
       "data": {
@@ -893,42 +897,36 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
-        },
-        {
-          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
-          "as": "callout_lon"
-        },
-        {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
-          "as": "callout_lat"
         }
       ],
       "mark": {
-        "type": "rule",
-        "stroke": "#5d7269",
-        "strokeWidth": 1.1,
-        "strokeDash": [
-          3,
-          3
-        ]
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "dx": 18,
+        "dy": 18,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "x": {
-          "value": {
-            "expr": "width-274"
-          }
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
         },
-        "y": {
-          "value": {
-            "expr": "height-144"
-          }
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
         },
-        "y2": {
-          "value": {
-            "expr": "height-65"
-          }
+        "text": {
+          "value": "2"
         }
-      }
+      },
+      "name": "routeNumberHalo"
     },
     {
       "data": {
@@ -977,42 +975,33 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
-        },
-        {
-          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
-          "as": "callout_lon"
-        },
-        {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
-          "as": "callout_lat"
         }
       ],
       "mark": {
-        "type": "rule",
-        "stroke": "#5d7269",
-        "strokeWidth": 1.1,
-        "strokeDash": [
-          3,
-          3
-        ]
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "dx": 18,
+        "dy": 18,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#20343A"
       },
       "encoding": {
-        "x": {
-          "value": {
-            "expr": "width-274"
-          }
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
         },
-        "x2": {
-          "value": {
-            "expr": "width-262"
-          }
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
         },
-        "y": {
-          "value": {
-            "expr": "height-65"
-          }
+        "text": {
+          "value": "2"
         }
-      }
+      },
+      "name": "routeNumber"
     }
   ],
   "config": {
@@ -1055,5 +1044,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Trail map with grade and distance legends grouped below the map on the left, and two unboxed explanatory callouts aligned to their right. Leader lines meet exact plotted markers and avoid annotation text."
+  "description": "Trail map with matching numbered geographic markers and explanatory callouts to the right of the legends. Number 1 identifies the largest regional cluster; number 2 identifies the longest matching route. No leader lines cross boundaries or other annotations."
 }
