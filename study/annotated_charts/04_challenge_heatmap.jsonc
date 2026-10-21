@@ -39,7 +39,7 @@
         "color": {
           "field": "trail_count",
           "type": "quantitative",
-          "scale": {"scheme": "yellowgreenblue"},
+          "scale": {"scheme": "greys"},
           "title": "Trail count",
           "legend": {
             "orient": "none",
