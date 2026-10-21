@@ -1,4 +1,4 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -99,59 +99,6 @@
       }
     },
     {
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "fontWeight": 700,
-        "limit": 170
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "axis": {
-            "labelAngle": 0,
-            "labelExpr": "replace(datum.label, 'Grade ', '')"
-          },
-          "title": "Walking grade"
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Terrain",
-          "axis": {
-            "labelFontSize": 11,
-            "labelLimit": 112,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
-          }
-        },
-        "text": {
-          "field": "trail_count"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.trail_count > 22",
-            "value": "white"
-          },
-          "value": "#12332f"
-        }
-      }
-    },
-    {
       "transform": [
         {
           "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
@@ -221,7 +168,8 @@
             "Grade 3",
             "Grade 4",
             "Grade 5"
-          ]
+          ],
+          "bandPosition": 0
         },
         "y": {
           "field": "gradient",
@@ -232,13 +180,67 @@
             "Short steep hills",
             "Gentle hills",
             "Flat"
-          ]
+          ],
+          "bandPosition": 0.5
         },
         "x2": {
           "value": 20
         },
         "y2": {
           "value": 55
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "limit": 170
+      },
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5"
+          ],
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "replace(datum.label, 'Grade ', '')"
+          },
+          "title": "Walking grade"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "nominal",
+          "sort": [
+            "Very steep and difficult",
+            "Very steep",
+            "Short steep hills",
+            "Gentle hills",
+            "Flat"
+          ],
+          "title": "Terrain",
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 112,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+          }
+        },
+        "text": {
+          "field": "trail_count"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.trail_count > 22",
+            "value": "white"
+          },
+          "value": "#12332f"
         }
       }
     },
@@ -351,5 +353,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Heatmap callout ends at the highlighted cell border; count labels are drawn above leader lines."
 }

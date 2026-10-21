@@ -187,7 +187,7 @@ def main():
         annotation = (r['name']+'\n'+(f"{r['hours']:g} h recorded; plan for a long outing" if r['hours'] and r['hours'] >= 12 else
                       f"{r['hours']:g} h recorded; compare all four demands" if r['hours'] else 'Time missing; distance alone is incomplete'))
         for axis, position in enumerate(positions):
-            parallel.append({**{k: r[k] for k in ['id','name','grade','length_km','hours','gradient']},
+            parallel.append({**{k: r[k] for k in ['id','name','grade','length_km','hours','gradient','lga']},
                              'axis': axis, 'position': round(position, 5), 'annotation': annotation})
     write('parallel_points.json', parallel)
     points = []
@@ -231,6 +231,8 @@ def main():
     provenance['derived_tables'] = {'status':'rebuilt-from-retained-inputs' if not args.official_trails else 'rebuilt-after-official-import',
                                     'method':'scripts/rebuild_data.py','totals':summary}
     write('sources.json', provenance)
+    from prepare_map_annotations import main as prepare_annotation_geometry
+    prepare_annotation_geometry()
     print(json.dumps(summary, indent=2))
 
 

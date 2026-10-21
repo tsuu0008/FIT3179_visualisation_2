@@ -1349,3 +1349,20 @@ h3 {
 /* Use each specification's tested plot height and leave room for its controls and legend. */
 .plot-scroll > .chart, .plot-scroll > #detail-map { height: auto !important; min-height: 0; }
 .plot-scroll > #chart-10 { aspect-ratio: auto; }
+
+/* Give the statewide overview its own full-width row. */
+.overview-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.plot-scroll > #chart-01 { max-width: none; min-width: 760px; }
+.overview-layout #network-inset { display: grid; grid-template-columns: minmax(230px, 1fr) minmax(420px, 1.6fr); grid-template-areas: "heading map" "note map"; column-gap: 24px; max-width: none; width: auto; }
+#network-inset > h4 { grid-area: heading; align-self: end; }
+#network-inset > .plot-scroll { grid-area: map; }
+#network-inset > .control-hint { grid-area: note; margin-top: 0; align-self: start; }
+#chart-06 .vega-bindings { gap: 10px 20px; }
+#chart-06 .vega-bind select { max-width: 390px; }
+@media (max-width: 700px) {
+ .overview-layout #network-inset { display: block; }
+ #chart-06 .vega-bind select { max-width: 300px; }
+}
+
+/* Keep both map callout columns legible without covering geographic marks. */
+.plot-scroll > #detail-map { min-width: 620px; }

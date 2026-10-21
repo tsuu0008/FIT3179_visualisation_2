@@ -1,8 +1,8 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 520,
+  "height": 650,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -33,10 +33,23 @@
         "input": "checkbox",
         "name": "Full/partial access only: "
       }
+    },
+    {
+      "name": "mapFrame",
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
     }
   ],
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": {
+      "expr": "[mapFrame[0],mapFrame[1]]"
+    },
+    "scale": {
+      "expr": "min((width-28)/mapFrame[2],(height-134)/mapFrame[3])"
+    },
+    "translate": {
+      "expr": "[width/2,118+(height-134)/2]"
+    }
   },
   "layer": [
     {
@@ -54,6 +67,307 @@
         "strokeWidth": 0.6
       },
       "encoding": {}
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#f3f7f5",
+        "stroke": "#dbe5df",
+        "cornerRadius": 5
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "value": {
+            "expr": "width"
+          }
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 96
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "as": "annotation"
+        },
+        {
+          "calculate": "mapFrame[0]+((width*.78)-width/2)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))*180/PI",
+          "as": "callout_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+((118+(height-134)/2)-96)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "callout_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#5d7269",
+        "strokeWidth": 1.1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "callout_lon"
+        },
+        "latitude2": {
+          "field": "callout_lat"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "calculate": "mapFrame[0]+((width*.22)-width/2)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))*180/PI",
+          "as": "callout_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+((118+(height-134)/2)-96)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "callout_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#5d7269",
+        "strokeWidth": 1.1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "callout_lon"
+        },
+        "latitude2": {
+          "field": "callout_lat"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga.geojson",
+              "format": {
+                "type": "json",
+                "property": "features"
+              }
+            },
+            "key": "properties.name",
+            "fields": [
+              "geometry"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#20343A",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        },
+        "tooltip": [
+          {
+            "field": "lga",
+            "title": "Highlighted LGA"
+          },
+          {
+            "field": "n",
+            "title": "Matching trails"
+          }
+        ]
+      }
     },
     {
       "data": {
@@ -216,72 +530,31 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#20343A",
-        "strokeWidth": 1.1
-      },
-      "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "longitude2": {
-          "datum": 141.3
-        },
-        "latitude2": {
-          "datum": -35.3
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
             },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
           ]
         },
         {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "point",
         "filled": false,
+        "size": 170,
         "stroke": "#20343A",
-        "size": 130,
-        "strokeWidth": 1.5
+        "strokeWidth": 1.7
       },
       "encoding": {
         "longitude": {
@@ -295,40 +568,23 @@
       }
     },
     {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 14,
-        "align": "left",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -18,
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "longitude": {
-          "datum": 141.3,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -35.3,
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
       "data": {
         "url": "data/trails.json"
       },
       "transform": [
         {
           "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
         },
         {
           "window": [
@@ -339,11 +595,11 @@
           ],
           "sort": [
             {
-              "field": "length_km",
+              "field": "n",
               "order": "descending"
             },
             {
-              "field": "id",
+              "field": "lga",
               "order": "ascending"
             }
           ]
@@ -352,37 +608,42 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
           "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
         }
-      ]
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 170,
+        "stroke": "#20343A",
+        "strokeWidth": 1.7
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
     },
     {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 14,
-        "align": "left",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -18
-      },
-      "encoding": {
-        "longitude": {
-          "datum": 141.3,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -35.3,
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
       "data": {
         "url": "data/trails.json"
       },
@@ -412,10 +673,130 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
           "as": "annotation"
         }
-      ]
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "color": "#20343A",
+        "align": "right",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-12"
+          }
+        },
+        "y": {
+          "value": 12
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "color": "#20343A",
+        "align": "left",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "value": 12
+        },
+        "y": {
+          "value": 12
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
     },
     {
       "data": {
@@ -451,329 +832,12 @@
           }
         },
         "y": {
-          "value": {
-            "expr": "height/2"
-          }
+          "value": 45
         },
         "text": {
           "value": "No trails match this selection"
         }
       }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            },
-            {
-              "op": "mean",
-              "field": "longitude",
-              "as": "lon"
-            },
-            {
-              "op": "mean",
-              "field": "latitude",
-              "as": "lat"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' · ' + datum.n + ' matching trails\\nLargest cluster in this selection'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#20343A",
-        "strokeWidth": 1.1
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "longitude2": {
-          "datum": 149.35
-        },
-        "latitude2": {
-          "datum": -35.8
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            },
-            {
-              "op": "mean",
-              "field": "longitude",
-              "as": "lon"
-            },
-            {
-              "op": "mean",
-              "field": "latitude",
-              "as": "lat"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' · ' + datum.n + ' matching trails\\nLargest cluster in this selection'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "filled": false,
-        "stroke": "#20343A",
-        "size": 130,
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 14,
-        "align": "right",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -18,
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "longitude": {
-          "datum": 149.35,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -35.8,
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            },
-            {
-              "op": "mean",
-              "field": "longitude",
-              "as": "lon"
-            },
-            {
-              "op": "mean",
-              "field": "latitude",
-              "as": "lat"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' · ' + datum.n + ' matching trails\\nLargest cluster in this selection'",
-          "as": "annotation"
-        }
-      ]
-    },
-    {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 14,
-        "align": "right",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -18
-      },
-      "encoding": {
-        "longitude": {
-          "datum": 149.35,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -35.8,
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
-      "data": {
-        "url": "data/trails.json"
-      },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            },
-            {
-              "op": "mean",
-              "field": "longitude",
-              "as": "lon"
-            },
-            {
-              "op": "mean",
-              "field": "latitude",
-              "as": "lat"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' · ' + datum.n + ' matching trails\\nLargest cluster in this selection'",
-          "as": "annotation"
-        }
-      ]
     }
   ],
   "config": {
@@ -816,5 +880,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Annotation text is reserved above the map. Regional counts outline an LGA and use a verified interior label anchor; trail callouts point to the exact plotted trail symbol."
 }
