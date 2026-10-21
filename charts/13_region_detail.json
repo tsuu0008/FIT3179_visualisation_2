@@ -2,7 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": "container",
-  "autosize": {"type": "fit", "contains": "padding"},
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": "#ffffff",
   "params": [
     {
@@ -82,123 +85,427 @@
       }
     }
   ],
-  "projection": {"type": "mercator"},
+  "projection": {
+    "type": "mercator"
+  },
   "layer": [
     {
       "name": "detailBase",
-      "data": {"url": "data/lga.geojson", "format": {"type": "json", "property": "features"}},
-      "mark": {"type": "geoshape", "fill": "#edf3ef", "stroke": "#b4c4bc", "strokeWidth": 0.6},
-      "encoding": {"tooltip": [{"field": "properties.name", "title": "Area"}]},
-      "transform": [{"filter": "chosenLga === 'All' || datum.properties.name === chosenLga"}]
+      "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#edf3ef",
+        "stroke": "#b4c4bc",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Area"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.properties.name === chosenLga"
+        }
+      ]
     },
     {
-      "data": {"url": "data/trails.geojson", "format": {"type": "json", "property": "features"}},
-      "transform": [{"filter": "chosenLga === 'All' || datum.properties.lga === chosenLga"}],
-      "mark": {"type": "geoshape", "filled": false, "strokeWidth": 2.5},
+      "data": {
+        "url": "data/trails.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.properties.lga === chosenLga"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 2.5
+      },
       "encoding": {
         "color": {
           "field": "properties.grade",
           "type": "nominal",
           "scale": {
-            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
           },
           "legend": null
         },
         "tooltip": [
-          {"field": "properties.name", "title": "Trail"},
-          {"field": "properties.length_km", "title": "Distance (km)"},
-          {"field": "properties.grade", "title": "Grade"}
+          {
+            "field": "properties.name",
+            "title": "Trail"
+          },
+          {
+            "field": "properties.length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "properties.grade",
+            "title": "Grade"
+          }
         ]
       }
     },
     {
       "name": "detailRegion",
-      "data": {"url": "data/map_regions.json"},
+      "data": {
+        "url": "data/map_regions.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
       "transform": [
         {
           "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
         }
       ],
-      "mark": {"type": "geoshape", "fill": null, "stroke": "#d95d39", "strokeWidth": 2},
-      "encoding": {"tooltip": [{"field": "properties.name", "title": "Selected area"}]}
-    },
-    {
-      "data": {"url": "data/trail_labels.json"},
-      "transform": [
-        {"filter": "chosenLga === 'All' || datum.lga === chosenLga"},
-        {
-          "window": [{"op": "row_number", "as": "rank"}],
-          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
-        },
-        {"filter": "datum.rank === 1"},
-        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
-      ],
-      "mark": {"type": "point", "filled": false, "size": 150, "stroke": "#a64629", "strokeWidth": 2},
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#d95d39",
+        "strokeWidth": 2
+      },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"}
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Selected area"
+          }
+        ]
       }
     },
     {
-      "data": {"url": "data/trail_labels.json"},
+      "data": {
+        "url": "data/trail_labels.json"
+      },
       "transform": [
-        {"filter": "chosenLga === 'All' || datum.lga === chosenLga"},
         {
-          "window": [{"op": "row_number", "as": "rank"}],
-          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
+          "filter": "chosenLga === 'All' || datum.lga === chosenLga"
         },
-        {"filter": "datum.rank === 1"},
-        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest in this area'",
+          "as": "annotation"
+        }
       ],
       "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#20343A",
+        "size": 70,
+        "stroke": "white"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
-        "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
-        "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
-        "fontSize": 11,
-        "fontWeight": 700,
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
         "lineBreak": "\n",
-        "color": "#173b37",
+        "lineHeight": 13,
+        "align": {
+          "expr": "datum.annotation_align"
+        },
+        "baseline": "middle",
+        "color": "#20343A",
+        "dx": {
+          "expr": "datum.annotation_dx"
+        },
+        "dy": -29,
         "stroke": "white",
-        "strokeWidth": 3,
-        "limit": 180
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "label"}
-      }
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "url": "data/trail_labels.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.lga === chosenLga"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest in this area'",
+          "as": "annotation"
+        }
+      ]
     },
     {
-      "data": {"url": "data/trail_labels.json"},
-      "transform": [
-        {"filter": "chosenLga === 'All' || datum.lga === chosenLga"},
-        {
-          "window": [{"op": "row_number", "as": "rank"}],
-          "sort": [{"field": "length_km", "order": "descending"}, {"field": "name", "order": "ascending"}]
-        },
-        {"filter": "datum.rank === 1"},
-        {"calculate": "datum.short_name + '\\n' + format(datum.length_km, '.1f') + ' km'", "as": "label"}
-      ],
       "mark": {
         "type": "text",
-        "align": {"expr": "scale('projection', [datum.longitude, datum.latitude])[0] < 90 ? 'left' : scale('projection', [datum.longitude, datum.latitude])[0] > width - 90 ? 'right' : 'center'"},
-        "baseline": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 'top' : 'bottom'"},
-        "dy": {"expr": "scale('projection', [datum.longitude, datum.latitude])[1] < 40 ? 14 : -24"},
-        "fontSize": 11,
-        "fontWeight": 700,
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
         "lineBreak": "\n",
-        "color": "#173b37",
-        "limit": 180
+        "lineHeight": 13,
+        "align": {
+          "expr": "datum.annotation_align"
+        },
+        "baseline": "middle",
+        "color": "#20343A",
+        "dx": {
+          "expr": "datum.annotation_dx"
+        },
+        "dy": -29
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "label"}
-      }
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "url": "data/trail_labels.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.lga === chosenLga"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.short_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest in this area'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "top",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "value": 10
+        },
+        "y": {
+          "value": 17
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.lga === chosenLga"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            },
+            {
+              "op": "sum",
+              "field": "length_km",
+              "as": "km"
+            }
+          ]
+        },
+        {
+          "calculate": "(chosenLga === 'All' ? 'Victoria' : chosenLga) + ' · ' + datum.n + ' trails\\n' + format(datum.km,'.1f') + ' km; a route can cross borders'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "top",
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": 10
+        },
+        "y": {
+          "value": 17
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All' || datum.lga === chosenLga"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            },
+            {
+              "op": "sum",
+              "field": "length_km",
+              "as": "km"
+            }
+          ]
+        },
+        {
+          "calculate": "(chosenLga === 'All' ? 'Victoria' : chosenLga) + ' · ' + datum.n + ' trails\\n' + format(datum.km,'.1f') + ' km; a route can cross borders'",
+          "as": "annotation"
+        }
+      ]
     }
   ],
-  "config": {"view": {"stroke": null}, "text": {"font": "Inter"}, "legend": {"columns": 2, "labelLimit": 150}},
-  "padding": 0
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    },
+    "legend": {
+      "columns": 2,
+      "labelLimit": 150
+    }
+  },
+  "padding": 0,
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

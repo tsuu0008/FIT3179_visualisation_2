@@ -13,17 +13,17 @@
 | lga_stats.json | Prepared area totals and ranks. |
 | access_waffle.json | 100 prepared percentage cells. |
 
-The browser starts from processed data. Original raw-data cleaning, boundary assignment and derivation scripts are not included. The supplied lga attribute uses a route midpoint assignment; a route can cross boundaries.
+The browser starts from processed data. Current plotting-table derivations are included in `scripts/rebuild_data.py`; the original raw-data cleaning, simplification and boundary assignment history remains unavailable. `data/sources.json` explicitly distinguishes verified source pages from retained observations whose lineage is unverified. Official export requests failed during this revision. No new official snapshot is claimed. See `DATA_SOURCES.md` for download links and import instructions. The supplied lga attribute uses a route midpoint assignment; a route can cross boundaries.
 
 ## Denominators
 
-- All trails: 194; headline total 871.9 km, median 2.2 km.
+- All trails: 194; exact distance sum 871.905 km (headline 872 km), median 2.15 km (headline 2.2 km).
 - Grades 1–5: 4, 42, 115, 27, 2 records; Unknown: 4.
 - Positive recorded times: 149; missing time: 45.
 - Missing terrain: 7.
 - Heatmap: 186 records with known grade and terrain.
 - Experience bars: 187 records with known terrain and experience.
-- Mosaic: coordinates match 853.805 unrounded km with known grade and terrain. Rounded per-block labels sum to 853.7 km. This is not the full-network denominator.
+- Mosaic: both block measurements and coordinates are now rebuilt from the exact 853.805 km with known grade and terrain. Labels round only at display time. This is not the full-network denominator.
 - Access: 2 Full + 13 Partial = 15, among 179 rated records. Another 15 have no rating. 100 waffle cells round the share to eight highlighted cells.
 - Rank comparison: ranks among 31 positive-trail areas; 18 most populous are displayed.
 - At or below 5 km: 150 of 194 trails initially.
@@ -34,10 +34,19 @@ The mosaic excludes both unknown terrain and unknown grade. Per-block rounding e
 
 The regional detail has an area dropdown; the supply map has a measure dropdown; the circle map has grade/access controls; the strip has a grade dropdown; parallel coordinates has an example-trail dropdown. The overview and time chart remain fixed. Each control affects one chart. The regional dropdown includes areas with recorded trails.
 
-Parallel-coordinate prepared positions are 100 × sqrt(km/95), 100 × sqrt(hours/48), 25 × (grade−1), and 25 × terrain index (flat=0, difficult=4). Missing values use −15, below the valid range. Raw-unit axis labels use the same conversions. These display positions are not additional measurements. These conversions were applied when preparing parallel_points.json; the website only reads the resulting values.
+Parallel-coordinate prepared positions are 100 × sqrt(km/95), 100 × sqrt(hours/48), 25 × (grade−1), and 25 × terrain index (flat=0, difficult=4). Missing values use −15, below the valid range. Raw-unit axis labels use the same conversions. These display positions are not additional measurements. These conversions are reproduced by scripts/rebuild_data.py when preparing parallel_points.json; the website reads the resulting values.
 
 ## Snapshot-specific and perceptual limits
 
 Some count denominators, the 69-trail heatmap note, named outliers, mosaic total and 15/179 label are fixed to this snapshot. Replacing the dataset requires reviewing them. Grade 5 has only two records. Recorded durations are estimates. Mercator is not equal-area, and the browser does not calculate geographic statistics from its displayed polygons.
 
 Square-root axes keep short routes distinguishable but make spacing nonlinear. Grade/terrain are ordered categories with no equal-effort interpretation. Rank gaps lose underlying magnitudes. Colour consistency is provided, but no formal colour-vision evaluation is claimed. Annotations use fixed positions and offsets; they do not use an automatic collision solver.
+
+
+## Direct annotations and grade accessibility
+
+All 13 chart specifications now include a highlighted feature plus an explanatory label inside the plotting area. Maps include region/trail labels connected with leader lines. Filtered chart labels recompute from the matching records; empty selections do not retain a stale trail label. Static regional findings describe the retained snapshot.
+
+Grades use blue (#0072B2), amber (#E69F00), teal (#009E73), magenta (#CC79A7) and charcoal (#252525), with unknown in grey. Point charts add different symbols; axes, guide cards and tooltips retain grade numbers. This uses several colours from the Okabe–Ito palette plus charcoal, and avoids a red–green opposing pair. It is not a guarantee for every colour-vision condition; direct labels and shape redundancy carry meaning independently. Sequential colour remains appropriate for numeric supply and heatmap counts.
+
+Callouts have a readable minimum plotting width. Small screens scroll the individual chart horizontally rather than shrinking or overlapping its annotations. Figures were rendered with Vega-Lite 5.20.1 and Vega 5.30.0 at the actual minimum plotting widths; grade/access and region selections were evaluated. Full browser layout QA was unavailable.

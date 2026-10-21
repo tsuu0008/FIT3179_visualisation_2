@@ -1,88 +1,301 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 420,
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 480,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  "data": {"url": "data/lga_stats.json"},
-  "transform": [{"filter": "datum.trail_count > 0 && datum.population_rank <= 18"}],
+  "data": {
+    "url": "data/lga_stats.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.trail_count > 0 && datum.population_rank <= 18"
+    }
+  ],
   "layer": [
     {
-      "mark": {"type": "rule", "stroke": "#a8b8b4", "strokeWidth": 2},
+      "mark": {
+        "type": "rule",
+        "stroke": "#a8b8b4",
+        "strokeWidth": 2
+      },
       "encoding": {
-        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          },
+          "title": null
+        },
         "x": {
           "field": "population_rank",
           "type": "quantitative",
-          "title": ["Rank among areas with trails", "1 = highest"],
-          "scale": {"domain": [0, 33], "nice": false}
+          "title": [
+            "Rank among areas with trails",
+            "1 = highest"
+          ],
+          "scale": {
+            "domain": [
+              0,
+              49
+            ],
+            "nice": false
+          },
+          "axis": {
+            "values": [
+              1,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30
+            ],
+            "grid": false
+          }
         },
-        "x2": {"field": "supply_rank"}
+        "x2": {
+          "field": "supply_rank"
+        }
       }
     },
     {
-      "mark": {"type": "rule", "stroke": "#d95d39", "strokeWidth": 3},
+      "mark": {
+        "type": "rule",
+        "stroke": "#d95d39",
+        "strokeWidth": 3
+      },
       "encoding": {
-        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          },
+          "title": null
+        },
         "x": {
           "field": "population_rank",
           "type": "quantitative",
-          "title": ["Rank among areas with trails", "1 = highest"],
-          "scale": {"domain": [0, 33], "nice": false}
+          "title": [
+            "Rank among areas with trails",
+            "1 = highest"
+          ],
+          "scale": {
+            "domain": [
+              0,
+              49
+            ],
+            "nice": false
+          }
         },
-        "x2": {"field": "supply_rank"}
+        "x2": {
+          "field": "supply_rank"
+        }
       },
-      "transform": [{"filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"}]
+      "transform": [
+        {
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        }
+      ]
     },
     {
-      "transform": [{"fold": ["population_rank", "supply_rank"], "as": ["measure", "rank"]}],
-      "mark": {"type": "point", "filled": true, "size": 95},
+      "transform": [
+        {
+          "fold": [
+            "population_rank",
+            "supply_rank"
+          ],
+          "as": [
+            "measure",
+            "rank"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 95
+      },
       "encoding": {
-        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
-        "x": {"field": "rank", "type": "quantitative"},
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          },
+          "title": null
+        },
+        "x": {
+          "field": "rank",
+          "type": "quantitative"
+        },
         "color": {
           "field": "measure",
           "type": "nominal",
-          "scale": {"domain": ["population_rank", "supply_rank"], "range": ["#264653", "#e76f51"]},
+          "scale": {
+            "domain": [
+              "population_rank",
+              "supply_rank"
+            ],
+            "range": [
+              "#264653",
+              "#e76f51"
+            ]
+          },
           "legend": {
             "title": null,
             "labelExpr": "datum.label === 'population_rank' ? 'Population rank' : 'Trail supply rank'"
           }
         },
         "tooltip": [
-          {"field": "name", "title": "LGA"},
-          {"field": "measure", "title": "Measure"},
-          {"field": "rank", "title": "Rank"}
+          {
+            "field": "name",
+            "title": "LGA"
+          },
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          }
         ]
       }
     },
     {
       "transform": [
-        {"filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"},
         {
-          "calculate": "'Pop. ' + datum.population_rank + ' → Supply ' + datum.supply_rank",
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        },
+        {
+          "calculate": "'Population ' + datum.population_rank + '; supply ' + datum.supply_rank + '\\nFewer km per resident'",
           "as": "annotation"
         }
       ],
       "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -6,
-        "dy": -9,
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#b74928",
-        "limit": 170
+        "type": "rule",
+        "stroke": "#20343A",
+        "strokeWidth": 1
       },
       "encoding": {
-        "x": {"field": "supply_rank", "type": "quantitative"},
-        "y": {"field": "name", "type": "nominal", "sort": {"field": "population_rank"}, "title": null},
-        "text": {"field": "annotation"}
+        "x": {
+          "field": "supply_rank",
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 34
+        },
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          }
+        }
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 12,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "datum": 34.5,
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        },
+        {
+          "calculate": "'Population ' + datum.population_rank + '; supply ' + datum.supply_rank + '\\nFewer km per resident'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 12,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "datum": 34.5,
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        },
+        {
+          "calculate": "'Population ' + datum.population_rank + '; supply ' + datum.supply_rank + '\\nFewer km per resident'",
+          "as": "annotation"
+        }
+      ]
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -107,6 +320,16 @@
       "columns": 1,
       "labelLimit": 150
     },
-    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
-  }
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

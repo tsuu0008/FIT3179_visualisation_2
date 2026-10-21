@@ -1331,3 +1331,17 @@ h3 {
   #chart-02 { height: clamp(320px, 72vw, 600px); }
   #chart-03 { height: clamp(380px, 76vw, 640px); }
 }
+
+
+/* Direct annotations need a readable plotting width. The page itself never widens. */
+.plot-scroll { width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; }
+.plot-scroll:focus-visible { outline: 2px solid #0072B2; outline-offset: 3px; }
+.plot-scroll > .chart { display: block; min-width: 620px; }
+.plot-scroll > #chart-06 { min-width: 960px; }
+.plot-scroll > #chart-11 { min-width: 700px; }
+.plot-scroll > #chart-10 { min-width: 480px; max-width: 560px; aspect-ratio: 16 / 11; }
+.plot-scroll > #detail-map { min-width: 420px; height: 310px; }
+.plot-scroll > #chart-01 { height: clamp(300px, 30vw, 390px); }
+.plot-scroll .vega-embed { max-width: none; }
+.plot-scroll svg { max-width: none; }
+@media (max-width: 700px) { .plot-scroll { scrollbar-width: thin; scrollbar-color: #82958e #eef3f1; } }

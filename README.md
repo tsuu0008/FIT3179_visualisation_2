@@ -1,50 +1,33 @@
-# Walking the Uneven Map — lecture-style version
+# Walking the Uneven Map — annotated revision
 
-Updated **18 October 2026**: enlarged parallel coordinates to fill its card, added two data-based map insights, fixed overlapping waffle cells, and reduced the side space around the two statewide maps.
+Updated **21 October 2026**. All 13 Vega-Lite charts include direct explanatory annotations. Grade colours are blue, amber, teal, magenta and charcoal; point charts also use distinct symbols. Smaller screens scroll each plotting surface horizontally to preserve readable labels.
 
-Open **index.html** with **VS Code Live Server**, as in the Week 7 lecture:
+Open `index.html` with **VS Code Live Server**. The site remains buildless HTML, CSS and Vega-Lite JSON specifications. No bundler or custom chart event handler is required.
 
-1. Extract this whole ZIP.
-2. Open the extracted project folder in VS Code.
-3. Right-click index.html and choose **Open with Live Server**.
+## Data status
 
-Internet access is needed for the three Vega libraries and the fonts. Open through Live Server rather than double-clicking the HTML, because the browser must fetch the JSON files.
+**The 194 existing trail observations were retained. This is not a fresh official-data download.** The official layer and ABS source/download links were checked, but export requests failed in the editing environment. Original trail extraction history and the bundled boundary vintage remain unverified. See [source instructions](study/DATA_SOURCES.md) and [machine-readable status](data/sources.json).
 
-## The whole setup
+Derived tables were rebuilt reproducibly from the retained inputs. Mosaic group distances retain full precision; rounding occurs in displayed labels only. The exact trail-distance sum is 871.905 km and the median is 2.15 km; headline display rounds those to 872 km and 2.2 km.
 
-```html
-<div id="chart-04"></div>
-<script>
-  vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", {actions: false, renderer: "svg"});
-</script>
+```bash
+python scripts/rebuild_data.py
 ```
 
-The three library scripts must load before this call. The actual page repeats this simple call for its 13 charts. There is no app.js, data bundle, custom loader, event handler, View API or JavaScript sizing helper. All charts now use Vega-Lite.
+The downloader and importer can retrieve and process a complete official WGS84 trail export in an environment with access to the service. Review updated annotation values, chart domains, dropdowns and narrative claims before publishing a changed observation dataset.
+
+## Main files
 
 | File | Purpose |
 | --- | --- |
-| index.html | Story, empty chart containers and 13 embed calls. |
-| styles.css | Layout, colours, spacing and phone styles. |
-| charts/*.json | Chart instructions and a few built-in dropdowns. |
-| data/* | Processed records, boundaries and prepared plotting tables. |
-| study/START_HERE.md | Short code explanation. |
-| study/INTERVIEW_GUIDE.md | Why each chart was chosen. |
-| study/annotated_charts/*.jsonc | Optional study copies with brief comments; not loaded by the website. |
+| index.html | Narrative, grade guide, source references and 13 embed calls. |
+| styles.css | Layout, chart scroll surfaces and responsive styles. |
+| charts/*.json | Displayed Vega-Lite specifications, controls and annotations. |
+| data/* | Retained observations/geometry, rebuilt plotting tables, sources and statistics. |
+| scripts/rebuild_data.py | Reproducible plotting-table derivations and optional official GeoJSON import. |
+| scripts/download_official_tracks.py | Complete official walking-track export using batched IDs. |
+| study/DATA_SOURCES.md | Exact source links, verification limits and refresh instructions. |
+| study/DATA_AND_CAVEATS.md | Denominators, encodings, annotation and verification notes. |
+| study/annotated_charts/*.jsonc | Study copies matching the actual displayed charts. |
 
-The regional map, supply map, circle map, parallel coordinates and distance strip have simple local controls. Other charts retain hover tooltips. Custom zoom, click selection, presets, resets, counters and linked updates have been removed. Choose All, All Victoria, or None in a dropdown to undo its selection. The regional picker lists areas containing recorded trails.
-
-To edit a chart, change its JSON and reload the page. There is nothing to rebuild. Both axes, value annotations, colour meanings and the narrative remain. The map projection fits its data automatically. Parallel-coordinate positions are prepared data, with raw units labelled on each axis; phones can scroll that plot horizontally.
-
-Checked at desktop, tablet and phone widths. Each remaining control changes one plot only. This package does not publish the website.
-
-## Layout changes on 18 October
-
-On wide screens, each supply/circle map sits beside its description. On phones they stack. CSS grid defines this layout; no JavaScript sizing helper was added. The waffle has a fixed aspect ratio, and its square area is `pow(min(width/14,height/10)*0.86,2)`: use the smaller cell spacing, leave a gap, then square the side length. This prevents cell overlap when the available width and height differ.
-
-## Parallel plot and story refinement
-
-Parallel coordinates uses `width: "container"` and a 460 px height. An outer `.parallel-scroll` element provides horizontal scrolling, while the inner chart has a 960 px minimum width so its four axes remain readable on phones. No JavaScript sizing helper is needed. The map narrative explains the 150/194 short-walk count and the Grade 3 access-filter example (115 trails reduced to four); these are full-snapshot examples, not live counters.
-
-## Storytelling revision
-
-The narrative now follows the findings: where trails gather, how walking demands differ, and why plentiful trails do not always mean plentiful suitable choices. Each chart contributes evidence to that story. Technical reading notes are collected in the expandable “Data and display notes” section under methodology. The chart specifications, data and local controls are unchanged by this narrative revision.
+Local chart controls affect their own plot. Returning to All/All Victoria/None clears the corresponding selection. The surrounding narrative describes the retained snapshot.

@@ -2,21 +2,43 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 500,
-  "autosize": {"type": "fit", "contains": "padding"},
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  "data": {"url": "data/mosaic.json"},
+  "data": {
+    "url": "data/mosaic.json"
+  },
   "transform": [
-    {"calculate": "(datum.x0 + datum.x1) / 2", "as": "xmid"},
-    {"calculate": "(datum.y0 + datum.y1) / 2", "as": "ymid"}
+    {
+      "calculate": "(datum.x0 + datum.x1) / 2",
+      "as": "xmid"
+    },
+    {
+      "calculate": "(datum.y0 + datum.y1) / 2",
+      "as": "ymid"
+    }
   ],
   "layer": [
     {
-      "mark": {"type": "rect", "stroke": "#f8fafc", "strokeWidth": 1.5, "cornerRadius": 2},
+      "mark": {
+        "type": "rect",
+        "stroke": "#f8fafc",
+        "strokeWidth": 1.5,
+        "cornerRadius": 2
+      },
       "encoding": {
         "x": {
           "field": "x0",
           "type": "quantitative",
-          "scale": {"domain": [0, 1], "nice": false},
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "nice": false
+          },
           "axis": {
             "values": [
               0.024420095923542263,
@@ -35,88 +57,239 @@
             "ticks": true,
             "tickSize": 5,
             "grid": false,
-            "title": ["Terrain", "share of recorded kilometres"],
+            "title": [
+              "Terrain",
+              "share of recorded kilometres"
+            ],
             "titlePadding": 16,
             "titleFontSize": 12,
             "labelOverlap": false
           }
         },
-        "x2": {"field": "x1"},
+        "x2": {
+          "field": "x1"
+        },
         "y": {
           "field": "y0",
           "type": "quantitative",
           "axis": {
             "format": ".0%",
-            "values": [0, 0.2, 0.4, 0.6, 0.8, 1],
+            "values": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
             "title": "Grade share within each terrain (%)",
             "titleFontSize": 12,
             "titlePadding": 10,
             "grid": false,
             "labelFontSize": 11
           },
-          "scale": {"domain": [0, 1], "nice": false}
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "nice": false
+          }
         },
-        "y2": {"field": "y1"},
+        "y2": {
+          "field": "y1"
+        },
         "color": {
           "field": "grade",
           "type": "nominal",
           "scale": {
-            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
           },
           "title": "Grade"
         },
         "tooltip": [
-          {"field": "gradient", "title": "Terrain"},
-          {"field": "grade", "title": "Grade"},
-          {"field": "km", "title": "Recorded km", "format": ".1f"}
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "km",
+            "title": "Recorded km",
+            "format": ".1f"
+          }
         ]
       }
     },
     {
-      "transform": [{"filter": "datum.km >= 30"}],
       "mark": {
         "type": "text",
         "font": "Inter",
         "fontSize": 11,
-        "fontWeight": 700,
-        "color": {"expr": "indexof(['Grade 3', 'Grade 4', 'Grade 5'], datum.grade) >= 0 ? 'white' : '#173b37'"},
-        "limit": 170,
-        "dy": 0
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "center",
+        "baseline": "middle",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "x": {"field": "xmid", "type": "quantitative"},
-        "y": {"field": "ymid", "type": "quantitative"},
-        "text": {"field": "km", "type": "quantitative", "format": ".0f"}
-      }
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 3'"
+        },
+        {
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nLargest block of recorded kilometres'",
+          "as": "annotation"
+        }
+      ]
     },
     {
-      "transform": [
-        {"filter": "datum.gradient === 'Short steep hills'"},
-        {
-          "aggregate": [{"op": "min", "field": "x0", "as": "left"}, {"op": "max", "field": "x1", "as": "right"}]
-        },
-        {"calculate": "(datum.left + datum.right) / 2", "as": "mid"}
-      ],
       "mark": {
         "type": "text",
         "font": "Inter",
         "fontSize": 11,
-        "fontWeight": 700,
-        "dy": 0,
-        "color": "white",
+        "fontWeight": 600,
         "lineBreak": "\n",
-        "limit": 170
+        "lineHeight": 14,
+        "align": "center",
+        "baseline": "middle",
+        "color": "#20343A"
       },
       "encoding": {
-        "x": {"field": "mid", "type": "quantitative"},
-        "y": {"datum": 0.12, "type": "quantitative"},
-        "text": {"value": "Short steep hills\n480.7 km (56.3%)"}
-      }
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 3'"
+        },
+        {
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nLargest block of recorded kilometres'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "center",
+        "baseline": "middle",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 4'"
+        },
+        {
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nSame terrain, higher walking grade'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "center",
+        "baseline": "middle",
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 4'"
+        },
+        {
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nSame terrain, higher walking grade'",
+          "as": "annotation"
+        }
+      ]
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -140,7 +313,18 @@
       "padding": 8,
       "columns": 2,
       "labelLimit": 150
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
     }
   },
-  "padding": {"top": 5, "left": 5, "right": 5, "bottom": 5}
+  "padding": {
+    "top": 5,
+    "left": 5,
+    "right": 5,
+    "bottom": 5
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

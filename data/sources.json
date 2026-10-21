@@ -1,0 +1,44 @@
+{
+  "review_date": "2026-10-21",
+  "trail_records": {
+    "status": "retained-snapshot-unverified-lineage",
+    "source": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24",
+    "dataset_title": "State Forest Recreation Tracks",
+    "publisher": "Victorian Government / DEECA",
+    "record_count": 194,
+    "note": "The official service and its fields were checked, but export requests failed in this environment. No fresh download or complete record comparison is claimed. The original extraction date and transformation history are unavailable."
+  },
+  "population": {
+    "status": "retained-values-unverified-against-workbook",
+    "reference_period": "30 June 2025",
+    "source": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25",
+    "download": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx",
+    "table": "Population estimates and components by LGA, 2024 to 2025"
+  },
+  "boundaries": {
+    "status": "retained-geometry-vintage-unverified",
+    "source": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files",
+    "download_for_2025": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
+    "note": "The 2025 download is a verified available source, not a verified identification of the bundled geometry."
+  },
+  "grade_definitions": {
+    "source": "https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated",
+    "purpose": "Explanatory reference for Australian Walking Track Grading System grades, not the observation dataset."
+  },
+  "derived_tables": {
+    "status": "rebuilt-from-retained-inputs",
+    "method": "scripts/rebuild_data.py",
+    "totals": {
+      "trail_count": 194,
+      "total_km": 871.905,
+      "median_km": 2.15,
+      "graded_pct": 98,
+      "accessible_count": 15,
+      "rated_count": 179,
+      "access_pct": 8.379888268156424,
+      "positive_time_count": 149,
+      "mosaic_km": 853.805,
+      "closed_count": 2
+    }
+  }
+}
