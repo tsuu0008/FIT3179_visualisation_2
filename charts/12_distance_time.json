@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 430,
+  "height": 480,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -192,9 +192,51 @@
           "field": "hours",
           "type": "quantitative"
         }
+      },
+      "name": "outlierPoint"
+    },
+    {
+      "name": "outlierLeader",
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#20343A",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": {
+            "expr": "scale('y',datum.hours)-10"
+          }
+        },
+        "y2": {
+          "value": 52
+        }
       }
     },
     {
+      "name": "outlierNoteHalo",
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ],
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -202,27 +244,29 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "left",
-        "baseline": "middle",
+        "align": "right",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -17,
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
         "x": {
-          "datum": 6,
-          "type": "quantitative"
+          "value": {
+            "expr": "width-12"
+          }
         },
         "y": {
-          "datum": 56,
-          "type": "quantitative"
+          "value": 12
         },
         "text": {
-          "field": "numbered_annotation"
+          "field": "annotation"
         }
-      },
+      }
+    },
+    {
+      "name": "outlierNote",
       "transform": [
         {
           "filter": "datum.name === \"Track Ninety Six\""
@@ -230,14 +274,8 @@
         {
           "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
           "as": "annotation"
-        },
-        {
-          "calculate": "'1 · ' + datum.annotation",
-          "as": "numbered_annotation"
         }
-      ]
-    },
-    {
+      ],
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -245,37 +283,23 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "left",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -17
+        "align": "right",
+        "baseline": "top",
+        "color": "#20343A"
       },
       "encoding": {
         "x": {
-          "datum": 6,
-          "type": "quantitative"
+          "value": {
+            "expr": "width-12"
+          }
         },
         "y": {
-          "datum": 56,
-          "type": "quantitative"
+          "value": 12
         },
         "text": {
-          "field": "numbered_annotation"
+          "field": "annotation"
         }
-      },
-      "transform": [
-        {
-          "filter": "datum.name === \"Track Ninety Six\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
-          "as": "annotation"
-        },
-        {
-          "calculate": "'1 · ' + datum.annotation",
-          "as": "numbered_annotation"
-        }
-      ]
+      }
     },
     {
       "transform": [
@@ -303,9 +327,53 @@
           "field": "hours",
           "type": "quantitative"
         }
+      },
+      "name": "longerPoint"
+    },
+    {
+      "name": "longerLeader",
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#20343A",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": {
+            "expr": "scale('y',datum.hours)+10"
+          }
+        },
+        "y2": {
+          "value": {
+            "expr": "scale('y',datum.hours)+19"
+          }
+        }
       }
     },
     {
+      "name": "longerNoteHalo",
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
+          "as": "annotation"
+        }
+      ],
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -313,42 +381,40 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "left",
-        "baseline": "middle",
+        "align": "right",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -17,
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
         "x": {
-          "datum": 15,
-          "type": "quantitative"
+          "value": {
+            "expr": "width-12"
+          }
         },
         "y": {
-          "datum": 26,
-          "type": "quantitative"
+          "value": {
+            "expr": "scale('y',datum.hours)+24"
+          }
         },
         "text": {
-          "field": "numbered_annotation"
+          "field": "annotation"
         }
-      },
+      }
+    },
+    {
+      "name": "longerNote",
       "transform": [
         {
           "filter": "datum.name === \"Great Dividing Trail\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
           "as": "annotation"
-        },
-        {
-          "calculate": "'2 · ' + datum.annotation",
-          "as": "numbered_annotation"
         }
-      ]
-    },
-    {
+      ],
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -356,187 +422,25 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "left",
-        "baseline": "middle",
-        "color": "#20343A",
-        "dy": -17
-      },
-      "encoding": {
-        "x": {
-          "datum": 15,
-          "type": "quantitative"
-        },
-        "y": {
-          "datum": 26,
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "numbered_annotation"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.name === \"Great Dividing Trail\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
-          "as": "annotation"
-        },
-        {
-          "calculate": "'2 · ' + datum.annotation",
-          "as": "numbered_annotation"
-        }
-      ]
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.name === \"Track Ninety Six\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "align": "center",
-        "baseline": "middle",
-        "dx": -14,
-        "dy": -14,
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hours",
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "1"
-        }
-      },
-      "name": "callout1Halo"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.name === \"Track Ninety Six\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "align": "center",
-        "baseline": "middle",
-        "dx": -14,
-        "dy": -14,
+        "align": "right",
+        "baseline": "top",
         "color": "#20343A"
       },
       "encoding": {
         "x": {
-          "field": "length_km",
-          "type": "quantitative"
+          "value": {
+            "expr": "width-12"
+          }
         },
         "y": {
-          "field": "hours",
-          "type": "quantitative"
+          "value": {
+            "expr": "scale('y',datum.hours)+24"
+          }
         },
         "text": {
-          "value": "1"
+          "field": "annotation"
         }
-      },
-      "name": "callout1Number"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.name === \"Great Dividing Trail\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "align": "center",
-        "baseline": "middle",
-        "dx": -14,
-        "dy": -14,
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hours",
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "2"
-        }
-      },
-      "name": "callout2Halo"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.name === \"Great Dividing Trail\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "align": "center",
-        "baseline": "middle",
-        "dx": -14,
-        "dy": -14,
-        "color": "#20343A"
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hours",
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "2"
-        }
-      },
-      "name": "callout2Number"
+      }
     }
   ],
   "config": {
@@ -579,5 +483,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Distance-versus-time scatterplot with matching numbered points and explanatory callouts. Removing long annotation leaders keeps the dashed regression trend unobstructed."
+  "description": "Distance–time scatterplot with short vertical annotation leaders: the time-outlier note sits above its point and the longer-walk note below its point. Both leaders stay on the same side of the fitted trend as their target and stop outside the text and point rings."
 }

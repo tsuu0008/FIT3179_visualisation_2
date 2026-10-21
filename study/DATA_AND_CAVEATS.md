@@ -65,4 +65,4 @@ Map refinements: council borders use thin, light strokes behind the trail marks;
 
 Final symbol-map callouts: 28 grade/access/width combinations were checked for complete labels, separated notes, matching numbered geographic markers and absence of leader lines. The map retains the selected point and regional interior anchor.
 
-The distance–time scatterplot uses matching numbered markers and notes for Track Ninety Six (1) and Great Dividing Trail (2). Long leaders were removed so they do not cross the dashed regression line; the point data and fitted trend are unchanged.
+The distance–time scatterplot uses short vertical pointer lines. Track Ninety Six’s note sits above its highlighted point, and Great Dividing Trail’s note sits below its point. Each pointer stops at the ring edge and leaves a gap before the annotation text; the pointers remain on their respective sides of the dashed regression line. The point data and fitted trend are unchanged.
