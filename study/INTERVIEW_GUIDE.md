@@ -67,3 +67,4 @@ No custom JavaScript controls or zoom handlers are involved. The fixed overview 
 Example: “I wanted to find common grade/terrain combinations. A heatmap uses two categorical axes and colour for count. I group and count records, draw rectangles, then add number labels. Colour is less precise than aligned bars, so the numbers help.”
 
 The supplied inputs are already processed. Do not claim the website performs the original cleaning or spatial boundary assignment. The full dataset has 194 trails; only 149 have positive recorded times, so the time plot has a different denominator.
+

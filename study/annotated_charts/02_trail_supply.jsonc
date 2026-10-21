@@ -1,31 +1,48 @@
-// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
-// A bound dropdown changes metric. Calculate supplyValue, then colour the polygons.
+// Current chart specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 520,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  // Input records or prepared plotting values.
-  "data": {"url": "data/lga.geojson", "format": {"type": "json", "property": "features"}},
-  // Vega-Lite creates these controls; no JavaScript event handler is needed.
+  "data": {
+    "url": "data/lga.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
   "params": [
     {
       "name": "metric",
       "value": "resident",
       "bind": {
         "input": "select",
-        "options": ["resident", "total"],
+        "options": [
+          "resident",
+          "total"
+        ],
         "name": "Colour by: ",
-        "labels": ["Km per 100,000 residents", "Total recorded km"]
+        "labels": [
+          "Km per 100,000 residents",
+          "Total recorded km"
+        ]
       }
     }
   ],
-  "projection": {"type": "mercator"},
-  // Draw these layers in order, from background to foreground.
+  "projection": {
+    "type": "mercator"
+  },
   "layer": [
     {
-      "mark": {"type": "geoshape", "stroke": "#f8fafc", "strokeWidth": 0.7},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#f8fafc",
+        "strokeWidth": 0.7
+      },
       "encoding": {
         "color": {
           "field": "supplyValue",
@@ -33,14 +50,34 @@
           "scale": {
             "scheme": "tealblues",
             "type": "sqrt",
-            "domain": [0, {"expr": "metric === 'resident' ? 844.2 : 146.5"}]
+            "domain": [
+              0,
+              {
+                "expr": "metric === 'resident' ? 850 : 150"
+              }
+            ]
           },
-          "title": {"expr": "metric === 'resident' ? 'Km per 100,000 residents' : 'Total recorded kilometres'"}
+          "title": {
+            "expr": "metric === 'resident' ? 'Km per 100,000 residents' : 'Total recorded kilometres'"
+          }
         },
         "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "LGA"},
-          {"field": "properties.trail_count", "type": "quantitative", "title": "Trails"},
-          {"field": "properties.trail_km", "type": "quantitative", "title": "Recorded km", "format": ".1f"},
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "LGA"
+          },
+          {
+            "field": "properties.trail_count",
+            "type": "quantitative",
+            "title": "Trails"
+          },
+          {
+            "field": "properties.trail_km",
+            "type": "quantitative",
+            "title": "Recorded km",
+            "format": ".1f"
+          },
           {
             "field": "properties.population",
             "type": "quantitative",
@@ -55,8 +92,7 @@
           }
         ]
       },
-      // Filter, group or calculate before drawing.
-  "transform": [
+      "transform": [
         {
           "calculate": "metric === 'resident' ? datum.properties.trail_km_per_100k : datum.properties.trail_km",
           "as": "supplyValue"
@@ -64,67 +100,320 @@
       ]
     },
     {
+      "data": {
+        "values": [
+          {
+            "lon": 145.702891875,
+            "lat": -37.4585353125
+          }
+        ]
+      },
       "transform": [
         {
-          "calculate": "metric === 'resident' ? datum.properties.trail_km_per_100k : datum.properties.trail_km",
-          "as": "supplyValue"
-        },
-        {
-          "window": [{"op": "row_number", "as": "rank"}],
-          "sort": [{"field": "supplyValue", "order": "descending"}]
-        },
-        {"filter": "datum.rank === 1"},
-        {
-          "calculate": "datum.properties.name + '\\n' + format(datum.supplyValue, '.1f') + (metric === 'resident' ? ' km / 100,000' : ' km recorded')",
+          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
         }
       ],
       "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "color": "#173b37",
-        "stroke": "white",
-        "strokeWidth": 3,
-        "limit": 240
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.1
       },
-      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "annotation"}}
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "datum": 143.7
+        },
+        "latitude2": {
+          "datum": -35.1
+        }
+      }
     },
     {
+      "data": {
+        "values": [
+          {
+            "lon": 145.702891875,
+            "lat": -37.4585353125
+          }
+        ]
+      },
       "transform": [
         {
-          "calculate": "metric === 'resident' ? datum.properties.trail_km_per_100k : datum.properties.trail_km",
-          "as": "supplyValue"
-        },
-        {
-          "window": [{"op": "row_number", "as": "rank"}],
-          "sort": [{"field": "supplyValue", "order": "descending"}]
-        },
-        {"filter": "datum.rank === 1"},
-        {
-          "calculate": "datum.properties.name + '\\n' + format(datum.supplyValue, '.1f') + (metric === 'resident' ? ' km / 100,000' : ' km recorded')",
+          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
         }
       ],
       "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "color": "#173b37",
-        "limit": 240
+        "type": "point",
+        "filled": false,
+        "stroke": "#20343A",
+        "size": 130,
+        "strokeWidth": 1.5
       },
-      "encoding": {"x": {"value": 8}, "y": {"value": 10}, "text": {"field": "annotation"}}
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 143.7,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.1,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 145.702891875,
+            "lat": -37.4585353125
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 143.7,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.1,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 145.702891875,
+            "lat": -37.4585353125
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 146.20391631578946,
+            "lat": -37.837281052631575
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "datum": 149.1
+        },
+        "latitude2": {
+          "datum": -36.0
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 146.20391631578946,
+            "lat": -37.837281052631575
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#20343A",
+        "size": 130,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "right",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.1,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -36.0,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 146.20391631578946,
+            "lat": -37.837281052631575
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "right",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.1,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -36.0,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 146.20391631578946,
+            "lat": -37.837281052631575
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "as": "annotation"
+        }
+      ]
     }
   ],
-  // Shared styling for this chart.
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -152,6 +441,16 @@
       "labelLimit": 150,
       "gradientLength": 220
     },
-    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
-  }
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

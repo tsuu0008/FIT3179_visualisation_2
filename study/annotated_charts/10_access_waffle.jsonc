@@ -1,43 +1,84 @@
-// STUDY COPY ONLY; the website loads the matching .json.
+// Current chart specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 360,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  // Input records or prepared plotting values.
-  "data": {"url": "data/access_waffle.json"},
-  // Draw the layers in order.
+  "data": {
+    "url": "data/access_waffle.json"
+  },
   "layer": [
     {
-      "mark": {"type": "square", "size": {"expr": "pow(min(width/14,height/10)*0.86,2)"}, "cornerRadius": 3},
+      "mark": {
+        "type": "square",
+        "size": {
+          "expr": "pow(min(width/16,height/10)*0.82,2)"
+        },
+        "cornerRadius": 3
+      },
       "encoding": {
         "x": {
           "field": "column",
           "type": "quantitative",
           "axis": null,
-          "scale": {"domain": [-0.5, 13.5], "nice": false}
+          "scale": {
+            "domain": [
+              -0.5,
+              15
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "row",
           "type": "quantitative",
           "axis": null,
-          "scale": {"domain": [-0.5, 9.5], "nice": false}
+          "scale": {
+            "domain": [
+              -0.5,
+              9.5
+            ],
+            "nice": false
+          }
         },
         "color": {
           "field": "status",
           "type": "nominal",
-          "scale": {"domain": ["Full or partial access", "No disabled access"], "range": ["#e76f51", "#d8e2df"]},
+          "scale": {
+            "domain": [
+              "Full or partial access",
+              "No disabled access"
+            ],
+            "range": [
+              "#0072B2",
+              "#D9DEDF"
+            ]
+          },
           "title": "Recorded access"
         },
-        "tooltip": [{"field": "status", "title": "Each square = 1%"}]
+        "tooltip": [
+          {
+            "field": "status",
+            "title": "Each square = 1%"
+          }
+        ]
       }
     },
     {
-      "transform": [{"filter": "datum.status === 'Full or partial access'"}],
+      "transform": [
+        {
+          "filter": "datum.status === 'Full or partial access'"
+        }
+      ],
       "mark": {
         "type": "square",
-        "size": {"expr": "pow(min(width/14,height/10)*0.86,2)"},
+        "size": {
+          "expr": "pow(min(width/16,height/10)*0.82,2)"
+        },
         "fillOpacity": 0,
         "stroke": "#b34e2d",
         "strokeWidth": 1.2
@@ -47,48 +88,126 @@
           "field": "column",
           "type": "quantitative",
           "axis": null,
-          "scale": {"domain": [-0.5, 13.5], "nice": false}
+          "scale": {
+            "domain": [
+              -0.5,
+              15
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "row",
           "type": "quantitative",
           "axis": null,
-          "scale": {"domain": [-0.5, 9.5], "nice": false}
+          "scale": {
+            "domain": [
+              -0.5,
+              9.5
+            ],
+            "nice": false
+          }
         }
       }
     },
     {
-      "transform": [{"aggregate": [{"op": "count", "as": "squares"}]}],
-      "mark": {"type": "rule", "stroke": "#b34e2d", "strokeWidth": 1.5},
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.3
+      },
       "encoding": {
-        "x": {"datum": 7.7, "type": "quantitative"},
-        "x2": {"datum": 10.3},
-        "y": {"datum": 0, "type": "quantitative"},
-        "y2": {"datum": 1.3}
+        "x": {
+          "datum": 7,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 0,
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 10.1
+        },
+        "y2": {
+          "datum": 1.4
+        }
       }
     },
     {
-      "transform": [{"aggregate": [{"op": "count", "as": "squares"}]}],
       "mark": {
         "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
         "lineBreak": "\n",
-        "fontSize": 12,
-        "fontWeight": 700,
+        "lineHeight": 14,
         "align": "left",
-        "dx": 0,
-        "color": "#a64629",
-        "limit": 170
+        "baseline": "middle",
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "x": {"datum": 10.6, "type": "quantitative"},
-        "y": {"datum": 1.9, "type": "quantitative"},
-        "text": {"value": "15 of 179\nrated trails\n8.4%"}
+        "x": {
+          "datum": 10.2,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 2.8,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "15 of 179 rated trails\n8.4% record full\nor partial access\n\nDocumented options\nare a small minority."
+        }
+      },
+      "data": {
+        "values": [
+          {}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "datum": 10.2,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 2.8,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "15 of 179 rated trails\n8.4% record full\nor partial access\n\nDocumented options\nare a small minority."
+        }
+      },
+      "data": {
+        "values": [
+          {}
+        ]
       }
     }
   ],
-  // Shared chart styles.
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -113,6 +232,16 @@
       "columns": 2,
       "labelLimit": 150
     },
-    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
-  }
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

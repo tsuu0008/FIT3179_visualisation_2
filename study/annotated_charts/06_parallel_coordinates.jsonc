@@ -1,126 +1,509 @@
-// STUDY COPY ONLY; the website loads the matching .json.
-// Container width fills the card; CSS supplies a minimum width on phones.
+// Current chart specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Prepared per-axis positions; one grouped line per trail. Missing values occupy a separate lane.",
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts.",
   "width": "container",
   "height": 460,
-  "autosize": {"type": "fit", "contains": "padding"},
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  // A simple dropdown highlights one example trail.
   "params": [
     {
       "name": "focusTrail",
       "value": "Track Ninety Six",
       "bind": {
         "input": "select",
-        "options": ["None", "Track Ninety Six", "Upper Yarra Walking Track", "Great Dividing Trail"],
+        "options": [
+          "None",
+          "Track Ninety Six",
+          "Upper Yarra Walking Track",
+          "Great Dividing Trail"
+        ],
         "name": "Trace an example: "
       }
     }
   ],
-  // Profiles, axis rules, tick labels and a highlighted trail.
   "layer": [
     {
-      "data": {"values": [{}]},
-      "mark": {"type": "rect", "color": "#eef3f0"},
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "#eef3f0"
+      },
       "encoding": {
-        "x": {"datum": -0.05, "type": "quantitative", "axis": null, "scale": {"domain": [-0.05, 3.4]}},
-        "y": {"datum": -21, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
-        "x2": {"datum": 3.4},
-        "y2": {"datum": -8}
+        "x": {
+          "datum": -0.05,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          }
+        },
+        "y": {
+          "datum": -21,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          }
+        },
+        "x2": {
+          "datum": 3.4
+        },
+        "y2": {
+          "datum": -8
+        }
       }
     },
     {
       "data": {
         "values": [
-          {"axis": 0, "label": "Walking grade"},
-          {"axis": 1, "label": "Distance (km)¹"},
-          {"axis": 2, "label": "Time (hours)¹"},
-          {"axis": 3, "label": "Terrain"}
+          {
+            "axis": 0,
+            "label": "Walking grade"
+          },
+          {
+            "axis": 1,
+            "label": "Distance (km)¹"
+          },
+          {
+            "axis": 2,
+            "label": "Time (hours)¹"
+          },
+          {
+            "axis": 3,
+            "label": "Terrain"
+          }
         ]
       },
-      "mark": {"type": "rule", "color": "#a9bfb4"},
+      "mark": {
+        "type": "rule",
+        "color": "#a9bfb4"
+      },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"datum": 0, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
-        "y2": {"datum": 100}
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "datum": 0,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          }
+        },
+        "y2": {
+          "datum": 100
+        }
       }
     },
     {
-      "data": {"url": "data/parallel_points.json"},
-      "mark": {"type": "line", "opacity": 0.22, "strokeWidth": 1.2},
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "mark": {
+        "type": "line",
+        "opacity": 0.22,
+        "strokeWidth": 1.2
+      },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
-        "detail": {"field": "id"},
-        "order": {"field": "axis"},
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          },
+          "axis": null
+        },
+        "detail": {
+          "field": "id"
+        },
+        "order": {
+          "field": "axis"
+        },
         "color": {
           "field": "grade",
           "type": "nominal",
           "scale": {
-            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
           },
           "title": "Grade"
         },
         "tooltip": [
-          {"field": "name", "title": "Trail"},
-          {"field": "grade", "title": "Grade"},
-          {"field": "length_km", "title": "Distance (km)"},
-          {"field": "hours", "title": "Hours"},
-          {"field": "gradient", "title": "Terrain"}
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          }
         ]
       }
     },
     {
-      "data": {"url": "data/parallel_points.json"},
-      "transform": [{"filter": "datum.name === focusTrail"}],
-      "mark": {"type": "line", "strokeWidth": 3.5, "point": {"filled": true, "size": 50, "stroke": "white"}},
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === focusTrail"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 6,
+        "color": "white"
+      },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
-        "detail": {"field": "id"},
-        "order": {"field": "axis"},
-        "color": {"value": "#d55e00"},
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          },
+          "axis": null
+        },
+        "detail": {
+          "field": "id"
+        },
+        "order": {
+          "field": "axis"
+        },
         "tooltip": [
-          {"field": "name", "title": "Trail"},
-          {"field": "grade", "title": "Grade"},
-          {"field": "length_km", "title": "Distance (km)"},
-          {"field": "hours", "title": "Hours"},
-          {"field": "gradient", "title": "Terrain"}
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === focusTrail"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3.5,
+        "point": {
+          "filled": true,
+          "size": 50,
+          "stroke": "white"
+        },
+        "strokeDash": [
+          7,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          },
+          "axis": null
+        },
+        "detail": {
+          "field": "id"
+        },
+        "order": {
+          "field": "axis"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
+          },
+          "title": "Grade",
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          }
         ]
       }
     },
     {
       "data": {
         "values": [
-          {"axis": 0, "position": 0.0, "label": "1"},
-          {"axis": 0, "position": 25.0, "label": "2"},
-          {"axis": 0, "position": 50.0, "label": "3"},
-          {"axis": 0, "position": 75.0, "label": "4"},
-          {"axis": 0, "position": 100.0, "label": "5"},
-          {"axis": 0, "position": -15, "label": "Not recorded"},
-          {"axis": 1, "position": 0.0, "label": "0"},
-          {"axis": 1, "position": 10.259783520851542, "label": "1"},
-          {"axis": 1, "position": 22.941573387056177, "label": "5"},
-          {"axis": 1, "position": 32.44428422615251, "label": "10"},
-          {"axis": 1, "position": 51.298917604257696, "label": "25"},
-          {"axis": 1, "position": 72.54762501100116, "label": "50"},
-          {"axis": 1, "position": 100.0, "label": "95"},
-          {"axis": 2, "position": 0.0, "label": "0"},
-          {"axis": 2, "position": 14.433756729740644, "label": "1"},
-          {"axis": 2, "position": 28.867513459481287, "label": "4"},
-          {"axis": 2, "position": 50.0, "label": "12"},
-          {"axis": 2, "position": 70.71067811865476, "label": "24"},
-          {"axis": 2, "position": 100.0, "label": "48"},
-          {"axis": 2, "position": -15, "label": "Not recorded"},
-          {"axis": 3, "position": 0.0, "label": "Flat"},
-          {"axis": 3, "position": 25.0, "label": "Gentle hills"},
-          {"axis": 3, "position": 50.0, "label": "Short steep hills"},
-          {"axis": 3, "position": 75.0, "label": "Very steep"},
-          {"axis": 3, "position": 100.0, "label": "Steep + difficult"},
-          {"axis": 3, "position": -15, "label": "Not recorded"}
+          {
+            "axis": 0,
+            "position": 0.0,
+            "label": "1"
+          },
+          {
+            "axis": 0,
+            "position": 25.0,
+            "label": "2"
+          },
+          {
+            "axis": 0,
+            "position": 50.0,
+            "label": "3"
+          },
+          {
+            "axis": 0,
+            "position": 75.0,
+            "label": "4"
+          },
+          {
+            "axis": 0,
+            "position": 100.0,
+            "label": "5"
+          },
+          {
+            "axis": 0,
+            "position": -15,
+            "label": "Not recorded"
+          },
+          {
+            "axis": 1,
+            "position": 0.0,
+            "label": "0"
+          },
+          {
+            "axis": 1,
+            "position": 10.259783520851542,
+            "label": "1"
+          },
+          {
+            "axis": 1,
+            "position": 22.941573387056177,
+            "label": "5"
+          },
+          {
+            "axis": 1,
+            "position": 32.44428422615251,
+            "label": "10"
+          },
+          {
+            "axis": 1,
+            "position": 51.298917604257696,
+            "label": "25"
+          },
+          {
+            "axis": 1,
+            "position": 72.54762501100116,
+            "label": "50"
+          },
+          {
+            "axis": 1,
+            "position": 100.0,
+            "label": "95"
+          },
+          {
+            "axis": 2,
+            "position": 0.0,
+            "label": "0"
+          },
+          {
+            "axis": 2,
+            "position": 14.433756729740644,
+            "label": "1"
+          },
+          {
+            "axis": 2,
+            "position": 28.867513459481287,
+            "label": "4"
+          },
+          {
+            "axis": 2,
+            "position": 50.0,
+            "label": "12"
+          },
+          {
+            "axis": 2,
+            "position": 70.71067811865476,
+            "label": "24"
+          },
+          {
+            "axis": 2,
+            "position": 100.0,
+            "label": "48"
+          },
+          {
+            "axis": 2,
+            "position": -15,
+            "label": "Not recorded"
+          },
+          {
+            "axis": 3,
+            "position": 0.0,
+            "label": "Flat"
+          },
+          {
+            "axis": 3,
+            "position": 25.0,
+            "label": "Gentle hills"
+          },
+          {
+            "axis": 3,
+            "position": 50.0,
+            "label": "Short steep hills"
+          },
+          {
+            "axis": 3,
+            "position": 75.0,
+            "label": "Very steep"
+          },
+          {
+            "axis": 3,
+            "position": 100.0,
+            "label": "Steep + difficult"
+          },
+          {
+            "axis": 3,
+            "position": -15,
+            "label": "Not recorded"
+          }
         ]
       },
       "mark": {
@@ -133,88 +516,408 @@
         "strokeWidth": 3
       },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
-        "text": {"field": "label"}
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
       }
     },
     {
       "data": {
         "values": [
-          {"axis": 0, "position": 0.0, "label": "1"},
-          {"axis": 0, "position": 25.0, "label": "2"},
-          {"axis": 0, "position": 50.0, "label": "3"},
-          {"axis": 0, "position": 75.0, "label": "4"},
-          {"axis": 0, "position": 100.0, "label": "5"},
-          {"axis": 0, "position": -15, "label": "Not recorded"},
-          {"axis": 1, "position": 0.0, "label": "0"},
-          {"axis": 1, "position": 10.259783520851542, "label": "1"},
-          {"axis": 1, "position": 22.941573387056177, "label": "5"},
-          {"axis": 1, "position": 32.44428422615251, "label": "10"},
-          {"axis": 1, "position": 51.298917604257696, "label": "25"},
-          {"axis": 1, "position": 72.54762501100116, "label": "50"},
-          {"axis": 1, "position": 100.0, "label": "95"},
-          {"axis": 2, "position": 0.0, "label": "0"},
-          {"axis": 2, "position": 14.433756729740644, "label": "1"},
-          {"axis": 2, "position": 28.867513459481287, "label": "4"},
-          {"axis": 2, "position": 50.0, "label": "12"},
-          {"axis": 2, "position": 70.71067811865476, "label": "24"},
-          {"axis": 2, "position": 100.0, "label": "48"},
-          {"axis": 2, "position": -15, "label": "Not recorded"},
-          {"axis": 3, "position": 0.0, "label": "Flat"},
-          {"axis": 3, "position": 25.0, "label": "Gentle hills"},
-          {"axis": 3, "position": 50.0, "label": "Short steep hills"},
-          {"axis": 3, "position": 75.0, "label": "Very steep"},
-          {"axis": 3, "position": 100.0, "label": "Steep + difficult"},
-          {"axis": 3, "position": -15, "label": "Not recorded"}
+          {
+            "axis": 0,
+            "position": 0.0,
+            "label": "1"
+          },
+          {
+            "axis": 0,
+            "position": 25.0,
+            "label": "2"
+          },
+          {
+            "axis": 0,
+            "position": 50.0,
+            "label": "3"
+          },
+          {
+            "axis": 0,
+            "position": 75.0,
+            "label": "4"
+          },
+          {
+            "axis": 0,
+            "position": 100.0,
+            "label": "5"
+          },
+          {
+            "axis": 0,
+            "position": -15,
+            "label": "Not recorded"
+          },
+          {
+            "axis": 1,
+            "position": 0.0,
+            "label": "0"
+          },
+          {
+            "axis": 1,
+            "position": 10.259783520851542,
+            "label": "1"
+          },
+          {
+            "axis": 1,
+            "position": 22.941573387056177,
+            "label": "5"
+          },
+          {
+            "axis": 1,
+            "position": 32.44428422615251,
+            "label": "10"
+          },
+          {
+            "axis": 1,
+            "position": 51.298917604257696,
+            "label": "25"
+          },
+          {
+            "axis": 1,
+            "position": 72.54762501100116,
+            "label": "50"
+          },
+          {
+            "axis": 1,
+            "position": 100.0,
+            "label": "95"
+          },
+          {
+            "axis": 2,
+            "position": 0.0,
+            "label": "0"
+          },
+          {
+            "axis": 2,
+            "position": 14.433756729740644,
+            "label": "1"
+          },
+          {
+            "axis": 2,
+            "position": 28.867513459481287,
+            "label": "4"
+          },
+          {
+            "axis": 2,
+            "position": 50.0,
+            "label": "12"
+          },
+          {
+            "axis": 2,
+            "position": 70.71067811865476,
+            "label": "24"
+          },
+          {
+            "axis": 2,
+            "position": 100.0,
+            "label": "48"
+          },
+          {
+            "axis": 2,
+            "position": -15,
+            "label": "Not recorded"
+          },
+          {
+            "axis": 3,
+            "position": 0.0,
+            "label": "Flat"
+          },
+          {
+            "axis": 3,
+            "position": 25.0,
+            "label": "Gentle hills"
+          },
+          {
+            "axis": 3,
+            "position": 50.0,
+            "label": "Short steep hills"
+          },
+          {
+            "axis": 3,
+            "position": 75.0,
+            "label": "Very steep"
+          },
+          {
+            "axis": 3,
+            "position": 100.0,
+            "label": "Steep + difficult"
+          },
+          {
+            "axis": 3,
+            "position": -15,
+            "label": "Not recorded"
+          }
         ]
       },
-      "mark": {"type": "text", "align": "left", "dx": 7, "fontSize": 11, "color": "#334d43"},
-      "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
-        "text": {"field": "label"}
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {"axis": 0, "label": "Walking grade"},
-          {"axis": 1, "label": "Distance (km)¹"},
-          {"axis": 2, "label": "Time (hours)¹"},
-          {"axis": 3, "label": "Terrain"}
-        ]
-      },
-      "mark": {"type": "text", "align": "left", "fontSize": 12, "fontWeight": 700, "color": "#173b37"},
-      "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"datum": 112, "type": "quantitative", "axis": null, "scale": {"domain": [-22, 120]}},
-        "text": {"field": "label"}
-      }
-    },
-    {
-      "data": {"url": "data/parallel_points.json"},
-      "transform": [{"filter": "datum.name === focusTrail && datum.axis === 2"}],
       "mark": {
         "type": "text",
-        "align": "right",
-        "dx": -12,
-        "dy": -14,
+        "align": "left",
+        "dx": 7,
+        "fontSize": 11,
+        "color": "#334d43"
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "label": "Walking grade"
+          },
+          {
+            "axis": 1,
+            "label": "Distance (km)¹"
+          },
+          {
+            "axis": 2,
+            "label": "Time (hours)¹"
+          },
+          {
+            "axis": 3,
+            "label": "Terrain"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#173b37"
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "datum": 112,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === focusTrail && datum.axis === 2"
+        },
+        {
+          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "datum": 2,
+          "type": "quantitative",
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "axis": null
+        },
+        "x2": {
+          "datum": 1.35
+        },
+        "y2": {
+          "datum": 82
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === focusTrail && datum.axis === 2"
+        },
+        {
+          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0,
+        "dy": 0,
         "lineBreak": "\n",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#9c4227"
+        "color": "#9c4227",
+        "lineHeight": 14,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
       },
       "encoding": {
-        "x": {"field": "axis", "type": "quantitative", "scale": {"domain": [-0.05, 3.4]}, "axis": null},
-        "y": {"field": "position", "type": "quantitative", "scale": {"domain": [-22, 120]}, "axis": null},
-        "text": {"field": "annotation"}
+        "x": {
+          "datum": 1.35,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          }
+        },
+        "y": {
+          "datum": 82,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.name === focusTrail && datum.axis === 2"
+        },
+        {
+          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0,
+        "dy": 0,
+        "lineBreak": "\n",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#9c4227",
+        "lineHeight": 14
+      },
+      "encoding": {
+        "x": {
+          "datum": 1.35,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -0.05,
+              3.4
+            ]
+          }
+        },
+        "y": {
+          "datum": 82,
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -22,
+              120
+            ]
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
       }
     }
   ],
-  // Shared chart styles.
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -235,6 +938,11 @@
       "labelLimit": 100,
       "orient": "bottom",
       "symbolOpacity": 1
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
     }
   }
 }

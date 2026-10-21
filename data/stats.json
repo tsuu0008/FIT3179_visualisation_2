@@ -1,8 +1,12 @@
 {
   "trail_count": 194,
-  "total_km": 871.9,
-  "median_km": 2.2,
+  "total_km": 871.905,
+  "median_km": 2.15,
   "graded_pct": 98,
   "accessible_count": 15,
+  "rated_count": 179,
+  "access_pct": 8.379888268156424,
+  "positive_time_count": 149,
+  "mosaic_km": 853.805,
   "closed_count": 2
 }

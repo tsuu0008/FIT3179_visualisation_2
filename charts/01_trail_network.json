@@ -1,109 +1,555 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 330,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  "projection": {"type": "mercator"},
+  "projection": {
+    "type": "mercator"
+  },
   "layer": [
     {
-      "data": {"url": "data/lga.geojson", "format": {"type": "json", "property": "features"}},
-      "mark": {"type": "geoshape", "fill": "#eef3f1", "stroke": "#9eafaa", "strokeWidth": 0.8},
+      "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef3f1",
+        "stroke": "#9eafaa",
+        "strokeWidth": 0.8
+      },
       "encoding": {}
     },
     {
-      "data": {"url": "data/trails.geojson", "format": {"type": "json", "property": "features"}},
-      "mark": {"type": "geoshape", "filled": false, "strokeWidth": 3, "strokeCap": "round"},
+      "data": {
+        "url": "data/trails.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 3,
+        "strokeCap": "round"
+      },
       "encoding": {
         "color": {
           "field": "properties.grade",
           "type": "nominal",
           "scale": {
-            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
           },
           "title": "Grade",
-          "legend": null
+          "legend": {
+            "orient": "bottom",
+            "columns": 3,
+            "title": "Walking grade"
+          }
         },
-        "opacity": {"value": 0.9},
+        "opacity": {
+          "value": 0.9
+        },
         "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "Trail"},
-          {"field": "properties.grade", "type": "nominal", "title": "Grade"},
-          {"field": "properties.length_km", "type": "quantitative", "title": "Distance (km)", "format": ".1f"},
-          {"field": "properties.hours", "type": "quantitative", "title": "Time (hours)", "format": ".1f"},
-          {"field": "properties.lga", "type": "nominal", "title": "LGA"}
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "Trail"
+          },
+          {
+            "field": "properties.grade",
+            "type": "nominal",
+            "title": "Grade"
+          },
+          {
+            "field": "properties.length_km",
+            "type": "quantitative",
+            "title": "Distance (km)",
+            "format": ".1f"
+          },
+          {
+            "field": "properties.hours",
+            "type": "quantitative",
+            "title": "Time (hours)",
+            "format": ".1f"
+          },
+          {
+            "field": "properties.lga",
+            "type": "nominal",
+            "title": "LGA"
+          }
         ]
       }
     },
     {
-      "data": {"url": "data/trails.json"},
-      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "data": {
+        "values": [
+          {
+            "lon": 142,
+            "lat": -35.1,
+            "lx": 141.15,
+            "ly": -34.2,
+            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+          }
+        ]
+      },
+      "transform": [],
       "mark": {
-        "type": "circle",
-        "size": 130,
-        "filled": true,
-        "color": "#7f1d1d",
-        "stroke": "#ffffff",
-        "strokeWidth": 2
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.1
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "tooltip": [
-          {"field": "name", "title": "Trail"},
-          {"field": "length_km", "title": "Distance (km)"},
-          {"field": "grade", "title": "Grade"}
-        ]
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "datum": 141.15
+        },
+        "latitude2": {
+          "datum": -34.2
+        }
       }
     },
     {
-      "data": {"url": "data/trails.json"},
-      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "data": {
+        "values": [
+          {
+            "lon": 142,
+            "lat": -35.1,
+            "lx": 141.15,
+            "ly": -34.2,
+            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+          }
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#20343A",
+        "size": 130,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
       "mark": {
         "type": "text",
-        "align": "right",
-        "dx": -12,
-        "dy": -16,
         "font": "Inter",
         "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#7f1d1d",
+        "fontWeight": 600,
         "lineBreak": "\n",
-        "limit": 180,
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18,
         "stroke": "white",
-        "strokeWidth": 3,
+        "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"value": "Longest recorded walk\nUpper Yarra · 95 km"}
+        "longitude": {
+          "datum": 141.15,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -34.2,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 142,
+            "lat": -35.1,
+            "lx": 141.15,
+            "ly": -34.2,
+            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+          }
+        ]
+      },
+      "transform": []
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 141.15,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -34.2,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 142,
+            "lat": -35.1,
+            "lx": 141.15,
+            "ly": -34.2,
+            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+          }
+        ]
+      },
+      "transform": []
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 145.6,
+            "lat": -37.4,
+            "lx": 144.0,
+            "ly": -35.1,
+            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+          }
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "datum": 144.0
+        },
+        "latitude2": {
+          "datum": -35.1
+        }
       }
     },
     {
-      "data": {"url": "data/trails.json"},
-      "transform": [{"filter": "datum.name === 'Upper Yarra Walking Track'"}],
+      "data": {
+        "values": [
+          {
+            "lon": 145.6,
+            "lat": -37.4,
+            "lx": 144.0,
+            "ly": -35.1,
+            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+          }
+        ]
+      },
+      "transform": [],
       "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -12,
-        "dy": -16,
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#7f1d1d",
-        "lineBreak": "\n",
-        "limit": 180
+        "type": "point",
+        "filled": false,
+        "stroke": "#20343A",
+        "size": 130,
+        "strokeWidth": 1.5
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"value": "Longest recorded walk\nUpper Yarra · 95 km"}
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.0,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.1,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 145.6,
+            "lat": -37.4,
+            "lx": 144.0,
+            "ly": -35.1,
+            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+          }
+        ]
+      },
+      "transform": []
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.0,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.1,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 145.6,
+            "lat": -37.4,
+            "lx": 144.0,
+            "ly": -35.1,
+            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+          }
+        ]
+      },
+      "transform": []
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 148.4,
+            "lat": -37.4,
+            "lx": 149.4,
+            "ly": -35.9,
+            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+          }
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "rule",
+        "color": "#20343A",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "datum": 149.4
+        },
+        "latitude2": {
+          "datum": -35.9
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 148.4,
+            "lat": -37.4,
+            "lx": 149.4,
+            "ly": -35.9,
+            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+          }
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#20343A",
+        "size": 130,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "right",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.4,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.9,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 148.4,
+            "lat": -37.4,
+            "lx": 149.4,
+            "ly": -35.9,
+            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+          }
+        ]
+      },
+      "transform": []
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "align": "right",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 149.4,
+          "type": "quantitative"
+        },
+        "latitude": {
+          "datum": -35.9,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "data": {
+        "values": [
+          {
+            "lon": 148.4,
+            "lat": -37.4,
+            "lx": 149.4,
+            "ly": -35.9,
+            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+          }
+        ]
+      },
+      "transform": []
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -127,6 +573,16 @@
       "direction": "horizontal",
       "labelLimit": 150
     },
-    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
-  }
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

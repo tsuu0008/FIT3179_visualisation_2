@@ -1,12 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 500,
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 480,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  "data": {"url": "data/trails.json"},
+  "data": {
+    "url": "data/trails.json"
+  },
   "transform": [
-    {"filter": "datum.gradient !== 'Unknown' && datum.experience !== 'Unknown'"},
+    {
+      "filter": "datum.gradient !== 'Unknown' && datum.experience !== 'Unknown'"
+    },
     {
       "calculate": "datum.experience === 'No experience required' ? 'None required' : datum.experience === 'Bushwalking experience recommended' ? 'Recommended' : datum.experience === 'Experienced bushwalkers' ? 'Experienced' : 'Very experienced'",
       "as": "experience_label"
@@ -14,74 +21,173 @@
   ],
   "layer": [
     {
-      "mark": {"type": "bar", "cornerRadiusEnd": 2},
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 2
+      },
       "encoding": {
         "y": {
           "field": "gradient",
           "type": "nominal",
-          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"],
+          "sort": [
+            "Flat",
+            "Gentle hills",
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
+          ],
           "title": null,
-          "axis": {"labelLimit": 125}
+          "axis": {
+            "labelLimit": 125
+          }
         },
         "x": {
           "aggregate": "count",
           "type": "quantitative",
           "stack": "zero",
           "title": "Number of trails",
-          "scale": {"domain": [0, 90], "nice": false}
+          "scale": {
+            "domain": [
+              0,
+              100
+            ],
+            "nice": false
+          }
         },
         "color": {
           "field": "experience_label",
           "type": "nominal",
           "scale": {
-            "domain": ["None required", "Recommended", "Experienced", "Very experienced"],
-            "range": ["#9bd8ca", "#44a693", "#176b61", "#0b3f3a"]
+            "domain": [
+              "None required",
+              "Recommended",
+              "Experienced",
+              "Very experienced"
+            ],
+            "range": [
+              "#9bd8ca",
+              "#44a693",
+              "#176b61",
+              "#0b3f3a"
+            ]
           },
           "title": "Experience"
         },
-        "order": {"field": "experience_label", "sort": "ascending"},
+        "order": {
+          "field": "experience_label",
+          "sort": "ascending"
+        },
         "tooltip": [
-          {"field": "gradient", "title": "Terrain"},
-          {"field": "experience", "title": "Experience"},
-          {"aggregate": "count", "title": "Trails"}
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          },
+          {
+            "field": "experience",
+            "title": "Experience"
+          },
+          {
+            "aggregate": "count",
+            "title": "Trails"
+          }
         ]
       }
     },
     {
       "transform": [
-        {"aggregate": [{"op": "count", "as": "n"}], "groupby": ["gradient", "experience_label"]},
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "gradient",
+            "experience_label"
+          ]
+        },
         {
           "stack": "n",
-          "groupby": ["gradient"],
-          "sort": [{"field": "experience_label", "order": "ascending"}],
-          "as": ["start", "end"]
+          "groupby": [
+            "gradient"
+          ],
+          "sort": [
+            {
+              "field": "experience_label",
+              "order": "ascending"
+            }
+          ],
+          "as": [
+            "start",
+            "end"
+          ]
         },
-        {"calculate": "(datum.start + datum.end) / 2", "as": "mid"},
-        {"filter": "datum.n >= 6"},
         {
-          "calculate": "datum.gradient === 'Short steep hills' && datum.experience_label === 'Recommended' ? '48 trails\\nRecommended' : format(datum.n, 'd')",
+          "calculate": "(datum.start + datum.end) / 2",
+          "as": "mid"
+        },
+        {
+          "filter": "datum.n >= 6"
+        },
+        {
+          "calculate": "datum.gradient === 'Short steep hills' && datum.experience_label === 'Recommended' ? datum.n + ' trails\\nExperience advised' : datum.gradient === 'Gentle hills' && datum.experience_label === 'None required' ? datum.n + ' trails\\nNo experience needed' : format(datum.n,'d')",
           "as": "annotation"
         }
       ],
-      "mark": {"type": "text", "fontSize": 11, "fontWeight": 700, "lineBreak": "\n", "limit": 170},
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "lineHeight": 14
+      },
       "encoding": {
-        "x": {"field": "mid", "type": "quantitative"},
+        "x": {
+          "field": "mid",
+          "type": "quantitative"
+        },
         "y": {
           "field": "gradient",
           "type": "nominal",
-          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"],
+          "sort": [
+            "Flat",
+            "Gentle hills",
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
+          ],
           "title": null,
-          "axis": {"labelLimit": 125}
+          "axis": {
+            "labelLimit": 125
+          }
         },
-        "text": {"field": "annotation"},
+        "text": {
+          "field": "annotation"
+        },
         "color": {
-          "condition": {"test": "datum.experience_label === 'None required'", "value": "#173b37"},
+          "condition": {
+            "test": "datum.experience_label === 'None required'",
+            "value": "#173b37"
+          },
           "value": "white"
         }
       }
     },
     {
-      "transform": [{"aggregate": [{"op": "count", "as": "trail_count"}], "groupby": ["gradient"]}],
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "trail_count"
+            }
+          ],
+          "groupby": [
+            "gradient"
+          ]
+        }
+      ],
       "mark": {
         "type": "text",
         "align": "left",
@@ -96,15 +202,28 @@
         "y": {
           "field": "gradient",
           "type": "nominal",
-          "sort": ["Flat", "Gentle hills", "Short steep hills", "Very steep", "Very steep and difficult"]
+          "sort": [
+            "Flat",
+            "Gentle hills",
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
+          ]
         },
-        "x": {"field": "trail_count", "type": "quantitative"},
-        "text": {"field": "trail_count"}
+        "x": {
+          "field": "trail_count",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "trail_count"
+        }
       }
     }
   ],
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -128,7 +247,18 @@
       "titleFontSize": 13,
       "padding": 8,
       "labelLimit": 200
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
     }
   },
-  "padding": {"top": 11, "left": 5, "right": 18, "bottom": 5}
+  "padding": {
+    "top": 11,
+    "left": 5,
+    "right": 18,
+    "bottom": 5
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

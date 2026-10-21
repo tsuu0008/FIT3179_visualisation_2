@@ -1,128 +1,447 @@
-// STUDY COPY ONLY: the website loads the matching .json, not this .jsonc.
-// Draw distance/time points, fit a linear regression and label two unusual records.
+// Current chart specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 390,
-  "autosize": {"type": "fit", "contains": "padding"},
+  "height": 430,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "background": null,
-  // Input records or prepared plotting values.
-  "data": {"url": "data/trails.json"},
-  // Filter, group or calculate before drawing.
+  "data": {
+    "url": "data/trails.json"
+  },
   "transform": [
-    {"filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0"},
-    {"calculate": "datum.length_km / datum.hours", "as": "pace_kmh"}
+    {
+      "filter": "isValid(datum.length_km) && isValid(datum.hours) && datum.hours > 0"
+    },
+    {
+      "calculate": "datum.length_km / datum.hours",
+      "as": "pace_kmh"
+    }
   ],
-  // Draw these layers in order, from background to foreground.
   "layer": [
     {
-      "mark": {"type": "point", "filled": true, "opacity": 0.68, "size": 72},
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.68,
+        "size": 72
+      },
       "encoding": {
         "x": {
           "field": "length_km",
           "type": "quantitative",
           "title": "Distance (km)",
-          "scale": {"domain": [0, 42], "nice": false}
+          "scale": {
+            "domain": [
+              0,
+              42
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
           "type": "quantitative",
-          "scale": {"domain": [0, 52], "nice": false},
+          "scale": {
+            "domain": [
+              0,
+              62
+            ],
+            "nice": false
+          },
           "title": "Estimated time (hours)"
         },
         "color": {
           "field": "grade",
           "type": "nominal",
           "scale": {
-            "domain": ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Unknown"],
-            "range": ["#e4d6ef", "#ba94d0", "#925bb2", "#652b86", "#310747", "#9aa2a6"]
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
           },
           "title": "Grade"
         },
         "tooltip": [
-          {"field": "name", "title": "Trail"},
-          {"field": "grade", "title": "Grade"},
-          {"field": "length_km", "title": "Distance (km)"},
-          {"field": "hours", "title": "Hours"},
-          {"field": "pace_kmh", "title": "Implied pace (km/h)", "format": ".1f"}
-        ]
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "hours",
+            "title": "Hours"
+          },
+          {
+            "field": "pace_kmh",
+            "title": "Implied pace (km/h)",
+            "format": ".1f"
+          }
+        ],
+        "shape": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "circle",
+              "square",
+              "triangle-up",
+              "diamond",
+              "triangle-down",
+              "cross"
+            ]
+          },
+          "legend": {},
+          "title": "Grade"
+        }
       }
     },
     {
-      "transform": [{"regression": "hours", "on": "length_km", "method": "linear"}],
-      "mark": {"type": "line", "color": "#153e3a", "strokeDash": [6, 4], "strokeWidth": 2},
-      "encoding": {
-        "x": {"field": "length_km", "type": "quantitative", "scale": {"domain": [0, 42], "nice": false}},
-        "y": {"field": "hours", "type": "quantitative", "scale": {"domain": [0, 52], "nice": false}}
-      }
-    },
-    {
-      "mark": {"type": "point", "filled": false, "size": 240, "stroke": "#b34e2d", "strokeWidth": 2},
+      "transform": [
+        {
+          "regression": "hours",
+          "on": "length_km",
+          "method": "linear"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "color": "#153e3a",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 2
+      },
       "encoding": {
         "x": {
           "field": "length_km",
           "type": "quantitative",
-          "title": "Distance (km)",
-          "scale": {"domain": [0, 42], "nice": false}
+          "scale": {
+            "domain": [
+              0,
+              42
+            ],
+            "nice": false
+          }
         },
         "y": {
           "field": "hours",
           "type": "quantitative",
-          "scale": {"domain": [0, 52], "nice": false},
-          "title": "Estimated time (hours)"
-        },
-        "tooltip": [
-          {"field": "name", "title": "Trail"},
-          {"field": "grade", "title": "Grade"},
-          {"field": "length_km", "title": "Distance (km)"},
-          {"field": "hours", "title": "Hours"},
-          {"field": "pace_kmh", "title": "Implied pace (km/h)", "format": ".1f"}
-        ]
-      },
-      "transform": [{"filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"}]
+          "scale": {
+            "domain": [
+              0,
+              62
+            ],
+            "nice": false
+          }
+        }
+      }
     },
     {
       "transform": [
-        {"filter": "datum.name === 'Track Ninety Six' || datum.name === 'Great Dividing Trail'"},
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km · ' + format(datum.hours, '.0f') + ' hours'",
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
           "as": "annotation"
         }
       ],
       "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -7,
-        "dy": -12,
-        "font": "Inter",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#173b37",
-        "lineBreak": "\n",
-        "limit": 135
+        "type": "point",
+        "size": 250,
+        "filled": false,
+        "color": "#20343A",
+        "strokeWidth": 1.6
       },
       "encoding": {
-        "x": {"field": "length_km", "type": "quantitative", "scale": {"domain": [0, 42], "nice": false}},
-        "y": {"field": "hours", "type": "quantitative", "scale": {"domain": [0, 52], "nice": false}},
-        "text": {"field": "annotation"}
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        }
       }
     },
     {
       "transform": [
-        {"regression": "hours", "on": "length_km", "method": "linear", "params": true},
-        {"calculate": "'Trend: ' + format(datum.coef[1], '.2f') + ' h/km'", "as": "annotation"}
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
       ],
-      "mark": {"type": "text", "align": "right", "fontSize": 12, "color": "#173b37", "dy": -8, "limit": 135},
+      "mark": {
+        "type": "rule",
+        "stroke": "#20343A",
+        "strokeWidth": 1
+      },
       "encoding": {
-        "x": {"value": {"expr": "width - 14"}},
-        "y": {"value": {"expr": "height * 0.47"}},
-        "text": {"field": "annotation"}
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 6
+        },
+        "y2": {
+          "datum": 56
+        }
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -17,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "datum": 6,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 56,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -17
+      },
+      "encoding": {
+        "x": {
+          "datum": 6,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 56,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "size": 250,
+        "filled": false,
+        "color": "#20343A",
+        "strokeWidth": 1.6
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#20343A",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 15
+        },
+        "y2": {
+          "datum": 26
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -17,
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "datum": 15,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 26,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 13,
+        "align": "left",
+        "baseline": "middle",
+        "color": "#20343A",
+        "dy": -17
+      },
+      "encoding": {
+        "x": {
+          "datum": 15,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 26,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annotation"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ]
     }
   ],
-  // Shared styling for this chart.
   "config": {
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#334155",
       "titleColor": "#0f172a",
@@ -148,6 +467,16 @@
       "columns": 2,
       "labelLimit": 150
     },
-    "header": {"labelFont": "Inter", "titleFont": "Inter", "labelColor": "#0f172a"}
-  }
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  },
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
 }

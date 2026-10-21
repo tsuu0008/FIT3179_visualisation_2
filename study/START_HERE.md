@@ -44,3 +44,4 @@ Read these keys in order:
 Start with chart 05: a rule and dot show each grade's median distance; a text layer adds its value. Then inspect chart 04: rectangles show counts, and text shows the same numbers.
 
 Open the website through **Live Server**, not by double-clicking the HTML. JSON files can be edited directly; reload afterwards. No rebuild command is needed.
+
