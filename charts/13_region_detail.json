@@ -114,8 +114,8 @@
       "mark": {
         "type": "geoshape",
         "fill": "#edf3ef",
-        "stroke": "#b4c4bc",
-        "strokeWidth": 0.6
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.4
       },
       "encoding": {
         "tooltip": [
@@ -130,35 +130,6 @@
           "filter": "chosenLga === 'All' || datum.properties.name === chosenLga"
         }
       ]
-    },
-    {
-      "data": {
-        "values": [
-          {}
-        ]
-      },
-      "mark": {
-        "type": "rect",
-        "fill": "#f3f7f5",
-        "stroke": "#dbe5df",
-        "cornerRadius": 5
-      },
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "x2": {
-          "value": {
-            "expr": "width"
-          }
-        },
-        "y": {
-          "value": 0
-        },
-        "y2": {
-          "value": 96
-        }
-      }
     },
     {
       "data": {
@@ -307,8 +278,8 @@
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#d95d39",
-        "strokeWidth": 2
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.4
       },
       "encoding": {
         "tooltip": [
@@ -389,9 +360,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 170,
-        "stroke": "#20343A",
-        "strokeWidth": 1.7
+        "size": 210,
+        "stroke": "#5d7269",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -460,9 +431,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 170,
-        "stroke": "#20343A",
-        "strokeWidth": 1.7
+        "size": 210,
+        "stroke": "#5d7269",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -497,7 +468,7 @@
           ]
         },
         {
-          "calculate": "(chosenLga === 'All' ? 'Victoria' : chosenLga + ' LGA') + '\\n' + datum.n + ' recorded trails · ' + format(datum.km,'.1f') + ' km\\nBorder shows the selected LGA'",
+          "calculate": "(chosenLga === 'All' ? 'Victoria' : chosenLga + ' LGA') + '\\n' + datum.n + ' recorded trails · ' + format(datum.km,'.1f') + ' km\\nArea anchor · not a trail'",
           "as": "annotation"
         }
       ],
@@ -618,5 +589,10 @@
     }
   },
   "padding": 0,
-  "description": "Regional and trail explanations are reserved above the local map. The regional pointer is inside the selected LGA; the trail pointer lies on the actual displayed route geometry."
+  "description": "Unboxed callout text is reserved above the map. Light council boundaries sit behind trail marks. Regional pointers use interior LGA anchors; route pointers meet the displayed trail geometry or symbol.",
+  "resolve": {
+    "legend": {
+      "color": "independent"
+    }
+  }
 }

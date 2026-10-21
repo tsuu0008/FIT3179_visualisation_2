@@ -94,7 +94,7 @@ def main():
         name=f['properties']['name']
         frames[name]=mercator_frame([f]+[t for t in routes if t['properties']['lga']==name])
     # Keep the reserved annotation band free of geographic content after a refresh.
-    for num in [2,3,13]:
+    for num in [1,2,3,13]:
         p=next((ROOT/'charts').glob(f'{num:02d}_*.json'))
         d=json.loads(p.read_text())
         if num==13:

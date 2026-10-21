@@ -63,39 +63,10 @@
       "mark": {
         "type": "geoshape",
         "fill": "#f1f5f4",
-        "stroke": "#c8d4d1",
-        "strokeWidth": 0.6
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.4
       },
       "encoding": {}
-    },
-    {
-      "data": {
-        "values": [
-          {}
-        ]
-      },
-      "mark": {
-        "type": "rect",
-        "fill": "#f3f7f5",
-        "stroke": "#dbe5df",
-        "cornerRadius": 5
-      },
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "x2": {
-          "value": {
-            "expr": "width"
-          }
-        },
-        "y": {
-          "value": 0
-        },
-        "y2": {
-          "value": 96
-        }
-      }
     },
     {
       "data": {
@@ -349,8 +320,8 @@
       "mark": {
         "type": "geoshape",
         "filled": false,
-        "stroke": "#20343A",
-        "strokeWidth": 2
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.4
       },
       "encoding": {
         "shape": {
@@ -552,9 +523,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 170,
-        "stroke": "#20343A",
-        "strokeWidth": 1.7
+        "size": 210,
+        "stroke": "#5d7269",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -628,9 +599,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 170,
-        "stroke": "#20343A",
-        "strokeWidth": 1.7
+        "size": 210,
+        "stroke": "#5d7269",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -880,5 +851,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Annotation text is reserved above the map. Regional counts outline an LGA and use a verified interior label anchor; trail callouts point to the exact plotted trail symbol."
+  "description": "Unboxed callout text is reserved above the map. Light council boundaries sit behind trail marks. Regional pointers use interior LGA anchors; route pointers meet the displayed trail geometry or symbol."
 }

@@ -1,3 +1,4 @@
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -8,7 +9,16 @@
   },
   "background": null,
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": {
+      "expr": "[mapFrame[0],mapFrame[1]]"
+    },
+    "scale": {
+      "expr": "min((width-28)/mapFrame[2],(height-64)/mapFrame[3])"
+    },
+    "translate": {
+      "expr": "[width/2,50+(height-64)/2]"
+    }
   },
   "layer": [
     {
@@ -22,8 +32,8 @@
       "mark": {
         "type": "geoshape",
         "fill": "#eef3f1",
-        "stroke": "#9eafaa",
-        "strokeWidth": 0.8
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.45
       },
       "encoding": {}
     },
@@ -43,8 +53,8 @@
       "mark": {
         "type": "geoshape",
         "filled": false,
-        "stroke": "#20343A",
-        "strokeWidth": 1.3
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.45
       }
     },
     {
@@ -84,12 +94,7 @@
             ]
           },
           "title": "Grade",
-          "legend": {
-            "orient": "bottom",
-            "columns": 3,
-            "title": "Walking grade",
-            "direction": "horizontal"
-          }
+          "legend": null
         },
         "opacity": {
           "value": 0.9
@@ -131,7 +136,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -149,6 +154,14 @@
               "lat"
             ]
           }
+        },
+        {
+          "calculate": "mapFrame[0]+(22-width/2)/(min((width-28)/mapFrame[2],(height-64)/mapFrame[3]))*180/PI",
+          "as": "note_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+((50+(height-64)/2)-46)/(min((width-28)/mapFrame[2],(height-64)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "note_lat"
         }
       ],
       "mark": {
@@ -166,10 +179,10 @@
           "type": "quantitative"
         },
         "longitude2": {
-          "datum": 141.15
+          "field": "note_lon"
         },
         "latitude2": {
-          "datum": -34.2
+          "field": "note_lat"
         }
       }
     },
@@ -179,7 +192,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -202,9 +215,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#20343A",
-        "size": 130,
-        "strokeWidth": 1.5
+        "stroke": "#5d7269",
+        "size": 160,
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -232,24 +245,22 @@
         "lineBreak": "\n",
         "lineHeight": 16,
         "align": "left",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18,
+        "dy": 0,
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {
-          "datum": 141.15,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -34.2,
-          "type": "quantitative"
-        },
         "text": {
           "field": "annotation"
+        },
+        "x": {
+          "value": 12
+        },
+        "y": {
+          "value": 8
         }
       },
       "data": {
@@ -257,7 +268,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -287,21 +298,19 @@
         "lineBreak": "\n",
         "lineHeight": 16,
         "align": "left",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18
+        "dy": 0
       },
       "encoding": {
-        "longitude": {
-          "datum": 141.15,
-          "type": "quantitative"
-        },
-        "latitude": {
-          "datum": -34.2,
-          "type": "quantitative"
-        },
         "text": {
           "field": "annotation"
+        },
+        "x": {
+          "value": 12
+        },
+        "y": {
+          "value": 8
         }
       },
       "data": {
@@ -309,7 +318,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -336,7 +345,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -384,7 +393,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -407,9 +416,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#20343A",
-        "size": 130,
-        "strokeWidth": 1.5
+        "stroke": "#5d7269",
+        "size": 160,
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -462,7 +471,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -514,7 +523,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -541,7 +550,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -589,7 +598,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -612,9 +621,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#20343A",
-        "size": 130,
-        "strokeWidth": 1.5
+        "stroke": "#5d7269",
+        "size": 160,
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": {
@@ -667,7 +676,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -719,7 +728,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -739,6 +748,78 @@
           }
         }
       ]
+    },
+    {
+      "name": "solidGradeLegend",
+      "data": {
+        "values": [
+          {
+            "legend_grade": "Grade 1"
+          },
+          {
+            "legend_grade": "Grade 2"
+          },
+          {
+            "legend_grade": "Grade 3"
+          },
+          {
+            "legend_grade": "Grade 4"
+          },
+          {
+            "legend_grade": "Grade 5"
+          },
+          {
+            "legend_grade": "Unknown"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 0,
+        "opacity": 0
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 0
+        },
+        "color": {
+          "field": "legend_grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#9B9B9B"
+            ]
+          },
+          "title": "Grade",
+          "legend": {
+            "orient": "bottom",
+            "columns": 3,
+            "title": "Walking grade",
+            "direction": "horizontal",
+            "symbolType": "circle",
+            "symbolStrokeWidth": 0,
+            "symbolOpacity": 1,
+            "symbolSize": 95
+          }
+        }
+      }
     }
   ],
   "config": {
@@ -779,5 +860,16 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Light council boundaries sit behind the grade-coloured trail geometry. The northern callout has a clear top margin, all three regional pointers use interior anchors, and the grade legend uses solid circles.",
+  "params": [
+    {
+      "name": "mapFrame",
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
+    }
+  ],
+  "resolve": {
+    "legend": {
+      "color": "independent"
+    }
+  }
 }
