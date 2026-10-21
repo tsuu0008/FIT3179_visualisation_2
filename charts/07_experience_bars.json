@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 480,
+  "height": 350,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -38,7 +38,8 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 125
+            "labelLimit": 130,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
           }
         },
         "x": {
@@ -159,7 +160,8 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 125
+            "labelLimit": 130,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
           }
         },
         "text": {
@@ -243,10 +245,11 @@
       "titleFont": "Inter",
       "labelFontSize": 12,
       "orient": "bottom",
-      "columns": 1,
+      "columns": 2,
       "titleFontSize": 13,
       "padding": 8,
-      "labelLimit": 200
+      "labelLimit": 200,
+      "direction": "horizontal"
     },
     "text": {
       "font": "Inter",

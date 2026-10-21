@@ -3,7 +3,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Parallel coordinates with a visible grade legend, all 194 trail choices, grade/area/time filters, live counts and a selected-profile label.",
   "width": "container",
-  "height": 540,
+  "height": 490,
   "autosize": {
     "type": "fit",
     "contains": "padding"

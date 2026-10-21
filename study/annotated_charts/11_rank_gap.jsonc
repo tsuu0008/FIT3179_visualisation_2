@@ -1,7 +1,8 @@
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 560,
+  "height": 520,
   "autosize": {
     "type": "fit",
     "contains": "padding"

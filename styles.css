@@ -1358,7 +1358,7 @@ h3 {
 #network-inset > .control-hint { margin-top: 12px; }
 .plot-scroll > #detail-map { min-width: 500px; }
 .plot-scroll > #chart-11 { width: 100%; max-width: none; }
-.map-story-card .chart-copy { align-self: center; }
+.map-story-card .chart-copy { align-self: start; }
 .map-story-card .map-story-heading { margin-top: 20px; }
 #chart-06 .vega-bindings { gap: 10px 20px; }
 #chart-06 .vega-bind select { max-width: 390px; }
@@ -1371,3 +1371,14 @@ h3 {
 
 /* Fit the median chart within its comparison card at desktop widths. */
 .plot-scroll > #chart-05 { min-width: 480px; }
+
+/* Keep each embed in normal document flow, with controls above its SVG. */
+.plot-scroll > .vega-embed { flex-direction: column !important; align-items: stretch; gap: 0; }
+.plot-scroll .vega-bindings { position: static !important; order: -1; align-self: stretch; width: 100%; margin: 0 0 8px; padding: 0; justify-content: flex-start; }
+.plot-scroll > .vega-embed > svg { display: block; flex: 0 0 auto; align-self: flex-start; }
+.overview-layout #network-inset { padding: 12px; }
+.overview-layout #network-inset .control-hint { margin-top: 8px; }
+/* Cards keep their own content height rather than stretching to the taller neighbour. */
+:is(.challenge-comparison, .terrain-comparison) { align-items: start; grid-template-rows: auto; }
+:is(.challenge-comparison, .terrain-comparison) > .chart-card { display: flex; flex-direction: column; grid-row: auto; gap: 12px; }
+:is(.challenge-comparison, .terrain-comparison) .chart-copy { margin-bottom: 0; }

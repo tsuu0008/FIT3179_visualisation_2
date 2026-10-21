@@ -1,8 +1,8 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 320,
   "autosize": {
     "type": "fit",
     "contains": "padding"
