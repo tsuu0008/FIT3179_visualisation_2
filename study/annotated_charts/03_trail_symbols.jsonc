@@ -2,7 +2,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 650,
+  "height": 600,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -45,10 +45,10 @@
       "expr": "[mapFrame[0],mapFrame[1]]"
     },
     "scale": {
-      "expr": "min((width-28)/mapFrame[2],(height-134)/mapFrame[3])"
+      "expr": "min((width-28)/mapFrame[2],(height-154)/mapFrame[3])"
     },
     "translate": {
-      "expr": "[width/2,118+(height-134)/2]"
+      "expr": "[width/2,(height-154)/2]"
     }
   },
   "layer": [
@@ -113,15 +113,15 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
         },
         {
-          "calculate": "mapFrame[0]+((width*.78)-width/2)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))*180/PI",
+          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
           "as": "callout_lon"
         },
         {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+((118+(height-134)/2)-96)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))))-PI/2)*180/PI",
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
           "as": "callout_lat"
         }
       ],
@@ -192,7 +192,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
           "as": "annotation"
         },
         {
@@ -209,11 +209,11 @@
           }
         },
         {
-          "calculate": "mapFrame[0]+((width*.22)-width/2)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))*180/PI",
+          "calculate": "mapFrame[0]+((width-262)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
           "as": "callout_lon"
         },
         {
-          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+((118+(height-134)/2)-96)/(min((width-28)/mapFrame[2],(height-134)/mapFrame[3]))))-PI/2)*180/PI",
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-127))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
           "as": "callout_lat"
         }
       ],
@@ -284,7 +284,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
           "as": "annotation"
         },
         {
@@ -384,7 +384,16 @@
             ],
             "columns": 2,
             "direction": "horizontal",
-            "labelFontSize": 11
+            "labelFontSize": 10,
+            "orient": "none",
+            "legendX": 174,
+            "legendY": {
+              "expr": "height-132"
+            },
+            "padding": 0,
+            "offset": 0,
+            "titleFontSize": 11,
+            "columnPadding": 12
           }
         },
         "color": {
@@ -413,7 +422,16 @@
             "columns": 2,
             "direction": "horizontal",
             "labelLimit": 70,
-            "labelFontSize": 11
+            "labelFontSize": 10,
+            "orient": "none",
+            "legendX": 8,
+            "legendY": {
+              "expr": "height-132"
+            },
+            "padding": 0,
+            "offset": 0,
+            "titleFontSize": 11,
+            "columnPadding": 12
           }
         },
         "tooltip": [
@@ -460,7 +478,16 @@
             "columns": 2,
             "direction": "horizontal",
             "labelLimit": 70,
-            "labelFontSize": 11
+            "labelFontSize": 10,
+            "orient": "none",
+            "legendX": 8,
+            "legendY": {
+              "expr": "height-132"
+            },
+            "padding": 0,
+            "offset": 0,
+            "titleFontSize": 11,
+            "columnPadding": 12
           },
           "title": "Grade"
         }
@@ -516,7 +543,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
         }
       ],
@@ -579,7 +606,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
           "as": "annotation"
         },
         {
@@ -659,29 +686,31 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest route in this selection'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 13,
         "color": "#20343A",
-        "align": "right",
+        "align": "left",
         "baseline": "top"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-12"
+            "expr": "width-252"
           }
         },
         "y": {
-          "value": 12
+          "value": {
+            "expr": "height-70"
+          }
         },
         "text": {
           "field": "annotation"
@@ -729,7 +758,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + ' matching trails\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
           "as": "annotation"
         },
         {
@@ -749,20 +778,24 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 13,
         "color": "#20343A",
         "align": "left",
         "baseline": "top"
       },
       "encoding": {
         "x": {
-          "value": 12
+          "value": {
+            "expr": "width-252"
+          }
         },
         "y": {
-          "value": 12
+          "value": {
+            "expr": "height-132"
+          }
         },
         "text": {
           "field": "annotation"
@@ -793,20 +826,191 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 12,
-        "color": "#173b37"
+        "fontSize": 10,
+        "color": "#173b37",
+        "align": "left"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width/2"
+            "expr": "width-252"
           }
         },
         "y": {
-          "value": 45
+          "value": {
+            "expr": "height-110"
+          }
         },
         "text": {
           "value": "No trails match this selection"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "as": "annotation"
+        },
+        {
+          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
+          "as": "callout_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "callout_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#5d7269",
+        "strokeWidth": 1.1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-274"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-144"
+          }
+        },
+        "y2": {
+          "value": {
+            "expr": "height-65"
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "as": "annotation"
+        },
+        {
+          "calculate": "mapFrame[0]+((width-274)-width/2)/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))*180/PI",
+          "as": "callout_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-154)/2)-(height-144))/(min((width-28)/mapFrame[2],(height-154)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "callout_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#5d7269",
+        "strokeWidth": 1.1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-274"
+          }
+        },
+        "x2": {
+          "value": {
+            "expr": "width-262"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-65"
+          }
         }
       }
     }
@@ -851,5 +1055,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Unboxed callout text is reserved above the map. Light council boundaries sit behind trail marks. Regional pointers use interior LGA anchors; route pointers meet the displayed trail geometry or symbol."
+  "description": "Trail map with grade and distance legends grouped below the map on the left, and two unboxed explanatory callouts aligned to their right. Leader lines meet exact plotted markers and avoid annotation text."
 }

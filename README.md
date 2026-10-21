@@ -36,6 +36,6 @@ Local chart controls affect their own plot. Returning to All/All Victoria/None c
 
 - Equal-width statewide and regional overview panels; concise explanation balanced with the supply map, plus a compact coverage-and-legend footer.
 - Full-width rank comparison with a 1–31 rank range, gridlines and direct row annotations; heatmap leader ends at the cell border.
-- Unboxed map annotations keep text clear of routes and light council boundaries. Regional pointers identify an LGA using a geometry-derived interior anchor. Local trail pointers sit on displayed route geometry.
+- Unboxed map annotations keep text clear of routes and light council boundaries. The final map groups its callouts to the right of its grade and distance legends. Regional pointers identify an LGA using a geometry-derived interior anchor. Local trail pointers sit on displayed route geometry.
 - Parallel coordinates has a visible grade legend, all 194 named trail choices, Longest matching, and grade/area/time filters with live counts and empty-state messages.
 - `scripts/prepare_map_annotations.py` prepares geographic label anchors and map frames, and runs during the data rebuild.
