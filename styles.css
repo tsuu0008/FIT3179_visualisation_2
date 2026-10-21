@@ -1345,3 +1345,7 @@ h3 {
 .plot-scroll .vega-embed { max-width: none; }
 .plot-scroll svg { max-width: none; }
 @media (max-width: 700px) { .plot-scroll { scrollbar-width: thin; scrollbar-color: #82958e #eef3f1; } }
+
+/* Use each specification's tested plot height and leave room for its controls and legend. */
+.plot-scroll > .chart, .plot-scroll > #detail-map { height: auto !important; min-height: 0; }
+.plot-scroll > #chart-10 { aspect-ratio: auto; }
