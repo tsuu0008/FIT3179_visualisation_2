@@ -195,38 +195,6 @@
       }
     },
     {
-      "transform": [
-        {
-          "filter": "datum.name === \"Track Ninety Six\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#20343A",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hours",
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 6
-        },
-        "y2": {
-          "datum": 56
-        }
-      }
-    },
-    {
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -252,7 +220,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "annotation"
+          "field": "numbered_annotation"
         }
       },
       "transform": [
@@ -262,6 +230,10 @@
         {
           "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
           "as": "annotation"
+        },
+        {
+          "calculate": "'1 · ' + datum.annotation",
+          "as": "numbered_annotation"
         }
       ]
     },
@@ -288,7 +260,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "annotation"
+          "field": "numbered_annotation"
         }
       },
       "transform": [
@@ -298,6 +270,10 @@
         {
           "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
           "as": "annotation"
+        },
+        {
+          "calculate": "'1 · ' + datum.annotation",
+          "as": "numbered_annotation"
         }
       ]
     },
@@ -330,38 +306,6 @@
       }
     },
     {
-      "transform": [
-        {
-          "filter": "datum.name === \"Great Dividing Trail\""
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#20343A",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hours",
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 15
-        },
-        "y2": {
-          "datum": 26
-        }
-      }
-    },
-    {
       "mark": {
         "type": "text",
         "font": "Inter",
@@ -387,7 +331,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "annotation"
+          "field": "numbered_annotation"
         }
       },
       "transform": [
@@ -397,6 +341,10 @@
         {
           "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
           "as": "annotation"
+        },
+        {
+          "calculate": "'2 · ' + datum.annotation",
+          "as": "numbered_annotation"
         }
       ]
     },
@@ -423,7 +371,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "annotation"
+          "field": "numbered_annotation"
         }
       },
       "transform": [
@@ -433,8 +381,162 @@
         {
           "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
           "as": "annotation"
+        },
+        {
+          "calculate": "'2 · ' + datum.annotation",
+          "as": "numbered_annotation"
         }
       ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "align": "center",
+        "baseline": "middle",
+        "dx": -14,
+        "dy": -14,
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "1"
+        }
+      },
+      "name": "callout1Halo"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Track Ninety Six\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "align": "center",
+        "baseline": "middle",
+        "dx": -14,
+        "dy": -14,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "1"
+        }
+      },
+      "name": "callout1Number"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "align": "center",
+        "baseline": "middle",
+        "dx": -14,
+        "dy": -14,
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "2"
+        }
+      },
+      "name": "callout2Halo"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.name === \"Great Dividing Trail\""
+        },
+        {
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger distance, much shorter estimate'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "align": "center",
+        "baseline": "middle",
+        "dx": -14,
+        "dy": -14,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hours",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "2"
+        }
+      },
+      "name": "callout2Number"
     }
   ],
   "config": {
@@ -477,5 +579,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Distance-versus-time scatterplot with matching numbered points and explanatory callouts. Removing long annotation leaders keeps the dashed regression trend unobstructed."
 }

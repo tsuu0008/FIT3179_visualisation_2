@@ -64,3 +64,5 @@ Validation: all 81 regional anchors were checked inside their polygons; all 194 
 Map refinements: council borders use thin, light strokes behind the trail marks; the northern overview callout has a reserved top margin. The symbol map uses numbered, unboxed callouts beside its legends; the regional detail map keeps them above its geography. Grade legends on route and parallel-coordinate charts use solid circles.
 
 Final symbol-map callouts: 28 grade/access/width combinations were checked for complete labels, separated notes, matching numbered geographic markers and absence of leader lines. The map retains the selected point and regional interior anchor.
+
+The distance–time scatterplot uses matching numbered markers and notes for Track Ninety Six (1) and Great Dividing Trail (2). Long leaders were removed so they do not cross the dashed regression line; the point data and fitted trend are unchanged.
