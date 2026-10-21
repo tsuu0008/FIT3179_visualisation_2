@@ -1,4 +1,4 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -53,7 +53,7 @@
             "type": "sqrt",
             "domain": [
               0,
-              95
+              105
             ],
             "nice": false
           },
@@ -87,6 +87,12 @@
               "Grade 4",
               "Grade 5",
               "Unknown"
+            ],
+            "range": [
+              68,
+              {
+                "expr": "height-52"
+              }
             ]
           }
         },
@@ -155,7 +161,8 @@
           },
           "legend": null
         }
-      }
+      },
+      "name": "distancePoints"
     },
     {
       "data": {
@@ -182,9 +189,17 @@
             "type": "sqrt",
             "domain": [
               0,
-              95
+              105
             ],
             "nice": false
+          }
+        },
+        "y": {
+          "value": 68
+        },
+        "y2": {
+          "value": {
+            "expr": "height-52"
           }
         }
       }
@@ -215,13 +230,13 @@
             "type": "sqrt",
             "domain": [
               0,
-              95
+              105
             ],
             "nice": false
           }
         },
         "y": {
-          "value": 0
+          "value": 68
         },
         "text": {
           "field": "label"
@@ -267,7 +282,7 @@
             "type": "sqrt",
             "domain": [
               0,
-              95
+              105
             ],
             "nice": false
           },
@@ -297,12 +312,92 @@
               "Grade 4",
               "Grade 5",
               "Unknown"
+            ],
+            "range": [
+              68,
+              {
+                "expr": "height-52"
+              }
             ]
           }
         },
         "yOffset": {
           "field": "lane",
           "type": "quantitative"
+        }
+      },
+      "name": "longestPoint"
+    },
+    {
+      "name": "longestLeader",
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "annotation_rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.annotation_rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.name_label + '\\nLongest matching walk · ' + format(datum.length_km,'.1f') + ' km'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#173b37",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              105
+            ],
+            "nice": false
+          },
+          "axis": {
+            "title": [
+              "Trail distance (km)",
+              "square-root scale"
+            ]
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "scale('y',datum.grade)+scale('yOffset',datum.lane)-10"
+          }
+        },
+        "y2": {
+          "value": {
+            "expr": "8+13*length(split(datum.annotation,'\\n'))+3"
+          }
         }
       }
     },
@@ -326,20 +421,35 @@
           "filter": "datum.annotation_rank === 1"
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · longest matching walk'",
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.name_label + '\\nLongest matching walk · ' + format(datum.length_km,'.1f') + ' km'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "right",
-        "dx": -8,
-        "dy": -13,
-        "fontSize": 11,
+        "align": {
+          "expr": "datum.length_km > 26.25 ? 'right' : 'left'"
+        },
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 10.5,
         "fontWeight": 700,
         "lineBreak": "\n",
         "color": "#173b37",
-        "lineHeight": 14
+        "lineHeight": 13,
+        "baseline": "top"
       },
       "encoding": {
         "x": {
@@ -349,7 +459,7 @@
             "type": "sqrt",
             "domain": [
               0,
-              95
+              105
             ],
             "nice": false
           },
@@ -361,35 +471,13 @@
           }
         },
         "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
+          "value": 8
         },
         "text": {
           "field": "annotation"
         }
-      }
+      },
+      "name": "longestNote"
     },
     {
       "transform": [
@@ -421,10 +509,9 @@
       "mark": {
         "type": "text",
         "align": "right",
-        "fontSize": 11,
+        "fontSize": 10.5,
         "fontWeight": 700,
         "color": "#52716a",
-        "limit": 310,
         "lineBreak": "\n",
         "lineHeight": 14
       },
@@ -484,5 +571,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Distance strip with a reserved annotation band above the grade rows. The longest-walk caption uses adaptive alignment and a vertical pointer; the 5 km guide stays inside the data region. The horizontal domain includes a margin beyond the 95 km maximum."
 }

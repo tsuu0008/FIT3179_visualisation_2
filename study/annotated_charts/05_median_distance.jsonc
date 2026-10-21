@@ -1,8 +1,8 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 290,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -59,7 +59,7 @@
           "scale": {
             "domain": [
               0,
-              37
+              28
             ],
             "nice": false
           }
@@ -117,7 +117,7 @@
           "scale": {
             "domain": [
               0,
-              37
+              28
             ],
             "nice": false
           }
@@ -210,7 +210,7 @@
           "scale": {
             "domain": [
               0,
-              37
+              28
             ],
             "nice": false
           }
@@ -274,7 +274,7 @@
           "scale": {
             "domain": [
               0,
-              37
+              28
             ],
             "nice": false
           }
@@ -320,5 +320,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Compact median-distance lollipop chart with a 0–28 km axis, full grade labels, direct value annotations and a caution beside the two-trail Grade 5 sample."
 }

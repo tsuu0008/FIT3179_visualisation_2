@@ -1368,3 +1368,6 @@ h3 {
 @media (max-width: 700px) {
  #chart-06 .vega-bind select { max-width: 300px; }
 }
+
+/* Fit the median chart within its comparison card at desktop widths. */
+.plot-scroll > #chart-05 { min-width: 480px; }
