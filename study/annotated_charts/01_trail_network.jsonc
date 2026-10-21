@@ -1,8 +1,7 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 650,
+  "height": 480,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -87,7 +86,7 @@
           "title": "Grade",
           "legend": {
             "orient": "bottom",
-            "columns": 6,
+            "columns": 3,
             "title": "Walking grade",
             "direction": "horizontal"
           }
@@ -132,7 +131,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -180,7 +179,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -258,7 +257,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -310,7 +309,7 @@
           {
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "annotation": "Mildura LGA \u00b7 2 trails\nFew recorded forest walks",
             "region_name": "Mildura"
           }
         ]
@@ -337,7 +336,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -385,7 +384,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -463,7 +462,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -515,7 +514,7 @@
           {
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "annotation": "Murrindindi LGA \u00b7 32 trails\nLargest concentration of trails",
             "region_name": "Murrindindi"
           }
         ]
@@ -542,7 +541,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -590,7 +589,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -668,7 +667,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]
@@ -720,7 +719,7 @@
           {
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "annotation": "East Gippsland LGA \u00b7 28 trails\nA second major trail cluster",
             "region_name": "East Gippsland"
           }
         ]

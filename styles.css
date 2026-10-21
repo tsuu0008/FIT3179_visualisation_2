@@ -1350,19 +1350,22 @@ h3 {
 .plot-scroll > .chart, .plot-scroll > #detail-map { height: auto !important; min-height: 0; }
 .plot-scroll > #chart-10 { aspect-ratio: auto; }
 
-/* Give the statewide overview its own full-width row. */
-.overview-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-.plot-scroll > #chart-01 { max-width: none; min-width: 760px; }
-.overview-layout #network-inset { display: grid; grid-template-columns: minmax(230px, 1fr) minmax(420px, 1.6fr); grid-template-areas: "heading map" "note map"; column-gap: 24px; max-width: none; width: auto; }
-#network-inset > h4 { grid-area: heading; align-self: end; }
-#network-inset > .plot-scroll { grid-area: map; }
-#network-inset > .control-hint { grid-area: note; margin-top: 0; align-self: start; }
+/* Equal overview panels retain the statewide-to-local comparison. */
+.overview-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.overview-layout > * { min-width: 0; }
+.plot-scroll > #chart-01 { max-width: none; min-width: 500px; width: 100%; }
+.overview-layout #network-inset { display: block; max-width: none; width: auto; }
+#network-inset > .control-hint { margin-top: 12px; }
+.plot-scroll > #detail-map { min-width: 500px; }
+.plot-scroll > #chart-11 { width: 100%; max-width: none; }
+.map-story-card .chart-copy { align-self: start; }
+.map-story-card .map-story-heading { margin-top: 20px; }
+.map-story-card .supply-calculation { margin: 10px 0 0; padding: 12px 14px; border-left: 3px solid #0072B2; background: #f1f6f5; font-size: 0.88rem; line-height: 1.6; }
 #chart-06 .vega-bindings { gap: 10px 20px; }
 #chart-06 .vega-bind select { max-width: 390px; }
+@media (max-width: 900px) {
+ .overview-layout { grid-template-columns: 1fr; }
+}
 @media (max-width: 700px) {
- .overview-layout #network-inset { display: block; }
  #chart-06 .vega-bind select { max-width: 300px; }
 }
-
-/* Keep both map callout columns legible without covering geographic marks. */
-.plot-scroll > #detail-map { min-width: 620px; }
