@@ -61,9 +61,9 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#f1f5f4",
-        "stroke": "#cbd6d1",
-        "strokeWidth": 0.4
+        "fill": "#e5ede8",
+        "stroke": "#9cafa5",
+        "strokeWidth": 0.65
       },
       "encoding": {}
     },
@@ -108,7 +108,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
           "as": "annotation"
         },
         {
@@ -143,9 +143,9 @@
       ],
       "mark": {
         "type": "geoshape",
-        "filled": false,
-        "stroke": "#cbd6d1",
-        "strokeWidth": 0.4
+        "fill": "#cddde8",
+        "stroke": "#4c6c80",
+        "strokeWidth": 1.1
       },
       "encoding": {
         "shape": {
@@ -162,7 +162,8 @@
             "title": "Matching trails"
           }
         ]
-      }
+      },
+      "name": "selectedCouncil"
     },
     {
       "data": {
@@ -171,9 +172,9 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "opacity": 0.85,
+        "opacity": 1,
         "stroke": "#ffffff",
-        "strokeWidth": 0.7
+        "strokeWidth": 0.75
       },
       "encoding": {
         "longitude": {
@@ -194,7 +195,7 @@
               95
             ],
             "range": [
-              22,
+              40,
               650
             ]
           },
@@ -320,7 +321,8 @@
         {
           "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         }
-      ]
+      ],
+      "name": "trailSymbols"
     },
     {
       "data": {
@@ -369,14 +371,17 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
+        },
+        {
+          "calculate": "pow(sqrt(2 * (40 + 610 * datum.length_km / 95)) + 8, 2)",
+          "as": "ring_size"
         }
       ],
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 210,
-        "stroke": "#5d7269",
-        "strokeWidth": 1
+        "stroke": "#203f4b",
+        "strokeWidth": 1.5
       },
       "encoding": {
         "longitude": {
@@ -386,84 +391,15 @@
         "latitude": {
           "field": "latitude",
           "type": "quantitative"
+        },
+        "size": {
+          "field": "ring_size",
+          "type": "quantitative",
+          "scale": null,
+          "legend": null
         }
-      }
-    },
-    {
-      "data": {
-        "url": "data/trails.json"
       },
-      "transform": [
-        {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "count",
-              "as": "n"
-            }
-          ],
-          "groupby": [
-            "lga"
-          ]
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "n",
-              "order": "descending"
-            },
-            {
-              "field": "lga",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
-          "as": "annotation"
-        },
-        {
-          "lookup": "lga",
-          "from": {
-            "data": {
-              "url": "data/lga_label_points.json"
-            },
-            "key": "name",
-            "fields": [
-              "lon",
-              "lat"
-            ]
-          }
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "filled": false,
-        "size": 210,
-        "stroke": "#5d7269",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        }
-      }
+      "name": "longestTrailRing"
     },
     {
       "data": {
@@ -586,7 +522,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
           "as": "annotation"
         },
         {
@@ -719,7 +655,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
           "as": "annotation"
         },
         {
@@ -739,10 +675,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 700,
-        "dx": -15,
-        "dy": -15,
+        "dx": 0,
+        "dy": 0,
         "baseline": "middle",
         "align": "center",
         "color": "#20343A",
@@ -806,7 +742,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers this whole LGA'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
           "as": "annotation"
         },
         {
@@ -826,10 +762,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 700,
-        "dx": -15,
-        "dy": -15,
+        "dx": 0,
+        "dy": 0,
         "baseline": "middle",
         "align": "center",
         "color": "#20343A"
@@ -896,6 +832,10 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
+        },
+        {
+          "calculate": "pow(sqrt(2 * (40 + 610 * datum.length_km / 95)) + 8, 2)",
+          "as": "ring_size"
         }
       ],
       "mark": {
@@ -903,8 +843,10 @@
         "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "dx": 18,
-        "dy": 18,
+        "dx": {
+          "expr": "sqrt(datum.ring_size)/2+8"
+        },
+        "dy": 0,
         "baseline": "middle",
         "align": "center",
         "color": "#20343A",
@@ -974,6 +916,10 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
+        },
+        {
+          "calculate": "pow(sqrt(2 * (40 + 610 * datum.length_km / 95)) + 8, 2)",
+          "as": "ring_size"
         }
       ],
       "mark": {
@@ -981,8 +927,10 @@
         "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "dx": 18,
-        "dy": 18,
+        "dx": {
+          "expr": "sqrt(datum.ring_size)/2+8"
+        },
+        "dy": 0,
         "baseline": "middle",
         "align": "center",
         "color": "#20343A"
@@ -1043,5 +991,10 @@
       "color": "#20343A"
     }
   },
-  "description": "Trail map with matching numbered geographic markers and explanatory callouts to the right of the legends. Number 1 identifies the largest regional cluster; number 2 identifies the longest matching route. No leader lines cross boundaries or other annotations."
+  "description": "Higher-contrast trail map. Callout 1 highlights the actual largest-cluster council polygon rather than a point. Callout 2 surrounds the longest matching trail symbol at its exact plotted coordinates, with a ring sized to enclose the symbol. Numbered notes remain beside the legends.",
+  "resolve": {
+    "legend": {
+      "size": "independent"
+    }
+  }
 }

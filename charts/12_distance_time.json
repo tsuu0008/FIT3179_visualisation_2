@@ -218,11 +218,11 @@
         },
         "y": {
           "value": {
-            "expr": "scale('y',datum.hours)-10"
+            "expr": "scale('y',datum.hours)-9.5"
           }
         },
         "y2": {
-          "value": 52
+          "value": 51
         }
       }
     },
@@ -233,7 +233,7 @@
           "filter": "datum.name === \"Track Ninety Six\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nA major time outlier'",
           "as": "annotation"
         }
       ],
@@ -244,7 +244,7 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "right",
+        "align": "center",
         "baseline": "top",
         "color": "#20343A",
         "stroke": "white",
@@ -253,9 +253,8 @@
       },
       "encoding": {
         "x": {
-          "value": {
-            "expr": "width-12"
-          }
+          "field": "length_km",
+          "type": "quantitative"
         },
         "y": {
           "value": 12
@@ -272,7 +271,7 @@
           "filter": "datum.name === \"Track Ninety Six\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\n48 h estimate: a major time outlier'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nA major time outlier'",
           "as": "annotation"
         }
       ],
@@ -283,15 +282,14 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "align": "right",
+        "align": "center",
         "baseline": "top",
         "color": "#20343A"
       },
       "encoding": {
         "x": {
-          "value": {
-            "expr": "width-12"
-          }
+          "field": "length_km",
+          "type": "quantitative"
         },
         "y": {
           "value": 12
@@ -353,12 +351,12 @@
         },
         "y": {
           "value": {
-            "expr": "scale('y',datum.hours)+10"
+            "expr": "scale('y',datum.hours)+9.5"
           }
         },
         "y2": {
           "value": {
-            "expr": "scale('y',datum.hours)+19"
+            "expr": "scale('y',datum.hours)+21"
           }
         }
       }
@@ -390,9 +388,8 @@
       },
       "encoding": {
         "x": {
-          "value": {
-            "expr": "width-12"
-          }
+          "field": "length_km",
+          "type": "quantitative"
         },
         "y": {
           "value": {
@@ -428,9 +425,8 @@
       },
       "encoding": {
         "x": {
-          "value": {
-            "expr": "width-12"
-          }
+          "field": "length_km",
+          "type": "quantitative"
         },
         "y": {
           "value": {
@@ -483,5 +479,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Distance–time scatterplot with short vertical annotation leaders: the time-outlier note sits above its point and the longer-walk note below its point. Both leaders stay on the same side of the fitted trend as their target and stop outside the text and point rings."
+  "description": "Scatterplot callouts share the exact horizontal anchor of their highlighted points. The outlier note is centred over its vertical leader; the longer-walk note ends at its leader below the point. Leaders meet the highlight rings and stop just outside the text."
 }

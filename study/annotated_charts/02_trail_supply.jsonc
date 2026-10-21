@@ -145,8 +145,28 @@
       "mark": {
         "type": "geoshape",
         "filled": false,
-        "stroke": "#20343A",
-        "strokeWidth": 1.3
+        "stroke": "#ffffff",
+        "strokeWidth": 3.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Baw Baw'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#D55E00",
+        "strokeWidth": 1.6
       }
     },
     {
@@ -228,9 +248,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#20343A",
+        "stroke": "#D55E00",
         "size": 130,
-        "strokeWidth": 1.5
+        "strokeWidth": 1.7
       },
       "encoding": {
         "longitude": {
@@ -431,9 +451,9 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#20343A",
+        "stroke": "#D55E00",
         "size": 130,
-        "strokeWidth": 1.5
+        "strokeWidth": 1.7
       },
       "encoding": {
         "longitude": {
@@ -789,5 +809,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Supply map with direct regional callouts, ratio explanation in the northeast, and a compact footer pairing dataset coverage with the colour scale."
+  "description": "Supply map with warm orange highlighted council boundaries on a white casing, direct regional callouts, ratio explanation in the northeast, and a compact footer pairing coverage with the colour scale."
 }
