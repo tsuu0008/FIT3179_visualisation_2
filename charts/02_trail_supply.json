@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 620,
+  "height": 520,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -42,10 +42,10 @@
       "expr": "[mapFrame[0],mapFrame[1]]"
     },
     "scale": {
-      "expr": "min((width-28)/mapFrame[2],(height-118)/mapFrame[3])"
+      "expr": "min((width-28)/mapFrame[2],(height-70)/mapFrame[3])"
     },
     "translate": {
-      "expr": "[width/2,0+(height-118)/2]"
+      "expr": "[width/2,(height-70)/2]"
     }
   },
   "layer": [
@@ -71,6 +71,23 @@
           },
           "title": {
             "expr": "metric === 'resident' ? 'Km per 100,000 residents' : 'Total recorded kilometres'"
+          },
+          "legend": {
+            "orient": "none",
+            "legendX": {
+              "expr": "width-232"
+            },
+            "legendY": {
+              "expr": "height-35"
+            },
+            "gradientLength": 220,
+            "gradientThickness": 12,
+            "title": null,
+            "titleFontSize": 11,
+            "titlePadding": 6,
+            "labelFontSize": 10,
+            "padding": 0,
+            "offset": 0
           }
         },
         "tooltip": [
@@ -622,7 +639,7 @@
       },
       "transform": [
         {
-          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nLow supply here does not imply an absence\\nof urban footpaths or other walking routes.'",
+          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nOther local and urban walks are excluded.'",
           "as": "note"
         }
       ],
@@ -631,9 +648,9 @@
         "align": "left",
         "baseline": "top",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10.5,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 14,
         "fontWeight": 500,
         "color": "#20343A",
         "stroke": "white",
@@ -646,7 +663,7 @@
         },
         "y": {
           "value": {
-            "expr": "height-85"
+            "expr": "height-52"
           }
         },
         "text": {
@@ -662,7 +679,7 @@
       },
       "transform": [
         {
-          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nLow supply here does not imply an absence\\nof urban footpaths or other walking routes.'",
+          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nOther local and urban walks are excluded.'",
           "as": "note"
         }
       ],
@@ -671,9 +688,9 @@
         "align": "left",
         "baseline": "top",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10.5,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 14,
         "fontWeight": 500,
         "color": "#20343A"
       },
@@ -683,11 +700,48 @@
         },
         "y": {
           "value": {
-            "expr": "height-85"
+            "expr": "height-52"
           }
         },
         "text": {
           "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Km per 100,000 residents' : 'Total recorded kilometres'",
+          "as": "legend_title"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-232"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-52"
+          }
+        },
+        "text": {
+          "field": "legend_title"
         }
       }
     }
@@ -734,5 +788,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Supply map with direct regional callouts, ratio explanation in the northeast, and a compact footer pairing dataset coverage with the colour scale."
 }
