@@ -1382,3 +1382,10 @@ h3 {
 :is(.challenge-comparison, .terrain-comparison) { align-items: start; grid-template-rows: auto; }
 :is(.challenge-comparison, .terrain-comparison) > .chart-card { display: flex; flex-direction: column; grid-row: auto; gap: 12px; }
 :is(.challenge-comparison, .terrain-comparison) .chart-copy { margin-bottom: 0; }
+
+/* Let the heatmap fit its card instead of hiding the fifth grade column. */
+.plot-scroll > #chart-04 { min-width: 0; width: 100%; max-width: 100%; }
+#chart-04 svg { max-width: 100%; }
+
+/* Give the shortlist map more area alongside its narrative. */
+@media (min-width: 901px) { .trail-map-card { grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.5fr); gap: 24px; } }

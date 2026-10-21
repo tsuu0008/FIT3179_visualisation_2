@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 320,
+  "height": 360,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -62,9 +62,18 @@
           ],
           "title": "Terrain",
           "axis": {
-            "labelFontSize": 11,
-            "labelLimit": 112,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+            "labelFontSize": 10,
+            "labelLimit": 90,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
+            "labelLineHeight": 11
+          },
+          "scale": {
+            "range": [
+              70,
+              {
+                "expr": "height"
+              }
+            ]
           }
         },
         "color": {
@@ -77,7 +86,9 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "gradientLength": 150,
+            "gradientLength": {
+              "expr": "min(150,width-8)"
+            },
             "title": "Trail count"
           }
         },
@@ -139,9 +150,18 @@
           ],
           "title": "Terrain",
           "axis": {
-            "labelFontSize": 11,
-            "labelLimit": 112,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+            "labelFontSize": 10,
+            "labelLimit": 90,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
+            "labelLineHeight": 11
+          },
+          "scale": {
+            "range": [
+              70,
+              {
+                "expr": "height"
+              }
+            ]
           }
         }
       }
@@ -180,13 +200,25 @@
             "Gentle hills",
             "Flat"
           ],
-          "bandPosition": 0.5
+          "bandPosition": 0.5,
+          "scale": {
+            "range": [
+              70,
+              {
+                "expr": "height"
+              }
+            ]
+          }
         },
         "x2": {
-          "value": 20
+          "value": {
+            "expr": "scale('x','Grade 3')"
+          }
         },
         "y2": {
-          "value": 55
+          "value": {
+            "expr": "width < 240 ? 60 : 36"
+          }
         }
       }
     },
@@ -226,9 +258,18 @@
           ],
           "title": "Terrain",
           "axis": {
-            "labelFontSize": 11,
-            "labelLimit": 112,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Steep + difficult' : datum.label"
+            "labelFontSize": 10,
+            "labelLimit": 90,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
+            "labelLineHeight": 11
+          },
+          "scale": {
+            "range": [
+              70,
+              {
+                "expr": "height"
+              }
+            ]
           }
         },
         "text": {
@@ -247,10 +288,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 12,
         "align": "left",
         "baseline": "top",
         "color": "#20343A",
@@ -260,10 +301,10 @@
       },
       "encoding": {
         "x": {
-          "value": 8
+          "value": 4
         },
         "y": {
-          "value": 20
+          "value": 6
         },
         "text": {
           "field": "annotation"
@@ -274,7 +315,7 @@
           "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
         },
         {
-          "calculate": "'Grade 3 + short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
+          "calculate": "width < 240 ? 'Grade 3\\nShort steep hills\\n' + datum.trail_count + ' trails\\nLargest group' : 'Grade 3 · short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
           "as": "annotation"
         }
       ]
@@ -283,20 +324,20 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 12,
         "align": "left",
         "baseline": "top",
         "color": "#20343A"
       },
       "encoding": {
         "x": {
-          "value": 8
+          "value": 4
         },
         "y": {
-          "value": 20
+          "value": 6
         },
         "text": {
           "field": "annotation"
@@ -307,7 +348,7 @@
           "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
         },
         {
-          "calculate": "'Grade 3 + short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
+          "calculate": "width < 240 ? 'Grade 3\\nShort steep hills\\n' + datum.trail_count + ' trails\\nLargest group' : 'Grade 3 · short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
           "as": "annotation"
         }
       ]
@@ -352,5 +393,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Heatmap callout ends at the highlighted cell border; count labels are drawn above leader lines."
+  "description": "Responsive heatmap fits the comparison-card width with all five grade columns visible. Terrain labels wrap; the callout sits in a separate top band and its pointer meets the highlighted cell border without covering the count."
 }
