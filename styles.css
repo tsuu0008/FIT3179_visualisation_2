@@ -1358,9 +1358,8 @@ h3 {
 #network-inset > .control-hint { margin-top: 12px; }
 .plot-scroll > #detail-map { min-width: 500px; }
 .plot-scroll > #chart-11 { width: 100%; max-width: none; }
-.map-story-card .chart-copy { align-self: start; }
+.map-story-card .chart-copy { align-self: center; }
 .map-story-card .map-story-heading { margin-top: 20px; }
-.map-story-card .supply-calculation { margin: 10px 0 0; padding: 12px 14px; border-left: 3px solid #0072B2; background: #f1f6f5; font-size: 0.88rem; line-height: 1.6; }
 #chart-06 .vega-bindings { gap: 10px 20px; }
 #chart-06 .vega-bind select { max-width: 390px; }
 @media (max-width: 900px) {
