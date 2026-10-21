@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 520,
+  "height": 620,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -30,10 +30,23 @@
           "Total recorded km"
         ]
       }
+    },
+    {
+      "name": "mapFrame",
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
     }
   ],
   "projection": {
-    "type": "mercator"
+    "type": "mercator",
+    "center": {
+      "expr": "[mapFrame[0],mapFrame[1]]"
+    },
+    "scale": {
+      "expr": "min((width-28)/mapFrame[2],(height-118)/mapFrame[3])"
+    },
+    "translate": {
+      "expr": "[width/2,0+(height-118)/2]"
+    }
   },
   "layer": [
     {
@@ -100,14 +113,46 @@
     },
     {
       "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Baw Baw'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#20343A",
+        "strokeWidth": 1.3
+      }
+    },
+    {
+      "data": {
         "values": [
           {
-            "lon": 145.702891875,
-            "lat": -37.4585353125
+            "region_name": "Murrindindi"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
@@ -139,12 +184,24 @@
       "data": {
         "values": [
           {
-            "lon": 145.702891875,
-            "lat": -37.4585353125
+            "region_name": "Murrindindi"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
@@ -200,12 +257,24 @@
       "data": {
         "values": [
           {
-            "lon": 145.702891875,
-            "lat": -37.4585353125
+            "region_name": "Murrindindi"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
@@ -241,12 +310,24 @@
       "data": {
         "values": [
           {
-            "lon": 145.702891875,
-            "lat": -37.4585353125
+            "region_name": "Murrindindi"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
           "as": "annotation"
@@ -257,12 +338,24 @@
       "data": {
         "values": [
           {
-            "lon": 146.20391631578946,
-            "lat": -37.837281052631575
+            "region_name": "Baw Baw"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
           "as": "annotation"
@@ -294,12 +387,24 @@
       "data": {
         "values": [
           {
-            "lon": 146.20391631578946,
-            "lat": -37.837281052631575
+            "region_name": "Baw Baw"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
           "as": "annotation"
@@ -355,12 +460,24 @@
       "data": {
         "values": [
           {
-            "lon": 146.20391631578946,
-            "lat": -37.837281052631575
+            "region_name": "Baw Baw"
           }
         ]
       },
       "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
         {
           "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
           "as": "annotation"
@@ -396,17 +513,183 @@
       "data": {
         "values": [
           {
-            "lon": 146.20391631578946,
-            "lat": -37.837281052631575
+            "region_name": "Baw Baw"
           }
         ]
       },
       "transform": [
         {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
           "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
           "as": "annotation"
         }
       ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'HOW TO READ THE RATIO\\nRecorded km ÷ residents × 100,000\\nHigh values can reflect a small population.' : 'HOW TO READ TOTAL DISTANCE\\nAdd the recorded lengths of local trails.\\nThis measure does not adjust for population.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "fontWeight": 500,
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*0.48"
+          }
+        },
+        "y": {
+          "value": 8
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'HOW TO READ THE RATIO\\nRecorded km ÷ residents × 100,000\\nHigh values can reflect a small population.' : 'HOW TO READ TOTAL DISTANCE\\nAdd the recorded lengths of local trails.\\nThis measure does not adjust for population.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "fontWeight": 500,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*0.48"
+          }
+        },
+        "y": {
+          "value": 8
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nLow supply here does not imply an absence\\nof urban footpaths or other walking routes.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "fontWeight": 500,
+        "color": "#20343A",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "value": {
+            "expr": "height-85"
+          }
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nLow supply here does not imply an absence\\nof urban footpaths or other walking routes.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "fontWeight": 500,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "value": {
+            "expr": "height-85"
+          }
+        },
+        "text": {
+          "field": "note"
+        }
+      }
     }
   ],
   "config": {

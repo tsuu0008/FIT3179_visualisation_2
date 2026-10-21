@@ -1,9 +1,9 @@
-// Current chart specification; see DATA_AND_CAVEATS.md for methods.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts.",
+  "description": "Parallel coordinates with a visible grade legend, all 194 trail choices, grade/area/time filters, live counts and a selected-profile label.",
   "width": "container",
-  "height": 460,
+  "height": 540,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -11,17 +11,518 @@
   "background": null,
   "params": [
     {
+      "name": "pcGrade",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Grade: ",
+        "options": [
+          "All",
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Unknown"
+        ]
+      }
+    },
+    {
+      "name": "pcArea",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Area: ",
+        "options": [
+          "All",
+          "Alpine",
+          "Ararat",
+          "Baw Baw",
+          "Benalla",
+          "Cardinia",
+          "Central Goldfields",
+          "Colac Otway",
+          "East Gippsland",
+          "Gannawarra",
+          "Glenelg",
+          "Golden Plains",
+          "Greater Bendigo",
+          "Hindmarsh",
+          "Horsham",
+          "Indigo",
+          "Latrobe (Vic.)",
+          "Loddon",
+          "Macedon Ranges",
+          "Mansfield",
+          "Mildura",
+          "Mitchell",
+          "Moorabool",
+          "Mount Alexander",
+          "Murrindindi",
+          "Northern Grampians",
+          "Pyrenees",
+          "Towong",
+          "Unincorporated Vic",
+          "Wellington",
+          "Whittlesea",
+          "Yarra Ranges"
+        ],
+        "labels": [
+          "All Victoria",
+          "Alpine",
+          "Ararat",
+          "Baw Baw",
+          "Benalla",
+          "Cardinia",
+          "Central Goldfields",
+          "Colac Otway",
+          "East Gippsland",
+          "Gannawarra",
+          "Glenelg",
+          "Golden Plains",
+          "Greater Bendigo",
+          "Hindmarsh",
+          "Horsham",
+          "Indigo",
+          "Latrobe (Vic.)",
+          "Loddon",
+          "Macedon Ranges",
+          "Mansfield",
+          "Mildura",
+          "Mitchell",
+          "Moorabool",
+          "Mount Alexander",
+          "Murrindindi",
+          "Northern Grampians",
+          "Pyrenees",
+          "Towong",
+          "Unincorporated Vic",
+          "Wellington",
+          "Whittlesea",
+          "Yarra Ranges"
+        ]
+      }
+    },
+    {
+      "name": "pcTime",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Time records: ",
+        "options": [
+          "All",
+          "Known",
+          "Missing"
+        ],
+        "labels": [
+          "All records",
+          "Recorded time only",
+          "Missing time only"
+        ]
+      }
+    },
+    {
       "name": "focusTrail",
       "value": "Track Ninety Six",
       "bind": {
         "input": "select",
+        "name": "Highlight trail: ",
         "options": [
           "None",
+          "Longest matching",
+          "Access track to Stevensons Falls and day visitor area",
+          "Ada Tree Walk",
+          "Alistair Fielding Walk",
+          "Anderson Mill Walk",
+          "Annya Walk",
+          "Apex Lookout Walk",
+          "Avon River Walking Track",
+          "Avro Anson Memorial Track",
+          "Bakers Gully Reservoirs Lower Loop",
+          "Bakers Gully Reservoirs Upper Loop",
+          "Bates Dam Historic Walk",
+          "Battery Dam Historical Walk",
+          "Beauchamp Falls Walk",
+          "Beauty Spot Nature Trail Long Loop",
+          "Beauty Spot Nature Trail Short Loop",
+          "Beeripmo Walk",
+          "Bentley Plain Walk",
+          "Berrook Walk",
+          "Berry Farm Loop",
+          "Big Billy Bore Track",
+          "Bilstons Tree Walk",
+          "Bindaree Falls",
+          "Birnam Walk",
+          "Black Snake Creek Walk",
+          "Blue Spruce Walk",
+          "Bodens Water Race",
+          "Borella Walk",
+          "Boroondara Track",
+          "Bruntons Bridge Walk",
+          "Bull Gully Rock Wells Walk",
+          "Bullockys Grave Walk",
+          "Cascades Walk",
+          "Cassinia Sec Link Track",
+          "Casuarina",
+          "Choof Choof",
+          "Cicada Circuit Trail",
+          "Coopers Creek River Walk",
+          "Craigs Hut Walking Track",
+          "Crinoline Walk",
+          "Deep Gully Walk",
+          "Delegate River Tunnel",
+          "Donkey Orchid walk",
+          "Douglas Reserve Walk",
+          "Drummer Rainforest Walk",
+          "Dustys Lookout",
+          "Easy Magic Walk",
+          "Elevator",
+          "Enoch Falls Walk",
+          "Explosive Magazine Loop",
+          "Falls Creek Memorial",
+          "Fern Gully Walk",
+          "Fiery Loop",
+          "Forest Camp",
+          "Forest Walk",
+          "Freestone Creek Walking Track",
+          "Gilberts Gully Trail",
+          "Gippsland Lakes Discovery Trail",
+          "Goughs Bay Lookout",
+          "Goulburn River Walk",
+          "Granite Creek",
+          "Great Dividing Trail",
+          "Green Hills Walking Track",
+          "Grevillea Walk",
+          "Hanging Rock Walk",
+          "Hermans Hill Walking Track",
+          "Historic Youngs Creek Reservoir",
+          "Horseshoe Bend Tunnel",
+          "Howqua River Walking Track",
+          "Huggins Lookout Walk",
+          "Junction Walking Track",
+          "Kalatha Giant Tree Walk",
+          "Kendalls Link Track",
+          "Keppel Lookout Trail",
+          "Kerami Link Trail",
+          "Klingsporn Bridle Track",
+          "Koondrook Red Gum Forest Walk - Eagle Loop",
+          "Koondrook Red Gum Forest Walk - Turtle Loop",
+          "La La Falls",
+          "Latrobe River Walk",
+          "Lerderderg Heritage River Walk",
+          "Lima East Boulders Walk",
+          "Lima Falls",
+          "Limestone Box Forest Walk",
+          "Link track between picnic area and campground",
+          "Link trail to Rocky Ned Falls Walk",
+          "Linton Firefighter Memorial Walk",
+          "Little Cabbage Tree Creek Falls",
+          "Loves Creek Walk",
+          "Lower Howqua Feeder Walking Track",
+          "Marlo Walking Track Network",
+          "Mcleans Loop",
+          "Memorial Arboretum Walk",
+          "Meringtons Walk",
+          "Michaeldene",
+          "Mill Track",
+          "Mitchells Bridle Trail",
+          "Montane Walking Track",
+          "Moolerr Nature Drive",
+          "Moonee Creek Walking Track",
+          "Morning Star Walk",
+          "Mount Hedrick Walking Track",
+          "Mountain Monarchs Walk",
+          "Mt Timbertop Walking Track",
+          "Mt Torbreck Summit Track",
+          "Mt Welcome Hike",
+          "Murrindindi River Walk",
+          "Myrtle Gully Circuit",
+          "New Federal Mill Walk",
+          "Nicholson Rocks Walking Track",
+          "Noojee Rail Trail",
+          "Noorinbee",
+          "Nowa Nowa Walk Banksia Boulevard",
+          "Okeefe Rail Trail - Longlea",
+          "Orbost North Walking Track",
+          "Paradise Walk",
+          "Pioneer Sawmill Loop Walk",
+          "Pipe Gully Walk",
+          "Pipeline Walk",
+          "Plain Creek Loop Walk",
+          "Plain Creek Tramway Bridge Walk",
+          "Plain Creek Waterfall",
+          "Plane Crash Loop",
+          "Poverty Point Walk",
+          "Pyrenees Endurance Walk",
+          "Ralph Cornwall Walk",
+          "Red Gums Walk Middle",
+          "Red Gums Walk North Block",
+          "Red Gums Walk South Block",
+          "Red Hill Trail",
+          "Red Jacket Cemetery Access Track",
+          "Red Jacket Relics Access Track",
+          "Red White And Blue Walk",
+          "Redwoods Boardwalk",
+          "Redwoods Walk",
+          "Reed walking track",
+          "Reform Hill Lookout Loop",
+          "Reform Hill Mining Loop",
+          "Reform Hill Monument Walk",
+          "Reform Hill Poverty Reef Loop",
+          "Reids Tramline Walk",
+          "Richards Curves Walk",
+          "Richards Tramline",
+          "Richards Tramline Link",
+          "River Walk",
+          "Rockpools",
+          "Rocky Knob",
+          "Rocky Ned",
+          "Rocky Ned Falls Walk",
+          "Rubicon Dam Walk",
+          "Rubicon Heritage Walk",
+          "Sculpture Trail",
+          "Seven Acre Rock Walk",
+          "Short Basin Walk",
+          "Slaughter Walking Track",
+          "Snobs Banyarmbite Falls",
+          "Star Of West Goldmine Walk",
+          "Steavenson Falls Walk",
+          "Stevensons Falls Walk",
+          "Store Point Historic Loop",
+          "Strath Creek Falls Walk",
+          "Stringybark Creek Historic Loop",
+          "Stringybark Creek Linking Track",
+          "Summit Walk",
+          "Sunday Creek Walk",
+          "Tanglefoot Loop",
+          "Tanjil Bren Tramway Walk",
+          "The Channel Loop Walking Track",
+          "Thowgla Falls Walking Track",
+          "Toombon Historic Walk",
+          "Toorongo Falls Walk",
+          "Toorongo River Walk",
           "Track Ninety Six",
+          "Tree Fern Gully",
+          "Tubal Cain Walk",
           "Upper Yarra Walking Track",
-          "Great Dividing Trail"
+          "Valley View Walk",
+          "Valley Walk",
+          "Waanyarra Walk",
+          "Wail Scenic Loop",
+          "Wail Trail",
+          "Walk Into History",
+          "Water Race Walk",
+          "Waterhole Walk",
+          "Werribee River Walk",
+          "Whalers Lookout Walking Track",
+          "Whipstick Loop",
+          "Wilhelmina Falls",
+          "Wilks Creek Trail",
+          "Wirilda Walking Track",
+          "Wirrawilla",
+          "Yackandandah Creek Trail",
+          "Yea River Walk",
+          "Youngs Creek Falls",
+          "Youngs Creek Loop"
         ],
-        "name": "Trace an example: "
+        "labels": [
+          "None",
+          "Longest matching trail",
+          "Access track to Stevensons Falls and day visitor area · Grade 3 · Colac Otway",
+          "Ada Tree Walk · Grade 3 · Baw Baw",
+          "Alistair Fielding Walk · Grade 3 · Wellington",
+          "Anderson Mill Walk · Grade 4 · Macedon Ranges",
+          "Annya Walk · Grade 2 · Glenelg",
+          "Apex Lookout Walk · Grade 3 · Alpine",
+          "Avon River Walking Track · Grade 3 · Wellington",
+          "Avro Anson Memorial Track · Grade 4 · Murrindindi",
+          "Bakers Gully Reservoirs Lower Loop · Grade 3 · Alpine",
+          "Bakers Gully Reservoirs Upper Loop · Grade 3 · Alpine",
+          "Bates Dam Historic Walk · Grade 2 · Indigo",
+          "Battery Dam Historical Walk · Grade 3 · Central Goldfields",
+          "Beauchamp Falls Walk · Grade 3 · Colac Otway",
+          "Beauty Spot Nature Trail Long Loop · Grade 2 · Murrindindi",
+          "Beauty Spot Nature Trail Short Loop · Grade 2 · Murrindindi",
+          "Beeripmo Walk · Grade 3 · Pyrenees",
+          "Bentley Plain Walk · Grade 3 · East Gippsland",
+          "Berrook Walk · Grade 3 · Mildura",
+          "Berry Farm Loop · Grade 3 · East Gippsland",
+          "Big Billy Bore Track · Grade 3 · Mildura",
+          "Bilstons Tree Walk · Grade 2 · Glenelg",
+          "Bindaree Falls · Grade 3 · Mansfield",
+          "Birnam Walk · Grade 3 · Colac Otway",
+          "Black Snake Creek Walk · Grade 4 · Wellington",
+          "Blue Spruce Walk · Grade 2 · Colac Otway",
+          "Bodens Water Race · Grade 2 · Golden Plains",
+          "Borella Walk · Grade 3 · Ararat",
+          "Boroondara Track · Grade 4 · Murrindindi",
+          "Bruntons Bridge Walk · Grade 2 · Baw Baw",
+          "Bull Gully Rock Wells Walk · Grade 3 · Central Goldfields",
+          "Bullockys Grave Walk · Grade 2 · Wellington",
+          "Cascades Walk · Grade 3 · Murrindindi",
+          "Cassinia Sec Link Track · Grade 3 · Murrindindi",
+          "Casuarina · Grade 3 · East Gippsland",
+          "Choof Choof · Grade 3 · East Gippsland",
+          "Cicada Circuit Trail · Grade 3 · Murrindindi",
+          "Coopers Creek River Walk · Grade 2 · Baw Baw",
+          "Craigs Hut Walking Track · Grade 4 · Unincorporated Vic",
+          "Crinoline Walk · Unknown · Wellington",
+          "Deep Gully Walk · Grade 3 · Towong",
+          "Delegate River Tunnel · Grade 3 · East Gippsland",
+          "Donkey Orchid walk · Grade 3 · East Gippsland",
+          "Douglas Reserve Walk · Grade 3 · East Gippsland",
+          "Drummer Rainforest Walk · Grade 4 · East Gippsland",
+          "Dustys Lookout · Grade 2 · Mansfield",
+          "Easy Magic Walk · Grade 1 · East Gippsland",
+          "Elevator · Grade 3 · East Gippsland",
+          "Enoch Falls Walk · Grade 3 · Murrindindi",
+          "Explosive Magazine Loop · Grade 3 · East Gippsland",
+          "Falls Creek Memorial · Unknown · East Gippsland",
+          "Fern Gully Walk · Grade 3 · Wellington",
+          "Fiery Loop · Grade 3 · Pyrenees",
+          "Forest Camp · Grade 3 · Mansfield",
+          "Forest Walk · Grade 3 · Wellington",
+          "Freestone Creek Walking Track · Grade 3 · Wellington",
+          "Gilberts Gully Trail · Grade 2 · Murrindindi",
+          "Gippsland Lakes Discovery Trail · Grade 3 · East Gippsland",
+          "Goughs Bay Lookout · Grade 3 · Mansfield",
+          "Goulburn River Walk · Grade 2 · Mansfield",
+          "Granite Creek · Grade 3 · Wellington",
+          "Great Dividing Trail · Grade 3 · Moorabool",
+          "Green Hills Walking Track · Grade 4 · Wellington",
+          "Grevillea Walk · Grade 3 · Pyrenees",
+          "Hanging Rock Walk · Grade 4 · Baw Baw",
+          "Hermans Hill Walking Track · Grade 3 · Hindmarsh",
+          "Historic Youngs Creek Reservoir · Grade 3 · East Gippsland",
+          "Horseshoe Bend Tunnel · Grade 3 · Baw Baw",
+          "Howqua River Walking Track · Grade 4 · Mansfield",
+          "Huggins Lookout Walk · Grade 3 · Alpine",
+          "Junction Walking Track · Grade 3 · Mount Alexander",
+          "Kalatha Giant Tree Walk · Grade 2 · Murrindindi",
+          "Kendalls Link Track · Grade 2 · Murrindindi",
+          "Keppel Lookout Trail · Grade 4 · Murrindindi",
+          "Kerami Link Trail · Grade 3 · Murrindindi",
+          "Klingsporn Bridle Track · Grade 4 · Mansfield",
+          "Koondrook Red Gum Forest Walk - Eagle Loop · Grade 3 · Gannawarra",
+          "Koondrook Red Gum Forest Walk - Turtle Loop · Grade 3 · Gannawarra",
+          "La La Falls · Grade 3 · Yarra Ranges",
+          "Latrobe River Walk · Grade 3 · Baw Baw",
+          "Lerderderg Heritage River Walk · Grade 3 · Moorabool",
+          "Lima East Boulders Walk · Grade 3 · Benalla",
+          "Lima Falls · Grade 3 · Benalla",
+          "Limestone Box Forest Walk · Grade 2 · East Gippsland",
+          "Link track between picnic area and campground · Grade 2 · Murrindindi",
+          "Link trail to Rocky Ned Falls Walk · Grade 3 · Benalla",
+          "Linton Firefighter Memorial Walk · Grade 2 · Golden Plains",
+          "Little Cabbage Tree Creek Falls · Grade 2 · East Gippsland",
+          "Loves Creek Walk · Grade 2 · Colac Otway",
+          "Lower Howqua Feeder Walking Track · Grade 4 · Mansfield",
+          "Marlo Walking Track Network · Grade 2 · East Gippsland",
+          "Mcleans Loop · Grade 3 · East Gippsland",
+          "Memorial Arboretum Walk · Grade 1 · Alpine",
+          "Meringtons Walk · Grade 4 · Baw Baw",
+          "Michaeldene · Grade 2 · Murrindindi",
+          "Mill Track · Grade 4 · Murrindindi",
+          "Mitchells Bridle Trail · Grade 4 · Mansfield",
+          "Montane Walking Track · Grade 4 · Alpine",
+          "Moolerr Nature Drive · Grade 3 · Northern Grampians",
+          "Moonee Creek Walking Track · Unknown · Benalla",
+          "Morning Star Walk · Grade 3 · Wellington",
+          "Mount Hedrick Walking Track · Grade 4 · Wellington",
+          "Mountain Monarchs Walk · Grade 3 · Baw Baw",
+          "Mt Timbertop Walking Track · Grade 4 · Mansfield",
+          "Mt Torbreck Summit Track · Grade 4 · Murrindindi",
+          "Mt Welcome Hike · Grade 5 · Towong",
+          "Murrindindi River Walk · Grade 3 · Murrindindi",
+          "Myrtle Gully Circuit · Grade 3 · Murrindindi",
+          "New Federal Mill Walk · Grade 3 · Baw Baw",
+          "Nicholson Rocks Walking Track · Grade 3 · Wellington",
+          "Noojee Rail Trail · Grade 2 · Baw Baw",
+          "Noorinbee · Grade 2 · East Gippsland",
+          "Nowa Nowa Walk Banksia Boulevard · Grade 3 · East Gippsland",
+          "Okeefe Rail Trail - Longlea · Grade 2 · Greater Bendigo",
+          "Orbost North Walking Track · Grade 2 · East Gippsland",
+          "Paradise Walk · Grade 3 · Pyrenees",
+          "Pioneer Sawmill Loop Walk · Unknown · Moorabool",
+          "Pipe Gully Walk · Grade 3 · Northern Grampians",
+          "Pipeline Walk · Grade 4 · Mount Alexander",
+          "Plain Creek Loop Walk · Grade 3 · Mansfield",
+          "Plain Creek Tramway Bridge Walk · Grade 3 · Mansfield",
+          "Plain Creek Waterfall · Grade 2 · Mansfield",
+          "Plane Crash Loop · Grade 3 · East Gippsland",
+          "Poverty Point Walk · Grade 3 · Baw Baw",
+          "Pyrenees Endurance Walk · Grade 4 · Pyrenees",
+          "Ralph Cornwall Walk · Grade 2 · Baw Baw",
+          "Red Gums Walk Middle · Grade 2 · Wellington",
+          "Red Gums Walk North Block · Grade 2 · Wellington",
+          "Red Gums Walk South Block · Grade 2 · Wellington",
+          "Red Hill Trail · Grade 3 · Murrindindi",
+          "Red Jacket Cemetery Access Track · Grade 3 · Baw Baw",
+          "Red Jacket Relics Access Track · Grade 3 · Baw Baw",
+          "Red White And Blue Walk · Grade 3 · Mount Alexander",
+          "Redwoods Boardwalk · Grade 2 · Colac Otway",
+          "Redwoods Walk · Grade 2 · Murrindindi",
+          "Reed walking track · Grade 2 · East Gippsland",
+          "Reform Hill Lookout Loop · Grade 3 · Alpine",
+          "Reform Hill Mining Loop · Grade 3 · Alpine",
+          "Reform Hill Monument Walk · Grade 3 · Alpine",
+          "Reform Hill Poverty Reef Loop · Grade 3 · Alpine",
+          "Reids Tramline Walk · Grade 4 · Yarra Ranges",
+          "Richards Curves Walk · Grade 3 · Yarra Ranges",
+          "Richards Tramline · Grade 3 · Yarra Ranges",
+          "Richards Tramline Link · Grade 3 · Yarra Ranges",
+          "River Walk · Grade 3 · Towong",
+          "Rockpools · Grade 3 · Alpine",
+          "Rocky Knob · Grade 3 · East Gippsland",
+          "Rocky Ned · Grade 3 · Benalla",
+          "Rocky Ned Falls Walk · Grade 3 · Benalla",
+          "Rubicon Dam Walk · Grade 3 · Murrindindi",
+          "Rubicon Heritage Walk · Grade 3 · Murrindindi",
+          "Sculpture Trail · Grade 2 · Murrindindi",
+          "Seven Acre Rock Walk · Grade 3 · Cardinia",
+          "Short Basin Walk · Grade 3 · Northern Grampians",
+          "Slaughter Walking Track · Grade 3 · East Gippsland",
+          "Snobs Banyarmbite Falls · Grade 3 · Murrindindi",
+          "Star Of West Goldmine Walk · Grade 4 · Mansfield",
+          "Steavenson Falls Walk · Grade 1 · Murrindindi",
+          "Stevensons Falls Walk · Grade 1 · Colac Otway",
+          "Store Point Historic Loop · Grade 3 · Wellington",
+          "Strath Creek Falls Walk · Grade 3 · Mitchell",
+          "Stringybark Creek Historic Loop · Grade 3 · Benalla",
+          "Stringybark Creek Linking Track · Grade 3 · Benalla",
+          "Summit Walk · Grade 3 · Whittlesea",
+          "Sunday Creek Walk · Grade 3 · Mitchell",
+          "Tanglefoot Loop · Grade 3 · Murrindindi",
+          "Tanjil Bren Tramway Walk · Grade 4 · Baw Baw",
+          "The Channel Loop Walking Track · Grade 3 · Wellington",
+          "Thowgla Falls Walking Track · Grade 3 · Towong",
+          "Toombon Historic Walk · Grade 3 · Baw Baw",
+          "Toorongo Falls Walk · Grade 3 · Baw Baw",
+          "Toorongo River Walk · Grade 3 · Baw Baw",
+          "Track Ninety Six · Grade 5 · Wellington",
+          "Tree Fern Gully · Grade 2 · Murrindindi",
+          "Tubal Cain Walk · Grade 4 · East Gippsland",
+          "Upper Yarra Walking Track · Grade 4 · Baw Baw",
+          "Valley View Walk · Grade 3 · Alpine",
+          "Valley Walk · Grade 3 · Pyrenees",
+          "Waanyarra Walk · Grade 3 · Loddon",
+          "Wail Scenic Loop · Grade 3 · Horsham",
+          "Wail Trail · Grade 3 · Horsham",
+          "Walk Into History · Grade 3 · Yarra Ranges",
+          "Water Race Walk · Grade 2 · Mansfield",
+          "Waterhole Walk · Grade 2 · Wellington",
+          "Werribee River Walk · Grade 3 · Moorabool",
+          "Whalers Lookout Walking Track · Grade 2 · Glenelg",
+          "Whipstick Loop · Grade 3 · Moorabool",
+          "Wilhelmina Falls · Grade 4 · Murrindindi",
+          "Wilks Creek Trail · Grade 3 · Murrindindi",
+          "Wirilda Walking Track · Grade 3 · Latrobe (Vic.)",
+          "Wirrawilla · Grade 2 · Murrindindi",
+          "Yackandandah Creek Trail · Grade 2 · Indigo",
+          "Yea River Walk · Grade 2 · Murrindindi",
+          "Youngs Creek Falls · Grade 3 · East Gippsland",
+          "Youngs Creek Loop · Grade 3 · East Gippsland"
+        ]
       }
     }
   ],
@@ -55,7 +556,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           }
         },
@@ -111,7 +612,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           }
         },
@@ -147,7 +648,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           },
           "axis": null
@@ -179,7 +680,20 @@
               "#9B9B9B"
             ]
           },
-          "title": "Grade"
+          "title": "Grade",
+          "legend": {
+            "title": "Walking grade",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 6,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4,
+            "symbolOpacity": 1,
+            "labelFontSize": 12,
+            "titleFontSize": 12,
+            "labelLimit": 100,
+            "offset": 16
+          }
         },
         "tooltip": [
           {
@@ -203,7 +717,12 @@
             "title": "Terrain"
           }
         ]
-      }
+      },
+      "transform": [
+        {
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
+        }
+      ]
     },
     {
       "data": {
@@ -211,7 +730,31 @@
       },
       "transform": [
         {
-          "filter": "datum.name === focusTrail"
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "focus_rank"
+            }
+          ],
+          "groupby": [
+            "axis"
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
         }
       ],
       "mark": {
@@ -237,7 +780,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           },
           "axis": null
@@ -278,7 +821,31 @@
       },
       "transform": [
         {
-          "filter": "datum.name === focusTrail"
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "focus_rank"
+            }
+          ],
+          "groupby": [
+            "axis"
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
         }
       ],
       "mark": {
@@ -312,7 +879,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           },
           "axis": null
@@ -345,7 +912,19 @@
             ]
           },
           "title": "Grade",
-          "legend": null
+          "legend": {
+            "title": "Walking grade",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 6,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4,
+            "symbolOpacity": 1,
+            "labelFontSize": 12,
+            "titleFontSize": 12,
+            "labelLimit": 100,
+            "offset": 16
+          }
         },
         "tooltip": [
           {
@@ -533,7 +1112,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           },
           "axis": null
@@ -703,7 +1282,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           },
           "axis": null
@@ -760,7 +1339,7 @@
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
           }
         },
@@ -775,34 +1354,60 @@
       },
       "transform": [
         {
-          "filter": "datum.name === focusTrail && datum.axis === 2"
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
         },
         {
-          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
+          "window": [
+            {
+              "op": "row_number",
+              "as": "focus_rank"
+            }
+          ],
+          "groupby": [
+            "axis"
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
+        },
+        {
+          "filter": "datum.axis === 2"
+        },
+        {
+          "calculate": "datum.name + ' · ' + datum.grade + ' · ' + format(datum.length_km,'.1f') + ' km\\n' + (isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h recorded; follow the thick dashed profile' : 'Time is missing; distance alone cannot describe the commitment')",
           "as": "annotation"
         }
       ],
       "mark": {
-        "type": "rule",
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 600,
         "color": "#20343A",
-        "strokeWidth": 1.2
+        "lineBreak": "\n",
+        "lineHeight": 16
       },
       "encoding": {
         "x": {
-          "datum": 2,
-          "type": "quantitative",
-          "axis": null
+          "value": 8
         },
         "y": {
-          "field": "position",
-          "type": "quantitative",
-          "axis": null
+          "value": 9
         },
-        "x2": {
-          "datum": 1.35
-        },
-        "y2": {
-          "datum": 82
+        "text": {
+          "field": "annotation"
         }
       }
     },
@@ -812,52 +1417,83 @@
       },
       "transform": [
         {
-          "filter": "datum.name === focusTrail && datum.axis === 2"
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
         },
         {
-          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
-          "as": "annotation"
+          "window": [
+            {
+              "op": "row_number",
+              "as": "focus_rank"
+            }
+          ],
+          "groupby": [
+            "axis"
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
+        },
+        {
+          "filter": "datum.axis === 2"
+        },
+        {
+          "calculate": "isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h selected' : 'Time not recorded'",
+          "as": "selected_time"
+        },
+        {
+          "filter": "isValid(datum.hours) && datum.hours > 0"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 0,
-        "dy": 0,
-        "lineBreak": "\n",
+        "align": "right",
+        "dx": -10,
+        "dy": {
+          "expr": "datum.position >= 100*sqrt(datum.length_km/95) ? -14 : 18"
+        },
+        "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#9c4227",
-        "lineHeight": 14,
+        "color": "#20343A",
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
         "x": {
-          "datum": 1.35,
+          "field": "axis",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
               -0.05,
               3.4
             ]
-          }
+          },
+          "axis": null
         },
         "y": {
-          "datum": 82,
+          "field": "position",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
-          }
+          },
+          "axis": null
         },
         "text": {
-          "field": "annotation"
+          "field": "selected_time"
         }
       }
     },
@@ -867,49 +1503,192 @@
       },
       "transform": [
         {
-          "filter": "datum.name === focusTrail && datum.axis === 2"
+          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
         },
         {
-          "calculate": "datum.name + '\\n' + (isValid(datum.hours) ? format(datum.hours,'.1f') + ' h recorded\\nCompare the four demands' : 'Time missing\\nDistance alone is incomplete')",
-          "as": "annotation"
+          "window": [
+            {
+              "op": "row_number",
+              "as": "focus_rank"
+            }
+          ],
+          "groupby": [
+            "axis"
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
+        },
+        {
+          "filter": "datum.axis === 2"
+        },
+        {
+          "calculate": "isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h selected' : 'Time not recorded'",
+          "as": "selected_time"
+        },
+        {
+          "filter": "isValid(datum.hours) && datum.hours > 0"
         }
       ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 0,
-        "dy": 0,
-        "lineBreak": "\n",
+        "align": "right",
+        "dx": -10,
+        "dy": {
+          "expr": "datum.position >= 100*sqrt(datum.length_km/95) ? -14 : 18"
+        },
+        "font": "Inter",
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#9c4227",
-        "lineHeight": 14
+        "color": "#20343A"
       },
       "encoding": {
         "x": {
-          "datum": 1.35,
+          "field": "axis",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
               -0.05,
               3.4
             ]
-          }
+          },
+          "axis": null
         },
         "y": {
-          "datum": 82,
+          "field": "position",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
               -22,
-              120
+              145
             ]
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "selected_time"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.axis === 0"
+        },
+        {
+          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) ? 1 : 0",
+          "as": "matches_filter"
+        },
+        {
+          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) && datum.name === focusTrail ? 1 : 0",
+          "as": "is_focused"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "matches_filter",
+              "as": "n"
+            },
+            {
+              "op": "sum",
+              "field": "is_focused",
+              "as": "focused_count"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.n === 0 ? 'No trails match these filters. Reset a filter to restore the profiles.' : format(datum.n,'d') + ' matching trails · ' + (pcArea === 'All' ? 'All Victoria' : pcArea) + ' · ' + (pcGrade === 'All' ? 'All grades' : pcGrade) + ' · ' + pcTime + ' time records'",
+          "as": "status"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "font": "Inter",
+        "fontSize": 11,
+        "color": "#334d43"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "value": {
+            "expr": "height-3"
           }
         },
         "text": {
-          "field": "annotation"
+          "field": "status"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/parallel_points.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.axis === 0"
+        },
+        {
+          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) ? 1 : 0",
+          "as": "matches_filter"
+        },
+        {
+          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) && datum.name === focusTrail ? 1 : 0",
+          "as": "is_focused"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "matches_filter",
+              "as": "n"
+            },
+            {
+              "op": "sum",
+              "field": "is_focused",
+              "as": "focused_count"
+            }
+          ]
+        },
+        {
+          "filter": "datum.n > 0 && datum.focused_count === 0 && focusTrail !== 'None' && focusTrail !== 'Longest matching'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineBreak": "\n",
+        "lineHeight": 16,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "value": 9
+        },
+        "text": {
+          "value": "The selected trail is outside these filters.\nChoose “Longest matching trail” or another trail to highlight."
         }
       }
     }

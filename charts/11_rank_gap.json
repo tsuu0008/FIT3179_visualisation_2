@@ -31,7 +31,14 @@
             "op": "min",
             "order": "ascending"
           },
-          "title": null
+          "title": null,
+          "axis": {
+            "grid": true,
+            "gridColor": "#e6ece9",
+            "gridWidth": 0.7,
+            "ticks": false,
+            "labelLimit": 145
+          }
         },
         "x": {
           "field": "population_rank",
@@ -55,9 +62,16 @@
               15,
               20,
               25,
-              30
+              30,
+              31
             ],
-            "grid": false
+            "grid": true,
+            "gridColor": "#ccd6d2",
+            "gridDash": [
+              2,
+              3
+            ],
+            "gridWidth": 1
           }
         },
         "x2": {
@@ -118,6 +132,10 @@
             "measure",
             "rank"
           ]
+        },
+        {
+          "calculate": "datum.measure === 'population_rank' ? 'Population rank' : 'Trail supply rank'",
+          "as": "measure_label"
         }
       ],
       "mark": {
@@ -141,12 +159,12 @@
           "type": "quantitative"
         },
         "color": {
-          "field": "measure",
+          "field": "measure_label",
           "type": "nominal",
           "scale": {
             "domain": [
-              "population_rank",
-              "supply_rank"
+              "Population rank",
+              "Trail supply rank"
             ],
             "range": [
               "#264653",
@@ -155,7 +173,10 @@
           },
           "legend": {
             "title": null,
-            "labelExpr": "datum.label === 'population_rank' ? 'Population rank' : 'Trail supply rank'"
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "labelLimit": 180
           }
         },
         "tooltip": [
@@ -164,7 +185,7 @@
             "title": "LGA"
           },
           {
-            "field": "measure",
+            "field": "measure_label",
             "title": "Measure"
           },
           {
@@ -318,7 +339,7 @@
       "titleFontSize": 13,
       "padding": 8,
       "columns": 1,
-      "labelLimit": 150
+      "labelLimit": 220
     },
     "header": {
       "labelFont": "Inter",

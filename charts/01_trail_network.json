@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 330,
+  "height": 650,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -26,6 +26,26 @@
         "strokeWidth": 0.8
       },
       "encoding": {}
+    },
+    {
+      "data": {
+        "url": "data/lga.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.name === 'Murrindindi'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#20343A",
+        "strokeWidth": 1.3
+      }
     },
     {
       "data": {
@@ -66,8 +86,9 @@
           "title": "Grade",
           "legend": {
             "orient": "bottom",
-            "columns": 3,
-            "title": "Walking grade"
+            "columns": 6,
+            "title": "Walking grade",
+            "direction": "horizontal"
           }
         },
         "opacity": {
@@ -108,15 +129,28 @@
       "data": {
         "values": [
           {
-            "lon": 142,
-            "lat": -35.1,
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "region_name": "Mildura"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "rule",
         "color": "#20343A",
@@ -143,15 +177,28 @@
       "data": {
         "values": [
           {
-            "lon": 142,
-            "lat": -35.1,
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "region_name": "Mildura"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "point",
         "filled": false,
@@ -167,17 +214,23 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        }
+        },
+        "tooltip": [
+          {
+            "field": "region_name",
+            "title": "LGA label anchor"
+          }
+        ]
       }
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "left",
         "baseline": "middle",
         "color": "#20343A",
@@ -202,24 +255,37 @@
       "data": {
         "values": [
           {
-            "lon": 142,
-            "lat": -35.1,
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "region_name": "Mildura"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "left",
         "baseline": "middle",
         "color": "#20343A",
@@ -241,29 +307,55 @@
       "data": {
         "values": [
           {
-            "lon": 142,
-            "lat": -35.1,
             "lx": 141.15,
             "ly": -34.2,
-            "annotation": "Mildura · 2 trails\nFew recorded forest walks"
+            "annotation": "Mildura LGA · 2 trails\nFew recorded forest walks",
+            "region_name": "Mildura"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     },
     {
       "data": {
         "values": [
           {
-            "lon": 145.6,
-            "lat": -37.4,
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "region_name": "Murrindindi"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "rule",
         "color": "#20343A",
@@ -290,15 +382,28 @@
       "data": {
         "values": [
           {
-            "lon": 145.6,
-            "lat": -37.4,
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "region_name": "Murrindindi"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "point",
         "filled": false,
@@ -314,17 +419,23 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        }
+        },
+        "tooltip": [
+          {
+            "field": "region_name",
+            "title": "LGA label anchor"
+          }
+        ]
       }
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "left",
         "baseline": "middle",
         "color": "#20343A",
@@ -349,24 +460,37 @@
       "data": {
         "values": [
           {
-            "lon": 145.6,
-            "lat": -37.4,
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "region_name": "Murrindindi"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "left",
         "baseline": "middle",
         "color": "#20343A",
@@ -388,29 +512,55 @@
       "data": {
         "values": [
           {
-            "lon": 145.6,
-            "lat": -37.4,
             "lx": 144.0,
             "ly": -35.1,
-            "annotation": "Murrindindi · 32 trails\nLargest concentration of trails"
+            "annotation": "Murrindindi LGA · 32 trails\nLargest concentration of trails",
+            "region_name": "Murrindindi"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     },
     {
       "data": {
         "values": [
           {
-            "lon": 148.4,
-            "lat": -37.4,
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "region_name": "East Gippsland"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "rule",
         "color": "#20343A",
@@ -437,15 +587,28 @@
       "data": {
         "values": [
           {
-            "lon": 148.4,
-            "lat": -37.4,
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "region_name": "East Gippsland"
           }
         ]
       },
-      "transform": [],
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "point",
         "filled": false,
@@ -461,17 +624,23 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        }
+        },
+        "tooltip": [
+          {
+            "field": "region_name",
+            "title": "LGA label anchor"
+          }
+        ]
       }
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "right",
         "baseline": "middle",
         "color": "#20343A",
@@ -496,24 +665,37 @@
       "data": {
         "values": [
           {
-            "lon": 148.4,
-            "lat": -37.4,
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "region_name": "East Gippsland"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     },
     {
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 16,
         "align": "right",
         "baseline": "middle",
         "color": "#20343A",
@@ -535,15 +717,28 @@
       "data": {
         "values": [
           {
-            "lon": 148.4,
-            "lat": -37.4,
             "lx": 149.4,
             "ly": -35.9,
-            "annotation": "East Gippsland · 28 trails\nA second major trail cluster"
+            "annotation": "East Gippsland LGA · 28 trails\nA second major trail cluster",
+            "region_name": "East Gippsland"
           }
         ]
       },
-      "transform": []
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ]
     }
   ],
   "config": {
