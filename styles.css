@@ -1416,3 +1416,18 @@ h3 {
 }
 @media (max-width: 1020px) { .challenge-comparison { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .overview-layout { grid-template-columns: 1fr; } }
+
+/* Match the two comparison cards at their text, chart and bottom edges. */
+@media (min-width: 1021px) {
+ .challenge-comparison { grid-template-rows: auto auto; align-items: stretch; }
+ .challenge-comparison > .chart-card { display: grid; grid-row: span 2; grid-template-rows: subgrid; align-self: stretch; }
+}
+@media (min-width: 1151px) {
+ .terrain-comparison { grid-template-rows: auto auto auto; align-items: stretch; }
+ .terrain-comparison > .chart-card { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-self: stretch; }
+ .terrain-comparison .chart-reading { margin-bottom: 0; }
+ .grid-map-card { grid-template-columns: minmax(270px,.65fr) minmax(0,1.5fr); gap: 24px; align-items: center; }
+}
+.grid-map-card .chart { max-width: none; margin: 0; }
+.grid-map-card .chart-reading { margin-top: 18px; }
+.grid-map-card .figure-note { margin-top: 16px; }

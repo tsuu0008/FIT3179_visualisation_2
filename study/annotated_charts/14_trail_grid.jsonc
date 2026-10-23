@@ -3,21 +3,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 570,
+  "height": 620,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
   "background": null,
-  "description": "A fixed 25 km spherical Lambert azimuthal equal-area grid counts the original trail midpoints once each. A short leader identifies the exact peak cell without crossing other occupied cells. The numbered explanation is reserved above the map.",
+  "description": "Square spatial bin map of retained trail midpoints in fixed 25 km equal-area cells. A clipped grid shows empty land bins. The numbered peak-bin pointer and explanation share the legend footer.",
   "projection": {
     "type": "identity",
     "reflectY": true,
     "scale": {
-      "expr": "min((width-20)/840000,(height-90)/600000)"
+      "expr": "min((width-20)/840000,(height-20)/600000)"
     },
     "translate": {
-      "expr": "[width/2-30000*(min((width-20)/840000,(height-90)/600000)),84+340000*(min((width-20)/840000,(height-90)/600000))]"
+      "expr": "[width/2-30000*(min((width-20)/840000,(height-20)/600000)),8+340000*(min((width-20)/840000,(height-20)/600000))]"
     }
   },
   "layer": [
@@ -32,9 +32,26 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#eef3f1",
-        "stroke": "#9badab",
+        "fill": "#f0f3f5",
+        "stroke": "#8b9da8",
         "strokeWidth": 0.8
+      }
+    },
+    {
+      "name": "landGrid",
+      "data": {
+        "url": "data/trail_grid.json",
+        "name": "grid_lines",
+        "format": {
+          "type": "json",
+          "property": "grid_lines"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#b5c2cb",
+        "strokeWidth": 0.65
       }
     },
     {
@@ -64,10 +81,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -85,9 +102,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -104,12 +121,14 @@
           "type": "ordinal",
           "scale": {
             "domain": [
+              "0",
               "1",
               "2–3",
               "4–6",
               "7–13"
             ],
             "range": [
+              "#f0f3f5",
               "#d3e4ed",
               "#8abbd5",
               "#3e87b0",
@@ -117,13 +136,14 @@
             ]
           },
           "legend": {
-            "title": "Trails per 25 km cell",
+            "title": "Trails per 25 km bin",
             "orient": "bottom",
             "direction": "horizontal",
-            "columns": 4,
+            "columns": 5,
             "symbolType": "circle",
             "symbolSize": 110,
-            "titleLimit": 300
+            "titleLimit": 300,
+            "labelExpr": "datum.label === '0' ? '0 recorded' : datum.label"
           }
         },
         "tooltip": [
@@ -187,10 +207,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -208,9 +228,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -257,10 +277,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -278,9 +298,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -327,10 +347,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -348,9 +368,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -389,10 +409,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -410,9 +430,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -453,10 +473,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -474,9 +494,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -514,10 +534,10 @@
             ],
             "range": [
               {
-                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
               },
               {
-                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
               }
             ],
             "nice": false,
@@ -535,9 +555,9 @@
             ],
             "range": [
               {
-                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
               },
-              84
+              8
             ],
             "nice": false,
             "zero": false
@@ -556,40 +576,12 @@
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "lineHeight": 17,
-        "color": "#20343A"
-      },
-      "encoding": {
-        "x": {
-          "value": 8
-        },
-        "y": {
-          "value": 8
-        },
-        "text": {
-          "value": "194 trails · 65 occupied cells\nEqual-area cells reveal local clusters"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {}
-        ]
-      },
-      "mark": {
-        "type": "text",
         "align": "right",
         "baseline": "top",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 17,
+        "lineHeight": 15,
         "color": "#20343A"
       },
       "encoding": {
@@ -599,10 +591,12 @@
           }
         },
         "y": {
-          "value": 8
+          "value": {
+            "expr": "height+10"
+          }
         },
         "text": {
-          "value": "1 · The busiest cell contains 13 trails\nAll 13 are assigned to Murrindindi\n6.7% of the entire snapshot in one cell"
+          "value": "1 · Peak bin: 13 trails\nAll assigned to Murrindindi\n6.7% of the 194-trail snapshot"
         }
       }
     }

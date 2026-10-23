@@ -31,5 +31,4 @@ These are eight candidate advanced idioms, including four geographic types. Medi
 
 - The rubric requests reliable, current sources. The existing trail extraction, boundary vintage and population provenance remain unverified; do not claim this layout revision resolves that requirement. See DATA_SOURCES.md.
 - Submit the required hand-drawn sketches and written report yourself. The report should link tasks to marks/channels, justify the grid and discuss its cell size, origin and midpoint limitations.
-- Explain the code and interactions in your interview. INTERVIEW_GUIDE.md covers the new grid alongside existing charts.
 - Confirm the teaching team's interpretation of advanced maps/idioms if the precise count is important to the target grade.

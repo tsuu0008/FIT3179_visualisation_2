@@ -35,6 +35,39 @@ def project_coordinates(coords):
     return [project_coordinates(c) for c in coords]
 
 
+def clipped_grid(geometry):
+    """Clip axis-aligned grid rules to land using even/odd ring intersections.
+
+    The background grid is a display aid only; it never assigns trail records.
+    Half-open edge tests avoid counting vertices twice, and ring parity preserves
+    holes and islands without adding a GIS dependency.
+    """
+    polygons = geometry['coordinates'] if geometry['type'] == 'MultiPolygon' else [geometry['coordinates']]
+    rings = [ring for polygon in polygons for ring in polygon]
+    points = [point for ring in rings for point in ring]
+    lines = []
+    for axis in (0, 1):
+        other = 1 - axis
+        low, high = min(p[axis] for p in points), max(p[axis] for p in points)
+        for k in range(math.ceil(low / CELL), math.floor(high / CELL) + 1):
+            value = k * CELL
+            crossings = []
+            for ring in rings:
+                for a, b in zip(ring, ring[1:]):
+                    if (a[axis] <= value < b[axis]) or (b[axis] <= value < a[axis]):
+                        t = (value - a[axis]) / (b[axis] - a[axis])
+                        crossings.append(a[other] + t * (b[other] - a[other]))
+            crossings.sort()
+            assert len(crossings) % 2 == 0
+            for a, b in zip(crossings[::2], crossings[1::2]):
+                if b - a < 0.01:
+                    continue
+                lines.append([[value, round(a, 3)], [value, round(b, 3)]] if axis == 0
+                             else [[round(a, 3), value], [round(b, 3), value]])
+    return [{'type': 'Feature', 'properties': {'name': '25 km grid'},
+             'geometry': {'type': 'MultiLineString', 'coordinates': lines}}]
+
+
 def main():
     raw = (DATA / 'trails.json').read_bytes()
     rows = json.loads(raw)
@@ -70,7 +103,7 @@ def main():
                            'trail_count': len(rows), 'occupied_cells': len(cells),
                            'peak_cell': peak['cell_id'], 'peak_count': peak['trail_count'],
                            'note': 'One representative midpoint per retained trail. Grid origin is the projection centre; counts depend on the fixed grid size and origin.'},
-              'cells': cells, 'outline': [outline]}
+              'cells': cells, 'outline': [outline], 'grid_lines': clipped_grid(outline['geometry'])}
     (DATA / 'trail_grid.json').write_text(json.dumps(output, ensure_ascii=False, separators=(',', ':')) + '\n')
     print(json.dumps(output['metadata'], indent=2))
 

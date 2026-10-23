@@ -47,3 +47,7 @@ A fixed 25 km equal-area grid adds a fourth geographic idiom: counts of trail mi
 Reading instructions explain the more complex encodings beside their charts. Annotations interpret highlighted patterns, and the access panel states both the rated denominator and rounding. The first overview stays in equal-width panels on desktop. Browser checks at 1280 px and 1024 px found all 14 views visible without horizontal plot overflow or text clipped by their SVG frames.
 
 See [criteria review](study/CRITERIA_CHECK.md) for the idiom inventory and remaining submission responsibilities.
+
+## Visible bin grid and balanced comparison cards
+
+The square bin map now draws the complete 25 km grid over land, with a pale zero-recorded category and darker occupied bins. The grid is clipped to the existing Victoria outline; trail assignments and counts are unchanged. A compact side-by-side narrative and map replaces the previous full-width map card. Paired comparison cards share text and chart rows, matching their top and bottom edges on desktop; narrow screens stack them.
