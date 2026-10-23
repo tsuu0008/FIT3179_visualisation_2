@@ -264,7 +264,7 @@
     {
       "name": "detailRegion",
       "data": {
-        "url": "data/map_regions.json",
+        "url": "data/lga.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -272,7 +272,35 @@
       },
       "transform": [
         {
-          "filter": "chosenLga === 'All' ? datum.properties.name === 'Victoria' : datum.properties.name === chosenLga"
+          "filter": "chosenLga !== 'All' && datum.properties.name === chosenLga"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#cbd6d1",
+        "strokeWidth": 0.4
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "Selected area"
+          }
+        ]
+      }
+    },
+    {
+      "name": "detailVictoria",
+      "data": {
+        "url": "data/victoria_outline.geojson",
+        "format": {
+          "type": "json"
+        }
+      },
+      "transform": [
+        {
+          "filter": "chosenLga === 'All'"
         }
       ],
       "mark": {
@@ -475,7 +503,7 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 15,
@@ -551,7 +579,7 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 15,

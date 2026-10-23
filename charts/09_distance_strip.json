@@ -443,11 +443,11 @@
         },
         "dx": 0,
         "dy": 0,
-        "fontSize": 10.5,
+        "fontSize": 12,
         "fontWeight": 700,
         "lineBreak": "\n",
         "color": "#173b37",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "baseline": "top"
       },
       "encoding": {
@@ -508,11 +508,11 @@
       "mark": {
         "type": "text",
         "align": "right",
-        "fontSize": 10.5,
+        "fontSize": 12,
         "fontWeight": 700,
         "color": "#52716a",
         "lineBreak": "\n",
-        "lineHeight": 14
+        "lineHeight": 15
       },
       "encoding": {
         "x": {

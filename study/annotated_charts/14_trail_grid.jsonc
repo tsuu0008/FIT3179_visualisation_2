@@ -1,5 +1,4 @@
-// Chart 14: fixed 25 km equal-area grid; original midpoints counted once.
-// Named data sources keep outline and cell arrays separate during Vega-Lite compilation.
+// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",

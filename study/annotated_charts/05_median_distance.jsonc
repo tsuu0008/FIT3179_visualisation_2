@@ -247,11 +247,11 @@
           "expr": "datum.grade === 'Grade 5' ? -12 : 10"
         },
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 700,
         "color": "#173b37",
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 15,
         "dy": {
           "expr": "datum.grade === 'Grade 5' ? -25 : 0"
         }

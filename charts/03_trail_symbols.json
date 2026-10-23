@@ -108,7 +108,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -453,10 +453,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "color": "#5B2C83",
         "align": "left",
         "baseline": "top"
@@ -464,7 +464,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-238"
+            "expr": "width-260"
           }
         },
         "y": {
@@ -518,7 +518,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -538,10 +538,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "color": "#355b72",
         "align": "left",
         "baseline": "top"
@@ -549,7 +549,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-238"
+            "expr": "width-260"
           }
         },
         "y": {
@@ -647,7 +647,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -727,7 +727,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -999,7 +999,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-252"
+            "expr": "width-274"
           }
         },
         "y": {
@@ -1070,7 +1070,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-252"
+            "expr": "width-274"
           }
         },
         "y": {
@@ -1125,7 +1125,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -1155,7 +1155,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-252"
+            "expr": "width-274"
           }
         },
         "y": {
@@ -1207,7 +1207,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
           "as": "annotation"
         },
         {
@@ -1235,7 +1235,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-252"
+            "expr": "width-274"
           }
         },
         "y": {

@@ -138,10 +138,10 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 700,
         "lineBreak": "\n",
-        "lineHeight": 14
+        "lineHeight": 15
       },
       "encoding": {
         "x": {

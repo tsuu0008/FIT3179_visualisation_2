@@ -32,3 +32,10 @@ These are eight candidate advanced idioms, including four geographic types. Medi
 - The rubric requests reliable, current sources. The existing trail extraction, boundary vintage and population provenance remain unverified; do not claim this layout revision resolves that requirement. See DATA_SOURCES.md.
 - Submit the required hand-drawn sketches and written report yourself. The report should link tasks to marks/channels, justify the grid and discuss its cell size, origin and midpoint limitations.
 - Confirm the teaching team's interpretation of advanced maps/idioms if the precise count is important to the target grade.
+
+## Final readability and loading pass — 23 October 2026
+
+- Explanatory chart annotations now use 12 px text, with rechecked line spacing, pointers and footer positions. Compact badges and dense numeric labels retain their existing sizes.
+- The regional map reuses `lga.geojson` and loads the existing Victoria outline separately. The duplicate combined `map_regions.json` is no longer downloaded by charts. Unique referenced chart data falls from 3,246,227 to 2,507,426 bytes (22.8% less, before compression); no coordinates or original observations changed.
+- An expandable source audit links the official trail service, export form and retained files, explains field mappings and distinguishes service verification from record verification. A 23 October export attempt returned HTTP 403. Record-level provenance remains unresolved.
+- The sketch will be supplied separately by the author; no sketch or submission-report completion is claimed.

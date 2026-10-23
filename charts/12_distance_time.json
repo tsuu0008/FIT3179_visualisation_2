@@ -222,7 +222,7 @@
           }
         },
         "y2": {
-          "value": 51
+          "value": 56
         }
       }
     },
@@ -240,10 +240,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "align": "center",
         "baseline": "top",
         "color": "#20343A",
@@ -278,10 +278,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "align": "center",
         "baseline": "top",
         "color": "#20343A"
@@ -335,7 +335,7 @@
           "filter": "datum.name === \"Great Dividing Trail\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger; less time'",
           "as": "annotation"
         }
       ],
@@ -356,7 +356,7 @@
         },
         "y2": {
           "value": {
-            "expr": "scale('y',datum.hours)+21"
+            "expr": "scale('y',datum.hours)+19"
           }
         }
       }
@@ -368,17 +368,17 @@
           "filter": "datum.name === \"Great Dividing Trail\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger; less time'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "align": "right",
         "baseline": "top",
         "color": "#20343A",
@@ -393,7 +393,7 @@
         },
         "y": {
           "value": {
-            "expr": "scale('y',datum.hours)+24"
+            "expr": "scale('y',datum.hours)+22"
           }
         },
         "text": {
@@ -408,17 +408,17 @@
           "filter": "datum.name === \"Great Dividing Trail\""
         },
         {
-          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger walk; shorter time'",
+          "calculate": "datum.name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.hours,'.0f') + ' h\\nLonger; less time'",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 15,
         "align": "right",
         "baseline": "top",
         "color": "#20343A"
@@ -430,7 +430,7 @@
         },
         "y": {
           "value": {
-            "expr": "scale('y',datum.hours)+24"
+            "expr": "scale('y',datum.hours)+22"
           }
         },
         "text": {

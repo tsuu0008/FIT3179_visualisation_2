@@ -289,10 +289,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 12,
+        "lineHeight": 15,
         "align": "left",
         "baseline": "top",
         "color": "#20343A",
@@ -325,10 +325,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 12,
+        "lineHeight": 15,
         "align": "left",
         "baseline": "top",
         "color": "#20343A"

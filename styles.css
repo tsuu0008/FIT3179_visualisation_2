@@ -1437,3 +1437,12 @@ h3 {
  .grid-map-card > .chart-copy { align-self: center; margin-block: 0; }
  .grid-map-card > .plot-scroll { align-self: center; }
 }
+
+/* Compact, accessible source audit; long field names wrap on narrow screens. */
+.source-audit { grid-column: 1 / -1; }
+.source-table { width: 100%; border-collapse: collapse; font-size: .9rem; text-align: left; }
+.source-table caption { text-align: left; font-weight: 700; margin: .7rem 0; }
+.source-table th, .source-table td { padding: .55rem .7rem; border-bottom: 1px solid #cbd6d1; vertical-align: top; overflow-wrap: anywhere; }
+.source-table th { background: #edf2ee; color: #173e38; }
+.source-table td:first-child { width: 42%; }
+.source-audit code { overflow-wrap: anywhere; }

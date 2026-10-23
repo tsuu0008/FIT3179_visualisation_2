@@ -1,6 +1,6 @@
-# Data sources and verification — 21 October 2026
+# Data sources and verification — 23 October 2026
 
-The website still uses its retained 194 trail observations. This revision rebuilds plotting tables from those inputs; **it is not a fresh official-data download**. Requests to the official export endpoint failed in the editing environment. No original download date or complete match against the official observations can be certified.
+The website still uses its retained 194 trail observations. This revision rebuilds plotting tables from those inputs; **it is not a fresh official-data download**. The official layer and walking field definitions were checked again on 23 October 2026. A new export request returned HTTP 403; the web retrieval tool also could not retrieve the query response. No original download date or complete match against the official observations can be certified.
 
 | Input | Official source | Verification status |
 | --- | --- | --- |
@@ -43,3 +43,7 @@ An official trail import does not verify or refresh population or boundaries. Ma
 **After any observation update, review chart annotations, fixed scale domains, dropdown options, and narrative statistics before publishing.** The present chart annotations describe the retained snapshot; these are intentionally not labelled as live-data findings.
 
 See [sources.json](../data/sources.json) for machine-readable status. The original raw-data processing and simplification history remain unavailable.
+
+## Retained inputs and source evidence
+
+The expandable “Original trail source and verification” section on the website links the official layer, export form, retained table and route geometry. It maps the official field names to the displayed attributes. `data/sources.json` records SHA-256 fingerprints of the unchanged retained trail files. These fingerprints establish which local snapshot is displayed; they do not establish official provenance. Do not describe the records as verified until a complete official comparison succeeds.

@@ -1,12 +1,23 @@
 {
-  "review_date": "2026-10-21",
+  "review_date": "2026-10-23",
   "trail_records": {
     "status": "retained-snapshot-unverified-lineage",
     "source": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24",
     "dataset_title": "State Forest Recreation Tracks",
     "publisher": "Victorian Government / DEECA",
     "record_count": 194,
-    "note": "The official service and its fields were checked, but export requests failed in this environment. No fresh download or complete record comparison is claimed. The original extraction date and transformation history are unavailable."
+    "note": "Official layer and field definitions checked on 23 October 2026. A new export attempt returned HTTP 403; no complete record-level comparison or fresh download is claimed. The retained observations and original source are unchanged. The original extraction date and transformation history remain unavailable.",
+    "service_checked": "2026-10-23",
+    "service_status": "verified-layer-and-field-definitions",
+    "record_comparison_status": "not-completed-export-request-http-403",
+    "query_form": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24/query",
+    "export_geojson": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24/query?where=W_ACTIVITY%3D%27Y%27&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
+    "local_processed_data": "trails.json",
+    "local_route_geometry": "trails.geojson",
+    "retained_file_sha256": {
+      "trails.json": "dfa80cc6be5dd987db06d3eaaba7f2f142484d912899d40760e7d80100d2ee59",
+      "trails.geojson": "0735d8c737af5b31f7b9e68e94353e31f94ececeaa03ee0a31e7350db660eb9c"
+    }
   },
   "population": {
     "status": "retained-values-unverified-against-workbook",
