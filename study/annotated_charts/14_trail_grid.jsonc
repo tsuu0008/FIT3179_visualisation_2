@@ -9,7 +9,7 @@
     "contains": "padding"
   },
   "background": null,
-  "description": "Square spatial bin map of retained trail midpoints in fixed 25 km equal-area cells. A clipped grid shows empty land bins. The numbered peak-bin pointer and explanation share the legend footer.",
+  "description": "Square spatial bin map of retained trail midpoints in fixed 25 km equal-area cells. A clipped grid shows empty land bins. The lettered peak-bin pointer and explanation share the legend footer.",
   "projection": {
     "type": "identity",
     "reflectY": true,
@@ -388,7 +388,7 @@
           {
             "x": 75000,
             "y": -62500,
-            "end": 82500
+            "end": 87500
           }
         ]
       },
@@ -444,7 +444,7 @@
       }
     },
     {
-      "name": "gridPeakNumber",
+      "name": "gridPeakBadge",
       "data": {
         "values": [
           {
@@ -454,12 +454,14 @@
         ]
       },
       "mark": {
-        "type": "text",
-        "color": "#9b4200",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "stroke": "white",
-        "strokeWidth": 3
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 180,
+        "fill": "white",
+        "stroke": "#9b4200",
+        "strokeWidth": 1.6,
+        "opacity": 1
       },
       "encoding": {
         "x": {
@@ -502,8 +504,8 @@
             "zero": false
           }
         },
-        "text": {
-          "value": "1"
+        "tooltip": {
+          "value": "Annotation A: the busiest 25 km bin contains 13 trails, all assigned to Murrindindi."
         }
       }
     },
@@ -519,7 +521,7 @@
       "mark": {
         "type": "text",
         "color": "#9b4200",
-        "fontSize": 12,
+        "fontSize": 10,
         "fontWeight": 700
       },
       "encoding": {
@@ -564,9 +566,13 @@
           }
         },
         "text": {
-          "value": "1"
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A: busiest bin. Numbers inside blue bins are trail counts."
         }
-      }
+      },
+      "name": "gridPeakLetter"
     },
     {
       "data": {
@@ -578,11 +584,11 @@
         "type": "text",
         "align": "right",
         "baseline": "top",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 15,
-        "color": "#20343A"
+        "color": "#8a3a00"
       },
       "encoding": {
         "x": {
@@ -596,7 +602,7 @@
           }
         },
         "text": {
-          "value": "1 · Peak bin: 13 trails\nAll assigned to Murrindindi\n6.7% of the 194-trail snapshot"
+          "value": "A · Busiest bin: 13 trails\nAll 13 assigned to Murrindindi\n6.7% of the full trail dataset"
         }
       }
     }
