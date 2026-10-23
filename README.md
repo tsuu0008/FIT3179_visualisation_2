@@ -11,9 +11,9 @@ Victoria walking-track visualisation by Tony Su, FIT3179. Updated 23 October 202
 
 All **195 records marked for walking** in the official Recreation Tracks export are included, including MCG. The full recreation dataset has 366 records; 171 are not marked for walking. The previous 194-route sample has been superseded.
 
-The first map uses Leaflet, OpenStreetMap basemap tiles and full official route coordinates. Zoom, pan, select a named route or click a line to inspect its path. Blue shows all routes; orange identifies the selected route. The regional route map uses the same official geometry. Thirteen additional Vega-Lite views compare place, supply, route demands and access.
+The first map uses Vega, OpenStreetMap basemap tiles and full official route coordinates. Zoom, pan, select a named route or hover over a line to inspect its path. Blue shows all routes; orange identifies the selected route. The regional route map uses the same official geometry. Thirteen additional Vega-Lite views compare place, supply, route demands and access.
 
-The source codes C1-C6 and MCG's literal value `3` remain separate categories. No public walking grade is inferred. Duration comparisons use source categories; 194 records have no numeric hours and MCG records five hours. Fifteen of 180 access-rated routes record full or partial access (8.3%); 15 are unrated.
+Display labels normalise C1–C5 to Grade 1–5 and the numeric value `3` to Grade 3. C6 is shown as Unclassified; absent values are Unknown. The raw fields remain unchanged. This presentation rule is not an independent certification of equivalence to public AWTGS grades. The five-card public-grade guide is contextual guidance from Parks Victoria. Duration comparisons use source categories; 194 records have no numeric hours and MCG records five hours. Fifteen of 180 access-rated routes record full or partial access (8.3%); 15 are unrated.
 
 Route points are calculated from official geometry using a length-weighted midpoint. Councils are assigned using that midpoint and the bundled polygons. Upper Yarra Walking Track therefore moves from its old Baw Baw assignment to Yarra Ranges. Council boundary vintage remains unverified; a crossing route is counted once rather than split by boundary.
 
@@ -28,8 +28,14 @@ python3 scripts/prepare_verified_charts.py
 python3 scripts/version_assets.py
 ```
 
-The archived official export is `data/raw/official_recweb_tracks_20261023.geojson.gz`; decompress it to obtain `official_export.geojson`. The verifier checks the full response, source units, unique names, existing comparison attributes and all 80 ABS population values. The audit stores the source response hash and record-level evidence. `scripts/overview_map.js` implements the first map; the remaining displayed charts are in `charts/`.
+The archived official export is `data/raw/official_recweb_tracks_20261023.geojson.gz`; decompress it to obtain `official_export.geojson`. The verifier checks the full response, source units, unique names, existing comparison attributes and all 80 ABS population values. The audit stores the source response hash and record-level evidence. `scripts/prepare_overview_map.py` builds the first Vega map and `scripts/overview_map.js` connects its controls; the remaining displayed charts are in `charts/`.
 
 Run the versioning step after data or chart edits. It versions data URLs inside every chart before versioning the page's chart URLs, so a cached table cannot be mixed with a newer specification.
 
 The original two-page sketch is copied unchanged to its submission link. Transfer the prepared description into the unit's official submission template after review. This local revision does not itself publish or submit the work.
+
+The revised page restores the five-grade guide, a four-chapter story, finding-led captions, transitions and direct chart annotations. The regional map sits beside its explanation and keeps a visible grade legend. Duration is presented as simple labelled category counts. All 14 displayed views use Vega or Vega-Lite.
+
+Every displayed chart includes an on-chart finding and its significance. See the [annotation inventory](study/ANNOTATIONS.md) for the maxima, minima, contrasts, missingness and geographic gaps highlighted. Filtered annotations follow the current selection.
+
+The [full criteria review](study/CRITERIA_CHECK.md) records current evidence and remaining submission priorities. Readable chart specifications are linked from the page's methods section. All source-marked routes remain included, including 20 marked FULL CLOSURE; recorded status is exposed during route inspection. Removing a redundant state-outline layer reduces runtime data downloads without changing route geometry.

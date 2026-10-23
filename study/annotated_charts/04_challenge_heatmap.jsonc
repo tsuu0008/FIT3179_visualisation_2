@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 340,
+  "height": 430,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -26,11 +26,11 @@
     }
   },
   "data": {
-    "url": "data/trails.json?v=e01251be5932"
+    "url": "data/trails.json?v=d0f82fb8345d"
   },
   "transform": [
     {
-      "filter": "datum.track_code !== 'Unknown' && datum.gradient !== 'Unknown'"
+      "filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"
     },
     {
       "aggregate": [
@@ -40,7 +40,7 @@
         }
       ],
       "groupby": [
-        "track_code",
+        "grade",
         "gradient"
       ]
     }
@@ -54,18 +54,17 @@
       },
       "encoding": {
         "x": {
-          "field": "track_code",
+          "field": "grade",
           "type": "ordinal",
           "sort": [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
-            "C6",
-            "3"
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified"
           ],
-          "title": "Recorded source code"
+          "title": "Recorded grade"
         },
         "y": {
           "field": "gradient",
@@ -96,8 +95,8 @@
         },
         "tooltip": [
           {
-            "field": "track_code",
-            "title": "Source code"
+            "field": "grade",
+            "title": "Grade"
           },
           {
             "field": "gradient",
@@ -118,18 +117,17 @@
       },
       "encoding": {
         "x": {
-          "field": "track_code",
+          "field": "grade",
           "type": "ordinal",
           "sort": [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
-            "C6",
-            "3"
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified"
           ],
-          "title": "Recorded source code"
+          "title": "Recorded grade"
         },
         "y": {
           "field": "gradient",
@@ -158,7 +156,97 @@
           "value": "#183e3b"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "grade": "Grade 3",
+            "gradient": "Short steep hills"
+          },
+          {
+            "grade": "Grade 4",
+            "gradient": "Short steep hills"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#D55E00",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified"
+          ],
+          "title": "Recorded grade"
+        },
+        "y": {
+          "field": "gradient",
+          "type": "ordinal",
+          "sort": [
+            "Flat",
+            "Gentle hills",
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 145,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label"
+          }
+        }
+      }
+    },
+    {
+      "name": "insight_explanation",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineHeight": 15,
+        "lineBreak": "\n",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -58
+        },
+        "text": {
+          "value": "Largest cell: 31 Grade 3 routes with short steep hills.\nHighlights the most common grade–terrain pairing.\nThe outlined Grade 4 cell has 20: terrain crosses grades."
+        }
+      }
     }
   ],
-  "description": "Joint counts of unmodified source track codes and terrain. Missing codes are excluded, not assigned a difficulty grade."
+  "description": "Joint counts of recorded grades and terrain. Missing grades are excluded; the unclassified record stays separate.",
+  "padding": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  },
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

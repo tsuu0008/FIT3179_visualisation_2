@@ -14,6 +14,7 @@ import pathlib
 import re
 import sys
 from rebuild_data import in_feature, midpoint
+from grade_labels import grade_label
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -100,6 +101,7 @@ def main():
             source_duration=p['w_durdesc'], source_feature_id=f['id'], source_serial_no=p['serial_no'],
             source_track_code=p['w_grade'], source_export_date=p['export_date'],
             closure=p['clos_stat'] or 'Not recorded')
+        r['grade'] = grade_label(r['track_code'])
         matches[r['id']] = f
     assert all(all(r[k] for k in ['distance_matches', 'terrain_matches', 'experience_matches', 'access_matches']) for r in comparisons)
     (DATA / 'trails.json').write_text(json.dumps(retained, ensure_ascii=False, indent=2) + '\n')

@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 470,
+  "height": 600,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -26,12 +26,12 @@
     }
   },
   "data": {
-    "url": "data/parallel_points.json?v=33660933d0da"
+    "url": "data/parallel_points.json?v=e154247b95bc"
   },
   "padding": {
     "left": 34,
     "right": 88,
-    "top": 35,
+    "top": 8,
     "bottom": 45
   },
   "resolve": {
@@ -51,16 +51,15 @@
         "input": "select",
         "options": [
           "All",
-          "C1",
-          "C2",
-          "C3",
-          "C4",
-          "C5",
-          "C6",
-          "3",
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Unclassified",
           "Unknown"
         ],
-        "name": "Source code: "
+        "name": "Grade: "
       }
     },
     {
@@ -513,7 +512,11 @@
   ],
   "transform": [
     {
-      "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga)"
+      "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga)"
+    },
+    {
+      "calculate": "datum.id === pickTrail ? 1 : 0",
+      "as": "selected_match"
     },
     {
       "joinaggregate": [
@@ -521,6 +524,34 @@
           "op": "max",
           "field": "length_km",
           "as": "max_length"
+        },
+        {
+          "op": "min",
+          "field": "length_km",
+          "as": "min_length"
+        },
+        {
+          "op": "max",
+          "field": "selected_match",
+          "as": "selected_exists"
+        },
+        {
+          "op": "median",
+          "field": "length_km",
+          "as": "matching_middle"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.length_km === datum.max_length ? datum.id : null",
+      "as": "longest_candidate"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "longest_candidate",
+          "as": "longest_id"
         }
       ]
     }
@@ -573,7 +604,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -588,8 +619,9 @@
     {
       "mark": {
         "type": "line",
-        "opacity": 0.09,
-        "strokeWidth": 1
+        "opacity": 0.2,
+        "strokeWidth": 1,
+        "color": "#9aaba5"
       },
       "encoding": {
         "x": {
@@ -609,7 +641,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -621,40 +653,13 @@
         },
         "order": {
           "field": "axis"
-        },
-        "color": {
-          "field": "track_code",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
-              "Unknown"
-            ],
-            "range": [
-              "#0072B2",
-              "#E69F00",
-              "#009E73",
-              "#CC79A7",
-              "#252525",
-              "#6f52a3",
-              "#ad6f3b",
-              "#9daca9"
-            ]
-          },
-          "legend": null
         }
       }
     },
     {
       "transform": [
         {
-          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
         }
       ],
       "mark": {
@@ -683,7 +688,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -697,17 +702,16 @@
           "field": "axis"
         },
         "color": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -717,12 +721,11 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
-              "#ad6f3b",
               "#9daca9"
             ]
           },
           "legend": {
-            "title": "Recorded track code",
+            "title": "Recorded grade",
             "orient": "bottom",
             "columns": 4,
             "symbolType": "circle",
@@ -735,8 +738,8 @@
             "title": "Trail"
           },
           {
-            "field": "track_code",
-            "title": "Source code"
+            "field": "grade",
+            "title": "Recorded grade"
           },
           {
             "field": "length_km",
@@ -754,6 +757,10 @@
           {
             "field": "lga",
             "title": "Council"
+          },
+          {
+            "field": "closure",
+            "title": "Recorded route status"
           }
         ]
       }
@@ -761,7 +768,7 @@
     {
       "transform": [
         {
-          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
         }
       ],
       "mark": {
@@ -787,7 +794,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -795,17 +802,16 @@
           "axis": null
         },
         "color": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -815,7 +821,6 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
-              "#ad6f3b",
               "#9daca9"
             ]
           },
@@ -827,8 +832,8 @@
             "title": "Trail"
           },
           {
-            "field": "track_code",
-            "title": "Source code"
+            "field": "grade",
+            "title": "Recorded grade"
           },
           {
             "field": "length_km",
@@ -846,6 +851,10 @@
           {
             "field": "lga",
             "title": "Council"
+          },
+          {
+            "field": "closure",
+            "title": "Recorded route status"
           }
         ]
       }
@@ -855,43 +864,38 @@
         "values": [
           {
             "axis": 0,
-            "position": 0.0,
-            "label": "C1"
+            "position": 0,
+            "label": "Grade 1"
           },
           {
             "axis": 0,
-            "position": 16.666666666666668,
-            "label": "C2"
+            "position": 25,
+            "label": "Grade 2"
           },
           {
             "axis": 0,
-            "position": 33.333333333333336,
-            "label": "C3"
+            "position": 50,
+            "label": "Grade 3"
           },
           {
             "axis": 0,
-            "position": 50.0,
-            "label": "C4"
+            "position": 75,
+            "label": "Grade 4"
           },
           {
             "axis": 0,
-            "position": 66.66666666666667,
-            "label": "C5"
+            "position": 100,
+            "label": "Grade 5"
           },
           {
             "axis": 0,
-            "position": 83.33333333333333,
-            "label": "C6"
-          },
-          {
-            "axis": 0,
-            "position": 100.0,
-            "label": "3"
+            "position": -30,
+            "label": "Unclassified"
           },
           {
             "axis": 0,
             "position": -15,
-            "label": "Not recorded"
+            "label": "Unknown"
           },
           {
             "axis": 1,
@@ -1010,7 +1014,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -1028,7 +1032,7 @@
           {
             "axis": 0,
             "position": 111,
-            "label": "Source code"
+            "label": "Grade"
           },
           {
             "axis": 1,
@@ -1038,7 +1042,7 @@
           {
             "axis": 2,
             "position": 111,
-            "label": "Duration category"
+            "label": "Duration"
           },
           {
             "axis": 3,
@@ -1072,7 +1076,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -20,
+              -40,
               115
             ],
             "nice": false
@@ -1087,16 +1091,22 @@
     {
       "transform": [
         {
-          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
         },
         {
           "filter": "datum.axis === 0"
+        },
+        {
+          "calculate": "datum.annotation + '\\n' + (pickTrail !== 0 && datum.selected_exists === 0 ? 'Chosen route outside filters; longest matching route shown.\\n' : '') + (datum.length_km === datum.max_length ? 'Longest matching route: shows the upper distance commitment.' : datum.length_km === datum.min_length ? 'Shortest matching route: short distance does not settle terrain demands.' : 'Selected profile: compare its terrain and duration alongside distance.')",
+          "as": "insight_annotation"
         }
       ],
       "mark": {
         "type": "text",
         "align": "left",
         "fontSize": 12,
+        "lineBreak": "\n",
+        "lineHeight": 15,
         "color": "#143f3a"
       },
       "encoding": {
@@ -1104,10 +1114,10 @@
           "value": 0
         },
         "y": {
-          "value": -17
+          "value": -128
         },
         "text": {
-          "field": "name"
+          "field": "insight_annotation"
         }
       }
     },
@@ -1115,790 +1125,790 @@
       "data": {
         "values": [
           {
-            "track_code": "3",
+            "grade": "Grade 3",
             "lga": "Melbourne"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Mount Alexander"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Moorabool"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Central Goldfields"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Mount Alexander"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Moorabool"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Whittlesea"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Mitchell"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Gannawarra"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C1",
+            "grade": "Grade 1",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C1",
+            "grade": "Grade 1",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C6",
+            "grade": "Unclassified",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Wellington"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Alpine"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Alpine"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mildura"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Alpine"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Wellington"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Glenelg"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Towong"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Moorabool"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Gannawarra"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Glenelg"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Northern Grampians"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Northern Grampians"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Ararat"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Hindmarsh"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Mitchell"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Indigo"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Towong"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Northern Grampians"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Macedon Ranges"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Moorabool"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mount Alexander"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Greater Bendigo"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Unincorporated Vic"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Wellington"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Golden Plains"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Central Goldfields"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Loddon"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Glenelg"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Moorabool"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Wellington"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Pyrenees"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Towong"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Indigo"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Golden Plains"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Towong"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Latrobe (Vic.)"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Horsham"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Benalla"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Yarra Ranges"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Wellington"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Horsham"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Alpine"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Colac Otway"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Wellington"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "C4",
+            "grade": "Grade 4",
             "lga": "Cardinia"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mildura"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Baw Baw"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Benalla"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "C3",
+            "grade": "Grade 3",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C5",
+            "grade": "Grade 5",
             "lga": "Mansfield"
           },
           {
-            "track_code": "C2",
+            "grade": "Grade 2",
             "lga": "East Gippsland"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "Murrindindi"
           },
           {
-            "track_code": "Unknown",
+            "grade": "Unknown",
             "lga": "East Gippsland"
           }
         ]
       },
       "transform": [
         {
-          "calculate": "(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga) ? 1 : 0",
+          "calculate": "(chosenCode === 'All' || datum.grade === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga) ? 1 : 0",
           "as": "matches"
         },
         {
@@ -1929,7 +1939,554 @@
           "value": "No trails match these filters"
         }
       }
+    },
+    {
+      "name": "review_profile_note_1",
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        },
+        {
+          "calculate": "'Distance comparison\\n' + format(datum.length_km,'.1f') + ' km · ' + format(datum.length_km/datum.matching_middle,'.1f') + '× matching median\\nShows how far this route departs from typical.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "align": "left",
+        "baseline": "top",
+        "color": "#b94e13"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.28"
+          }
+        },
+        "y": {
+          "value": -65
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "name": "review_profile_leader_1",
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#b94e13",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "opacity": 0.7
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "x2": {
+          "value": {
+            "expr": "width*.28+40"
+          }
+        },
+        "y2": {
+          "value": -4
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        }
+      ],
+      "name": "review_profile_badge_1_point_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "xOffset": {
+          "value": -14
+        },
+        "yOffset": {
+          "value": -13
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        }
+      ],
+      "name": "review_profile_badge_1_point_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "xOffset": {
+          "value": -14
+        },
+        "yOffset": {
+          "value": -13
+        },
+        "text": {
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        }
+      ],
+      "name": "review_profile_badge_1_heading_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.28-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 1"
+        }
+      ],
+      "name": "review_profile_badge_1_heading_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.28-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "text": {
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "name": "review_profile_note_3",
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        },
+        {
+          "calculate": "'Demands beyond distance\\n' + datum.gradient + ' · ' + datum.grade + '\\n' + datum.duration_group + '\\nTerrain and time also shape the commitment.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "align": "left",
+        "baseline": "top",
+        "color": "#b94e13"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.65"
+          }
+        },
+        "y": {
+          "value": -65
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "name": "review_profile_leader_3",
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#b94e13",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "opacity": 0.7
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "x2": {
+          "value": {
+            "expr": "width*.65+40"
+          }
+        },
+        "y2": {
+          "value": -4
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        }
+      ],
+      "name": "review_profile_badge_3_point_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "xOffset": {
+          "value": -14
+        },
+        "yOffset": {
+          "value": -13
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        }
+      ],
+      "name": "review_profile_badge_3_point_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -40,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "xOffset": {
+          "value": -14
+        },
+        "yOffset": {
+          "value": -13
+        },
+        "text": {
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        }
+      ],
+      "name": "review_profile_badge_3_heading_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.65-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || ((pickTrail === 0 || datum.selected_exists === 0) && datum.id === datum.longest_id)"
+        },
+        {
+          "filter": "datum.axis === 3"
+        }
+      ],
+      "name": "review_profile_badge_3_heading_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.65-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "text": {
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
     }
   ],
-  "description": "One line per trail across source track code, square-root distance, source duration category and terrain. Categorical spacing is not an effort or time scale."
+  "description": "One line per trail across source track code, square-root distance, source duration category and terrain. Categorical spacing is not an effort or time scale.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

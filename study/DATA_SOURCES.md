@@ -8,9 +8,9 @@ Endpoint: https://opendata.maps.vic.gov.au/geoserver/wfs . Query: `service=WFS`,
 
 The complete response contains 366 recreation records. Every record with `w_activity=Y` is included: **195 walking records**, including MCG. No walking record is excluded. The previous 194-route sample is superseded. Source classifications are preserved as published; inclusion is not a data-quality certification.
 
-Full official geometry is copied without file-level simplification. The first map uses Leaflet with `smoothFactor: 0` and an OpenStreetMap basemap so its route linework can be inspected by zooming. The blue network and orange selected route do not encode difficulty. Other charts use the source-code categories.
+Full official geometry is copied without file-level simplification. The first map uses Vega with an OpenStreetMap basemap so its route linework can be inspected by zooming. The blue network and orange selected route do not encode difficulty. Other charts use documented display-grade categories.
 
-C1-C6 and MCG's literal code `3` are distinct. Numeric hours are missing for 194 records; MCG records five hours. All duration comparisons use the actual categories, without inferring hours from a category.
+Display labels normalise C1–C5 to Grade 1–5 and the numeric value `3` to Grade 3. C6 is shown as Unclassified; absent values are Unknown. The raw fields remain unchanged. This presentation rule is not an independent certification of equivalence to public AWTGS grades. The five-card public-grade guide is contextual guidance from Parks Victoria. Numeric hours are missing for 194 records; MCG records five hours. All duration comparisons use the actual categories, without inferring hours from a category.
 
 Route midpoints use an approximate length-weighted calculation on longitude/latitude segments, with longitude scaled by cosine of segment latitude. Each full route is assigned once to the bundled council polygon containing its midpoint. This reproducible rule moves Upper Yarra Walking Track from the old Baw Baw assignment to Yarra Ranges. Routes crossing council boundaries are not split. The bundled polygon vintage remains unverified.
 
@@ -22,7 +22,7 @@ ABS publication: https://www.abs.gov.au/statistics/people/population/regional-po
 
 Council boundary source: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files . This reference does not establish the vintage of the bundled polygons.
 
-Basemap: https://www.openstreetmap.org/copyright . Standard HTTPS tile requests use the browser cache, visible attribution and normal browser referrer; no tile bulk download or prefetch is implemented. Leaflet: https://leafletjs.com/ . Basemap content and route data have separate sources.
+Basemap: https://www.openstreetmap.org/copyright . Standard HTTPS tile requests use the browser cache, visible attribution and normal browser referrer; no tile bulk download or prefetch is implemented. Vega: https://vega.github.io/vega/ . Basemap content and route data have separate sources.
 
 ## Reproduce
 

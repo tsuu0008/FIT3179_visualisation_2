@@ -29,10 +29,10 @@
       "midpoint council assignment"
     ],
     "numeric_duration": "194 records have no numeric hours; MCG records 5 hours. All duration charts use source categories.",
-    "public_grades": "C1-C6 and literal source code 3 are kept distinct; no conversion to public Grades 1-5.",
+    "public_grades": "Display-label normalisation only: C1-C5 become Grade 1-5; numeric 3 joins Grade 3; C6 is Unclassified; missing values are Unknown. Raw fields are unchanged. This does not independently certify equivalence to public AWTGS grades.",
     "retained_file_sha256": {
-      "trails.json": "e01251be59328cce60c307d15ace3969812da9e6b993572cc979fc913b6183f1",
-      "trails.geojson": "f714013dd937349c62c9c931967e267f6949b63b4663c06c3bd9388829a125f3"
+      "trails.json": "d0f82fb8345dd472b93f0a22ed083b7b345f5cd4dd55b17e963ebe1b80c9458f",
+      "trails.geojson": "a56d45f25728fee7f2358f39c224a89a70efe9e2718572aa74ecc231d1d1b670"
     },
     "limits": [
       "Bundled LGA boundary vintage remains unverified.",

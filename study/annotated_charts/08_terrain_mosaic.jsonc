@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 340,
+  "height": 600,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/mosaic.json?v=47450bcc79d0"
+    "url": "data/mosaic.json?v=1ca390e74399"
   },
   "layer": [
     {
@@ -49,7 +49,8 @@
               0.9631999094151612
             ],
             "labelExpr": "abs(datum.value - 0.02639698805412443) < 0.000001 ? \"Flat\" : abs(datum.value - 0.1718988846741776) < 0.000001 ? \"Gentle hills\" : abs(datum.value - 0.5675847817471549) < 0.000001 ? \"Short steep\" : abs(datum.value - 0.8852827945422631) < 0.000001 ? \"Very steep\" : abs(datum.value - 0.9631999094151612) < 0.000001 ? \"Steep + difficult\" : ''",
-            "labelAngle": -30,
+            "labelAngle": -45,
+            "labelOverlap": false,
             "labelLimit": 140,
             "labelFontSize": 10
           },
@@ -66,7 +67,7 @@
         "y": {
           "field": "y0",
           "type": "quantitative",
-          "title": "Source-code mix within terrain",
+          "title": "Grade mix within terrain",
           "axis": {
             "format": ".0%"
           },
@@ -81,17 +82,16 @@
           "field": "y1"
         },
         "color": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -101,12 +101,11 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
-              "#ad6f3b",
               "#9daca9"
             ]
           },
           "legend": {
-            "title": "Recorded track code",
+            "title": "Recorded grade",
             "orient": "bottom",
             "columns": 4,
             "symbolType": "circle",
@@ -119,8 +118,8 @@
             "title": "Terrain"
           },
           {
-            "field": "track_code",
-            "title": "Source code"
+            "field": "grade",
+            "title": "Grade"
           },
           {
             "field": "km",
@@ -159,17 +158,217 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "track_code"
+          "field": "grade"
         },
         "color": {
           "condition": {
-            "test": "datum.track_code === 'C5' || datum.track_code === 'C6'",
+            "test": "datum.grade === 'Grade 5' || datum.grade === 'Unclassified'",
             "value": "white"
           },
           "value": "#152d2a"
         }
       }
+    },
+    {
+      "name": "insight_terrain_outline",
+      "data": {
+        "values": [
+          {
+            "left": 0.29100379324010633,
+            "right": 0.8441657702542034
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": null,
+        "stroke": "#b94e13",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x": {
+          "field": "left",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "right"
+        },
+        "y": {
+          "datum": 0
+        },
+        "y2": {
+          "datum": 1
+        }
+      }
+    },
+    {
+      "name": "insight_explanation",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "lineHeight": 15,
+        "lineBreak": "\n",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -90
+        },
+        "text": {
+          "value": "Routes with short steep hills: 390.82 km.\nFlat routes: just 5.3% of the 706.52 km shown.\nFor a gentler outing, check the terrain first."
+        }
+      }
+    },
+    {
+      "name": "review_mosaic_headline",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "lineHeight": 16,
+        "color": "#b94e13"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -112
+        },
+        "text": {
+          "value": "55.3% · LARGEST DISTANCE SHARE"
+        }
+      }
+    },
+    {
+      "name": "review_mosaic_share_title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 16,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -36
+        },
+        "text": {
+          "value": "Each terrain’s share of represented kilometres:"
+        }
+      }
+    },
+    {
+      "name": "review_mosaic_percentages",
+      "data": {
+        "values": [
+          {
+            "center": 0.02639698805412443,
+            "share": 0.05279397610824887,
+            "terrain": "Flat"
+          },
+          {
+            "center": 0.1718988846741776,
+            "share": 0.23820981713185754,
+            "terrain": "Gentle hills"
+          },
+          {
+            "center": 0.5675847817471549,
+            "share": 0.5531619770140973,
+            "terrain": "Short steep hills"
+          },
+          {
+            "center": 0.8852827945422631,
+            "share": 0.08223404857611956,
+            "terrain": "Very steep"
+          },
+          {
+            "center": 0.9631999094151612,
+            "share": 0.07360018116967672,
+            "terrain": "Very steep and difficult"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "baseline": "bottom",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "field": "center",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "y": {
+          "value": -9
+        },
+        "text": {
+          "field": "share",
+          "format": ".1%"
+        },
+        "tooltip": [
+          {
+            "field": "terrain",
+            "title": "Terrain"
+          },
+          {
+            "field": "share",
+            "title": "Kilometre share",
+            "format": ".1%"
+          }
+        ]
+      }
     }
   ],
-  "description": "Mosaic area represents kilometres among records with known terrain and source code. Missing source codes are excluded explicitly."
+  "description": "Mosaic area represents kilometres among records with known terrain and recorded grade. Missing recorded grades are excluded explicitly.",
+  "padding": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  },
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

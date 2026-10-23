@@ -1045,23 +1045,6 @@ h3 {
   color: #173b37;
   cursor: pointer;
 }
-#chart-01.official-route-map {
-  height: 580px;
-  width: 100%;
-  max-width: none;
-  border: 1px solid #b7c9be;
-  border-radius: 6px;
-  z-index: 0;
-}
-.official-route-map svg {
-  max-width: none;
-}
-.official-route-map .leaflet-control-attribution {
-  font-size: 10px;
-}
-@media (max-width: 650px) {
-  #chart-01.official-route-map { height: 450px; }
-}
 .figure-label {
   margin: 0 0 7px;
   font-size: 0.8rem;
@@ -1483,15 +1466,6 @@ h3 {
 .grid-map-card .chart { max-width: none; margin: 0; }
 .grid-map-card .chart-reading { margin-top: 18px; }
 
-/* Leaflet positions its children absolutely and needs an explicit map height. */
-.plot-scroll > #chart-01.official-route-map {
-  height: 580px !important;
-  min-height: 450px;
-  min-width: 0;
-}
-@media (max-width: 650px) {
-  .plot-scroll > #chart-01.official-route-map { height: 450px !important; }
-}
 .grid-map-card .figure-note { margin-top: 16px; }
 
 /* Balance the compact bin-map panel without a large blank block below its copy. */
@@ -1508,3 +1482,47 @@ h3 {
 .source-table th { background: #edf2ee; color: #173e38; }
 .source-table td:first-child { width: 42%; }
 .source-audit code { overflow-wrap: anywhere; }
+
+/* Pair regional interpretation with its map instead of stretching it across a row. */
+.overview-layout #network-inset {
+  display: grid;
+  grid-template-columns: minmax(260px, .85fr) minmax(0, 1.45fr);
+  align-items: start;
+  gap: 24px;
+  padding: 22px;
+}
+.regional-story p { font-size: .9rem; line-height: 1.65; }
+.regional-story .chart-insight { font-weight: 600; color: #24443f; }
+.regional-map-panel { min-width: 0; }
+.regional-map-panel .vega-bindings { margin-bottom: 12px; }
+.regional-map-panel #detail-map { width: 100%; height: auto; display: flex; flex-direction: column; align-items: stretch; }
+.regional-map-panel #detail-map > svg { flex: none; }
+.overview-line-legend { display: flex; flex-wrap: wrap; gap: 18px; margin: 8px 0 12px; font-size: .83rem; color: #405652; }
+.overview-line-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.overview-line-legend i { display: inline-block; width: 24px; height: 0; border-top: 3px solid #3155d9; }
+.overview-line-legend .selected-line { border-color: #D55E00; }
+.map-attribution { font-size: .72rem; color: #566d66; margin-top: 8px; }
+.overview-map-controls button { min-width: 38px; }
+#chart-01 > svg { touch-action: none; cursor: grab; }
+.overview-card .chart-reading { max-width: 100ch; }
+.grade-note { max-width: 105ch; }
+@media (max-width: 850px) {
+  .overview-layout #network-inset { grid-template-columns: 1fr; padding: 18px; gap: 12px; }
+}
+
+/* Leave the full map width available for margin callouts in the supply view. */
+.supply-map-card { display: block; }
+.supply-map-card .chart-copy { max-width: none; margin-bottom: 18px; }
+.supply-map-card .chart-copy p { break-inside: avoid; }
+.supply-map-card .chart { max-width: none; }
+.supply-map-card .chart-copy h4, .trail-map-card .chart-copy h4 { break-after: avoid; }
+.trail-map-card { display: block; }
+.trail-map-card .chart-copy { max-width: none; margin-bottom: 18px; }
+.trail-map-card .chart-copy p { break-inside: avoid; }
+.trail-map-card .chart { max-width: none; }
+
+.story-columns { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 32px; align-items: start; }
+@media (max-width: 760px) { .story-columns { grid-template-columns: 1fr; gap: 12px; } }
+
+/* Keep the story's closing paragraphs as readable as the chapter narrative. */
+.conclusion > p:not(.eyebrow) { max-width: 72ch; margin-inline: auto; text-align: left; font-size: 1rem; line-height: 1.75; }

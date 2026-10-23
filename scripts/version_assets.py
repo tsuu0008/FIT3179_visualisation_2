@@ -42,7 +42,7 @@ def main():
         content = json.dumps(spec, ensure_ascii=False, indent=2) + '\n'
         chart.write_text(content)
         study_copy = ROOT / 'study' / 'annotated_charts' / chart.with_suffix('.jsonc').name
-        study_copy.write_text('// Vega-Lite specification with versioned source-data URLs.\n' + content)
+        study_copy.write_text('// Vega/Vega-Lite specification with versioned source-data URLs.\n' + content)
 
     page = ROOT / 'index.html'
     content = page.read_text()

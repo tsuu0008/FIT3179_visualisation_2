@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 550,
+  "height": 680,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -22,7 +22,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "format": {
           "type": "json",
           "property": "outline"
@@ -39,7 +39,7 @@
     {
       "name": "landGrid",
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "name": "grid_lines",
         "format": {
           "type": "json",
@@ -56,7 +56,7 @@
     {
       "name": "gridCells",
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "format": {
           "type": "json",
           "property": "cells"
@@ -176,7 +176,7 @@
     {
       "name": "gridPeakHalo",
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "format": {
           "type": "json",
           "property": "cells"
@@ -246,7 +246,7 @@
     {
       "name": "gridPeak",
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "format": {
           "type": "json",
           "property": "cells"
@@ -316,7 +316,7 @@
     {
       "name": "gridCounts",
       "data": {
-        "url": "data/trail_grid.json?v=afcdeb1e2476",
+        "url": "data/trail_grid.json?v=0877cdbdceca",
         "format": {
           "type": "json",
           "property": "cells"
@@ -456,10 +456,10 @@
         "type": "point",
         "shape": "circle",
         "filled": true,
-        "size": 180,
+        "size": 250,
         "fill": "white",
         "stroke": "#9b4200",
-        "strokeWidth": 1.6,
+        "strokeWidth": 1.7,
         "opacity": 1
       },
       "encoding": {
@@ -592,7 +592,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-226"
+            "expr": "width-240"
           }
         },
         "y": {
@@ -601,7 +601,7 @@
           }
         },
         "text": {
-          "value": "Busiest bin: 13 trails\nAll 13 assigned to Murrindindi\n6.7% of the full trail dataset"
+          "value": "Maximum bin: 13 routes · 6.7%\nAll 13 assigned to Murrindindi.\nHighlights a local concentration\nthat a council total can hide."
         }
       }
     },
@@ -617,16 +617,16 @@
         "type": "point",
         "shape": "circle",
         "filled": true,
-        "size": 240,
+        "size": 250,
         "fill": "white",
         "stroke": "#9b4200",
-        "strokeWidth": 1.6,
+        "strokeWidth": 1.7,
         "opacity": 1
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-242"
+            "expr": "width-255"
           }
         },
         "y": {
@@ -655,7 +655,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-242"
+            "expr": "width-255"
           }
         },
         "y": {
@@ -665,6 +665,166 @@
         },
         "text": {
           "value": "A"
+        }
+      }
+    },
+    {
+      "name": "insight_empty_bin_ring",
+      "data": {
+        "values": [
+          {
+            "x": -237500,
+            "y": 162500
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 2,
+        "size": 180
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
+              },
+              8
+            ],
+            "nice": false,
+            "zero": false
+          }
+        }
+      }
+    },
+    {
+      "name": "insight_empty_bin_leader",
+      "data": {
+        "values": [
+          {
+            "x": -237500,
+            "y": 162500
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#b94e13",
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-20)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-20)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "8+600000*(min((width-20)/840000,(height-20)/600000))"
+              },
+              8
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "x2": {
+          "datum": 350000
+        },
+        "y2": {
+          "datum": 240000
+        }
+      }
+    },
+    {
+      "name": "insight_empty_bin_note",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "lineHeight": 15,
+        "lineBreak": "\n",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-258"
+          }
+        },
+        "y": {
+          "value": 30
+        },
+        "text": {
+          "value": "Circled cell: 0 recorded route points.\n65 occupied bins contain all 195 points.\nHighlights uneven local coverage."
         }
       }
     }
@@ -710,5 +870,8 @@
       "fontSize": 11,
       "color": "#20343A"
     }
+  },
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
   }
 }

@@ -1,4 +1,4 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -209,7 +209,7 @@
           "as": "annotation_rank"
         },
         {
-          "calculate": "'Population ' + datum.population_rank + ' → supply ' + datum.supply_rank + ' · fewer km per resident'",
+          "calculate": "datum.name === 'Whittlesea' ? 'Largest shown rank gap · 1 → 30: population leads, supply lags' : 'Lowest supply rank · 4 → 32: populous area, limited km per resident'",
           "as": "annotation"
         }
       ],
@@ -256,7 +256,7 @@
           "as": "annotation_rank"
         },
         {
-          "calculate": "'Population ' + datum.population_rank + ' → supply ' + datum.supply_rank + ' · fewer km per resident'",
+          "calculate": "datum.name === 'Whittlesea' ? 'Largest shown rank gap · 1 → 30: population leads, supply lags' : 'Lowest supply rank · 4 → 32: populous area, limited km per resident'",
           "as": "annotation"
         }
       ],
@@ -287,6 +287,47 @@
         },
         "text": {
           "field": "annotation"
+        }
+      }
+    },
+    {
+      "name": "insight_rank_highlight",
+      "transform": [
+        {
+          "filter": "datum.name === 'Whittlesea' || datum.name === 'Cardinia'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#b94e13",
+        "strokeWidth": 2,
+        "size": 170
+      },
+      "encoding": {
+        "x": {
+          "field": "supply_rank",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": {
+            "field": "population_rank",
+            "op": "min",
+            "order": "ascending"
+          },
+          "title": null,
+          "axis": {
+            "grid": true,
+            "gridColor": "#e6ece9",
+            "gridWidth": 0.7,
+            "ticks": false,
+            "labelLimit": 145
+          },
+          "scale": {
+            "padding": 0.9
+          }
         }
       }
     }
@@ -333,5 +374,8 @@
       "color": "#20343A"
     }
   },
-  "description": "Population and resident-adjusted walking supply ranks among 32 councils with walking records."
+  "description": "Population and resident-adjusted walking supply ranks among 32 councils with walking records.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

@@ -17,6 +17,7 @@ import math
 import pathlib
 import re
 import statistics
+from grade_labels import GRADES, grade_label
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -96,6 +97,9 @@ def main():
     lgas = read('lga.geojson')
     provenance = read('sources.json') if (DATA / 'sources.json').exists() else {}
     rows = read('trails.json')
+    for row in rows:
+        row['grade'] = grade_label(row['track_code'])
+    write('trails.json', rows)
     assert len({r['id'] for r in rows}) == len(rows), 'Duplicate IDs'
     assert all(r['track_code'] in CODES for r in rows)
     grouped = collections.defaultdict(list)
@@ -132,25 +136,25 @@ def main():
     max_hours = max(r['hours'] or 0 for r in rows)
     parallel = []
     for r in rows:
-        positions = [CODES.index(r['track_code'])*100/(len(CODES)-2) if r['track_code'] != 'Unknown' else -15,
+        positions = [(int(r['grade'][-1])-1)*25 if r['grade'].startswith('Grade ') else -30 if r['grade']=='Unclassified' else -15,
                      100*math.sqrt(r['length_km']/max_km) if r['length_km'] is not None else -15,
                      DURATIONS.index(r['duration_group'])*25 if r['duration_group'] in DURATIONS else -15,
                      TERRAINS.index(r['gradient'])*25 if r['gradient'] in TERRAINS else -15]
-        annotation = r['name']+'\n'+r['duration_group']+' · source duration category'
+        annotation = r['name']+'\n'+f"{r['length_km']:g} km · "+r['duration_group']
         for axis, position in enumerate(positions):
-            parallel.append({**{k: r[k] for k in ['id','name','track_code','length_km','hours','duration_group','gradient','lga']},
+            parallel.append({**{k: r[k] for k in ['id','name','grade','track_code','length_km','hours','duration_group','gradient','lga','closure']},
                              'axis': axis, 'position': round(position, 5), 'annotation': annotation})
     write('parallel_points.json', parallel)
     points = []
-    for grade in CODES:
-        group = sorted([r for r in rows if r['track_code'] == grade], key=lambda r: (r['length_km'] or 0, r['id']))
+    for grade in GRADES:
+        group = sorted([r for r in rows if r['grade'] == grade], key=lambda r: (r['length_km'] or 0, r['id']))
         for i, r in enumerate(group):
             points.append({**r, 'lane': (i % 5)-2})
     write('distance_points.json', points)
     groups = collections.defaultdict(float)
     for r in rows:
-        if r['track_code'] != 'Unknown' and r['gradient'] in TERRAINS and r['length_km'] is not None:
-            groups[(r['gradient'], r['track_code'])] += r['length_km']
+        if r['grade'] != 'Unknown' and r['gradient'] in TERRAINS and r['length_km'] is not None:
+            groups[(r['gradient'], r['grade'])] += r['length_km']
     total = sum(groups.values())
     mosaic, left = [], 0
     for terrain in TERRAINS:
@@ -158,11 +162,11 @@ def main():
         if not terrain_total:
             continue
         right, bottom = left+terrain_total/total, 0
-        for grade in CODES[:-1]:
+        for grade in GRADES[:-1]:
             km = groups.get((terrain, grade), 0)
             if km:
                 top = bottom+km/terrain_total
-                mosaic.append({'gradient':terrain,'track_code':grade,'km':round(km, 6),
+                mosaic.append({'gradient':terrain,'grade':grade,'km':round(km, 6),
                                'x0':left,'x1':right,'y0':bottom,'y1':top})
                 bottom = top
         left = right
@@ -181,6 +185,13 @@ def main():
     write('stats.json', summary)
     provenance['derived_tables'] = {'status':'rebuilt-after-official-attribute-check',
                                     'method':'scripts/rebuild_data.py','totals':summary}
+    provenance['trail_records']['retained_file_sha256'] = {
+        name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
+        for name in ['trails.json','trails.geojson']}
+    provenance['trail_records']['public_grades'] = (
+        'Display-label normalisation only: C1-C5 become Grade 1-5; numeric 3 joins Grade 3; '
+        'C6 is Unclassified; missing values are Unknown. Raw fields are unchanged. '
+        'This does not independently certify equivalence to public AWTGS grades.')
     write('sources.json', provenance)
     from prepare_map_annotations import main as prepare_annotation_geometry
     prepare_annotation_geometry()

@@ -21,6 +21,7 @@
     "source_serial_no": "593",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 1",
     "lane": -2
   },
   {
@@ -45,6 +46,7 @@
     "source_serial_no": "9982",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 1",
     "lane": -1
   },
   {
@@ -69,6 +71,7 @@
     "source_serial_no": "3694",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": -2
   },
   {
@@ -93,6 +96,7 @@
     "source_serial_no": "50584",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": -1
   },
   {
@@ -117,6 +121,7 @@
     "source_serial_no": "120007",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": 0
   },
   {
@@ -141,6 +146,7 @@
     "source_serial_no": "51066",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": 1
   },
   {
@@ -165,6 +171,7 @@
     "source_serial_no": "10299",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": 2
   },
   {
@@ -189,6 +196,7 @@
     "source_serial_no": "20027",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": -2
   },
   {
@@ -213,6 +221,7 @@
     "source_serial_no": "50001",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": -1
   },
   {
@@ -237,6 +246,7 @@
     "source_serial_no": "9054",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": 0
   },
   {
@@ -261,6 +271,7 @@
     "source_serial_no": "20521",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": 1
   },
   {
@@ -285,6 +296,7 @@
     "source_serial_no": "70006",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": 2
   },
   {
@@ -309,6 +321,7 @@
     "source_serial_no": "51237",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": -2
   },
   {
@@ -333,6 +346,7 @@
     "source_serial_no": "207704",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": -1
   },
   {
@@ -357,6 +371,7 @@
     "source_serial_no": "70082",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": 0
   },
   {
@@ -381,6 +396,7 @@
     "source_serial_no": "9979",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": 1
   },
   {
@@ -405,6 +421,7 @@
     "source_serial_no": "121106",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": 2
   },
   {
@@ -429,6 +446,7 @@
     "source_serial_no": "50024",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "lane": -2
   },
   {
@@ -453,6 +471,7 @@
     "source_serial_no": "9980",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "lane": -1
   },
   {
@@ -477,6 +496,7 @@
     "source_serial_no": "9984",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -501,6 +521,7 @@
     "source_serial_no": "51152",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -525,6 +546,7 @@
     "source_serial_no": "5387",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -549,6 +571,7 @@
     "source_serial_no": "8294",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -573,6 +596,7 @@
     "source_serial_no": "8633",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 2
   },
   {
@@ -597,6 +621,7 @@
     "source_serial_no": "10200",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -621,6 +646,7 @@
     "source_serial_no": "9973",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -645,6 +671,7 @@
     "source_serial_no": "9962",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -669,6 +696,7 @@
     "source_serial_no": "120299",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -693,6 +721,7 @@
     "source_serial_no": "120278",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 2
   },
   {
@@ -717,6 +746,7 @@
     "source_serial_no": "120165",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -741,6 +771,7 @@
     "source_serial_no": "51156",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -765,6 +796,7 @@
     "source_serial_no": "10245",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -789,6 +821,7 @@
     "source_serial_no": "120369",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -813,6 +846,7 @@
     "source_serial_no": "120320",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 2
   },
   {
@@ -837,6 +871,7 @@
     "source_serial_no": "120159",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -861,6 +896,7 @@
     "source_serial_no": "8605",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -885,6 +921,7 @@
     "source_serial_no": "9983",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -909,6 +946,7 @@
     "source_serial_no": "10430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -933,6 +971,7 @@
     "source_serial_no": "9986",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 2
   },
   {
@@ -957,6 +996,7 @@
     "source_serial_no": "5090",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -981,6 +1021,7 @@
     "source_serial_no": "210244",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -1005,6 +1046,7 @@
     "source_serial_no": "9031",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -1029,6 +1071,7 @@
     "source_serial_no": "120380",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -1053,6 +1096,7 @@
     "source_serial_no": "120086",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 2
   },
   {
@@ -1077,6 +1121,7 @@
     "source_serial_no": "5937",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": -2
   },
   {
@@ -1101,6 +1146,7 @@
     "source_serial_no": "9971",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": -1
   },
   {
@@ -1125,6 +1171,7 @@
     "source_serial_no": "120332",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "lane": 0
   },
   {
@@ -1149,6 +1196,7 @@
     "source_serial_no": "9972",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 1
   },
   {
@@ -1173,7 +1221,33 @@
     "source_serial_no": "120045",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "lane": 2
+  },
+  {
+    "id": 1,
+    "name": "MCG",
+    "length_km": 4.0,
+    "hours": 5.0,
+    "gradient": "Gentle hills",
+    "steps": "Occassional steps",
+    "experience": "Bushwalking experience recommended",
+    "access": "None",
+    "signage": "Clearly sign posted",
+    "track_quality": "Formed track some obstacles",
+    "track_code": "3",
+    "lga": "Melbourne",
+    "longitude": 144.9820342,
+    "latitude": -37.8176929,
+    "duration_group": "Over 4 hours",
+    "source_duration": "DAY (>4 HOURS)",
+    "source_feature_id": "recweb_tracks.1",
+    "source_serial_no": "210512",
+    "source_track_code": "3",
+    "source_export_date": "2026/10/22 17:46:47.",
+    "closure": "Not recorded",
+    "grade": "Grade 3",
+    "lane": -2
   },
   {
     "id": 33,
@@ -1197,7 +1271,8 @@
     "source_serial_no": "6063",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -2
+    "grade": "Grade 3",
+    "lane": -1
   },
   {
     "id": 52,
@@ -1221,7 +1296,8 @@
     "source_serial_no": "6140",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": -1
+    "grade": "Grade 3",
+    "lane": 0
   },
   {
     "id": 62,
@@ -1245,7 +1321,8 @@
     "source_serial_no": "10288",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 0
+    "grade": "Grade 3",
+    "lane": 1
   },
   {
     "id": 113,
@@ -1269,7 +1346,8 @@
     "source_serial_no": "10206",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 1
+    "grade": "Grade 3",
+    "lane": 2
   },
   {
     "id": 266,
@@ -1293,7 +1371,8 @@
     "source_serial_no": "10358",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": 2
+    "grade": "Grade 3",
+    "lane": -2
   },
   {
     "id": 136,
@@ -1317,7 +1396,8 @@
     "source_serial_no": "8081",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": -2
+    "grade": "Grade 3",
+    "lane": -1
   },
   {
     "id": 302,
@@ -1341,7 +1421,8 @@
     "source_serial_no": "2173",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -1
+    "grade": "Grade 3",
+    "lane": 0
   },
   {
     "id": 258,
@@ -1365,7 +1446,8 @@
     "source_serial_no": "20789",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 0
+    "grade": "Grade 3",
+    "lane": 1
   },
   {
     "id": 32,
@@ -1389,7 +1471,8 @@
     "source_serial_no": "201",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 1
+    "grade": "Grade 3",
+    "lane": 2
   },
   {
     "id": 176,
@@ -1413,7 +1496,8 @@
     "source_serial_no": "8618",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": 2
+    "grade": "Grade 3",
+    "lane": -2
   },
   {
     "id": 255,
@@ -1437,7 +1521,8 @@
     "source_serial_no": "5529",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -2
+    "grade": "Grade 3",
+    "lane": -1
   },
   {
     "id": 277,
@@ -1461,7 +1546,8 @@
     "source_serial_no": "70010",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -1
+    "grade": "Grade 3",
+    "lane": 0
   },
   {
     "id": 330,
@@ -1485,7 +1571,8 @@
     "source_serial_no": "10670",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 0
+    "grade": "Grade 3",
+    "lane": 1
   },
   {
     "id": 292,
@@ -1509,7 +1596,8 @@
     "source_serial_no": "9881",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 1
+    "grade": "Grade 3",
+    "lane": 2
   },
   {
     "id": 350,
@@ -1533,7 +1621,8 @@
     "source_serial_no": "51158",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": 2
+    "grade": "Grade 3",
+    "lane": -2
   },
   {
     "id": 304,
@@ -1557,7 +1646,8 @@
     "source_serial_no": "51157",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -2
+    "grade": "Grade 3",
+    "lane": -1
   },
   {
     "id": 49,
@@ -1581,7 +1671,8 @@
     "source_serial_no": "10318",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -1
+    "grade": "Grade 3",
+    "lane": 0
   },
   {
     "id": 36,
@@ -1605,7 +1696,8 @@
     "source_serial_no": "9985",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": 0
+    "grade": "Grade 3",
+    "lane": 1
   },
   {
     "id": 239,
@@ -1629,7 +1721,8 @@
     "source_serial_no": "51150",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": 1
+    "grade": "Grade 3",
+    "lane": 2
   },
   {
     "id": 103,
@@ -1653,7 +1746,8 @@
     "source_serial_no": "8430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "lane": 2
+    "grade": "Grade 3",
+    "lane": -2
   },
   {
     "id": 251,
@@ -1677,7 +1771,8 @@
     "source_serial_no": "8546",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -2
+    "grade": "Grade 3",
+    "lane": -1
   },
   {
     "id": 24,
@@ -1701,7 +1796,8 @@
     "source_serial_no": "2250",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -1
+    "grade": "Grade 3",
+    "lane": 0
   },
   {
     "id": 208,
@@ -1725,6 +1821,7 @@
     "source_serial_no": "7068",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -1749,6 +1846,7 @@
     "source_serial_no": "120109",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -1773,6 +1871,7 @@
     "source_serial_no": "4895",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -1797,6 +1896,7 @@
     "source_serial_no": "7254",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -1821,6 +1921,7 @@
     "source_serial_no": "8224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -1845,6 +1946,7 @@
     "source_serial_no": "2605",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -1869,6 +1971,7 @@
     "source_serial_no": "8454",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -1893,6 +1996,7 @@
     "source_serial_no": "5399",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -1917,6 +2021,7 @@
     "source_serial_no": "7122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -1941,6 +2046,7 @@
     "source_serial_no": "3023",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -1965,6 +2071,7 @@
     "source_serial_no": "5477",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -1989,6 +2096,7 @@
     "source_serial_no": "10557",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2013,6 +2121,7 @@
     "source_serial_no": "5392",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2037,6 +2146,7 @@
     "source_serial_no": "5885",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2061,6 +2171,7 @@
     "source_serial_no": "4201",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2085,6 +2196,7 @@
     "source_serial_no": "10444",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2109,6 +2221,7 @@
     "source_serial_no": "5890",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2133,6 +2246,7 @@
     "source_serial_no": "9995",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2157,6 +2271,7 @@
     "source_serial_no": "30303",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2181,6 +2296,7 @@
     "source_serial_no": "30137",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2205,6 +2321,7 @@
     "source_serial_no": "9996",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2229,6 +2346,7 @@
     "source_serial_no": "10469",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2253,6 +2371,7 @@
     "source_serial_no": "6200",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2277,6 +2396,7 @@
     "source_serial_no": "7221",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2301,6 +2421,7 @@
     "source_serial_no": "2122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2325,6 +2446,7 @@
     "source_serial_no": "4819",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2349,6 +2471,7 @@
     "source_serial_no": "8497",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2373,6 +2496,7 @@
     "source_serial_no": "5910",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2397,6 +2521,7 @@
     "source_serial_no": "5678",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2421,6 +2546,7 @@
     "source_serial_no": "7118",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2445,6 +2571,7 @@
     "source_serial_no": "4771",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2469,6 +2596,7 @@
     "source_serial_no": "7120",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2493,6 +2621,7 @@
     "source_serial_no": "2930",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2517,6 +2646,7 @@
     "source_serial_no": "2452",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2541,6 +2671,7 @@
     "source_serial_no": "99",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2565,6 +2696,7 @@
     "source_serial_no": "6246",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2589,6 +2721,7 @@
     "source_serial_no": "3710",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2613,6 +2746,7 @@
     "source_serial_no": "4058",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2637,6 +2771,7 @@
     "source_serial_no": "50864",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2661,6 +2796,7 @@
     "source_serial_no": "4374",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2685,6 +2821,7 @@
     "source_serial_no": "1980",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2709,6 +2846,7 @@
     "source_serial_no": "12550",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2733,6 +2871,7 @@
     "source_serial_no": "2108",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2757,6 +2896,7 @@
     "source_serial_no": "201408",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2781,6 +2921,7 @@
     "source_serial_no": "262",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2805,6 +2946,7 @@
     "source_serial_no": "5957",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2829,6 +2971,7 @@
     "source_serial_no": "6155",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2853,6 +2996,7 @@
     "source_serial_no": "80009",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2877,6 +3021,7 @@
     "source_serial_no": "8160",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -2901,6 +3046,7 @@
     "source_serial_no": "2030",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -2925,6 +3071,7 @@
     "source_serial_no": "422",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -2949,6 +3096,7 @@
     "source_serial_no": "50290",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": -1
   },
   {
@@ -2973,6 +3121,7 @@
     "source_serial_no": "30161",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 0
   },
   {
@@ -2997,6 +3146,7 @@
     "source_serial_no": "4224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "lane": 1
   },
   {
@@ -3021,6 +3171,7 @@
     "source_serial_no": "2654",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": 2
   },
   {
@@ -3045,6 +3196,7 @@
     "source_serial_no": "5601",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "lane": -2
   },
   {
@@ -3069,6 +3221,7 @@
     "source_serial_no": "625",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "lane": -2
   },
   {
@@ -3093,6 +3246,7 @@
     "source_serial_no": "6023",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "lane": -1
   },
   {
@@ -3117,6 +3271,7 @@
     "source_serial_no": "7001",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": 0
   },
   {
@@ -3141,6 +3296,7 @@
     "source_serial_no": "2477",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": 1
   },
   {
@@ -3165,6 +3321,7 @@
     "source_serial_no": "30144",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": 2
   },
   {
@@ -3189,6 +3346,7 @@
     "source_serial_no": "2454",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "lane": -2
   },
   {
@@ -3213,6 +3371,7 @@
     "source_serial_no": "6008",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": -1
   },
   {
@@ -3237,6 +3396,7 @@
     "source_serial_no": "5734",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "lane": 0
   },
   {
@@ -3261,6 +3421,7 @@
     "source_serial_no": "3040",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": 1
   },
   {
@@ -3285,6 +3446,7 @@
     "source_serial_no": "6288",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "lane": 2
   },
   {
@@ -3309,30 +3471,7 @@
     "source_serial_no": "8414",
     "source_track_code": "C6",
     "source_export_date": "2026/10/22 17:46:46.",
-    "lane": -2
-  },
-  {
-    "id": 1,
-    "name": "MCG",
-    "length_km": 4.0,
-    "hours": 5.0,
-    "gradient": "Gentle hills",
-    "steps": "Occassional steps",
-    "experience": "Bushwalking experience recommended",
-    "access": "None",
-    "signage": "Clearly sign posted",
-    "track_quality": "Formed track some obstacles",
-    "track_code": "3",
-    "lga": "Melbourne",
-    "longitude": 144.9820342,
-    "latitude": -37.8176929,
-    "duration_group": "Over 4 hours",
-    "source_duration": "DAY (>4 HOURS)",
-    "source_feature_id": "recweb_tracks.1",
-    "source_serial_no": "210512",
-    "source_track_code": "3",
-    "source_export_date": "2026/10/22 17:46:47.",
-    "closure": "Not recorded",
+    "grade": "Unclassified",
     "lane": -2
   },
   {
@@ -3357,6 +3496,7 @@
     "source_serial_no": "202907",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3381,6 +3521,7 @@
     "source_serial_no": "202908",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -3405,6 +3546,7 @@
     "source_serial_no": "203869",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -3429,6 +3571,7 @@
     "source_serial_no": "202205",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -3453,6 +3596,7 @@
     "source_serial_no": "206481",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -3477,6 +3621,7 @@
     "source_serial_no": "202089",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3501,6 +3646,7 @@
     "source_serial_no": "206480",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -3525,6 +3671,7 @@
     "source_serial_no": "120698",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -3549,6 +3696,7 @@
     "source_serial_no": "206485",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -3573,6 +3721,7 @@
     "source_serial_no": "120568",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -3597,6 +3746,7 @@
     "source_serial_no": "207136",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3621,6 +3771,7 @@
     "source_serial_no": "206483",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -3645,6 +3796,7 @@
     "source_serial_no": "201494",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -3669,6 +3821,7 @@
     "source_serial_no": "202820",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -3693,6 +3846,7 @@
     "source_serial_no": "120555",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -3717,6 +3871,7 @@
     "source_serial_no": "201453",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3741,6 +3896,7 @@
     "source_serial_no": "201173",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -3765,6 +3921,7 @@
     "source_serial_no": "206484",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -3789,6 +3946,7 @@
     "source_serial_no": "203809",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -3813,6 +3971,7 @@
     "source_serial_no": "206482",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -3837,6 +3996,7 @@
     "source_serial_no": "204112",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3861,6 +4021,7 @@
     "source_serial_no": "10100",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -3885,6 +4046,7 @@
     "source_serial_no": "201023",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -3909,6 +4071,7 @@
     "source_serial_no": "120584",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -3933,6 +4096,7 @@
     "source_serial_no": "202826",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -3957,6 +4121,7 @@
     "source_serial_no": "10012",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -3981,6 +4146,7 @@
     "source_serial_no": "203808",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4005,6 +4171,7 @@
     "source_serial_no": "120550",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4029,6 +4196,7 @@
     "source_serial_no": "30084",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4053,6 +4221,7 @@
     "source_serial_no": "208527",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4077,6 +4246,7 @@
     "source_serial_no": "210299",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -4101,6 +4271,7 @@
     "source_serial_no": "202361",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4125,6 +4296,7 @@
     "source_serial_no": "210361",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4149,6 +4321,7 @@
     "source_serial_no": "120589",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4173,6 +4346,7 @@
     "source_serial_no": "120716",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4197,6 +4371,7 @@
     "source_serial_no": "203321",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -4221,6 +4396,7 @@
     "source_serial_no": "10520",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4245,6 +4421,7 @@
     "source_serial_no": "203868",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4269,6 +4446,7 @@
     "source_serial_no": "202199",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4293,6 +4471,7 @@
     "source_serial_no": "10154",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4317,6 +4496,7 @@
     "source_serial_no": "202824",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -4341,6 +4521,7 @@
     "source_serial_no": "10134",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4365,6 +4546,7 @@
     "source_serial_no": "70086",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4389,6 +4571,7 @@
     "source_serial_no": "2651",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4413,6 +4596,7 @@
     "source_serial_no": "203859",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4437,6 +4621,7 @@
     "source_serial_no": "120634",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -4461,6 +4646,7 @@
     "source_serial_no": "5501",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4485,6 +4671,7 @@
     "source_serial_no": "203866",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4509,6 +4696,7 @@
     "source_serial_no": "201874",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4533,6 +4721,7 @@
     "source_serial_no": "210362",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4557,6 +4746,7 @@
     "source_serial_no": "202204",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -2
   },
   {
@@ -4581,6 +4771,7 @@
     "source_serial_no": "70152",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": -1
   },
   {
@@ -4605,6 +4796,7 @@
     "source_serial_no": "203867",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 0
   },
   {
@@ -4629,6 +4821,7 @@
     "source_serial_no": "70186",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": 1
   },
   {
@@ -4653,6 +4846,7 @@
     "source_serial_no": "30096",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "lane": 2
   },
   {
@@ -4677,6 +4871,7 @@
     "source_serial_no": "4496",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "lane": -2
   }
 ]

@@ -1,4 +1,4 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -151,7 +151,7 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 15,
@@ -172,7 +172,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 180 rated trails\n8.3% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
+          "value": "ACCESS-RECORDED SHORTLIST\n15 of 180 rated routes · 8.3%\n\nA small documented set when\naccess is part of the decision.\n\n165 rated routes record no access.\n15 unrated excluded.\n8 coloured cells: rounded share."
         }
       },
       "data": {
@@ -185,7 +185,7 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 15,
@@ -203,7 +203,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 180 rated trails\n8.3% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
+          "value": "ACCESS-RECORDED SHORTLIST\n15 of 180 rated routes · 8.3%\n\nA small documented set when\naccess is part of the decision.\n\n165 rated routes record no access.\n15 unrated excluded.\n8 coloured cells: rounded share."
         }
       },
       "data": {
@@ -255,5 +255,8 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Track code colours are consistent across charts."
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

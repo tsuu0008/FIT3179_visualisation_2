@@ -191,8 +191,16 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "calculate": "metric === 'resident' ? 'Highest supply: Murrindindi\\n844.2 km per 100,000 residents\\nA small population lifts the ratio.' : 'Murrindindi · 132.1 km\\n32 routes concentrate in one council.\\nA large choice set differs from longest total.'",
           "as": "annotation"
+        },
+        {
+          "calculate": "mapFrame[0]+((180)-width/2)/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))*180/PI",
+          "as": "review_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-70)/2)-(138))/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "review_lat"
         }
       ],
       "mark": {
@@ -210,10 +218,10 @@
           "type": "quantitative"
         },
         "longitude2": {
-          "datum": 143.7
+          "field": "review_lon"
         },
         "latitude2": {
-          "datum": -35.1
+          "field": "review_lat"
         }
       }
     },
@@ -240,7 +248,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "calculate": "metric === 'resident' ? 'Highest supply: Murrindindi\\n844.2 km per 100,000 residents\\nA small population lifts the ratio.' : 'Murrindindi · 132.1 km\\n32 routes concentrate in one council.\\nA large choice set differs from longest total.'",
           "as": "annotation"
         }
       ],
@@ -269,23 +277,23 @@
         "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "align": "left",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18,
+        "dy": 0,
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {
-          "datum": 143.7,
-          "type": "quantitative"
+        "x": {
+          "value": {
+            "expr": "12"
+          }
         },
-        "latitude": {
-          "datum": -35.1,
-          "type": "quantitative"
+        "y": {
+          "value": 78
         },
         "text": {
           "field": "annotation"
@@ -313,7 +321,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "calculate": "metric === 'resident' ? 'Murrindindi · highest supply\\n844.2 km / 100,000 residents\\nA small population lifts the ratio.' : 'Murrindindi · 132.1 km\\n32 routes in one council\\nA concentrated set of local choices.'",
           "as": "annotation"
         }
       ]
@@ -325,20 +333,20 @@
         "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "align": "left",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18
+        "dy": 0
       },
       "encoding": {
-        "longitude": {
-          "datum": 143.7,
-          "type": "quantitative"
+        "x": {
+          "value": {
+            "expr": "12"
+          }
         },
-        "latitude": {
-          "datum": -35.1,
-          "type": "quantitative"
+        "y": {
+          "value": 78
         },
         "text": {
           "field": "annotation"
@@ -366,7 +374,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Murrindindi · 844.2 km / 100k\\nHighest supply per resident' : 'Murrindindi · 132.1 km\\n32 trails form a regional cluster'",
+          "calculate": "metric === 'resident' ? 'Murrindindi · highest supply\\n844.2 km / 100,000 residents\\nA small population lifts the ratio.' : 'Murrindindi · 132.1 km\\n32 routes in one council\\nA concentrated set of local choices.'",
           "as": "annotation"
         }
       ]
@@ -394,8 +402,16 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nLarger total, lower resident-adjusted supply.\\nThe denominator changes the regional leader.' : 'Maximum total: Yarra Ranges\\n153.7 km of recorded routes\\nHighlights the largest network by distance.'",
           "as": "annotation"
+        },
+        {
+          "calculate": "mapFrame[0]+((width-180)-width/2)/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))*180/PI",
+          "as": "review_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-70)/2)-(200))/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "review_lat"
         }
       ],
       "mark": {
@@ -413,10 +429,10 @@
           "type": "quantitative"
         },
         "longitude2": {
-          "datum": 149.1
+          "field": "review_lon"
         },
         "latitude2": {
-          "datum": -36.0
+          "field": "review_lat"
         }
       }
     },
@@ -443,7 +459,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nLarger total, lower resident-adjusted supply.\\nThe denominator changes the regional leader.' : 'Maximum total: Yarra Ranges\\n153.7 km of recorded routes\\nHighlights the largest network by distance.'",
           "as": "annotation"
         }
       ],
@@ -472,23 +488,23 @@
         "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "align": "right",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18,
+        "dy": 0,
         "stroke": "white",
         "strokeWidth": 4,
         "strokeJoin": "round"
       },
       "encoding": {
-        "longitude": {
-          "datum": 149.1,
-          "type": "quantitative"
+        "x": {
+          "value": {
+            "expr": "width-12"
+          }
         },
-        "latitude": {
-          "datum": -36.0,
-          "type": "quantitative"
+        "y": {
+          "value": 140
         },
         "text": {
           "field": "annotation"
@@ -516,7 +532,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nMore total km, lower supply per resident.\\nPopulation changes the regional leader.' : 'Yarra Ranges · largest total\\n153.7 recorded kilometres\\nThe largest network by distance.'",
           "as": "annotation"
         }
       ]
@@ -528,20 +544,20 @@
         "fontSize": 12,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 17,
         "align": "right",
-        "baseline": "middle",
+        "baseline": "top",
         "color": "#20343A",
-        "dy": -18
+        "dy": 0
       },
       "encoding": {
-        "longitude": {
-          "datum": 149.1,
-          "type": "quantitative"
+        "x": {
+          "value": {
+            "expr": "width-12"
+          }
         },
-        "latitude": {
-          "datum": -36.0,
-          "type": "quantitative"
+        "y": {
+          "value": 140
         },
         "text": {
           "field": "annotation"
@@ -569,7 +585,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nMore total km, lower supply per resident.\\nPopulation changes the regional leader.' : 'Yarra Ranges · largest total\\n153.7 recorded kilometres\\nThe largest network by distance.'",
           "as": "annotation"
         }
       ]
@@ -659,7 +675,7 @@
       },
       "transform": [
         {
-          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nOther local and urban walks are excluded.'",
+          "calculate": "'DATA SNAPSHOT\\n195 official walking records\\nABS residents: 30 June 2025'",
           "as": "note"
         }
       ],
@@ -699,7 +715,7 @@
       },
       "transform": [
         {
-          "calculate": "'WHAT THE MAP COVERS\\nPromoted state-forest walking tracks only.\\nOther local and urban walks are excluded.'",
+          "calculate": "'DATA SNAPSHOT\\n195 official walking records\\nABS residents: 30 June 2025'",
           "as": "note"
         }
       ],
@@ -764,6 +780,154 @@
           "field": "legend_title"
         }
       }
+    },
+    {
+      "name": "insight_low_supply_ring",
+      "data": {
+        "values": [
+          {
+            "region_name": "Cardinia"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json?v=187b42ec8618"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "calculate": "mapFrame[0]+(18-width/2)/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))*180/PI",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-70)/2)-(height-132))/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "label_lat"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#b94e13",
+        "strokeWidth": 2,
+        "size": 160
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "name": "insight_low_supply_leader",
+      "data": {
+        "values": [
+          {
+            "region_name": "Cardinia"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "region_name",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json?v=187b42ec8618"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "calculate": "mapFrame[0]+((width*.48)-width/2)/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))*180/PI",
+          "as": "review_lon"
+        },
+        {
+          "calculate": "(2*atan(exp(log(tan(PI/4+mapFrame[1]*PI/360))+(((height-70)/2)-(height-117))/(min((width-28)/mapFrame[2],(height-70)/mapFrame[3]))))-PI/2)*180/PI",
+          "as": "review_lat"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#b94e13",
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "review_lon"
+        },
+        "latitude2": {
+          "field": "review_lat"
+        }
+      }
+    },
+    {
+      "name": "insight_low_supply_note",
+      "data": {
+        "values": [
+          {
+            "region_name": "Cardinia"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "metric === 'resident' ? 'Cardinia · lowest positive supply\\n0.97 km / 100k · lowest of 32 councils with tracks\\nSmall recorded supply beside a large population.' : 'Cardinia · lowest positive total\\n1.3 km · lowest of 32 councils with tracks\\nA small recorded local choice set.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "align": "left",
+        "baseline": "top",
+        "color": "#b94e13"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.34"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-111"
+          }
+        },
+        "text": {
+          "field": "note"
+        }
+      }
     }
   ],
   "config": {
@@ -808,5 +972,8 @@
       "color": "#20343A"
     }
   },
-  "description": "Supply map with warm orange highlighted council boundaries on a white casing, direct regional callouts, ratio explanation in the northeast, and a compact footer pairing coverage with the colour scale."
+  "description": "Supply map with warm orange highlighted council boundaries on a white casing, direct regional callouts, ratio explanation in the northeast, and a compact footer pairing coverage with the colour scale.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  }
 }

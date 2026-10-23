@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 340,
+  "height": 430,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -26,12 +26,9 @@
     }
   },
   "data": {
-    "url": "data/trails.json?v=e01251be5932"
+    "url": "data/trails.json?v=d0f82fb8345d"
   },
   "transform": [
-    {
-      "filter": "datum.track_code !== 'Unknown'"
-    },
     {
       "aggregate": [
         {
@@ -45,11 +42,11 @@
         }
       ],
       "groupby": [
-        "track_code"
+        "grade"
       ]
     },
     {
-      "calculate": "format(datum.median_km,'.1f') + ' km (n=' + datum.n + ')'",
+      "calculate": "format(datum.median_km,'.1f') + ' km · ' + datum.n + (datum.n === 1 ? ' route' : ' routes')",
       "as": "label"
     }
   ],
@@ -62,18 +59,18 @@
       },
       "encoding": {
         "y": {
-          "field": "track_code",
+          "field": "grade",
           "type": "ordinal",
           "sort": [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
-            "C6",
-            "3"
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
           ],
-          "title": "Source code"
+          "title": "Grade"
         },
         "x": {
           "field": "median_km",
@@ -99,18 +96,18 @@
       },
       "encoding": {
         "y": {
-          "field": "track_code",
+          "field": "grade",
           "type": "ordinal",
           "sort": [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
-            "C6",
-            "3"
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
           ],
-          "title": "Source code"
+          "title": "Grade"
         },
         "x": {
           "field": "median_km",
@@ -124,17 +121,16 @@
           }
         },
         "color": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -144,7 +140,6 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
-              "#ad6f3b",
               "#9daca9"
             ]
           },
@@ -155,25 +150,29 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 10,
+        "align": {
+          "expr": "datum.grade === 'Grade 5' ? 'right' : 'left'"
+        },
+        "dx": {
+          "expr": "datum.grade === 'Grade 5' ? -10 : 10"
+        },
         "fontSize": 12,
         "color": "#24443f"
       },
       "encoding": {
         "y": {
-          "field": "track_code",
+          "field": "grade",
           "type": "ordinal",
           "sort": [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
-            "C6",
-            "3"
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
           ],
-          "title": "Source code"
+          "title": "Grade"
         },
         "x": {
           "field": "median_km",
@@ -190,7 +189,326 @@
           "field": "label"
         }
       }
+    },
+    {
+      "name": "insight_highlight",
+      "transform": [
+        {
+          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 230,
+        "stroke": "#b94e13",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ],
+          "title": "Grade"
+        },
+        "x": {
+          "field": "median_km",
+          "type": "quantitative",
+          "title": "Median distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              10
+            ]
+          }
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#6f52a3",
+              "#9daca9"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "name": "insight_explanation",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineHeight": 15,
+        "lineBreak": "\n",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -72
+        },
+        "text": {
+          "value": "Highest median: Grade 5 · 7.36 km.\nLongest typical distance among these groups.\nLowest median: Grade 1 · 0.7 km (2 routes).\nThe tiny group makes this minimum less representative."
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_median_heading_A_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": -14
+        },
+        "y": {
+          "value": -67
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_median_heading_A_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": -14
+        },
+        "y": {
+          "value": -67
+        },
+        "text": {
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_median_heading_B_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": -14
+        },
+        "y": {
+          "value": -37
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_median_heading_B_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": -14
+        },
+        "y": {
+          "value": -37
+        },
+        "text": {
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "name": "review_median_badges",
+      "transform": [
+        {
+          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+        },
+        {
+          "calculate": "datum.grade === 'Grade 5' ? 'A' : 'B'",
+          "as": "badge"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ],
+          "title": "Grade"
+        },
+        "x": {
+          "field": "median_km",
+          "type": "quantitative",
+          "title": "Median distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              10
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "review_median_letters",
+      "transform": [
+        {
+          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+        },
+        {
+          "calculate": "datum.grade === 'Grade 5' ? 'A' : 'B'",
+          "as": "badge"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 10,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ],
+          "title": "Grade"
+        },
+        "x": {
+          "field": "median_km",
+          "type": "quantitative",
+          "title": "Median distance (km)",
+          "scale": {
+            "domain": [
+              0,
+              10
+            ]
+          }
+        },
+        "text": {
+          "field": "badge"
+        }
+      }
     }
   ],
-  "description": "Median distance by source code. Small C1 and C6 groups are shown with their counts; code is not relabelled as public walking grade."
+  "description": "Median distance by recorded grade, with group counts. Unclassified and unknown source values remain visible.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  },
+  "padding": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  }
 }

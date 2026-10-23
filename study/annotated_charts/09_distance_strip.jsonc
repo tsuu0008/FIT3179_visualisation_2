@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 340,
+  "height": 420,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -26,112 +26,388 @@
     }
   },
   "data": {
-    "url": "data/distance_points.json?v=c8ce4de661be"
+    "url": "data/distance_points.json?v=748f57556a6d"
   },
-  "mark": {
-    "type": "point",
-    "filled": true,
-    "size": 50,
-    "opacity": 0.65
-  },
-  "encoding": {
-    "x": {
-      "field": "length_km",
-      "type": "quantitative",
-      "title": "Recorded distance (km; square-root spacing)",
-      "scale": {
-        "type": "sqrt",
-        "domain": [
-          0,
-          100
-        ]
-      },
-      "axis": {
+  "description": "Individual trail distances including missing grade records. Vertical offsets only separate overlapping points.",
+  "layer": [
+    {
+      "data": {
         "values": [
-          0,
-          1,
-          5,
-          10,
-          20,
-          40,
-          60,
-          95
+          {
+            "km": 5
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#788c85",
+        "strokeDash": [
+          4,
+          4
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 50,
+        "opacity": 0.65
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "title": "Recorded distance (km; square-root spacing)",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "values": [
+              0,
+              1,
+              5,
+              10,
+              20,
+              40,
+              60,
+              95
+            ]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ],
+          "title": "Grade"
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "grade",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#6f52a3",
+              "#9daca9"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "grade",
+            "title": "Recorded grade"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)",
+            "format": ".2f"
+          },
+          {
+            "field": "duration_group",
+            "title": "Source duration category"
+          },
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          },
+          {
+            "field": "lga",
+            "title": "Council"
+          },
+          {
+            "field": "closure",
+            "title": "Recorded route status"
+          }
         ]
       }
     },
-    "y": {
-      "field": "track_code",
-      "type": "ordinal",
-      "sort": [
-        "C1",
-        "C2",
-        "C3",
-        "C4",
-        "C5",
-        "C6",
-        "3",
-        "Unknown"
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "name",
+            "equal": "Upper Yarra Walking Track"
+          }
+        }
       ],
-      "title": "Source code"
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#D55E00",
+        "strokeWidth": 2,
+        "size": 160
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ]
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        }
+      }
     },
-    "yOffset": {
-      "field": "lane",
-      "type": "quantitative"
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "name",
+            "equal": "Upper Yarra Walking Track"
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": -15,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ]
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Maximum: Upper Yarra · 95 km\nMultiple days: unusually long commitment"
+        }
+      }
     },
-    "color": {
-      "field": "track_code",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "C1",
-          "C2",
-          "C3",
-          "C4",
-          "C5",
-          "C6",
-          "3",
-          "Unknown"
-        ],
-        "range": [
-          "#0072B2",
-          "#E69F00",
-          "#009E73",
-          "#CC79A7",
-          "#252525",
-          "#6f52a3",
-          "#ad6f3b",
-          "#9daca9"
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "name",
+            "equal": "Track Ninety Six"
+          }
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "stroke": "#D55E00",
+        "strokeWidth": 2,
+        "size": 160
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ]
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "name",
+            "equal": "Track Ninety Six"
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -20,
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "field": "length_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "y": {
+          "field": "grade",
+          "type": "ordinal",
+          "sort": [
+            "Grade 1",
+            "Grade 2",
+            "Grade 3",
+            "Grade 4",
+            "Grade 5",
+            "Unclassified",
+            "Unknown"
+          ]
+        },
+        "yOffset": {
+          "field": "lane",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Grade 5 maximum: Track Ninety Six · 34 km\nFar above its group’s 7.36 km middle distance"
+        }
+      }
+    },
+    {
+      "name": "insight_explanation",
+      "data": {
+        "values": [
+          {}
         ]
       },
-      "legend": null
-    },
-    "tooltip": [
-      {
-        "field": "name",
-        "title": "Trail"
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineHeight": 15,
+        "lineBreak": "\n",
+        "color": "#24443f"
       },
-      {
-        "field": "track_code",
-        "title": "Source code"
-      },
-      {
-        "field": "length_km",
-        "title": "Distance (km)",
-        "format": ".2f"
-      },
-      {
-        "field": "duration_group",
-        "title": "Source duration category"
-      },
-      {
-        "field": "gradient",
-        "title": "Terrain"
-      },
-      {
-        "field": "lga",
-        "title": "Council"
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -52
+        },
+        "text": {
+          "value": "151 of 195 routes (77%) are 5 km or shorter.\nThe 5 km guide highlights the short-route majority;\nthe circled maxima show the exceptional long-distance tail."
+        }
       }
-    ]
+    }
+  ],
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
   },
-  "description": "Individual trail distances including missing source-code records. Vertical offsets only separate overlapping points."
+  "padding": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  }
 }

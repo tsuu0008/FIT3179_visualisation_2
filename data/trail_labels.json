@@ -21,6 +21,7 @@
     "source_track_code": "3",
     "source_export_date": "2026/10/22 17:46:47.",
     "closure": "Not recorded",
+    "grade": "Grade 3",
     "short_name": "MCG",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -47,6 +48,7 @@
     "source_serial_no": "121106",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Red White And Blue",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -73,6 +75,7 @@
     "source_serial_no": "2452",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Fiery Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -99,6 +102,7 @@
     "source_serial_no": "3040",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Pyrenees Endurance",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -125,6 +129,7 @@
     "source_serial_no": "2250",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Beeripmo",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -151,6 +156,7 @@
     "source_serial_no": "1980",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Werribee River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -177,6 +183,7 @@
     "source_serial_no": "3694",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Battery Dam Historical",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -203,6 +210,7 @@
     "source_serial_no": "70082",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Pipeline",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -229,6 +237,7 @@
     "source_serial_no": "2654",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Great Dividing",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -255,6 +264,7 @@
     "source_serial_no": "9972",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Summit",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -281,6 +291,7 @@
     "source_serial_no": "9971",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Sunday Creek",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -307,6 +318,7 @@
     "source_serial_no": "70152",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Koondrook Red Gum Forest - Eagle Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -333,6 +345,7 @@
     "source_serial_no": "201",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Reids Tramline",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -359,6 +372,7 @@
     "source_serial_no": "6063",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Horseshoe Bend Tunnel",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -385,6 +399,7 @@
     "source_serial_no": "9054",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Beauty Spot Nature Long Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -411,6 +426,7 @@
     "source_serial_no": "9986",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Gilberts Gully",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -437,6 +453,7 @@
     "source_serial_no": "9985",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Keppel Lookout",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -463,6 +480,7 @@
     "source_serial_no": "9979",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Michaeldene",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -489,6 +507,7 @@
     "source_serial_no": "593",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 1",
     "short_name": "Wirrawilla",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -515,6 +534,7 @@
     "source_serial_no": "262",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Wilhelmina Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -541,6 +561,7 @@
     "source_serial_no": "9982",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 1",
     "short_name": "Steavenson Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -567,6 +588,7 @@
     "source_serial_no": "625",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "short_name": "Sculpture",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -593,6 +615,7 @@
     "source_serial_no": "51237",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Yea River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -619,6 +642,7 @@
     "source_serial_no": "4224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Into History",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -645,6 +669,7 @@
     "source_serial_no": "120550",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Water Race",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -671,6 +696,7 @@
     "source_serial_no": "9996",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Plain Creek Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -697,6 +723,7 @@
     "source_serial_no": "8414",
     "source_track_code": "C6",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unclassified",
     "short_name": "Forest Camp",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -723,6 +750,7 @@
     "source_serial_no": "30144",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Mt Timbertop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -749,6 +777,7 @@
     "source_serial_no": "10444",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Nicholson Rocks",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -775,6 +804,7 @@
     "source_serial_no": "10318",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Avon River",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -801,6 +831,7 @@
     "source_serial_no": "6246",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Granite Creek",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -827,6 +858,7 @@
     "source_serial_no": "6200",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Fern Gully",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -853,6 +885,7 @@
     "source_serial_no": "6140",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Black Snake Creek",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -879,6 +912,7 @@
     "source_serial_no": "120007",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Memorial Arboretum",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -905,6 +939,7 @@
     "source_serial_no": "30084",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Lima Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -931,6 +966,7 @@
     "source_serial_no": "120045",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Reform Hill Lookout Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -957,6 +993,7 @@
     "source_serial_no": "120278",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Bakers Gully Reservoirs Lower Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -983,6 +1020,7 @@
     "source_serial_no": "120159",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Reform Hill Mining Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1009,6 +1047,7 @@
     "source_serial_no": "120086",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Apex Lookout",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1035,6 +1074,7 @@
     "source_serial_no": "120634",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Rockpools",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1061,6 +1101,7 @@
     "source_serial_no": "5937",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Berry Farm Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1087,6 +1128,7 @@
     "source_serial_no": "5890",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Mcleans Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1113,6 +1155,7 @@
     "source_serial_no": "10288",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Slaughter",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1139,6 +1182,7 @@
     "source_serial_no": "5392",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Youngs Creek Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1165,6 +1209,7 @@
     "source_serial_no": "5399",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Youngs Creek Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1191,6 +1236,7 @@
     "source_serial_no": "10154",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Delegate River Tunnel",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1217,6 +1263,7 @@
     "source_serial_no": "50584",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Beauty Spot Nature Short Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1243,6 +1290,7 @@
     "source_serial_no": "201408",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Marlo Network",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1269,6 +1317,7 @@
     "source_serial_no": "201453",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Big Billy Bore",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1295,6 +1344,7 @@
     "source_serial_no": "201874",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Orbost North",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1321,6 +1371,7 @@
     "source_serial_no": "202205",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Coopers Creek River",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1347,6 +1398,7 @@
     "source_serial_no": "202361",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Reform Hill Poverty Reef Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1373,6 +1425,7 @@
     "source_serial_no": "202824",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Store Point Historic Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1399,6 +1452,7 @@
     "source_serial_no": "203859",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Annya",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1425,6 +1479,7 @@
     "source_serial_no": "203867",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Rubicon Dam",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1451,6 +1506,7 @@
     "source_serial_no": "204112",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Thowgla Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1477,6 +1533,7 @@
     "source_serial_no": "207136",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Pioneer Sawmill Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1503,6 +1560,7 @@
     "source_serial_no": "207704",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Toorongo Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1529,6 +1587,7 @@
     "source_serial_no": "8430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Richards Tramline",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1555,6 +1614,7 @@
     "source_serial_no": "10134",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Choof Choof",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1581,6 +1641,7 @@
     "source_serial_no": "70186",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Koondrook Red Gum Forest - Turtle Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1607,6 +1668,7 @@
     "source_serial_no": "99",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Avro Anson Memorial",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1633,6 +1695,7 @@
     "source_serial_no": "4895",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Douglas Reserve",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1659,6 +1722,7 @@
     "source_serial_no": "10206",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Historic Youngs Creek Reservoir",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1685,6 +1749,7 @@
     "source_serial_no": "422",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Mill",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1711,6 +1776,7 @@
     "source_serial_no": "4819",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Bentley Plain",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1737,6 +1803,7 @@
     "source_serial_no": "203808",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Lima East Boulders",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1763,6 +1830,7 @@
     "source_serial_no": "5501",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Casuarina",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1789,6 +1857,7 @@
     "source_serial_no": "202820",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Meringtons",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1815,6 +1884,7 @@
     "source_serial_no": "202907",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Red Jacket Cemetery Access",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1841,6 +1911,7 @@
     "source_serial_no": "7221",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Forest",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1867,6 +1938,7 @@
     "source_serial_no": "8081",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Ralph Cornwall",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1893,6 +1965,7 @@
     "source_serial_no": "8160",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Klingsporn Bridle",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1919,6 +1992,7 @@
     "source_serial_no": "202204",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Poverty Point",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -1945,6 +2019,7 @@
     "source_serial_no": "120584",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Goughs Bay Lookout",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1971,6 +2046,7 @@
     "source_serial_no": "203321",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Toorongo River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -1997,6 +2073,7 @@
     "source_serial_no": "201173",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Cascades",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2023,6 +2100,7 @@
     "source_serial_no": "9995",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Plain Creek Tramway Bridge",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2049,6 +2127,7 @@
     "source_serial_no": "20521",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Whalers Lookout",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2075,6 +2154,7 @@
     "source_serial_no": "6023",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "short_name": "Morning Star",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2101,6 +2181,7 @@
     "source_serial_no": "120320",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Huggins Lookout",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2127,6 +2208,7 @@
     "source_serial_no": "4058",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Ada Tree",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2153,6 +2235,7 @@
     "source_serial_no": "30303",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Star Of West Goldmine",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2179,6 +2262,7 @@
     "source_serial_no": "30096",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Mitchells Bridle",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2205,6 +2289,7 @@
     "source_serial_no": "206480",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Redwoods Boardwalk",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2231,6 +2316,7 @@
     "source_serial_no": "8605",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Pipe Gully",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2257,6 +2343,7 @@
     "source_serial_no": "8454",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Richards Tramline Link",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2283,6 +2370,7 @@
     "source_serial_no": "206485",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Link track between picnic area and campground",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2309,6 +2397,7 @@
     "source_serial_no": "3023",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Valley",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2335,6 +2424,7 @@
     "source_serial_no": "8618",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Moolerr Nature Drive",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2361,6 +2451,7 @@
     "source_serial_no": "50024",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Cicada Circuit",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2387,6 +2478,7 @@
     "source_serial_no": "2477",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Borella",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2413,6 +2505,7 @@
     "source_serial_no": "120716",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Stringybark Creek Historic Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2439,6 +2532,7 @@
     "source_serial_no": "120332",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Valley View",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2465,6 +2559,7 @@
     "source_serial_no": "120698",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Stringybark Creek Linking",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2491,6 +2586,7 @@
     "source_serial_no": "10100",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Little Cabbage Tree Creek Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2517,6 +2613,7 @@
     "source_serial_no": "7122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Red Gums Middle",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2543,6 +2640,7 @@
     "source_serial_no": "50864",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Mt Torbreck Summit",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2569,6 +2667,7 @@
     "source_serial_no": "2122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Grevillea",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2595,6 +2694,7 @@
     "source_serial_no": "120299",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Bakers Gully Reservoirs Upper Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2621,6 +2721,7 @@
     "source_serial_no": "2930",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Hermans Hill",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2647,6 +2748,7 @@
     "source_serial_no": "51066",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Kalatha Giant Tree",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2673,6 +2775,7 @@
     "source_serial_no": "9973",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Strath Creek Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2699,6 +2802,7 @@
     "source_serial_no": "9031",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "La La Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2725,6 +2829,7 @@
     "source_serial_no": "5387",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Bindaree Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2751,6 +2856,7 @@
     "source_serial_no": "7068",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Bullockys Grave",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2777,6 +2883,7 @@
     "source_serial_no": "8497",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "New Federal Mill",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2803,6 +2910,7 @@
     "source_serial_no": "8294",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Loves Creek",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2829,6 +2937,7 @@
     "source_serial_no": "12550",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Elevator",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2855,6 +2964,7 @@
     "source_serial_no": "5477",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Drummer Rainforest",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2881,6 +2991,7 @@
     "source_serial_no": "201023",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Latrobe River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2907,6 +3018,7 @@
     "source_serial_no": "210299",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Yackandandah Creek",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2933,6 +3045,7 @@
     "source_serial_no": "7254",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Waterhole",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -2959,6 +3072,7 @@
     "source_serial_no": "5885",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Hanging Rock",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -2985,6 +3099,7 @@
     "source_serial_no": "202826",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Crinoline",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3011,6 +3126,7 @@
     "source_serial_no": "5090",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Limestone Box Forest",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3037,6 +3153,7 @@
     "source_serial_no": "5910",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Explosive Magazine Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3063,6 +3180,7 @@
     "source_serial_no": "7001",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Alistair Fielding",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3089,6 +3207,7 @@
     "source_serial_no": "120380",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Deep Gully",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3115,6 +3234,7 @@
     "source_serial_no": "6155",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Freestone Creek",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3141,6 +3261,7 @@
     "source_serial_no": "8633",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Short Basin",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3167,6 +3288,7 @@
     "source_serial_no": "10557",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Tubal Cain",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3193,6 +3315,7 @@
     "source_serial_no": "10520",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Noorinbee",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3219,6 +3342,7 @@
     "source_serial_no": "203868",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Rocky Ned Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3245,6 +3369,7 @@
     "source_serial_no": "208527",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Access track to Stevensons Falls and day visitor area",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3271,6 +3396,7 @@
     "source_serial_no": "210361",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Reed walking track",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3297,6 +3423,7 @@
     "source_serial_no": "5678",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Toombon Historic",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3323,6 +3450,7 @@
     "source_serial_no": "51150",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Murrindindi River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3349,6 +3477,7 @@
     "source_serial_no": "8224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Birnam",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3375,6 +3504,7 @@
     "source_serial_no": "7118",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Red Gums North Block",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3401,6 +3531,7 @@
     "source_serial_no": "10245",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Nowa Nowa Banksia Boulevard",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3427,6 +3558,7 @@
     "source_serial_no": "8546",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Tanjil Bren Tramway",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3453,6 +3585,7 @@
     "source_serial_no": "5529",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Noojee Rail",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3479,6 +3612,7 @@
     "source_serial_no": "2108",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Anderson Mill",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3505,6 +3639,7 @@
     "source_serial_no": "20027",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Stevensons Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3531,6 +3666,7 @@
     "source_serial_no": "20789",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Whipstick Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3557,6 +3693,7 @@
     "source_serial_no": "70086",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Junction",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3583,6 +3720,7 @@
     "source_serial_no": "70006",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Okeefe Rail - Longlea",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3609,6 +3747,7 @@
     "source_serial_no": "4771",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Craigs Hut",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3635,6 +3774,7 @@
     "source_serial_no": "10358",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Mount Hedrick",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3661,6 +3801,7 @@
     "source_serial_no": "206483",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Linton Firefighter Memorial",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3687,6 +3828,7 @@
     "source_serial_no": "3710",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Bull Gully Rock Wells",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3713,6 +3855,7 @@
     "source_serial_no": "70010",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Waanyarra",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3739,6 +3882,7 @@
     "source_serial_no": "2605",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Bilstons Tree",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3765,6 +3909,7 @@
     "source_serial_no": "9984",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Kerami Link",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3791,6 +3936,7 @@
     "source_serial_no": "5601",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Upper Yarra",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3817,6 +3963,7 @@
     "source_serial_no": "2030",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Lerderderg Heritage River",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3843,6 +3990,7 @@
     "source_serial_no": "6288",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Ninety Six",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3869,6 +4017,7 @@
     "source_serial_no": "7120",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Red Gums South Block",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3895,6 +4044,7 @@
     "source_serial_no": "2454",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "short_name": "Paradise",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3921,6 +4071,7 @@
     "source_serial_no": "120369",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3947,6 +4098,7 @@
     "source_serial_no": "50001",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Kendalls Link",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -3973,6 +4125,7 @@
     "source_serial_no": "5957",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Plane Crash Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -3999,6 +4152,7 @@
     "source_serial_no": "120165",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Reform Hill Monument",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4025,6 +4179,7 @@
     "source_serial_no": "9881",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Wilks Creek",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4051,6 +4206,7 @@
     "source_serial_no": "202908",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Red Jacket Relics Access",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4077,6 +4233,7 @@
     "source_serial_no": "120109",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Bates Dam Historic",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4103,6 +4260,7 @@
     "source_serial_no": "51152",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Snobs Banyarmbite Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4129,6 +4287,7 @@
     "source_serial_no": "2173",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Bodens Water Race",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4155,6 +4314,7 @@
     "source_serial_no": "80009",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Mt Welcome Hike",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4181,6 +4341,7 @@
     "source_serial_no": "51157",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Tanglefoot Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4207,6 +4368,7 @@
     "source_serial_no": "5734",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 5",
     "short_name": "Wirilda",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4233,6 +4395,7 @@
     "source_serial_no": "203809",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Moonee Creek",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4259,6 +4422,7 @@
     "source_serial_no": "120589",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Plain Creek Waterfall",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4285,6 +4449,7 @@
     "source_serial_no": "2651",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Wail Scenic Loop",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4311,6 +4476,7 @@
     "source_serial_no": "30137",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Rocky Ned",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4337,6 +4503,7 @@
     "source_serial_no": "210244",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Beauchamp Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4363,6 +4530,7 @@
     "source_serial_no": "203866",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Rubicon Heritage",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4389,6 +4557,7 @@
     "source_serial_no": "4374",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Richards Curves",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4415,6 +4584,7 @@
     "source_serial_no": "4496",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Gippsland Lakes Discovery",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4441,6 +4611,7 @@
     "source_serial_no": "10430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "The Channel Loop",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4467,6 +4638,7 @@
     "source_serial_no": "9962",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Wail",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4493,6 +4665,7 @@
     "source_serial_no": "10670",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Montane",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4519,6 +4692,7 @@
     "source_serial_no": "10012",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Falls Creek Memorial",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4545,6 +4719,7 @@
     "source_serial_no": "9983",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Red Hill",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4571,6 +4746,7 @@
     "source_serial_no": "50290",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 4",
     "short_name": "Boroondara",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4597,6 +4773,7 @@
     "source_serial_no": "120568",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Dustys Lookout",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4623,6 +4800,7 @@
     "source_serial_no": "206481",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Blue Spruce",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4649,6 +4827,7 @@
     "source_serial_no": "30161",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Howqua River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4675,6 +4854,7 @@
     "source_serial_no": "10469",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Green Hills",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4701,6 +4881,7 @@
     "source_serial_no": "202199",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Mountain Monarchs",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4727,6 +4908,7 @@
     "source_serial_no": "9980",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 2",
     "short_name": "Tree Fern Gully",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4753,6 +4935,7 @@
     "source_serial_no": "4201",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 4",
     "short_name": "Seven Acre Rock",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4779,6 +4962,7 @@
     "source_serial_no": "206482",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Berrook",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4805,6 +4989,7 @@
     "source_serial_no": "51158",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Myrtle Gully Circuit",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4831,6 +5016,7 @@
     "source_serial_no": "202089",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Bruntons Bridge",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4857,6 +5043,7 @@
     "source_serial_no": "206484",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Redwoods",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4883,6 +5070,7 @@
     "source_serial_no": "203869",
     "source_track_code": "",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Link trail to Rocky Ned Falls",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4909,6 +5097,7 @@
     "source_serial_no": "10200",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 3",
     "short_name": "Rocky Knob",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4935,6 +5124,7 @@
     "source_serial_no": "51156",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Grade 3",
     "short_name": "Enoch Falls",
     "annotation_align": "right",
     "annotation_dx": -12
@@ -4961,6 +5151,7 @@
     "source_serial_no": "120555",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Unknown",
     "short_name": "Goulburn River",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -4987,6 +5178,7 @@
     "source_serial_no": "6008",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 5",
     "short_name": "Lower Howqua Feeder",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -5013,6 +5205,7 @@
     "source_serial_no": "10299",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
+    "grade": "Grade 2",
     "short_name": "Easy Magic",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -5039,6 +5232,7 @@
     "source_serial_no": "201494",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Cassinia Sec Link",
     "annotation_align": "left",
     "annotation_dx": 12
@@ -5065,6 +5259,7 @@
     "source_serial_no": "210362",
     "source_track_code": null,
     "source_export_date": "2026/10/22 17:46:47.",
+    "grade": "Unknown",
     "short_name": "Donkey Orchid walk",
     "annotation_align": "left",
     "annotation_dx": 12

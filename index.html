@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="An interactive story about the distribution, challenge and accessibility of Victoria's promoted state-forest walking trails.">
-    <title>Walking the Uneven Map | Victoria's State-Forest Trails</title>
+    <meta name="description" content="Planning a walk in Victoria? Follow a story about finding a place to go, understanding the demands and choosing an outing that fits everyone coming along.">
+    <title>Walking the Uneven Map | Finding a Walk in Victoria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-    <link rel="stylesheet" href="styles.css?v=195d4a5874b9">
+    <link rel="stylesheet" href="styles.css?v=c272729f99ff">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23143f3a'/%3E%3Cpath%20d='M5%2025%2013%208l4%208%203-6%207%2015Z'%20fill='%23f4a261'/%3E%3Cpath%20d='M9%2025%2016%2012l3%206%202-4%205%2011Z'%20fill='%23f8faf7'/%3E%3C/svg%3E">
   </head>
@@ -22,85 +21,361 @@
     </header>
     <main id="top">
 <section class="intro wrap">
-<p class="eyebrow">Walking trails · Victoria · 195 named study routes</p>
-<h1>Walking the<br><em>uneven map</em></h1>
-<div class="intro-grid"><p class="standfirst">Victoria’s walking-track records add up to nearly 876 kilometres in this official snapshot. Yet the choices available depend on place, terrain, time and recorded accessibility.</p>
-<p class="scope"><strong>Which walks can people actually use?</strong> Follow 195 named trails from the regional network to individual suitability. The snapshot includes every record marked for walking in the Recreation Tracks source; Victoria’s everyday footpath network sits outside this dataset. <a href="#ref-1" class="cite">[1]</a></p></div>
-<div class="stat-strip" aria-label="Study summary"><div><strong>195</strong><span>named study routes</span></div><div><strong>876 km</strong><span>recorded distance</span></div><div><strong>2.2 km</strong><span>median distance</span></div><div><strong>15</strong><span>full or partial access</span></div></div>
-<p class="summary-note">Trail attributes were checked against an official export on 23 October 2026. All 195 records marked for walking are included. The overview uses full official route geometry. <a href="#methods">Read the scope and verification details</a>.</p></section><section id="where" class="chapter chapter-paper"><div class="wrap"><header class="chapter-head"><span class="chapter-no">01</span><div><p class="eyebrow">Start with place</p><h2>A rich network, unevenly distributed</h2></div></header>
-<p class="story-text">A statewide kilometre total hides local differences. The overview gives the regional picture; the regional map below lets you inspect the routes within a council area. Urban gaps reflect this study’s forest focus and do not indicate an absence of local walking paths.</p>
-<article class="chart-card chart-card-wide overview-card"><div class="chart-copy"><h3>The forest network gathers east of Melbourne</h3><p class="chart-insight">Of the 195 representative trail points, 152 lie east of 145°E, near Melbourne’s longitude.</p><p class="chart-narrative">Location determines the first set of possible walks. Murrindindi contains 32 study routes, while other areas contain very few. Blue lines follow the full official route geometry. Zoom in, drag the map, or choose a route to inspect the path. Representative points in other charts are not trail entrances.</p></div>
-<div class="overview-layout"><div><p class="figure-label">Victoria overview · all 195 study routes</p><div class="plot-scroll" tabindex="0" aria-label="Victoria overview of study routes"><div class="overview-map-controls"><label for="overview-route">Find a walking route</label><select id="overview-route" disabled><option value="">All 195 walking routes</option></select><button id="overview-reset" type="button" disabled>Show all Victoria</button></div><div id="chart-01" class="chart official-route-map" role="region" aria-label="Zoomable map of official walking-route paths" data-routes="data/trails.geojson?v=f714013dd937"></div><p id="overview-status" class="control-hint" role="status" aria-live="polite">Loading official walking routes…</p></div></div>
-<section id="network-inset" aria-label="Regional route detail"><h4>Local choices differ</h4><div class="plot-scroll" tabindex="0" aria-label="Regional trail detail"><div id="detail-map" class="chart" aria-label="Regional trail detail"></div></div><p class="control-hint">Choose a council area to compare its routes with the statewide pattern.</p></section></div></article>
-<article class="chart-card chart-card-wide map-story-card grid-map-card"><div class="chart-copy"><h3>A local cluster can disappear inside a large council</h3><p class="chart-insight">The study routes occupy 65 grid bins. The busiest bin contains 13 trails, all assigned to Murrindindi: 6.7% of the study set.</p><p class="chart-narrative">Each square covers 25 km × 25 km in an equal-area projection. Darker blue means more representative trail points. Pale gridded land has no study point. Bins can cross council boundaries, and their size and origin affect the pattern.</p></div><div class="plot-scroll" tabindex="0" aria-label="Square bin map"><div id="chart-14" class="chart" aria-label="Square bin map"></div></div></article>
-<p class="story-text">The same kilometres also sit alongside very different populations. Combining trail supply with ABS resident counts changes which areas lead the comparison. <a href="#ref-2" class="cite">[2]</a></p>
-<div class="map-and-comparison">
-<article class="chart-card chart-card-wide focused-map-card map-story-card"><div class="chart-copy"><h3>A smaller population changes the supply story</h3><p class="chart-insight">Yarra Ranges leads total recorded distance with 153.7 km. Murrindindi has 132.1 km, but its 15,648 residents give it the highest supply per resident: about 844 km per 100,000 people.</p><p class="chart-narrative">Switch between total kilometres and supply per resident. Yarra Ranges’ corresponding ratio is about 96 km per 100,000. Visitors also use these trails and residents cross council boundaries, so the ratio measures recorded supply rather than travel time or ease of access.</p></div><div class="plot-scroll" tabindex="0" aria-label="Trail supply choropleth"><div id="chart-02" class="chart" aria-label="Trail supply choropleth"></div></div></article>
-<article class="chart-card chart-card-wide"><div class="chart-copy"><h3>The population centres are not the supply leaders</h3><p class="chart-insight">Among the 32 areas with walking records, Whittlesea ranks first for population but 30th for supply per resident. Cardinia ranks fourth for population and 32nd for supply.</p><p class="chart-narrative">The 18 most populous areas are shown. Rank 1 means highest. A longer connector means a larger difference in rank, rather than a difference in kilometres.</p></div><div class="plot-scroll" tabindex="0" aria-label="Population and supply rank comparison"><div id="chart-11" class="chart" aria-label="Population and supply rank comparison"></div></div></article>
+        <p class="eyebrow">Victoria · Finding a walk that fits</p>
+        <h1>Walking the<br><em>uneven map</em>
+</h1>
+        <div class="intro-grid">
+          <p class="standfirst">You have a free afternoon and want to go for a walk. Victoria’s recorded walking routes stretch for nearly 876 kilometres, so there seems to be plenty of choice. But which walk is close enough, manageable enough and right for the people coming with you?</p>
+          <p class="scope"><strong>For everyday walkers, occasional explorers and families in Victoria.</strong> You do not need to be an experienced bushwalker to follow this story. Start with somewhere to go, discover why a short walk can still ask a lot of you, then narrow the choices around your time and access needs. The question throughout is simple: what turns a line on a map into a walk that fits your day?</p>
+        </div>
+        <div class="stat-strip" aria-label="Full dataset summary">
+          <div>
+            <strong id="stat-trails">195</strong><span>recorded walking routes</span>
+          </div>
+          <div>
+            <strong id="stat-km">876 km</strong><span>recorded distance</span>
+          </div>
+          <div>
+            <strong id="stat-median">2.2 km</strong><span>middle route distance</span>
+          </div>
+          <div>
+            <strong id="stat-access">15</strong><span>full or partial access</span>
+          </div>
+        </div>
+        <p class="summary-note">This story follows all 195 walking routes in Victoria’s official Recreation Tracks records, checked on 23 October 2026. It covers that published network, rather than every local footpath. The records include 20 routes marked closed, so the maps describe the recorded network rather than current availability. <a href="#ref-1" class="cite">[1]</a> <a href="#methods">Sources and methods</a>.</p>
+      </section>
+<section id="where" class="chapter chapter-paper">
+        <div class="wrap">
+          <header class="chapter-head">
+            <span class="chapter-no">01</span>
+            <div>
+              <p class="eyebrow">First, find somewhere to go</p>
+              <h2>Where you start changes the choice</h2>
+            </div>
+          </header>
+          <p class="story-text">A day out begins with a place. Yet those 195 routes are spread unevenly across Victoria: some areas offer many possibilities to explore, while others have far fewer in this network. Before choosing a distance or a difficulty, it helps to see where the choices gather.</p>
+
+<aside id="grades" class="grade-guide" aria-labelledby="grade-guide-title"><div class="grade-guide-head">
+<p class="eyebrow">Know what a grade can tell you</p>
+<h3 id="grade-guide-title">What does a walking-track grade mean?</h3>
+<p>A walking grade brings together the experience needed, steps, steepness, path surface and signs. The public Australian Walking Track Grading System uses the most demanding of those factors, so a short distance does not automatically mean an easy walk. <a class="cite" href="#ref-4">[4]</a></p>
 </div>
-<p class="story-text">Place gives a walker a starting point. The next question is what those available routes demand.</p>
-<a class="next-chapter" href="#challenge">Next: a short walk can still be demanding →</a></div></section><section id="challenge" class="chapter chapter-paper"><div class="wrap"><header class="chapter-head"><span class="chapter-no">02</span><div><p class="eyebrow">Understand the demands</p><h2>A short walk can still be a demanding one</h2></div></header>
-<p class="story-text">Distance, terrain and preparation describe different parts of a walk. The official export records C1–C6 and one literal code “3” for MCG. These are preserved as source codes throughout this story; they have not been converted into public walking Grades 1–5. A missing code remains unknown.</p>
-<aside id="grades" class="grade-guide" aria-labelledby="grade-guide-title"><div class="grade-guide-head"><p class="eyebrow">Read the source carefully</p><h3 id="grade-guide-title">Track codes and public walking grades are different labels</h3><p>Source code is a recorded category, not an equal-step difficulty or effort scale. There is no code for 56 of the 195 routes. Use the terrain and experience fields alongside it. Blue, amber, teal, magenta, charcoal and violet identify C1–C6; brown identifies the literal source value “3”, and grey means unknown. The overview uses blue for every route. MCG’s “3” is kept separate from C3.</p></div>
-<details><summary>Planning background: what public walking Grades 1–5 mean</summary><p>The Australian Walking Track Grading System considers experience, gradient, steps, track quality and signage. Grade 1 describes relatively level, well-formed routes; Grade 2 involves gentle hills; Grade 3 can include short steep sections; Grades 4 and 5 call for greater bushwalking experience and preparation. These public grades are background guidance and are not assigned to this project’s source codes. <a href="#ref-4">[4]</a></p></details></aside>
-<div class="two-col challenge-comparison">
-<article class="chart-card "><div class="chart-copy"><h3>One code still covers different terrain</h3><p class="chart-insight">C4 is the largest recorded source-code group, with 56 trails. Twenty of those record short steep hills.</p><p class="chart-narrative">Cell colour and labels count trails with both a source code and terrain recorded: 135 routes. Unknown values are excluded from this comparison, rather than assigned a difficulty grade.</p></div><div class="plot-scroll" tabindex="0" aria-label="One code still covers different terrain"><div id="chart-04" class="chart" aria-label="One code still covers different terrain"></div></div></article>
-<article class="chart-card "><div class="chart-copy"><h3>A source code does not form a simple distance ladder</h3><p class="chart-insight">The median is 1.5 km for C2, 3.25 km for C3, 2.5 km for C4 and 7.36 km for C5.</p><p class="chart-narrative">Each point shows a group median and sample size. C1 has only two routes and C6 only one, so those medians describe very small groups. Code order should not be read as a fixed increase in distance.</p></div><div class="plot-scroll" tabindex="0" aria-label="A source code does not form a simple distance ladder"><div id="chart-05" class="chart" aria-label="A source code does not form a simple distance ladder"></div></div></article>
+<div class="grade-grid">
+<div class="grade-item" style="--grade-colour:#0072B2">
+<strong>Grade 1 · Accessible</strong><span>Level, even paths with no steps. Suitable for assisted wheelchair users.</span>
 </div>
-<p class="story-text">A group median cannot describe a particular day out. A route’s distance, duration category and terrain must be read together.</p>
-<article class="chart-card chart-card-wide feature-card"><div class="chart-copy"><h3>A shared code can conceal a different commitment</h3><p class="chart-insight">Upper Yarra Walking Track stretches to 95 km. Track Ninety Six is 34 km. Both record “multiple days”, with no numeric hour estimate in the verified export.</p><p class="chart-narrative">Follow the thick dashed profile, then select another route. Each line represents one trail. The pale lines show the other routes matching the filters.</p></div>
-<p class="parallel-scroll-hint"><strong>Read each axis separately:</strong> distance uses square-root spacing. Source code, duration category and terrain occupy ordered display positions; their spacing is not an equal-effort or elapsed-time scale.</p>
-<div class="parallel-scroll" role="region" aria-label="Trail profiles" tabindex="0"><div class="plot-scroll" tabindex="0" aria-label="Parallel coordinates of trail profiles"><div id="chart-06" class="chart" aria-label="Parallel coordinates of trail profiles"></div></div></div>
-<p class="figure-note">“Not recorded” is a separate lane, rather than zero. Duration categories come directly from the source; they are not converted to invented numeric hours. A named route outside the chosen filters produces no highlighted profile.</p></article>
-<div class="two-col terrain-comparison">
-<article class="chart-card "><div class="chart-copy"><h3>Experience becomes part of the choice</h3><p class="chart-insight">Of 83 routes with short steep hills, 48 recommend bushwalking experience and another five specify experienced bushwalkers.</p><p class="chart-narrative">Bar length counts trails, and the coloured sections show the recorded experience advice. The comparison includes 188 routes with both terrain and experience recorded.</p></div><div class="plot-scroll" tabindex="0" aria-label="Experience becomes part of the choice"><div id="chart-07" class="chart" aria-label="Experience becomes part of the choice"></div></div></article>
-<article class="chart-card "><div class="chart-copy"><h3>Steep terrain also accounts for substantial distance</h3><p class="chart-insight">Short steep hills account for 390.82 km of the 706.52 km included in this source-code and terrain comparison: 55.3%.</p><p class="chart-narrative">Rectangle width shows a terrain’s share of included kilometres. Coloured height shows the source-code mix within it, so rectangle area represents distance. Records without a code or terrain are excluded here; the full study still contains 875.905 km.</p></div><div class="plot-scroll" tabindex="0" aria-label="Steep terrain also accounts for substantial distance"><div id="chart-08" class="chart" aria-label="Steep terrain also accounts for substantial distance"></div></div></article>
-</div><p class="story-text">A short distance can still involve steep terrain and experience requirements. Those attributes explain the commitment more directly than a code on its own.</p>
-<a class="next-chapter" href="#plan">Next: bring distance and duration together →</a></div></section><section id="plan" class="chapter chapter-paper"><div class="wrap"><header class="chapter-head"><span class="chapter-no">03</span><div><p class="eyebrow">Build a shortlist</p><h2>Many trails, fewer suitable choices</h2></div></header>
-<p class="story-text">Most routes are short, but distance is only one filter. The source’s duration categories offer useful context while leaving exact journey times unspecified.</p>
-<div class="map-and-comparison">
-<article class="chart-card chart-card-wide focused-map-card map-story-card"><div class="chart-copy"><h3>The shortlist shrinks when access matters</h3><p class="chart-insight">Murrindindi’s 32 study routes include seven with partial access and five with no access rating.</p><p class="chart-narrative">Filter the map by recorded track code or full/partial access. Symbol area represents distance. The circled A identifies the council with the largest matching trail count; circled B identifies the longest matching route. A circle marks a representative route location rather than an entrance.</p></div><div class="plot-scroll" tabindex="0" aria-label="Individual trail symbol map"><div id="chart-03" class="chart" aria-label="Individual trail symbol map"></div></div></article>
-<article class="chart-card chart-card-wide"><div class="chart-copy"><h3>A time category is a broad planning clue</h3><p class="chart-insight">The source groups 111 routes as under one hour and 67 as one to four hours. Five have no duration category.</p><p class="chart-narrative">The boxes show distance distributions within each source category: the middle line is the median, and the box covers the middle half of distances. Whiskers extend to 1.5 box lengths and separate points show more extreme values. The orange ring marks the 95 km Upper Yarra route, recorded as multiple days. No exact hour values are inferred.</p></div><div class="plot-scroll" tabindex="0" aria-label="Distance by source duration category"><div id="chart-12" class="chart" aria-label="Distance by source duration category"></div></div></article>
+<div class="grade-item" style="--grade-colour:#E69F00">
+<strong>Grade 2 · Easy</strong><span>Formed paths, gentle hills and occasional steps. No previous bushwalking experience required.</span>
 </div>
-<article class="chart-card chart-card-wide"><div class="chart-copy"><h3>Most choices sit at the short end</h3><p class="chart-insight">151 of 195 study routes—77%—are 5 km or shorter. The median distance is 2.2 km, displayed as 2.2 km in the introduction.</p><p class="chart-narrative">Each point is one route. The square-root distance axis spreads out shorter walks; read its labelled values. Small vertical offsets separate overlaps and do not encode another attribute. Routes without a recorded source code remain visible in the grey group.</p></div><div class="plot-scroll" tabindex="0" aria-label="Trail distance distribution"><div id="chart-09" class="chart" aria-label="Trail distance distribution"></div></div></article>
-<p class="story-text">The many short routes make distance look manageable. A useful shortlist must also fit a place and a person. Recorded accessibility adds one more constraint.</p>
-<a class="next-chapter" href="#fit">Next: what the access records reveal →</a></div></section><section id="fit" class="chapter chapter-paper"><div class="wrap"><header class="chapter-head"><span class="chapter-no">04</span><div><p class="eyebrow">Return to the whole network</p><h2>Recorded accessibility narrows the choice</h2></div></header>
-<p class="story-text">Across the full study set, 15 routes record full or partial access. The documented options form a small part of the network, and missing ratings leave additional uncertainty.</p>
-<div class="access-layout"><div class="access-message"><p class="big-number">8.3%</p><p>15 of the 180 rated trails record full or partial access. A further 15 trails have no rating and are excluded from this percentage.</p><p class="small-note">The waffle rounds 8.3% to eight coloured cells out of 100. These source ratings are not an independent accessibility audit.</p></div>
-<article class="chart-card orange-card"><div class="chart-copy"><h3>Recorded access reaches only a small share</h3><p class="chart-insight">The percentage describes rated routes.</p><p class="chart-narrative">Full and partial access are combined here. Check the individual source record and current route information when planning a visit.</p></div><div class="plot-scroll" tabindex="0" aria-label="Recorded accessibility waffle"><div id="chart-10" class="chart" aria-label="Recorded accessibility waffle"></div></div></article></div>
-<div class="conclusion"><p class="eyebrow">What the story tells us</p><h2>Usable choice depends on place, demands and access.</h2><p>A large kilometre total does not guarantee a suitable local walk. Distribution and population reveal different supply patterns. Terrain, distance, duration categories and experience advice describe individual demands. Recorded access then narrows the documented options. For walkers and planners, the useful question is which routes fit people’s needs—and where the available information leaves that question open.</p></div></div></section><section id="methods" class="methodology"><div class="wrap method-grid">
-<div><p class="eyebrow">Data and method</p><h2>What is included</h2><p>The complete official WFS response retrieved on 23 October 2026 contains 366 recreation-track records. This website includes all 195 marked for walking (w_activity = Y), including MCG. The other 171 records are outside that walking-specific filter. Inclusion follows the published activity flag and does not certify each source record’s quality.</p></div>
-<div><h3>What was verified</h3><p>Distance, terrain, experience and accessibility match the current official source for every study route. Recorded track codes and duration categories were refreshed directly from that source. All 80 bundled population counts match column D of Table 2 in the ABS 2024–25 LGA workbook (population at 30 June 2025).</p></div>
-<div><h3>Geography and limits</h3><p>Route lines retain every coordinate in the official walking export. Representative points are length-weighted route midpoints. Each full route is assigned to the council containing its midpoint, so cross-boundary routes are counted once. The simplified council boundaries are retained and their vintage remains unverified.</p></div>
-<details class="method-notes"><summary>Original sources and verification evidence</summary><p>The official Victorian WFS service supplied the complete RECWEB_TRACKS export. Raw source codes C1–C6 and the literal value “3” are retained without conversion to public walking grades. Categorical duration is not converted to numeric hours. The original extraction history remains unknown.</p><p><a href="data/source_audit.json">Record-by-record source audit</a> · <a href="data/sources.json">Source and verification record</a> · <a href="study/DATA_SOURCES.md">Methods and reproduction instructions</a></p></details>
+<div class="grade-item" style="--grade-colour:#009E73">
+<strong>Grade 3 · Moderate</strong><span>Short steep sections, rougher surfaces or many steps. Suitable for many ages and fitness levels.</span>
+</div>
+<div class="grade-item" style="--grade-colour:#CC79A7">
+<strong>Grade 4 · Difficult</strong><span>Long, rough or steep paths, sometimes with limited signs. Bushwalking experience is recommended.</span>
+</div>
+<div class="grade-item" style="--grade-colour:#252525">
+<strong>Grade 5 · Very difficult</strong><span>Very rough, steep or unmarked routes. Intended for experienced bushwalkers with navigation skills.</span>
+</div>
+</div>
+<p class="grade-note"><strong>About the labels:</strong> this public guide explains Grade 1–5. The charts use grades derived from the published walking records, rather than a new assessment of each path. “Unknown” means no grade was supplied; “Unclassified” means the source code falls outside Grade 1–5. <a href="#methods">Data and method</a> explains the conversion. The same grade colours are used throughout.</p></aside>
+          <article class="chart-card chart-card-wide overview-card">
+            <div class="chart-copy">
+<h3>Most of these walks gather in the east</h3>
+<p class="chart-insight">More than three-quarters of the routes sit east of a north–south line through Melbourne. Murrindindi and East Gippsland alone account for 60 of the 195 walks—almost one in three.</p>
+<p class="chart-narrative">For someone choosing a destination, that concentration means more routes to compare in those areas. Elsewhere, the list is smaller. The promise of hundreds of kilometres becomes more useful when you bring it down to a place you could visit.</p>
+<p class="chart-reading"><strong>Explore a place:</strong> blue lines trace the walking routes. Drag to move the map, use + / − to zoom, or choose a named walk to highlight it in orange. Hover for its name, grade, distance and time category. The eastern count uses one midpoint per route, east of 145°E.</p>
+</div>
+            <div class="overview-layout">
+              <div>
+                <p class="figure-label">Victoria overview · all 195 trails</p>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart">
+<div class="overview-map-controls">
+<label for="overview-route">Find a walking route</label><select id="overview-route" disabled><option value="0">All 195 walking routes</option></select><button id="overview-reset" type="button" disabled>Show all Victoria</button><button id="overview-zoom-in" type="button" aria-label="Zoom in" disabled>+</button><button id="overview-zoom-out" type="button" aria-label="Zoom out" disabled>−</button>
+</div>
+<div class="overview-line-legend" aria-label="Overview line legend">
+<span><i class="network-line"></i>Official walking route</span><span><i class="selected-line"></i>Selected route</span>
+</div>
+<div id="chart-01" class="chart" aria-label="Zoomable official walking-route map" data-spec="charts/01_trail_network.json?v=053531270549"></div>
+<p id="overview-status" class="control-hint" role="status" aria-live="polite">Loading official route geometry…</p>
+<p class="map-attribution">Route data: <a href="#ref-1">DEECA / DataVic</a> · Basemap © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · Map drawn with Vega</p>
+</div>
+              </div>
+              <section id="network-inset" aria-label="Regional route detail"><div class="regional-story">
+<p class="eyebrow">From the network to a local choice</p>
+<h3>Local choices differ</h3>
+<p class="chart-insight">Murrindindi offers 32 recorded routes, giving you a much longer list to explore than many other council areas. Even there, choosing the area is only the beginning: a short stroll and a long outing can sit within the same boundary.</p>
+<p>Think of a council area as a first search area, rather than a finished plan. Finding several walks together gives you alternatives to compare. Their lengths and grades help you decide which deserve a closer look before you settle on one.</p>
+<p class="chart-reading"><strong>Explore locally:</strong> choose a council, or return to <strong>All Victoria</strong>. Coloured lines identify grades; grey means Unknown and violet means Unclassified. Rings locate an area label and a highlighted route, rather than trail entrances. “LGA” is another name for a council area.</p>
+</div>
+<div class="regional-map-panel"><div id="detail-map" class="chart" aria-label="Regional route map with a persistent recorded-grade legend"></div></div></section>
+            </div>
+          </article>
+          <article class="chart-card chart-card-wide map-story-card grid-map-card">
+            <div class="chart-copy">
+<p class="figure-label">Trail concentration · 25 km bins</p>
+<h3>Several choices may be neighbours</h3>
+<p class="chart-insight">One 25 km-wide square contains the midpoints of 13 routes, all in Murrindindi. That small part of the map holds about one in fifteen of the walks in this story.</p>
+<p class="chart-narrative">A council name can cover a large area. Its walks may gather in one corner instead of being spread throughout it. Looking closer helps turn “somewhere in this region” into a more focused place to explore, with several routes nearby to compare.</p>
+<p class="chart-reading"><strong>Read the squares:</strong> each covers 25 km × 25 km. Darker blue means more route midpoints; numbers label squares with at least four. A long route can extend beyond the square containing its midpoint.</p>
+<p class="figure-note">The count uses one midpoint per route. The position and size of the squares affect which routes are grouped together.</p>
+</div>
+            <div class="plot-scroll" tabindex="0" aria-label="Spatial bin map"><div id="chart-14" class="chart" aria-label="Square bin map showing trail counts across a visible 25 km grid"></div></div>
+          </article>
+          <p class="story-text">Those clusters raise a wider question: do the places with the most people also have the most walking opportunities? A large total can look generous until you consider how many people live alongside it. Population figures from the Australian Bureau of Statistics help put the regional differences into perspective. <a href="#ref-2" class="cite">[2]</a></p>
+          <div class="map-and-comparison">
+            <article class="chart-card chart-card-wide focused-map-card map-story-card supply-map-card">
+              <div class="chart-copy"><h3>The longest network is not the whole picture</h3>
+<div class="story-columns"><div class="story-column"><p class="chart-insight">Yarra Ranges has the most recorded walking distance: about 154 km. Murrindindi has less, about 132 km, but also far fewer residents. When population is taken into account, Murrindindi moves into first place.</p>
+<p class="chart-narrative">For a resident, a regional total is only part of the picture. Murrindindi’s smaller network sits alongside just 15,648 people. Yarra Ranges’ longer network sits alongside a much larger population. The same two places tell a different story once the people living there enter the comparison.</p>
+</div><div class="story-column"><h4 class="map-story-heading">Put places on the same footing</h4>
+<p class="map-story-text">For every 100,000 residents, Murrindindi has about 844 recorded kilometres, compared with about 96 in Yarra Ranges—almost nine times as much. Using the same population size lets us compare councils of different sizes.</p>
+<h4 class="map-story-heading">Paths are shared beyond the boundary</h4>
+<p class="map-story-text">These kilometres are not a personal allowance: visitors walk here too, and residents can explore another council. The comparison shows how differently walking routes and homes are distributed. It does not tell us how busy a path is.</p>
+</div></div></div>
+              <div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-02" class="chart" aria-label="Choropleth map of trail kilometres per 100,000 residents"></div></div>
+              </article>
+            <article class="chart-card chart-card-wide">
+              <div class="chart-copy">
+<h3>Where people live and paths gather do not always match</h3>
+<p class="chart-insight">Whittlesea has the most residents among the 32 councils with these walking routes, yet comes 30th for walking kilometres relative to population. Cardinia is fourth for population and last for this measure.</p>
+<p class="chart-narrative">A person living in a populous area cannot assume that this walking network offers a similarly large local choice. Murrindindi shows the reverse: a smaller population beside a relatively large network. Where people live and where these paths gather do not neatly match.</p>
+</div>
+<p class="chart-reading"><strong>Read the positions:</strong> 1 means highest. Lines join each council’s position for population and walking kilometres per 100,000 residents. The 18 most populous councils are shown; positions are calculated among all 32 with walking records. Line length shows a difference in position, not kilometres.</p>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-11" class="chart" aria-label="Dumbbell plot comparing population and trail supply rank"></div></div>
+            </article>
+          </div>
+          <p class="story-text">You now have a starting area, perhaps with several paths to explore. But a promising place is not yet a walk you would choose. The next decision happens along the path itself: will the ground, distance and experience needed suit you and your companions?</p>
+          <a class="next-chapter" href="#challenge">Next: being nearby does not make a walk suitable →</a>
+        </div>
+      </section>
+<section id="challenge" class="chapter chapter-paper">
+        <div class="wrap">
+          <header class="chapter-head">
+            <span class="chapter-no">02</span>
+            <div>
+              <p class="eyebrow">Next, look beyond the kilometres</p>
+              <h2>A short walk can still be a demanding one</h2>
+            </div>
+          </header>
+          <p class="story-text">A short distance can be reassuring when you are planning an easy outing. Yet a few hundred metres of steep or rough ground can ask something very different of you from a level path. A walking grade is a useful first clue. It needs to be read alongside what the route says about its hills, surface and experience requirements.</p>
+
+          <div class="two-col challenge-comparison">
+            <article class="chart-card">
+              <div class="chart-copy">
+<h3>One grade covers more than one kind of terrain</h3>
+<p class="chart-insight">Short steep hills appear in both Grade 3 and Grade 4: 31 routes in one group and 20 in the other. A change in grade does not mean every feature of the ground changes with it.</p>
+<p class="chart-narrative">If hills are the part of a walk that concerns you, the grade alone leaves a question unanswered. Two routes carrying the same grade can describe different ground; two carrying different grades can both include steep sections. Looking at the hills helps you choose around what matters to you.</p>
+<p class="chart-reading"><strong>Read the cells:</strong> rows describe the ground, columns show grades, and darker blue means more routes. There are 135 routes with both kinds of information. Missing grades are left out; Unclassified stays separate.</p>
+</div>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-04" class="chart" aria-label="Heatmap of trail grades and gradients"></div></div>
+            </article>
+            <article class="chart-card">
+              <div class="chart-copy">
+<h3>A higher grade is not simply a longer walk</h3>
+<p class="chart-insight">The middle Grade 4 route is 2.5 km long, shorter than the middle Grade 3 route at 3.3 km. Moving up a grade does not simply add kilometres.</p>
+<p class="chart-narrative">That matters when a shorter walk looks like the easier choice. Distance tells you how far you will go; the grade brings other demands into the decision. Reading both helps avoid mistaking a brief walk for a gentle one.</p>
+<p class="chart-reading"><strong>Read the points:</strong> the median is the middle distance when a group’s routes are ordered from shortest to longest. Counts beside the points show how many routes are in each group. Grade 1 has only two routes and Unclassified only one, so their middle distances describe very small groups.</p>
+</div>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-05" class="chart" aria-label="Median trail distance by grade"></div></div>
+            </article>
+          </div>
+          <p class="story-text">Now bring that question down to an actual walk. Douglas Reserve Walk is just 400 metres, while Upper Yarra Walking Track stretches for 95 km. Both carry Grade 4 in these records. Sharing a grade clearly does not mean sharing the same kind of day out.</p>
+          <article class="chart-card chart-card-wide feature-card">
+            <div class="chart-copy">
+<h3>One grade, very different days out</h3>
+<p class="chart-insight">Douglas Reserve Walk is listed as under an hour, with short steep hills and bushwalking experience recommended. Upper Yarra Walking Track is a multiple-day route for experienced bushwalkers. Both are Grade 4, but their lengths and time commitments are far apart.</p>
+<p class="chart-narrative">The shorter option still asks you to consider hills and experience. The longer one asks for several days as well. This is where a route becomes more than a grade: you need to bring together how far it goes, how long it takes and what it asks of the people walking it.</p>
+<p class="chart-reading"><strong>Compare a walk:</strong> choose Douglas Reserve Walk or Upper Yarra Walking Track in the Trail menu. Follow the highlighted line across Grade, Distance, Duration and Terrain. The distance callout compares it with the median, or middle distance, of the matching walks. Long distances are compressed; use the kilometre labels. The other columns are categories, so their spacing does not measure effort.</p>
+</div>
+            <p class="parallel-scroll-hint">
+              <strong>One line, one walk:</strong> the thick dashed line is your selected route; faint lines show the other routes. Grade and Area menus narrow the choices before you select a trail.
+            </p>
+<div class="parallel-scroll" role="region" aria-label="Parallel coordinates of trail profiles" tabindex="0">
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-06" class="chart" aria-label="Parallel coordinates of individual trail grade, distance, time and terrain"></div></div>
+            </div>
+<p class="figure-note">Unknown and Not recorded keep missing information visible. Unclassified is separate from Grade 1–5. The lines join features of a walk; they do not show a journey changing over time. <a href="#methods">Data and method</a></p>
+          </article>
+          <p class="story-text">The short walk has not removed the need to think about experience. That is the next part of the choice: does a route welcome someone new to bushwalking, or does it ask for skills built on previous walks?</p>
+          <div class="two-col terrain-comparison">
+            <article class="chart-card">
+              <div class="chart-copy">
+<h3>Experience becomes part of the choice</h3>
+<p class="chart-insight">Of the 83 routes with short steep hills, 53 advise some bushwalking experience: 48 recommend it and another five call for experienced walkers.</p>
+<p class="chart-narrative">For an occasional walker, that advice can change which route makes the shortlist. A distance you are comfortable with may still come with an experience requirement you did not expect. For a group, it is worth considering the person with the least experience as well as the keenest walker.</p>
+<p class="chart-reading"><strong>Read the bars:</strong> bar length counts routes, and coloured sections show recorded experience advice. Direct labels identify the larger segments. The comparison includes 188 routes with both terrain and experience recorded.</p>
+</div>
+
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-07" class="chart" aria-label="Stacked bar chart of terrain and recommended experience"></div></div>
+            </article>
+            <article class="chart-card">
+              <div class="chart-copy">
+<h3>Hills are a substantial part of the choice</h3>
+<p class="chart-insight">Routes described as having short steep hills contribute about 391 km—55% of the distance with both grade and terrain information. They are a substantial part of the walking on offer.</p>
+<p class="chart-narrative">Someone looking for gentler ground is making a meaningful choice, rather than avoiding a rare exception. More than half the distance in this comparison belongs to routes described as having short steep hills. That describes the routes as a whole; it does not mean every metre of them is steep.</p>
+<p class="chart-reading"><strong>Read the rectangles:</strong> wider columns mean more walking kilometres in that terrain group. Colours show grades, and taller coloured blocks mean a larger share of that column’s kilometres. Percentages above the columns show each terrain group’s share of the distance.</p>
+<p class="figure-note">This comparison covers 706.52 km with grade and terrain information. The full walking network totals about 876 km.</p>
+</div>
+
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-08" class="chart" aria-label="Mosaic plot of trail kilometres by terrain and grade"></div></div>
+            </article>
+          </div>
+          <p class="story-text">You have moved from choosing a place to understanding the walk itself. A useful choice now has more than a name and a distance: its ground and experience advice make sense for you. The next step is to fit that walk into the time you have—and the needs of the people joining you.</p>
+          <a class="next-chapter" href="#plan">Next: turn the network into a personal shortlist →</a>
+        </div>
+      </section>
+<section id="plan" class="chapter chapter-paper">
+        <div class="wrap">
+          <header class="chapter-head">
+            <span class="chapter-no">03</span>
+            <div>
+              <p class="eyebrow">Make it fit your day</p>
+              <h2>Turn possibilities into a shortlist</h2>
+            </div>
+          </header>
+          <p class="story-text">Return to that free afternoon. You have somewhere in mind and a clearer idea of what you want underfoot. Now the choices have to work together: a manageable walk, enough time to enjoy it and the right conditions for the people coming along.</p>
+          <div class="map-and-comparison">
+            <article class="chart-card chart-card-wide focused-map-card map-story-card trail-map-card">
+              <div class="chart-copy"><h3>A region with many walks may offer you only a few</h3>
+<div class="story-columns"><div class="story-column"><p class="chart-insight">Return to Murrindindi, where the story began with 32 routes. If full or partial access is essential, that list becomes seven recorded possibilities. All seven are marked partial access.</p>
+<p class="chart-narrative">The region has not changed, but the choices relevant to your group have. A long list of walks is useful only when some fit your needs. Comparing grade, distance and access together brings the regional promise closer to a day you could actually plan.</p>
+<p class="chart-reading"><strong>Build a shortlist:</strong> choose a grade and try the access filter. Larger symbols mean longer routes; colour and shape identify grade. Circled A marks the council with the most matches, and B the longest matching route. Symbols locate route midpoints, rather than entrances.</p>
+</div><div class="story-column"><h4 class="map-story-heading">Think about everyone coming along</h4>
+<p class="map-story-text">A companion who needs accessible facilities changes the starting question from “Which walk looks appealing?” to “Which walks describe the access we need?” Across Victoria, the filter keeps 15 routes marked full or partial access. The final chapter looks more closely at that small group.</p>
+<h4 class="map-story-heading">A possibility still needs a closer look</h4>
+<p class="map-story-text">Partial access may apply to only part of a route. Murrindindi’s seven possibilities therefore need more detail before one becomes a plan. The access description matters alongside the distance and grade, rather than being a final yes-or-no answer.</p>
+</div></div></div>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-03" class="chart" aria-label="Proportional symbol map of trail length and grade"></div></div>
+            </article>
+            <article class="chart-card chart-card-wide">
+              <div class="chart-copy">
+<h3>A brief outing has plenty of possibilities</h3>
+<p class="chart-insight">More than half the walks—111 of 195—are listed as taking under an hour. Another 67 fall between one and four hours. Most belong to time categories that leave room for other plans in the day.</p>
+<p class="chart-narrative">That is encouraging if you have an afternoon rather than a weekend. Yet a few routes ask for much more: five take over four hours, two are overnight and five span several days. Choosing a time category helps keep an appealing name on the map from becoming a bigger outing than you intended.</p>
+<p class="chart-reading"><strong>Read the bars:</strong> longer bars mean more walks in that time category. Labels show counts and percentages of all 195 routes. Five routes have no time recorded, shown in orange. Categories describe the published walking time, not an exact finish time or travel to the trail.</p>
+</div>
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-12" class="chart" aria-label="Bar chart of recorded walking-duration categories"></div></div>
+            </article>
+          </div>
+          <article class="chart-card chart-card-wide">
+            <div class="chart-copy">
+<h3>Most walks are short; a few change the scale</h3>
+<p class="chart-insight">About three in four routes—151 of 195—are no longer than 5 km. The middle distance is just 2.2 km. The 95 km Upper Yarra Walking Track sits far beyond what most walks here ask in distance.</p>
+<p class="chart-narrative">There is plenty to explore without choosing one of the longest routes. But remember the 400-metre Douglas Reserve Walk: short can still mean hills and experience advice. A distance that fits your afternoon becomes a useful choice only when the rest of the walk fits too.</p>
+<p class="chart-reading"><strong>Read the dots:</strong> each is one route. Long distances are compressed to give short walks more space; read the kilometre labels rather than judging by equal gaps. The dashed guide marks 5 km. Dots are nudged vertically to keep overlapping routes visible.</p>
+</div>
+
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-09" class="chart" aria-label="Jittered strip plot of trail distances by grade"></div></div>
+          </article>
+          <p class="story-text">The afternoon walk is starting to take shape: somewhere you could visit, a distance and time you can allow, and demands that suit your group. One question still runs through the whole choice. Can everyone coming along use the path?</p>
+          <a class="next-chapter" href="#fit">Next: a suitable distance still does not guarantee accessibility
+            →</a>
+        </div>
+      </section>
+<section id="fit" class="chapter chapter-orange">
+        <div class="wrap">
+          <header class="chapter-head">
+            <span class="chapter-no">04</span>
+            <div>
+              <p class="eyebrow">Make room for everyone coming along</p>
+              <h2>The choice has to work for everyone</h2>
+            </div>
+          </header>
+          <p class="story-text">An inviting walk can still leave someone out. For a person who needs accessible facilities, the important starting point is whether the route describes those facilities at all. Across the whole network, only 15 routes record full or partial access. The generous total of nearly 876 km now looks very different through that person’s needs.</p>
+          <div class="access-layout">
+            <div class="access-message">
+<p class="big-number">8.3%</p>
+<p>15 of 180 rated routes record full or partial access.</p>
+<p>The other 15 routes have no rating and are excluded from this percentage.</p>
+<p class="small-note">The ratings describe published access information. Partial access may cover only some sections or facilities.</p>
+</div>
+            <article class="chart-card orange-card">
+              <div class="chart-copy">
+<h3>A small starting list when access matters</h3>
+<p class="chart-insight">Of the 180 routes with an access rating, 15 record full or partial access—about eight in every hundred. Another 15 routes have no rating and are left out of that percentage.</p>
+<p class="chart-narrative">For someone who needs these features, access belongs near the start of choosing a walk. Finding a beautiful destination and a manageable distance is not enough if a companion cannot use the relevant section. The 15 routes offer a starting list for closer checking, rather than a promise that every one will suit every person.</p>
+<p class="chart-reading"><strong>Read the squares:</strong> imagine 100 routes with access ratings. About eight would record full or partial access, shown in orange. The actual count is 15 out of 180; the picture rounds 8.3% to eight squares.</p>
+</div>
+
+<div class="plot-scroll" tabindex="0" aria-label="Interactive chart"><div id="chart-10" class="chart" aria-label="Waffle chart of disabled access ratings"></div></div>
+            </article>
+          </div>
+          <p class="story-text">For some walks, even the first questions remain open. Fourteen of the 15 routes without an access rating also lack a grade. Someone considering one of those routes has less help judging both its demands and its access. Clear information is part of making a choice possible.</p>
+          <div class="conclusion">
+<p class="eyebrow">What the story tells us</p>
+<h2>A usable walk has to fit a place, a day and a person.</h2>
+<p>Return to the free afternoon that began this story. You started with 195 routes and nearly 876 kilometres. The useful choice emerged through smaller questions: where could you go, what would the ground ask of you, how much time could you give it, and would it work for everyone coming along?</p>
+<p>Most walks here are short, so a modest outing has many possibilities. Those possibilities gather unevenly, and a short distance can still come with steep ground or a need for experience. Where accessible facilities matter, the documented list becomes much smaller again.</p>
+<p>The best walk for your day is not necessarily the longest, the nearest or the one with the lowest grade. It is one whose place, demands, time and access fit together for your group. That is how a line on Victoria’s uneven map becomes a walk you can begin to plan.</p>
+</div>
+        </div>
+      </section>
+<section id="methods" class="methodology"><div class="wrap method-grid">
+<div>
+<p class="eyebrow">Data and method</p>
+<h2>What is included</h2>
+<p>The complete official WFS response retrieved on 23 October 2026 contains 366 recreation-track records. This website includes all 195 marked for walking (w_activity = Y), including MCG. The other 171 records are outside that walking-specific filter. Inclusion follows the published activity flag and does not certify each source record’s quality.</p>
+<p>Grade labels are presentation categories derived from the source walking-grade field: C1–C5 are displayed as Grade 1–5, the numeric value 3 joins Grade 3, C6 remains Unclassified, and missing values remain Unknown. Raw values are preserved. This label normalisation does not independently verify equivalence to every public AWTGS grade.</p>
+</div>
+<div>
+<h3>What was verified</h3>
+<p>Distance, terrain, experience and accessibility match the current official source for every study route. Recorded track codes and duration categories were refreshed directly from that source. All 80 bundled population counts match column D of Table 2 in the ABS 2024–25 LGA workbook (population at 30 June 2025).</p>
+</div>
+<div>
+<h3>Geography and limits</h3>
+<p>Route lines retain every coordinate in the official walking export. Representative points are length-weighted route midpoints. Each full route is assigned to the council containing its midpoint, so cross-boundary routes are counted once. The simplified council boundaries are retained and their vintage remains unverified.</p>
+</div>
+<details class="method-notes"><summary>Original sources and verification evidence</summary><p>The official Victorian WFS service supplied the complete RECWEB_TRACKS export. The original source codes are retained alongside the display-grade labels described above. Categorical duration is not converted to numeric hours. The original extraction history remains unknown.</p>
+<p><a href="data/source_audit.json">Record-by-record source audit</a> · <a href="data/sources.json">Source and verification record</a> · <a href="study/DATA_SOURCES.md">Methods and reproduction instructions</a></p></details>
+<details id="chart-specifications" class="method-notes"><summary>Chart specifications (readable JSON)</summary>
+<p>Each displayed chart is drawn with Vega or Vega-Lite. Open its specification below, or browse the <a href="https://github.com/tsuu0008/FIT3179_visualisation_2/tree/main/charts">chart folder on GitHub</a>.</p>
+<ol>
+<li><a href="charts/01_trail_network.json?v=053531270549">Statewide route map — Vega</a></li>
+<li><a href="charts/02_trail_supply.json?v=f85f820c4975">Council walking kilometres — choropleth map</a></li>
+<li><a href="charts/03_trail_symbols.json?v=b01d0652222e">Walking shortlist — sized-symbol map</a></li>
+<li><a href="charts/04_challenge_heatmap.json?v=6be9a7a0c890">Grade and terrain — heatmap</a></li>
+<li><a href="charts/05_median_distance.json?v=52c27d1a292e">Middle distance by grade — lollipop chart</a></li>
+<li><a href="charts/06_parallel_coordinates.json?v=c97ad95aeaa2">Individual walking profiles — parallel coordinates</a></li>
+<li><a href="charts/07_experience_bars.json?v=c71e5d808ffa">Terrain and experience — stacked bars</a></li>
+<li><a href="charts/08_terrain_mosaic.json?v=26ea810370b1">Walking distance by terrain and grade — mosaic</a></li>
+<li><a href="charts/09_distance_strip.json?v=e79ad7b13ef9">Individual walking distances — strip plot</a></li>
+<li><a href="charts/10_access_waffle.json?v=3b800dc3857a">Recorded access — waffle chart</a></li>
+<li><a href="charts/11_rank_gap.json?v=a67bd9e7f1e1">Population and walking supply positions — rank comparison</a></li>
+<li><a href="charts/12_distance_time.json?v=9cbfad76fe48">Walking time categories — bars</a></li>
+<li><a href="charts/13_region_detail.json?v=1f44bbb574b2">Regional route map</a></li>
+<li><a href="charts/14_trail_grid.json?v=53e31bb18e21">Walking concentration — equal-area grid map</a></li>
+</ol></details>
 </div></section>
-<section id="references" class="references"><div class="wrap"><p class="eyebrow">References</p><h2>Sources behind the story</h2><ol>
+<section id="references" class="references"><div class="wrap">
+<p class="eyebrow">References</p>
+<h2>Sources behind the story</h2>
+<ol>
 <li id="ref-1">Department of Energy, Environment and Climate Action. <a href="https://discover.data.vic.gov.au/dataset/recreation-tracks" target="_blank" rel="noopener noreferrer">Recreation Tracks — DataVic</a>. Official dataset catalogue, checked 23 October 2026. Complete <a href="https://opendata.maps.vic.gov.au/geoserver/wfs?service=WFS&amp;version=2.0.0&amp;request=GetFeature&amp;typeNames=open-data-platform%3Arecweb_tracks&amp;outputFormat=application%2Fjson&amp;srsName=EPSG%3A4326&amp;count=1000">WFS GeoJSON export</a>; <a href="https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24">ArcGIS field reference</a>. All 195 records marked for walking are included.</li>
 <li id="ref-2">Australian Bureau of Statistics. <a href="https://www.abs.gov.au/statistics/people/population/regional-population/2024-25">Regional population, 2024–25</a>. <a href="https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx">LGA workbook</a>, Table 2, column D: population at 30 June 2025.</li>
 <li id="ref-3">Australian Bureau of Statistics. <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">Digital boundary files</a>. The bundled simplified LGA boundary vintage remains unverified.</li>
-<li id="ref-4">Parks Victoria. <a href="https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated">How walking tracks are rated</a>. Background on public Grades 1–5; no conversion from the recorded C1–C6 source codes is asserted.</li>
-</ol></div></section></main>
-<footer><div class="wrap footer-grid"><p><strong>Walking the Uneven Map</strong><br>Created by Tony Su · Updated 23 October 2026</p><p>Built with Vega-Lite and Leaflet. Generative AI assisted with code, editing and design development. The author should review the data transformations and claims before submission.</p><p><a href="submission/DV2sketch.pdf">Original hand-drawn sketch (PDF)</a><br><a href="submission/WHAT_WHY_HOW.md">What / Why / How description</a><br><a href="study/DATA_SOURCES.md">Sources and reproduction instructions</a><br><a href="data/trails.json">Processed trail data</a></p></div></footer>
+<li id="ref-4">Parks Victoria. <a href="https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated">How walking tracks are rated</a>. Background for the public Grade 1–5 guide. The dataset’s display-label normalisation is documented above and is not an independent grade assessment.</li>
+</ol>
+</div></section></main>
+<footer><div class="wrap footer-grid">
+<p><strong>Walking the Uneven Map</strong><br>Created by Tony Su · Updated 23 October 2026</p>
+<p>Built with Vega and Vega-Lite. Generative AI assisted with code, editing and design development. The author should review the data transformations and claims before submission.</p>
+<p><a href="submission/DV2sketch.pdf">Original hand-drawn sketch (PDF)</a><br><a href="submission/WHAT_WHY_HOW.md">What / Why / How description</a><br><a href="study/DATA_SOURCES.md">Sources and reproduction instructions</a><br><a href="#chart-specifications">Chart JSON specifications</a><br><a href="data/trails.json">Processed trail data</a></p>
+</div></footer>
 <!-- These explicit calls insert the charts. The chart JSON files contain their own simple dropdowns. -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script><script>
       // INSERT THE CHARTS: HTML container, then chart JSON file.
-      vegaEmbed("#chart-02", "charts/02_trail_supply.json?v=b482aca1f4f7", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-03", "charts/03_trail_symbols.json?v=1605e3ade1a0", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json?v=d12470ea819b", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-05", "charts/05_median_distance.json?v=bcbb86f9d2a8", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-06", "charts/06_parallel_coordinates.json?v=1483d6b9c33b", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-07", "charts/07_experience_bars.json?v=f8692928dbb8", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-08", "charts/08_terrain_mosaic.json?v=efec32de616f", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-09", "charts/09_distance_strip.json?v=f893919c0da3", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-10", "charts/10_access_waffle.json?v=30304366e4d6", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-11", "charts/11_rank_gap.json?v=650bf320d691", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-12", "charts/12_distance_time.json?v=7c399282ab82", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-14", "charts/14_trail_grid.json?v=2fa86c890df0", {actions: false, renderer: "svg"});
-      vegaEmbed("#detail-map", "charts/13_region_detail.json?v=40a2bed0a9a0", {actions: false, renderer: "svg"});
-</script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="scripts/overview_map.js?v=b129bb1abd2f"></script>
+      vegaEmbed("#chart-02", "charts/02_trail_supply.json?v=f85f820c4975", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-03", "charts/03_trail_symbols.json?v=b01d0652222e", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json?v=6be9a7a0c890", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-05", "charts/05_median_distance.json?v=52c27d1a292e", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-06", "charts/06_parallel_coordinates.json?v=c97ad95aeaa2", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-07", "charts/07_experience_bars.json?v=c71e5d808ffa", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-08", "charts/08_terrain_mosaic.json?v=26ea810370b1", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-09", "charts/09_distance_strip.json?v=e79ad7b13ef9", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-10", "charts/10_access_waffle.json?v=3b800dc3857a", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-11", "charts/11_rank_gap.json?v=a67bd9e7f1e1", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-12", "charts/12_distance_time.json?v=9cbfad76fe48", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-14", "charts/14_trail_grid.json?v=53e31bb18e21", {actions: false, renderer: "svg"});
+      vegaEmbed("#detail-map", "charts/13_region_detail.json?v=1f44bbb574b2", {actions: false, renderer: "svg"});</script>
+<script src="scripts/overview_map.js?v=32b10be06eb3"></script>
 </body>
 </html>
-
-

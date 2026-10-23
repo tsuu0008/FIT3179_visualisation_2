@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 350,
+  "height": 440,
   "background": null,
   "autosize": {
     "type": "fit",
@@ -25,15 +25,31 @@
     }
   },
   "data": {
-    "url": "data/trails.json?v=e01251be5932"
+    "url": "data/trails.json?v=d0f82fb8345d"
   },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "trails"
+        }
+      ],
+      "groupby": [
+        "duration_group"
+      ]
+    },
+    {
+      "calculate": "datum.trails + ' trails · ' + format(datum.trails / 195, '.0%')",
+      "as": "label"
+    }
+  ],
   "layer": [
     {
       "mark": {
-        "type": "boxplot",
-        "extent": 1.5,
-        "size": 18,
-        "color": "#407b73"
+        "type": "bar",
+        "height": 25,
+        "cornerRadiusEnd": 3
       },
       "encoding": {
         "y": {
@@ -49,33 +65,85 @@
           ],
           "title": null,
           "axis": {
-            "labelLimit": 130
+            "labelLimit": 135
           }
         },
         "x": {
-          "field": "length_km",
+          "field": "trails",
           "type": "quantitative",
-          "title": "Recorded distance (km)",
+          "title": "Number of walking routes",
           "scale": {
             "domain": [
               0,
-              100
+              140
             ]
           }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.duration_group === 'Not recorded'",
+            "value": "#D55E00"
+          },
+          "value": "#407b73"
         }
       }
     },
     {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": {
+          "expr": "datum.duration_group === 'Under 1 hour' || datum.duration_group === 'Overnight' ? 32 : 8"
+        },
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "y": {
+          "field": "duration_group",
+          "type": "ordinal",
+          "sort": [
+            "Under 1 hour",
+            "1–4 hours",
+            "Over 4 hours",
+            "Overnight",
+            "Multiple days",
+            "Not recorded"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
+        },
+        "x": {
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "name": "insight_duration_outline",
       "transform": [
         {
-          "filter": "datum.length_km === 95"
+          "filter": "datum.duration_group === 'Under 1 hour' || datum.duration_group === 'Overnight'"
         }
       ],
       "mark": {
-        "type": "point",
-        "size": 110,
+        "type": "bar",
+        "height": 29,
         "filled": false,
-        "stroke": "#D55E00",
+        "stroke": "#b94e13",
         "strokeWidth": 2
       },
       "encoding": {
@@ -89,41 +157,444 @@
             "Overnight",
             "Multiple days",
             "Not recorded"
-          ]
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
         },
         "x": {
-          "field": "length_km",
-          "type": "quantitative"
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "track_code",
-            "title": "Source code"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)",
-            "format": ".2f"
-          },
-          {
-            "field": "duration_group",
-            "title": "Source duration category"
-          },
-          {
-            "field": "gradient",
-            "title": "Terrain"
-          },
-          {
-            "field": "lga",
-            "title": "Council"
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
           }
+        }
+      }
+    },
+    {
+      "name": "review_duration_max",
+      "data": {
+        "values": [
+          {}
         ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 16,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": -66
+        },
+        "text": {
+          "value": "MOST COMMON: UNDER 1 HOUR\n111 routes · 57% of all 195 records\nMost recorded options fit a brief outing."
+        }
+      }
+    },
+    {
+      "name": "review_duration_min",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 16,
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.55"
+          }
+        },
+        "y": {
+          "value": -66
+        },
+        "text": {
+          "value": "LEAST COMMON: OVERNIGHT\n2 routes · 1% of all 195 records\nA small group needs an overnight time commitment."
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_duration_heading_A_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_duration_heading_A_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "text": {
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "duration_group",
+            "equal": "Under 1 hour"
+          }
+        }
+      ],
+      "name": "review_duration_reference_A_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "y": {
+          "field": "duration_group",
+          "type": "ordinal",
+          "sort": [
+            "Under 1 hour",
+            "1–4 hours",
+            "Over 4 hours",
+            "Overnight",
+            "Multiple days",
+            "Not recorded"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
+        },
+        "x": {
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "xOffset": {
+          "value": 12
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "duration_group",
+            "equal": "Under 1 hour"
+          }
+        }
+      ],
+      "name": "review_duration_reference_A_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "duration_group",
+          "type": "ordinal",
+          "sort": [
+            "Under 1 hour",
+            "1–4 hours",
+            "Over 4 hours",
+            "Overnight",
+            "Multiple days",
+            "Not recorded"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
+        },
+        "x": {
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "xOffset": {
+          "value": 12
+        },
+        "text": {
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_duration_heading_B_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.55-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "name": "review_duration_heading_B_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*.55-14"
+          }
+        },
+        "y": {
+          "value": -60
+        },
+        "text": {
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "duration_group",
+            "equal": "Overnight"
+          }
+        }
+      ],
+      "name": "review_duration_reference_B_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#b94e13",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "y": {
+          "field": "duration_group",
+          "type": "ordinal",
+          "sort": [
+            "Under 1 hour",
+            "1–4 hours",
+            "Over 4 hours",
+            "Overnight",
+            "Multiple days",
+            "Not recorded"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
+        },
+        "x": {
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "xOffset": {
+          "value": 12
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "duration_group",
+            "equal": "Overnight"
+          }
+        }
+      ],
+      "name": "review_duration_reference_B_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#b94e13",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "duration_group",
+          "type": "ordinal",
+          "sort": [
+            "Under 1 hour",
+            "1–4 hours",
+            "Over 4 hours",
+            "Overnight",
+            "Multiple days",
+            "Not recorded"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 135
+          }
+        },
+        "x": {
+          "field": "trails",
+          "type": "quantitative",
+          "title": "Number of walking routes",
+          "scale": {
+            "domain": [
+              0,
+              140
+            ]
+          }
+        },
+        "xOffset": {
+          "value": 12
+        },
+        "text": {
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
       }
     }
   ],
-  "description": "Distance distributions within official duration categories. Boxes show the middle half of distances and a median line; no exact hours are inferred."
+  "description": "Duration categories in plain counts, including all 195 walking records. Labels state counts and shares; no statistical knowledge or inferred exact hours is required.",
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
+  },
+  "padding": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  }
 }

@@ -1,8 +1,8 @@
-// Vega-Lite specification with versioned source-data URLs.
+// Vega/Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 680,
+  "height": 650,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -16,16 +16,15 @@
         "input": "select",
         "options": [
           "All",
-          "C1",
-          "C2",
-          "C3",
-          "C4",
-          "C5",
-          "C6",
-          "3",
+          "Grade 1",
+          "Grade 2",
+          "Grade 3",
+          "Grade 4",
+          "Grade 5",
+          "Unclassified",
           "Unknown"
         ],
-        "name": "Track code: "
+        "name": "Grade: "
       }
     },
     {
@@ -47,10 +46,10 @@
       "expr": "[mapFrame[0],mapFrame[1]]"
     },
     "scale": {
-      "expr": "min((width-28)/mapFrame[2],(height-154)/mapFrame[3])"
+      "expr": "min(max(width-300,300)/mapFrame[2],(height-70)/mapFrame[3])"
     },
     "translate": {
-      "expr": "[width/2,(height-154)/2]"
+      "expr": "[width/2,(height-70)/2]"
     }
   },
   "layer": [
@@ -72,11 +71,11 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -111,7 +110,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + ' · ' + datum.n + ' matching routes\\nLargest council cluster\\nHighlights where more choices concentrate.\\nCount covers the whole council.'",
           "as": "annotation"
         },
         {
@@ -170,7 +169,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "mark": {
         "type": "point",
@@ -225,17 +224,16 @@
           }
         },
         "color": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -245,11 +243,10 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
-              "#ad6f3b",
               "#9daca9"
             ]
           },
-          "title": "Track code",
+          "title": "Recorded grade",
           "legend": {
             "columns": 2,
             "direction": "horizontal",
@@ -277,26 +274,29 @@
             "format": ".1f"
           },
           {
-            "field": "track_code",
-            "title": "Track code"
+            "field": "grade",
+            "title": "Grade"
           },
           {
             "field": "access",
             "title": "Disabled access"
+          },
+          {
+            "field": "closure",
+            "title": "Recorded route status"
           }
         ],
         "shape": {
-          "field": "track_code",
+          "field": "grade",
           "type": "nominal",
           "scale": {
             "domain": [
-              "C1",
-              "C2",
-              "C3",
-              "C4",
-              "C5",
-              "C6",
-              "3",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Unclassified",
               "Unknown"
             ],
             "range": [
@@ -306,7 +306,6 @@
               "diamond",
               "cross",
               "triangle-down",
-              "triangle-right",
               "triangle-left"
             ]
           },
@@ -325,23 +324,32 @@
             "titleFontSize": 11,
             "columnPadding": 12
           },
-          "title": "Track code"
+          "title": "Recorded grade"
         }
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         }
       ],
       "name": "trailSymbols"
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
         },
         {
           "window": [
@@ -380,7 +388,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median: a longer commitment.' : 'Matches the median: no length contrast.')",
           "as": "annotation"
         },
         {
@@ -414,11 +422,20 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
         },
         {
           "window": [
@@ -457,17 +474,17 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median\\nAn unusually long outing.' : 'Matches the middle distance.')",
           "as": "annotation"
         }
       ],
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 16,
         "color": "#5B2C83",
         "align": "left",
         "baseline": "top"
@@ -475,12 +492,12 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-260"
+            "expr": "width-153"
           }
         },
         "y": {
           "value": {
-            "expr": "height-70"
+            "expr": "height*.29"
           }
         },
         "text": {
@@ -490,11 +507,11 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -529,7 +546,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + '\\n' + datum.n + (datum.n === 1 ? ' matching route' : ' matching routes') + '\\nLargest council cluster\\nMore choices concentrate\\nin this council area.'",
           "as": "annotation"
         },
         {
@@ -549,10 +566,10 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": 600,
         "lineBreak": "\n",
-        "lineHeight": 15,
+        "lineHeight": 16,
         "color": "#355b72",
         "align": "left",
         "baseline": "top"
@@ -560,12 +577,12 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-260"
+            "expr": "width-245"
           }
         },
         "y": {
           "value": {
-            "expr": "height-132"
+            "expr": "height-150"
           }
         },
         "text": {
@@ -575,11 +592,11 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "calculate": "((chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
+          "calculate": "((chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
           "as": "match"
         },
         {
@@ -619,11 +636,11 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -658,7 +675,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + ' · ' + datum.n + ' matching routes\\nLargest council cluster\\nHighlights where more choices concentrate.\\nCount covers the whole council.'",
           "as": "annotation"
         },
         {
@@ -679,10 +696,10 @@
         "type": "point",
         "shape": "circle",
         "filled": true,
-        "size": 240,
+        "size": 250,
         "fill": "white",
         "stroke": "#355b72",
-        "strokeWidth": 1.6,
+        "strokeWidth": 1.7,
         "opacity": 1
       },
       "encoding": {
@@ -699,11 +716,11 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -738,7 +755,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + ' · ' + datum.n + ' matching routes\\nLargest council cluster\\nHighlights where more choices concentrate.\\nCount covers the whole council.'",
           "as": "annotation"
         },
         {
@@ -786,11 +803,20 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
         },
         {
           "window": [
@@ -829,7 +855,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median: a longer commitment.' : 'Matches the median: no length contrast.')",
           "as": "annotation"
         },
         {
@@ -845,10 +871,10 @@
         "type": "point",
         "shape": "circle",
         "filled": true,
-        "size": 240,
+        "size": 250,
         "fill": "white",
         "stroke": "#5B2C83",
-        "strokeWidth": 1.6,
+        "strokeWidth": 1.7,
         "opacity": 1
       },
       "encoding": {
@@ -865,11 +891,20 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
         },
         {
           "window": [
@@ -908,7 +943,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median: a longer commitment.' : 'Matches the median: no length contrast.')",
           "as": "annotation"
         },
         {
@@ -948,160 +983,237 @@
       "name": "routeNumber"
     },
     {
-      "name": "symbolFooterBBadge",
+      "name": "insight_filtered_concentration",
       "data": {
-        "url": "data/trails.json?v=e01251be5932"
+        "url": "data/trails.json?v=d0f82fb8345d"
       },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
-          "window": [
+          "calculate": "datum.longitude > 145 ? 1 : 0",
+          "as": "east"
+        },
+        {
+          "aggregate": [
             {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
+              "op": "count",
+              "as": "n"
             },
             {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.rank === 1"
-        },
-        {
-          "lookup": "id",
-          "from": {
-            "data": {
-              "url": "data/route_label_points.json?v=5097fd9f4489"
-            },
-            "key": "id",
-            "fields": [
-              "name_label"
-            ]
-          },
-          "as": [
-            "annotation_name"
-          ]
-        },
-        {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": true,
-        "size": 240,
-        "fill": "white",
-        "stroke": "#5B2C83",
-        "strokeWidth": 1.6,
-        "opacity": 1
-      },
-      "encoding": {
-        "x": {
-          "value": {
-            "expr": "width-274"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height-64"
-          }
-        }
-      }
-    },
-    {
-      "name": "symbolFooterBLetter",
-      "data": {
-        "url": "data/trails.json?v=e01251be5932"
-      },
-      "transform": [
-        {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
+              "op": "sum",
+              "field": "east",
+              "as": "east_n"
             }
           ]
         },
         {
-          "filter": "datum.rank === 1"
+          "filter": "datum.n > 0"
         },
         {
-          "lookup": "id",
-          "from": {
-            "data": {
-              "url": "data/route_label_points.json?v=5097fd9f4489"
-            },
-            "key": "id",
-            "fields": [
-              "name_label"
-            ]
-          },
-          "as": [
-            "annotation_name"
-          ]
-        },
-        {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
-          "as": "annotation"
+          "calculate": "datum.east_n + ' of ' + datum.n + ' matching points east of 145°E.\\nHighlights the geographic concentration.\\nCounts refer to representative route points.'",
+          "as": "note"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 10,
-        "fontWeight": 700,
-        "baseline": "middle",
-        "align": "center",
-        "color": "#5B2C83"
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "color": "#24443f"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-274"
+            "expr": "width-267"
+          }
+        },
+        "y": {
+          "value": 4
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json?v=5097fd9f4489"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median\\nAn unusually long outing.' : 'Matches the middle distance.')",
+          "as": "annotation"
+        }
+      ],
+      "data": {
+        "url": "data/trails.json?v=d0f82fb8345d"
+      },
+      "name": "review_symbol_heading_B_circle",
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "fill": "white",
+        "stroke": "#5B2C83",
+        "strokeWidth": 1.7,
+        "size": 250
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-167"
           }
         },
         "y": {
           "value": {
-            "expr": "height-64"
+            "expr": "height*.29+5"
+          }
+        },
+        "tooltip": {
+          "value": "Annotation B"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "matched_median"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json?v=5097fd9f4489"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route\\n' + (datum.length_km > datum.matched_median ? format(datum.length_km/datum.matched_median,'.1f') + '× matching median\\nAn unusually long outing.' : 'Matches the middle distance.')",
+          "as": "annotation"
+        }
+      ],
+      "data": {
+        "url": "data/trails.json?v=d0f82fb8345d"
+      },
+      "name": "review_symbol_heading_B_letter",
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#5B2C83",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-167"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height*.29+5"
           }
         },
         "text": {
           "value": "B"
+        },
+        "tooltip": {
+          "value": "Annotation B"
         }
       }
     },
     {
-      "name": "symbolFooterABadge",
-      "data": {
-        "url": "data/trails.json?v=e01251be5932"
-      },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -1136,7 +1248,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + '\\n' + datum.n + (datum.n === 1 ? ' matching route' : ' matching routes') + '\\nLargest council cluster\\nMore choices concentrate\\nin this council area.'",
           "as": "annotation"
         },
         {
@@ -1153,37 +1265,39 @@
           }
         }
       ],
+      "data": {
+        "url": "data/trails.json?v=d0f82fb8345d"
+      },
+      "name": "review_symbol_heading_A_circle",
       "mark": {
         "type": "point",
         "shape": "circle",
         "filled": true,
-        "size": 240,
         "fill": "white",
         "stroke": "#355b72",
-        "strokeWidth": 1.6,
-        "opacity": 1
+        "strokeWidth": 1.7,
+        "size": 250
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-274"
+            "expr": "width-259"
           }
         },
         "y": {
           "value": {
-            "expr": "height-126"
+            "expr": "height-145"
           }
+        },
+        "tooltip": {
+          "value": "Annotation A"
         }
       }
     },
     {
-      "name": "symbolFooterALetter",
-      "data": {
-        "url": "data/trails.json?v=e01251be5932"
-      },
       "transform": [
         {
-          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -1218,7 +1332,7 @@
           "filter": "datum.rank === 1"
         },
         {
-          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nCount covers whole area'",
+          "calculate": "datum.lga + '\\n' + datum.n + (datum.n === 1 ? ' matching route' : ' matching routes') + '\\nLargest council cluster\\nMore choices concentrate\\nin this council area.'",
           "as": "annotation"
         },
         {
@@ -1235,27 +1349,93 @@
           }
         }
       ],
+      "data": {
+        "url": "data/trails.json?v=d0f82fb8345d"
+      },
+      "name": "review_symbol_heading_A_letter",
       "mark": {
         "type": "text",
         "fontSize": 10,
         "fontWeight": 700,
-        "baseline": "middle",
+        "color": "#355b72",
         "align": "center",
-        "color": "#355b72"
+        "baseline": "middle"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-274"
+            "expr": "width-259"
           }
         },
         "y": {
           "value": {
-            "expr": "height-126"
+            "expr": "height-145"
           }
         },
         "text": {
           "value": "A"
+        },
+        "tooltip": {
+          "value": "Annotation A"
+        }
+      }
+    },
+    {
+      "name": "review_selection_context",
+      "data": {
+        "url": "data/trails.json?v=d0f82fb8345d"
+      },
+      "transform": [
+        {
+          "filter": "(chosenCode === 'All' || datum.grade === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            },
+            {
+              "op": "sum",
+              "field": "length_km",
+              "as": "km"
+            },
+            {
+              "op": "median",
+              "field": "length_km",
+              "as": "middle"
+            }
+          ]
+        },
+        {
+          "filter": "datum.n > 0"
+        },
+        {
+          "calculate": "'CURRENT SELECTION\\n' + datum.n + (datum.n === 1 ? ' route · ' : ' routes · ') + format(datum.km,'.1f') + ' km\\nMiddle distance: ' + format(datum.middle,'.1f') + ' km\\nCompare A and B with\\nthis matching set.'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "lineHeight": 16,
+        "lineBreak": "\n",
+        "color": "#24443f"
+      },
+      "encoding": {
+        "x": {
+          "value": 12
+        },
+        "y": {
+          "value": {
+            "expr": "height*.60"
+          }
+        },
+        "text": {
+          "field": "note"
         }
       }
     }
@@ -1305,5 +1485,8 @@
     "legend": {
       "size": "independent"
     }
+  },
+  "usermeta": {
+    "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
   }
 }
