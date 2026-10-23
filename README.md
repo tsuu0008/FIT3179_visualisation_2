@@ -1,55 +1,33 @@
-# Walking the Uneven Map — annotated revision
+# Walking the Uneven Map
 
-Updated **23 October 2026** (criteria and readability refinement). All 14 Vega-Lite views include direct explanatory annotations. Grade colours are blue, amber, teal, magenta and charcoal; point charts also use distinct symbols. Laptop layouts resize plots and stack comparison cards to keep labels visible without horizontal scrolling.
+Victoria walking-track visualisation by Tony Su, FIT3179. Updated 23 October 2026.
 
-Open `index.html` with **VS Code Live Server**. The site remains buildless HTML, CSS and Vega-Lite JSON specifications. No bundler or custom chart event handler is required.
+- [Live website](https://tsuu0008.github.io/FIT3179_visualisation_2/)
+- [Original hand-drawn sketch](submission/DV2sketch.pdf)
+- [What / Why / How submission description](submission/WHAT_WHY_HOW.md)
+- [Source verification](study/DATA_SOURCES.md)
 
-## Data status
+## Coverage and corrections
 
-**The 194 existing trail observations were retained. This is not a fresh official-data download.** The official layer and ABS source/download links were checked, but export requests failed in the editing environment. Original trail extraction history and the bundled boundary vintage remain unverified. See [source instructions](study/DATA_SOURCES.md) and [machine-readable status](data/sources.json).
+All **195 records marked for walking** in the official Recreation Tracks export are included, including MCG. The full recreation dataset has 366 records; 171 are not marked for walking. The previous 194-route sample has been superseded.
 
-Derived tables were rebuilt reproducibly from the retained inputs. Mosaic group distances retain full precision; rounding occurs in displayed labels only. The exact trail-distance sum is 871.905 km and the median is 2.15 km; headline display rounds those to 872 km and 2.2 km.
+The first map uses Leaflet, OpenStreetMap basemap tiles and full official route coordinates. Zoom, pan, select a named route or click a line to inspect its path. Blue shows all routes; orange identifies the selected route. The regional route map uses the same official geometry. Thirteen additional Vega-Lite views compare place, supply, route demands and access.
+
+The source codes C1-C6 and MCG's literal value `3` remain separate categories. No public walking grade is inferred. Duration comparisons use source categories; 194 records have no numeric hours and MCG records five hours. Fifteen of 180 access-rated routes record full or partial access (8.3%); 15 are unrated.
+
+Route points are calculated from official geometry using a length-weighted midpoint. Councils are assigned using that midpoint and the bundled polygons. Upper Yarra Walking Track therefore moves from its old Baw Baw assignment to Yarra Ranges. Council boundary vintage remains unverified; a crossing route is counted once rather than split by boundary.
+
+## Preview and reproduce
+
+Serve this directory with VS Code Live Server or `python3 -m http.server 8765`, then open http://localhost:8765/ . Basemap tiles and chart/map libraries need internet access. No build step is required.
 
 ```bash
-python scripts/rebuild_data.py
+python3 scripts/verify_official_sources.py official_export.geojson data/raw/abs_population_2025.json
+python3 scripts/rebuild_data.py
+python3 scripts/prepare_verified_charts.py
+python3 scripts/version_assets.py
 ```
 
-The downloader and importer can retrieve and process a complete official WGS84 trail export in an environment with access to the service. Review updated annotation values, chart domains, dropdowns and narrative claims before publishing a changed observation dataset.
+The archived official export is `data/raw/official_recweb_tracks_20261023.geojson.gz`; decompress it to obtain `official_export.geojson`. The verifier checks the full response, source units, unique names, existing comparison attributes and all 80 ABS population values. The audit stores the source response hash and record-level evidence. `scripts/overview_map.js` implements the first map; the remaining displayed charts are in `charts/`.
 
-## Main files
-
-| File | Purpose |
-| --- | --- |
-| index.html | Narrative, grade guide, source references and 14 embed calls. |
-| styles.css | Layout, chart sizing and responsive styles. |
-| charts/*.json | Displayed Vega-Lite specifications, controls and annotations. |
-| data/* | Retained observations/geometry, rebuilt plotting tables, sources and statistics. |
-| scripts/rebuild_data.py | Reproducible plotting-table derivations and optional official GeoJSON import. |
-| scripts/download_official_tracks.py | Complete official walking-track export using batched IDs. |
-| study/DATA_SOURCES.md | Exact source links, verification limits and refresh instructions. |
-| study/DATA_AND_CAVEATS.md | Denominators, encodings, annotation and verification notes. |
-| study/annotated_charts/*.jsonc | Study copies matching the actual displayed charts. |
-
-Local chart controls affect their own plot. Returning to All/All Victoria/None clears the corresponding selection. The surrounding narrative describes the retained snapshot.
-
-## Map and selection refinement
-
-- Equal-width statewide and regional overview panels; concise explanation balanced with the supply map, plus a compact coverage-and-legend footer.
-- Full-width rank comparison with a 1–31 rank range, gridlines and direct row annotations; heatmap leader ends at the cell border.
-- Unboxed map annotations keep text clear of routes and light council boundaries. The final map groups its callouts to the right of its grade and distance legends, using matching numbered geographic markers instead of long leader lines. Regional pointers identify an LGA using a geometry-derived interior anchor; the final symbol map highlights the actual council polygon. Local trail pointers sit on displayed route geometry.
-- Parallel coordinates has a visible grade legend, all 194 named trail choices, Longest matching, and grade/area/time filters with live counts and empty-state messages.
-- `scripts/prepare_map_annotations.py` prepares geographic label anchors and map frames, and runs during the data rebuild.
-
-## Criteria refinement
-
-A fixed 25 km equal-area grid adds a fourth geographic idiom: counts of trail midpoints in equal-size cells. It contains all 194 retained trails across 65 occupied cells, with 13 in the busiest cell. Run `python scripts/prepare_grid_map.py` to rebuild this derived file; the original inputs are not changed.
-
-Reading instructions explain the more complex encodings beside their charts. Annotations interpret highlighted patterns, and the access panel states both the rated denominator and rounding. The first overview stays in equal-width panels on desktop. Browser checks at 1280 px and 1024 px found all 14 views visible without horizontal plot overflow or text clipped by their SVG frames.
-
-See [criteria review](study/CRITERIA_CHECK.md) for the idiom inventory and remaining submission responsibilities.
-
-## Visible bin grid and balanced comparison cards
-
-The square bin map now draws the complete 25 km grid over land, with a pale zero-recorded category and darker occupied bins. The grid is clipped to the existing Victoria outline; trail assignments and counts are unchanged. A compact side-by-side narrative and map replaces the previous full-width map card. Paired comparison cards share text and chart rows, matching their top and bottom edges on desktop; narrow screens stack them.
-
-After chart or stylesheet edits, run `python scripts/version_assets.py` before publishing. The HTML uses content-based asset versions to prevent an older chart or stylesheet remaining cached. The original data and source URLs are unaffected.
+The original two-page sketch is copied unchanged to its submission link. Transfer the prepared description into the unit's official submission template after review. This local revision does not itself publish or submit the work.

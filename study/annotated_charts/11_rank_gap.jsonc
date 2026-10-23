@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -54,7 +54,7 @@
           "scale": {
             "domain": [
               0,
-              32
+              33
             ],
             "nice": false
           },
@@ -67,7 +67,7 @@
               20,
               25,
               30,
-              31
+              32
             ],
             "grid": true,
             "gridColor": "#ccd6d2",
@@ -110,7 +110,7 @@
           "scale": {
             "domain": [
               0,
-              32
+              33
             ],
             "nice": false
           }
@@ -333,5 +333,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Full-width rank comparison on a 1–31 rank range, with row and rank gridlines and direct annotations above the two highlighted rows."
+  "description": "Population and resident-adjusted walking supply ranks among 32 councils with walking records."
 }

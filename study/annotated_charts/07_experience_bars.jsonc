@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -267,5 +267,5 @@
     "right": 18,
     "bottom": 5
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Track code colours are consistent across charts."
 }

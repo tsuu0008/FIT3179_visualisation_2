@@ -1,49 +1,38 @@
-# Data sources and verification — 23 October 2026
+# Sources and reproducibility - 23 October 2026
 
-The website still uses its retained 194 trail observations. This revision rebuilds plotting tables from those inputs; **it is not a fresh official-data download**. The official layer and walking field definitions were checked again on 23 October 2026. A new export request returned HTTP 403; the web retrieval tool also could not retrieve the query response. No original download date or complete match against the official observations can be certified.
+## Official walking records
 
-| Input | Official source | Verification status |
-| --- | --- | --- |
-| Walking routes and attributes | [DEECA State Forest Recreation Tracks, layer 24](https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24) | Layer and relevant field definitions confirmed; retained observations and geometry not fully compared. |
-| Population at 30 June 2025 | [ABS Regional population, 2024–25](https://www.abs.gov.au/statistics/people/population/regional-population/2024-25) | Publication and LGA workbook link confirmed; retained population values not compared against the workbook. |
-| LGA boundaries | [ABS Digital boundary files, Edition 3](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files) | A 2025 shapefile is available. The bundled geometry's vintage remains unknown. |
-| Grade explanations | [Parks Victoria, How walking tracks are rated](https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated) | Explanatory reference, not an observation dataset. |
+Catalogue: https://discover.data.vic.gov.au/dataset/recreation-tracks . DataVic lists a last update of 23 October 2026 and daily updates.
 
-The old DataVic dataset URL returned 404 when opened. The references now link to the official ArcGIS service instead. A source link alone does not establish that the existing file was downloaded from it.
+Endpoint: https://opendata.maps.vic.gov.au/geoserver/wfs . Query: `service=WFS`, `version=2.0.0`, `request=GetFeature`, `typeNames=open-data-platform:recweb_tracks`, `outputFormat=application/json`, `srsName=EPSG:4326`, `count=1000`.
 
-## Direct official downloads
+The complete response contains 366 recreation records. Every record with `w_activity=Y` is included: **195 walking records**, including MCG. No walking record is excluded. The previous 194-route sample is superseded. Source classifications are preserved as published; inclusion is not a data-quality certification.
 
-- [Population estimates and components by LGA, 2024 to 2025 — XLSX](https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx)
-- [2025 LGA boundaries, GDA2020 — ZIP](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip)
-- [Trail query form](https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24/query): set Where to `W_ACTIVITY='Y'`, Out Fields to `*`, Return Geometry to `true`, Out Spatial Reference to `4326`, and Format to `GeoJSON`. Confirm the response is complete rather than a truncated first page.
+Full official geometry is copied without file-level simplification. The first map uses Leaflet with `smoothFactor: 0` and an OpenStreetMap basemap so its route linework can be inspected by zooming. The blue network and orange selected route do not encode difficulty. Other charts use the source-code categories.
 
-The official trail fields are `NAME`, `W_ACTIVITY`, `W_DISTANCE`, `W_DISTUOM`, `W_GRADE`, `W_GRADIENT`, `W_EXPERT`, `W_TIME`, `W_TIMEUOM`, and `DIS_ACCESS`. Distances and durations must be interpreted with their unit fields; missing duration is not zero.
+C1-C6 and MCG's literal code `3` are distinct. Numeric hours are missing for 194 records; MCG records five hours. All duration comparisons use the actual categories, without inferring hours from a category.
 
-## Reproduce the current derived tables
+Route midpoints use an approximate length-weighted calculation on longitude/latitude segments, with longitude scaled by cosine of segment latitude. Each full route is assigned once to the bundled council polygon containing its midpoint. This reproducible rule moves Upper Yarra Walking Track from the old Baw Baw assignment to Yarra Ranges. Routes crossing council boundaries are not split. The bundled polygon vintage remains unverified.
 
-From the project directory, with Python 3:
+The compressed raw response, source hash, processed records and full route geometry are preserved in `data/raw/official_recweb_tracks_20261023.geojson.gz`, `data/source_audit.json`, `data/trails.json` and `data/trails.geojson`.
 
-```bash
-python scripts/rebuild_data.py
-```
+## Population and basemap
 
-This recalculates regional kilometre totals, per-resident supply and ranks, exact mosaic areas, parallel-coordinate positions, strip offsets, waffle cells and summary statistics. It retains the existing trail observations, population and boundary geometry. The mosaic now retains exact group sums instead of storing rounded numbers as measurements. Strip offsets only separate overlapping marks; they are not observations.
+ABS publication: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25 . Workbook: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx . All 80 bundled resident counts match Table 2, column D (30 June 2025). The original workbook and extracted counts are preserved under `data/raw/`. Area, density and growth values are not separately certified by that count comparison.
 
-## Import a complete official trail export
+Council boundary source: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files . This reference does not establish the vintage of the bundled polygons.
+
+Basemap: https://www.openstreetmap.org/copyright . Standard HTTPS tile requests use the browser cache, visible attribution and normal browser referrer; no tile bulk download or prefetch is implemented. Leaflet: https://leafletjs.com/ . Basemap content and route data have separate sources.
+
+## Reproduce
+
+Decompress the official archive to `official_export.geojson`, then run:
 
 ```bash
-python scripts/download_official_tracks.py /tmp/official-tracks.geojson
-python scripts/rebuild_data.py --official-trails /tmp/official-tracks.geojson
+python3 scripts/verify_official_sources.py official_export.geojson data/raw/abs_population_2025.json
+python3 scripts/rebuild_data.py
+python3 scripts/prepare_verified_charts.py
+python3 scripts/version_assets.py
 ```
 
-Alternatively, download GeoJSON manually using the query form and pass its path to the second command. The downloader retrieves IDs first and then batches them, checks completeness, and stops on errors. An import retains the original export and its SHA-256 digest, records the import time, converts known units, assigns route midpoints to the retained LGA geometry, and rejects ambiguous spatial assignments or unrecognised units/categories. The import time is not a publication or observation date.
-
-An official trail import does not verify or refresh population or boundaries. Match the ABS workbook to LGA codes and record the chosen boundary vintage separately before treating the entire project as verified.
-
-**After any observation update, review chart annotations, fixed scale domains, dropdown options, and narrative statistics before publishing.** The present chart annotations describe the retained snapshot; these are intentionally not labelled as live-data findings.
-
-See [sources.json](../data/sources.json) for machine-readable status. The original raw-data processing and simplification history remain unavailable.
-
-## Retained inputs and source evidence
-
-The expandable “Original trail source and verification” section on the website links the official layer, export form, retained table and route geometry. It maps the official field names to the displayed attributes. `data/sources.json` records SHA-256 fingerprints of the unchanged retained trail files. These fingerprints establish which local snapshot is displayed; they do not establish official provenance. Do not describe the records as verified until a complete official comparison succeeds.
+The legacy ArcGIS downloader is an optional alternative utility. The verifier expects the documented lower-case WFS schema. Check any future source changes before publishing, and update the narrative if totals or categories change.

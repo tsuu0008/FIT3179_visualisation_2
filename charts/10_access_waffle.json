@@ -171,7 +171,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 179 rated trails\n8.4% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
+          "value": "15 of 180 rated trails\n8.3% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
         }
       },
       "data": {
@@ -202,7 +202,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 179 rated trails\n8.4% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
+          "value": "15 of 180 rated trails\n8.3% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
         }
       },
       "data": {
@@ -254,5 +254,5 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts."
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Track code colours are consistent across charts."
 }

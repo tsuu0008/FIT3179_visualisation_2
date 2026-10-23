@@ -1,47 +1,8 @@
-# Start here: three things to understand
+# Submission links and evidence
 
-## 1. HTML provides a place
+1. Website: https://tsuu0008.github.io/FIT3179_visualisation_2/
+2. Original sketch: https://tsuu0008.github.io/FIT3179_visualisation_2/submission/DV2sketch.pdf
+3. Description: [WHAT_WHY_HOW.md](../submission/WHAT_WHY_HOW.md), for transfer into the official template.
+4. Source methods: [DATA_SOURCES.md](DATA_SOURCES.md) and [audit](../data/source_audit.json).
 
-```html
-<div id="chart-04"></div>
-```
-
-This is an empty box with a unique name.
-
-## 2. Vega-Embed inserts a chart
-
-At the bottom of index.html, search for **INSERT THE CHARTS**:
-
-```js
-vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", {actions: false, renderer: "svg"});
-```
-
-Read it as: **draw this JSON chart inside this HTML box**.
-
-- `#chart-04` matches the div id.
-- The second argument is the chart file.
-- `actions: false` hides the three-dot menu.
-- `renderer: "svg"` draws a sharp vector chart.
-
-This one-line function call is JavaScript, even though it is inside HTML. It is the only kind of JavaScript you need to read in this page.
-
-The three scripts immediately above it load Vega, Vega-Lite and Vega-Embed. Loading those libraries does not insert a particular chart. The embed call does that. The JSON's `$schema` link identifies the JSON grammar; it does not load the drawing library.
-
-## 3. JSON describes what to draw
-
-Read these keys in order:
-
-| Key | Plain meaning |
-| --- | --- |
-| data | Where are the records? |
-| transform | Filter, count or calculate something. |
-| mark | Draw a bar, point, line, shape or text. |
-| encoding | Map fields to position, colour, size or text. |
-| layer | Draw several things over one another. Later layers appear on top. |
-| params | A value the reader can change, such as a grade. |
-| config | Fonts, axes and legends. |
-
-Start with chart 05: a rule and dot show each grade's median distance; a text layer adds its value. Then inspect chart 04: rectangles show counts, and text shows the same numbers.
-
-Open the website through **Live Server**, not by double-clicking the HTML. JSON files can be edited directly; reload afterwards. No rebuild command is needed.
-
+The local revision includes all 195 official walking records, full route geometry, a zoomable overview and recalculated midpoint-based council statistics. The original two-page sketch is unchanged. Review the final work before publishing and submitting the required Moodle template.

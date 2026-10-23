@@ -1,30 +1,62 @@
 {
   "review_date": "2026-10-23",
   "trail_records": {
-    "status": "retained-snapshot-unverified-lineage",
-    "source": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24",
-    "dataset_title": "State Forest Recreation Tracks",
-    "publisher": "Victorian Government / DEECA",
-    "record_count": 194,
-    "note": "Official layer and field definitions checked on 23 October 2026. A new export attempt returned HTTP 403; no complete record-level comparison or fresh download is claimed. The retained observations and original source are unchanged. The original extraction date and transformation history remain unavailable.",
-    "service_checked": "2026-10-23",
-    "service_status": "verified-layer-and-field-definitions",
-    "record_comparison_status": "not-completed-export-request-http-403",
-    "query_form": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24/query",
-    "export_geojson": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24/query?where=W_ACTIVITY%3D%27Y%27&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
-    "local_processed_data": "trails.json",
-    "local_route_geometry": "trails.geojson",
+    "status": "all-official-walking-records-imported",
+    "source": "https://opendata.maps.vic.gov.au/geoserver/wfs",
+    "feature_type": "open-data-platform:recweb_tracks",
+    "arcgis_field_reference": "https://maps.ffm.vic.gov.au/arcgis/rest/services/land_class_use_culture/MapServer/24",
+    "record_count": 195,
+    "official_export_total": 366,
+    "official_walking_records": 195,
+    "scope": "All 195 official records with w_activity='Y', including MCG; the other 171 recreation records are outside this walking filter.",
+    "matched_by": "Official source feature ID and unique route name",
+    "raw_export_sha256": "f94abbb59c421c9d7a6469ca12db3baf2d53c2dd7ede4cc0e78733bb7452edca",
+    "raw_export": "raw/official_recweb_tracks_20261023.geojson.gz",
+    "audit": "source_audit.json",
+    "verified_fields": [
+      "distance in km",
+      "terrain",
+      "experience",
+      "accessibility"
+    ],
+    "refreshed_fields": [
+      "source track code",
+      "duration category",
+      "numeric hours where explicitly recorded",
+      "closure status",
+      "full geometry",
+      "route midpoint",
+      "midpoint council assignment"
+    ],
+    "numeric_duration": "194 records have no numeric hours; MCG records 5 hours. All duration charts use source categories.",
+    "public_grades": "C1-C6 and literal source code 3 are kept distinct; no conversion to public Grades 1-5.",
     "retained_file_sha256": {
-      "trails.json": "dfa80cc6be5dd987db06d3eaaba7f2f142484d912899d40760e7d80100d2ee59",
-      "trails.geojson": "0735d8c737af5b31f7b9e68e94353e31f94ececeaa03ee0a31e7350db660eb9c"
-    }
+      "trails.json": "e01251be59328cce60c307d15ace3969812da9e6b993572cc979fc913b6183f1",
+      "trails.geojson": "f714013dd937349c62c9c931967e267f6949b63b4663c06c3bd9388829a125f3"
+    },
+    "limits": [
+      "Bundled LGA boundary vintage remains unverified.",
+      "Midpoint council assignment does not divide cross-boundary routes among councils.",
+      "Source classifications are preserved as published; inclusion is not a quality certification."
+    ],
+    "catalogue": "https://discover.data.vic.gov.au/dataset/recreation-tracks",
+    "catalogue_last_updated": "2026-10-23",
+    "update_frequency": "Daily",
+    "geometry": "Full official coordinates, without file-level simplification",
+    "representative_points": "Length-weighted midpoint along official route geometry",
+    "council_assignment": "Bundled polygon containing the route midpoint; a crossing route is assigned once"
   },
   "population": {
-    "status": "retained-values-unverified-against-workbook",
+    "status": "verified-all-80-bundled-counts-match-official-workbook",
     "reference_period": "30 June 2025",
     "source": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25",
     "download": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx",
-    "table": "Population estimates and components by LGA, 2024 to 2025"
+    "table": "Table 2, column D (ERP at 30 June 2025)",
+    "checked_date": "2026-10-23",
+    "matched_counts": 80,
+    "local_workbook": "raw/ABS_LGA_2024-25.xlsx",
+    "workbook_sha256": "3e18c2a04603cfd19ebab7130b8260388d6816aab461803b0dee04d80f8dce5f",
+    "audit": "source_audit.json"
   },
   "boundaries": {
     "status": "retained-geometry-vintage-unverified",
@@ -37,19 +69,19 @@
     "purpose": "Explanatory reference for Australian Walking Track Grading System grades, not the observation dataset."
   },
   "derived_tables": {
-    "status": "rebuilt-from-retained-inputs",
+    "status": "rebuilt-after-official-attribute-check",
     "method": "scripts/rebuild_data.py",
     "totals": {
-      "trail_count": 194,
-      "total_km": 871.905,
-      "median_km": 2.15,
-      "graded_pct": 98,
+      "trail_count": 195,
+      "total_km": 875.905,
+      "median_km": 2.2,
+      "coded_pct": 71,
       "accessible_count": 15,
-      "rated_count": 179,
-      "access_pct": 8.379888268156424,
-      "positive_time_count": 149,
-      "mosaic_km": 853.805,
-      "closed_count": 2
+      "rated_count": 180,
+      "access_pct": 8.333333333333332,
+      "positive_time_count": 1,
+      "mosaic_km": 706.52,
+      "closed_count": 20
     }
   }
 }

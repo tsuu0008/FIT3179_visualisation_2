@@ -1,0 +1,722 @@
+[
+  {
+    "code": "20110",
+    "name": "Alpine",
+    "population_2024": 13115,
+    "population": 13236,
+    "growth_pct": 0.9,
+    "area_km2": 4788.2,
+    "density": 2.8
+  },
+  {
+    "code": "20260",
+    "name": "Ararat",
+    "population_2024": 11625,
+    "population": 11732,
+    "growth_pct": 0.9,
+    "area_km2": 4211.1,
+    "density": 2.8
+  },
+  {
+    "code": "20570",
+    "name": "Ballarat",
+    "population_2024": 120559,
+    "population": 122661,
+    "growth_pct": 1.7,
+    "area_km2": 739,
+    "density": 166
+  },
+  {
+    "code": "20660",
+    "name": "Banyule",
+    "population_2024": 131460,
+    "population": 132770,
+    "growth_pct": 1,
+    "area_km2": 62.5,
+    "density": 2123
+  },
+  {
+    "code": "20740",
+    "name": "Bass Coast",
+    "population_2024": 43468,
+    "population": 44377,
+    "growth_pct": 2.1,
+    "area_km2": 865.8,
+    "density": 51.3
+  },
+  {
+    "code": "20830",
+    "name": "Baw Baw",
+    "population_2024": 61793,
+    "population": 62784,
+    "growth_pct": 1.6,
+    "area_km2": 4027.6,
+    "density": 15.6
+  },
+  {
+    "code": "20910",
+    "name": "Bayside (Vic.)",
+    "population_2024": 105833,
+    "population": 107164,
+    "growth_pct": 1.3,
+    "area_km2": 37.2,
+    "density": 2879.9
+  },
+  {
+    "code": "21010",
+    "name": "Benalla",
+    "population_2024": 14552,
+    "population": 14581,
+    "growth_pct": 0.2,
+    "area_km2": 2352.6,
+    "density": 6.2
+  },
+  {
+    "code": "21110",
+    "name": "Boroondara",
+    "population_2024": 177345,
+    "population": 178601,
+    "growth_pct": 0.7,
+    "area_km2": 60.2,
+    "density": 2967.9
+  },
+  {
+    "code": "21180",
+    "name": "Brimbank",
+    "population_2024": 197498,
+    "population": 198181,
+    "growth_pct": 0.3,
+    "area_km2": 123.4,
+    "density": 1606
+  },
+  {
+    "code": "21270",
+    "name": "Buloke",
+    "population_2024": 5921,
+    "population": 5887,
+    "growth_pct": -0.6,
+    "area_km2": 7998.2,
+    "density": 0.7
+  },
+  {
+    "code": "21370",
+    "name": "Campaspe",
+    "population_2024": 37984,
+    "population": 37954,
+    "growth_pct": -0.1,
+    "area_km2": 4519.1,
+    "density": 8.4
+  },
+  {
+    "code": "21450",
+    "name": "Cardinia",
+    "population_2024": 130091,
+    "population": 133472,
+    "growth_pct": 2.6,
+    "area_km2": 1282.6,
+    "density": 104.1
+  },
+  {
+    "code": "21610",
+    "name": "Casey",
+    "population_2024": 404208,
+    "population": 414929,
+    "growth_pct": 2.7,
+    "area_km2": 409.4,
+    "density": 1013.4
+  },
+  {
+    "code": "21670",
+    "name": "Central Goldfields",
+    "population_2024": 13682,
+    "population": 13753,
+    "growth_pct": 0.5,
+    "area_km2": 1532.8,
+    "density": 9
+  },
+  {
+    "code": "21750",
+    "name": "Colac Otway",
+    "population_2024": 22208,
+    "population": 22209,
+    "growth_pct": 0,
+    "area_km2": 3437.5,
+    "density": 6.5
+  },
+  {
+    "code": "21830",
+    "name": "Corangamite",
+    "population_2024": 15759,
+    "population": 15712,
+    "growth_pct": -0.3,
+    "area_km2": 4407.5,
+    "density": 3.6
+  },
+  {
+    "code": "21890",
+    "name": "Darebin",
+    "population_2024": 159249,
+    "population": 162496,
+    "growth_pct": 2,
+    "area_km2": 53.5,
+    "density": 3038.9
+  },
+  {
+    "code": "22110",
+    "name": "East Gippsland",
+    "population_2024": 49183,
+    "population": 49669,
+    "growth_pct": 1,
+    "area_km2": 20939.5,
+    "density": 2.4
+  },
+  {
+    "code": "22170",
+    "name": "Frankston",
+    "population_2024": 144291,
+    "population": 145369,
+    "growth_pct": 0.7,
+    "area_km2": 129.6,
+    "density": 1121.7
+  },
+  {
+    "code": "22250",
+    "name": "Gannawarra",
+    "population_2024": 10338,
+    "population": 10311,
+    "growth_pct": -0.3,
+    "area_km2": 3737.6,
+    "density": 2.8
+  },
+  {
+    "code": "22310",
+    "name": "Glen Eira",
+    "population_2024": 160534,
+    "population": 163025,
+    "growth_pct": 1.6,
+    "area_km2": 38.7,
+    "density": 4213.5
+  },
+  {
+    "code": "22410",
+    "name": "Glenelg",
+    "population_2024": 19908,
+    "population": 19908,
+    "growth_pct": 0,
+    "area_km2": 6218.8,
+    "density": 3.2
+  },
+  {
+    "code": "22490",
+    "name": "Golden Plains",
+    "population_2024": 26217,
+    "population": 26620,
+    "growth_pct": 1.5,
+    "area_km2": 2703.4,
+    "density": 9.8
+  },
+  {
+    "code": "22620",
+    "name": "Greater Bendigo",
+    "population_2024": 125293,
+    "population": 126568,
+    "growth_pct": 1,
+    "area_km2": 3000,
+    "density": 42.2
+  },
+  {
+    "code": "22670",
+    "name": "Greater Dandenong",
+    "population_2024": 166747,
+    "population": 168684,
+    "growth_pct": 1.2,
+    "area_km2": 129.5,
+    "density": 1302.1
+  },
+  {
+    "code": "22750",
+    "name": "Greater Geelong",
+    "population_2024": 288676,
+    "population": 295052,
+    "growth_pct": 2.2,
+    "area_km2": 1248,
+    "density": 236.4
+  },
+  {
+    "code": "22830",
+    "name": "Greater Shepparton",
+    "population_2024": 69444,
+    "population": 69865,
+    "growth_pct": 0.6,
+    "area_km2": 2421.9,
+    "density": 28.8
+  },
+  {
+    "code": "22910",
+    "name": "Hepburn",
+    "population_2024": 16817,
+    "population": 17011,
+    "growth_pct": 1.2,
+    "area_km2": 1473,
+    "density": 11.5
+  },
+  {
+    "code": "22980",
+    "name": "Hindmarsh",
+    "population_2024": 5438,
+    "population": 5447,
+    "growth_pct": 0.2,
+    "area_km2": 7524.2,
+    "density": 0.7
+  },
+  {
+    "code": "23110",
+    "name": "Hobsons Bay",
+    "population_2024": 95324,
+    "population": 97031,
+    "growth_pct": 1.8,
+    "area_km2": 64.2,
+    "density": 1510.4
+  },
+  {
+    "code": "23190",
+    "name": "Horsham",
+    "population_2024": 20267,
+    "population": 20252,
+    "growth_pct": -0.1,
+    "area_km2": 4266.8,
+    "density": 4.7
+  },
+  {
+    "code": "23270",
+    "name": "Hume",
+    "population_2024": 270763,
+    "population": 278885,
+    "growth_pct": 3,
+    "area_km2": 503.8,
+    "density": 553.5
+  },
+  {
+    "code": "23350",
+    "name": "Indigo",
+    "population_2024": 17618,
+    "population": 17758,
+    "growth_pct": 0.8,
+    "area_km2": 2040.5,
+    "density": 8.7
+  },
+  {
+    "code": "23430",
+    "name": "Kingston (Vic.)",
+    "population_2024": 166071,
+    "population": 168061,
+    "growth_pct": 1.2,
+    "area_km2": 91.4,
+    "density": 1839.4
+  },
+  {
+    "code": "23670",
+    "name": "Knox",
+    "population_2024": 162956,
+    "population": 163820,
+    "growth_pct": 0.5,
+    "area_km2": 113.9,
+    "density": 1438.1
+  },
+  {
+    "code": "23810",
+    "name": "Latrobe (Vic.)",
+    "population_2024": 78474,
+    "population": 79112,
+    "growth_pct": 0.8,
+    "area_km2": 1425.6,
+    "density": 55.5
+  },
+  {
+    "code": "23940",
+    "name": "Loddon",
+    "population_2024": 7721,
+    "population": 7718,
+    "growth_pct": 0,
+    "area_km2": 6696.4,
+    "density": 1.2
+  },
+  {
+    "code": "24130",
+    "name": "Macedon Ranges",
+    "population_2024": 53585,
+    "population": 54464,
+    "growth_pct": 1.6,
+    "area_km2": 1748.3,
+    "density": 31.2
+  },
+  {
+    "code": "24210",
+    "name": "Manningham",
+    "population_2024": 131363,
+    "population": 132912,
+    "growth_pct": 1.2,
+    "area_km2": 113.3,
+    "density": 1172.6
+  },
+  {
+    "code": "24250",
+    "name": "Mansfield",
+    "population_2024": 10770,
+    "population": 10979,
+    "growth_pct": 1.9,
+    "area_km2": 3843.9,
+    "density": 2.9
+  },
+  {
+    "code": "24330",
+    "name": "Maribyrnong",
+    "population_2024": 93723,
+    "population": 94672,
+    "growth_pct": 1,
+    "area_km2": 31.2,
+    "density": 3031.9
+  },
+  {
+    "code": "24410",
+    "name": "Maroondah",
+    "population_2024": 119072,
+    "population": 120247,
+    "growth_pct": 1,
+    "area_km2": 61.4,
+    "density": 1958.1
+  },
+  {
+    "code": "24600",
+    "name": "Melbourne",
+    "population_2024": 187565,
+    "population": 194481,
+    "growth_pct": 3.7,
+    "area_km2": 37.5,
+    "density": 5179.9
+  },
+  {
+    "code": "24650",
+    "name": "Melton",
+    "population_2024": 218894,
+    "population": 231567,
+    "growth_pct": 5.8,
+    "area_km2": 527.5,
+    "density": 439
+  },
+  {
+    "code": "24700",
+    "name": "Merri-bek",
+    "population_2024": 185486,
+    "population": 189108,
+    "growth_pct": 2,
+    "area_km2": 51,
+    "density": 3711.5
+  },
+  {
+    "code": "24780",
+    "name": "Mildura",
+    "population_2024": 57134,
+    "population": 57309,
+    "growth_pct": 0.3,
+    "area_km2": 22081.9,
+    "density": 2.6
+  },
+  {
+    "code": "24850",
+    "name": "Mitchell",
+    "population_2024": 56079,
+    "population": 58459,
+    "growth_pct": 4.2,
+    "area_km2": 2862.1,
+    "density": 20.4
+  },
+  {
+    "code": "24900",
+    "name": "Moira",
+    "population_2024": 30641,
+    "population": 30866,
+    "growth_pct": 0.7,
+    "area_km2": 4045.9,
+    "density": 7.6
+  },
+  {
+    "code": "24970",
+    "name": "Monash",
+    "population_2024": 208598,
+    "population": 211833,
+    "growth_pct": 1.6,
+    "area_km2": 81.5,
+    "density": 2599.7
+  },
+  {
+    "code": "25060",
+    "name": "Moonee Valley",
+    "population_2024": 129224,
+    "population": 130501,
+    "growth_pct": 1,
+    "area_km2": 43.1,
+    "density": 3025.2
+  },
+  {
+    "code": "25150",
+    "name": "Moorabool",
+    "population_2024": 39709,
+    "population": 40472,
+    "growth_pct": 1.9,
+    "area_km2": 2110.6,
+    "density": 19.2
+  },
+  {
+    "code": "25340",
+    "name": "Mornington Peninsula",
+    "population_2024": 170857,
+    "population": 172217,
+    "growth_pct": 0.8,
+    "area_km2": 724,
+    "density": 237.9
+  },
+  {
+    "code": "25430",
+    "name": "Mount Alexander",
+    "population_2024": 20717,
+    "population": 20939,
+    "growth_pct": 1.1,
+    "area_km2": 1529.6,
+    "density": 13.7
+  },
+  {
+    "code": "25490",
+    "name": "Moyne",
+    "population_2024": 17666,
+    "population": 17760,
+    "growth_pct": 0.5,
+    "area_km2": 5481.7,
+    "density": 3.2
+  },
+  {
+    "code": "25620",
+    "name": "Murrindindi",
+    "population_2024": 15550,
+    "population": 15648,
+    "growth_pct": 0.6,
+    "area_km2": 3879.8,
+    "density": 4
+  },
+  {
+    "code": "25710",
+    "name": "Nillumbik",
+    "population_2024": 63528,
+    "population": 63797,
+    "growth_pct": 0.4,
+    "area_km2": 432.3,
+    "density": 147.6
+  },
+  {
+    "code": "25810",
+    "name": "Northern Grampians",
+    "population_2024": 11724,
+    "population": 11804,
+    "growth_pct": 0.7,
+    "area_km2": 5729.9,
+    "density": 2.1
+  },
+  {
+    "code": "25900",
+    "name": "Port Phillip",
+    "population_2024": 112244,
+    "population": 114434,
+    "growth_pct": 2,
+    "area_km2": 20.6,
+    "density": 5551.2
+  },
+  {
+    "code": "25990",
+    "name": "Pyrenees",
+    "population_2024": 7926,
+    "population": 7957,
+    "growth_pct": 0.4,
+    "area_km2": 3434.6,
+    "density": 2.3
+  },
+  {
+    "code": "26080",
+    "name": "Queenscliffe",
+    "population_2024": 3283,
+    "population": 3317,
+    "growth_pct": 1,
+    "area_km2": 8.6,
+    "density": 385
+  },
+  {
+    "code": "26170",
+    "name": "South Gippsland",
+    "population_2024": 30937,
+    "population": 31109,
+    "growth_pct": 0.6,
+    "area_km2": 3296.3,
+    "density": 9.4
+  },
+  {
+    "code": "26260",
+    "name": "Southern Grampians",
+    "population_2024": 16450,
+    "population": 16483,
+    "growth_pct": 0.2,
+    "area_km2": 6654,
+    "density": 2.5
+  },
+  {
+    "code": "26350",
+    "name": "Stonnington",
+    "population_2024": 113360,
+    "population": 114789,
+    "growth_pct": 1.3,
+    "area_km2": 25.7,
+    "density": 4475
+  },
+  {
+    "code": "26430",
+    "name": "Strathbogie",
+    "population_2024": 11695,
+    "population": 11839,
+    "growth_pct": 1.2,
+    "area_km2": 3303.3,
+    "density": 3.6
+  },
+  {
+    "code": "26490",
+    "name": "Surf Coast",
+    "population_2024": 39834,
+    "population": 40265,
+    "growth_pct": 1.1,
+    "area_km2": 1552.9,
+    "density": 25.9
+  },
+  {
+    "code": "26610",
+    "name": "Swan Hill",
+    "population_2024": 20931,
+    "population": 20962,
+    "growth_pct": 0.1,
+    "area_km2": 6115.5,
+    "density": 3.4
+  },
+  {
+    "code": "26670",
+    "name": "Towong",
+    "population_2024": 6143,
+    "population": 6158,
+    "growth_pct": 0.2,
+    "area_km2": 6675.2,
+    "density": 0.9
+  },
+  {
+    "code": "26700",
+    "name": "Wangaratta",
+    "population_2024": 30038,
+    "population": 30089,
+    "growth_pct": 0.2,
+    "area_km2": 3645.1,
+    "density": 8.3
+  },
+  {
+    "code": "26730",
+    "name": "Warrnambool",
+    "population_2024": 35898,
+    "population": 36255,
+    "growth_pct": 1,
+    "area_km2": 120.9,
+    "density": 299.8
+  },
+  {
+    "code": "26810",
+    "name": "Wellington",
+    "population_2024": 46277,
+    "population": 46551,
+    "growth_pct": 0.6,
+    "area_km2": 10817.4,
+    "density": 4.3
+  },
+  {
+    "code": "26890",
+    "name": "West Wimmera",
+    "population_2024": 3903,
+    "population": 3915,
+    "growth_pct": 0.3,
+    "area_km2": 9108.7,
+    "density": 0.4
+  },
+  {
+    "code": "26980",
+    "name": "Whitehorse",
+    "population_2024": 182809,
+    "population": 185256,
+    "growth_pct": 1.3,
+    "area_km2": 64.3,
+    "density": 2882
+  },
+  {
+    "code": "27070",
+    "name": "Whittlesea",
+    "population_2024": 252438,
+    "population": 259759,
+    "growth_pct": 2.9,
+    "area_km2": 489.7,
+    "density": 530.5
+  },
+  {
+    "code": "27170",
+    "name": "Wodonga",
+    "population_2024": 44203,
+    "population": 44717,
+    "growth_pct": 1.2,
+    "area_km2": 433,
+    "density": 103.3
+  },
+  {
+    "code": "27260",
+    "name": "Wyndham",
+    "population_2024": 335320,
+    "population": 347830,
+    "growth_pct": 3.7,
+    "area_km2": 542.1,
+    "density": 641.6
+  },
+  {
+    "code": "27350",
+    "name": "Yarra",
+    "population_2024": 99922,
+    "population": 101356,
+    "growth_pct": 1.4,
+    "area_km2": 19.5,
+    "density": 5186.5
+  },
+  {
+    "code": "27450",
+    "name": "Yarra Ranges",
+    "population_2024": 159779,
+    "population": 160906,
+    "growth_pct": 0.7,
+    "area_km2": 2468.2,
+    "density": 65.2
+  },
+  {
+    "code": "27630",
+    "name": "Yarriambiack",
+    "population_2024": 6311,
+    "population": 6295,
+    "growth_pct": -0.3,
+    "area_km2": 7325.8,
+    "density": 0.9
+  },
+  {
+    "code": "29399",
+    "name": "Unincorporated Vic",
+    "population_2024": 945,
+    "population": 917,
+    "growth_pct": -3,
+    "area_km2": 283.2,
+    "density": 3.2
+  }
+]

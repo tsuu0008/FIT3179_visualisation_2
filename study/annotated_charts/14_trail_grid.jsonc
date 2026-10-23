@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -154,7 +154,7 @@
             "field": "share",
             "type": "quantitative",
             "format": ".1%",
-            "title": "Share of all 194 trails"
+            "title": "Share of all 195 trails"
           },
           {
             "field": "areas",

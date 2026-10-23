@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -10,20 +10,22 @@
   "background": null,
   "params": [
     {
-      "name": "chosenGrade",
+      "name": "chosenCode",
       "value": "All",
       "bind": {
         "input": "select",
         "options": [
           "All",
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "3",
           "Unknown"
         ],
-        "name": "Grade: "
+        "name": "Track code: "
       }
     },
     {
@@ -36,7 +38,7 @@
     },
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
     }
   ],
   "projection": {
@@ -74,7 +76,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -223,15 +225,17 @@
           }
         },
         "color": {
-          "field": "grade",
+          "field": "track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -240,10 +244,12 @@
               "#009E73",
               "#CC79A7",
               "#252525",
-              "#9B9B9B"
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
-          "title": "Grade",
+          "title": "Track code",
           "legend": {
             "columns": 2,
             "direction": "horizontal",
@@ -271,8 +277,8 @@
             "format": ".1f"
           },
           {
-            "field": "grade",
-            "title": "Grade"
+            "field": "track_code",
+            "title": "Track code"
           },
           {
             "field": "access",
@@ -280,15 +286,17 @@
           }
         ],
         "shape": {
-          "field": "grade",
+          "field": "track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -296,8 +304,10 @@
               "square",
               "triangle-up",
               "diamond",
+              "cross",
               "triangle-down",
-              "cross"
+              "triangle-right",
+              "triangle-left"
             ]
           },
           "legend": {
@@ -315,12 +325,12 @@
             "titleFontSize": 11,
             "columnPadding": 12
           },
-          "title": "Grade"
+          "title": "Track code"
         }
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         }
       ],
       "name": "trailSymbols"
@@ -331,7 +341,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -370,7 +380,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         },
         {
@@ -408,7 +418,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -447,7 +457,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         }
       ],
@@ -484,7 +494,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -569,7 +579,7 @@
       },
       "transform": [
         {
-          "calculate": "((chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
+          "calculate": "((chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')) ? 1 : 0",
           "as": "match"
         },
         {
@@ -613,7 +623,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -693,7 +703,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -780,7 +790,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -819,7 +829,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         },
         {
@@ -859,7 +869,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -898,7 +908,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         },
         {
@@ -944,7 +954,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -983,7 +993,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         }
       ],
@@ -1017,7 +1027,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "window": [
@@ -1056,7 +1066,7 @@
           ]
         },
         {
-          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.track_code + '\\nLongest matching route'",
           "as": "annotation"
         }
       ],
@@ -1091,7 +1101,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [
@@ -1173,7 +1183,7 @@
       },
       "transform": [
         {
-          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+          "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
         },
         {
           "aggregate": [

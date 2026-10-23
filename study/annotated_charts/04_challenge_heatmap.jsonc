@@ -1,19 +1,36 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 340,
+  "background": null,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
-  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#405652",
+      "titleColor": "#24443f",
+      "gridColor": "#e4ebe7"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  },
   "data": {
     "url": "data/trails.json"
   },
   "transform": [
     {
-      "filter": "datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"
+      "filter": "datum.track_code !== 'Unknown' && datum.gradient !== 'Unknown'"
     },
     {
       "aggregate": [
@@ -23,7 +40,7 @@
         }
       ],
       "groupby": [
-        "grade",
+        "track_code",
         "gradient"
       ]
     }
@@ -32,75 +49,59 @@
     {
       "mark": {
         "type": "rect",
-        "cornerRadius": 4
+        "stroke": "#ffffff",
+        "strokeWidth": 2
       },
       "encoding": {
         "x": {
-          "field": "grade",
+          "field": "track_code",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": "Walking grade",
-          "axis": {
-            "labelAngle": 0,
-            "labelExpr": "replace(datum.label, 'Grade ', '')"
-          }
+          "title": "Recorded source code"
         },
         "y": {
           "field": "gradient",
-          "type": "nominal",
+          "type": "ordinal",
           "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
+            "Flat",
             "Gentle hills",
-            "Flat"
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
           ],
-          "title": "Terrain",
+          "title": null,
           "axis": {
-            "labelFontSize": 10,
-            "labelLimit": 90,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
-            "labelLineHeight": 11
-          },
-          "scale": {
-            "range": [
-              70,
-              {
-                "expr": "height"
-              }
-            ]
+            "labelLimit": 145,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label"
           }
         },
         "color": {
           "field": "trail_count",
           "type": "quantitative",
           "scale": {
-            "scheme": "greys"
+            "scheme": "blues"
           },
-          "title": "Trail count",
           "legend": {
-            "orient": "bottom",
-            "direction": "horizontal",
-            "gradientLength": {
-              "expr": "min(150,width-8)"
-            },
-            "title": "Trail count"
+            "title": "Trails",
+            "orient": "bottom"
           }
         },
         "tooltip": [
           {
-            "field": "grade",
-            "title": "Grade"
+            "field": "track_code",
+            "title": "Source code"
           },
           {
             "field": "gradient",
-            "title": "Gradient"
+            "title": "Terrain"
           },
           {
             "field": "trail_count",
@@ -110,167 +111,40 @@
       }
     },
     {
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        }
-      ],
-      "mark": {
-        "type": "rect",
-        "fillOpacity": 0,
-        "stroke": "#d95d39",
-        "strokeWidth": 3,
-        "cornerRadius": 4
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": "Walking grade",
-          "axis": {
-            "labelAngle": 0,
-            "labelExpr": "replace(datum.label, 'Grade ', '')"
-          }
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "title": "Terrain",
-          "axis": {
-            "labelFontSize": 10,
-            "labelLimit": 90,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
-            "labelLineHeight": 11
-          },
-          "scale": {
-            "range": [
-              70,
-              {
-                "expr": "height"
-              }
-            ]
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#20343A",
-        "strokeWidth": 1.3
-      },
-      "encoding": {
-        "x": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "bandPosition": 0
-        },
-        "y": {
-          "field": "gradient",
-          "type": "nominal",
-          "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
-            "Gentle hills",
-            "Flat"
-          ],
-          "bandPosition": 0.5,
-          "scale": {
-            "range": [
-              70,
-              {
-                "expr": "height"
-              }
-            ]
-          }
-        },
-        "x2": {
-          "value": {
-            "expr": "scale('x','Grade 3')"
-          }
-        },
-        "y2": {
-          "value": {
-            "expr": "width < 240 ? 60 : 36"
-          }
-        }
-      }
-    },
-    {
       "mark": {
         "type": "text",
-        "fontSize": 13,
-        "fontWeight": 700,
-        "limit": 170
+        "fontSize": 12,
+        "fontWeight": 600
       },
       "encoding": {
         "x": {
-          "field": "grade",
+          "field": "track_code",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "axis": {
-            "labelAngle": 0,
-            "labelExpr": "replace(datum.label, 'Grade ', '')"
-          },
-          "title": "Walking grade"
+          "title": "Recorded source code"
         },
         "y": {
           "field": "gradient",
-          "type": "nominal",
+          "type": "ordinal",
           "sort": [
-            "Very steep and difficult",
-            "Very steep",
-            "Short steep hills",
+            "Flat",
             "Gentle hills",
-            "Flat"
+            "Short steep hills",
+            "Very steep",
+            "Very steep and difficult"
           ],
-          "title": "Terrain",
+          "title": null,
           "axis": {
-            "labelFontSize": 10,
-            "labelLimit": 90,
-            "labelExpr": "datum.label === 'Very steep and difficult' ? ['Steep +','difficult'] : datum.label === 'Short steep hills' ? ['Short steep','hills'] : datum.label === 'Gentle hills' ? ['Gentle','hills'] : datum.label === 'Very steep' ? ['Very','steep'] : datum.label",
-            "labelLineHeight": 11
-          },
-          "scale": {
-            "range": [
-              70,
-              {
-                "expr": "height"
-              }
-            ]
+            "labelLimit": 145,
+            "labelExpr": "datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label"
           }
         },
         "text": {
@@ -278,121 +152,13 @@
         },
         "color": {
           "condition": {
-            "test": "datum.trail_count > 22",
+            "test": "datum.trail_count >= 20",
             "value": "white"
           },
-          "value": "#12332f"
+          "value": "#183e3b"
         }
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 12,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 15,
-        "align": "left",
-        "baseline": "top",
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "x": {
-          "value": 4
-        },
-        "y": {
-          "value": 6
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        },
-        {
-          "calculate": "width < 240 ? 'Grade 3 + steep hills\\n' + datum.trail_count + ' trails\\nA common demand\\nin this network' : 'Grade 3 + short steep hills · ' + datum.trail_count + ' trails\\nA common walking demand in this network'",
-          "as": "annotation"
-        }
-      ]
-    },
-    {
-      "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 12,
-        "fontWeight": 600,
-        "lineBreak": "\n",
-        "lineHeight": 15,
-        "align": "left",
-        "baseline": "top",
-        "color": "#20343A"
-      },
-      "encoding": {
-        "x": {
-          "value": 4
-        },
-        "y": {
-          "value": 6
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
-        },
-        {
-          "calculate": "width < 240 ? 'Grade 3 + steep hills\\n' + datum.trail_count + ' trails\\nA common demand\\nin this network' : 'Grade 3 + short steep hills · ' + datum.trail_count + ' trails\\nA common walking demand in this network'",
-          "as": "annotation"
-        }
-      ]
     }
   ],
-  "config": {
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "gridColor": "#d9e2df",
-      "domainColor": "#9aa7a4",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "titlePadding": 10,
-      "labelPadding": 6
-    },
-    "legend": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "orient": "bottom",
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "padding": 8,
-      "columns": 2,
-      "labelLimit": 150
-    },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    },
-    "text": {
-      "font": "Inter",
-      "fontSize": 11,
-      "color": "#20343A"
-    }
-  },
-  "description": "Responsive heatmap fits the comparison-card width with all five grade columns visible. Terrain labels wrap; the callout sits in a separate top band and its pointer meets the highlighted cell border without covering the count."
+  "description": "Joint counts of unmodified source track codes and terrain. Missing codes are excluded, not assigned a difficulty grade."
 }

@@ -2,7 +2,8 @@
 """Download all walking records as WGS84 GeoJSON; fail rather than replace data on errors.
 
 python scripts/download_official_tracks.py /tmp/official-tracks.geojson
-python scripts/rebuild_data.py --official-trails /tmp/official-tracks.geojson
+The verified project refresh uses the WFS schema in verify_official_sources.py.
+This ArcGIS export must be reviewed and adapted before use with that verifier.
 
 After import, regenerate charts and review all narrative figures before publishing.
 """

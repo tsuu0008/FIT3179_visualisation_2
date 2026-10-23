@@ -1,0 +1,230 @@
+#!/usr/bin/env python3
+"""Build the comparisons that use verified source codes and duration categories."""
+import copy
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+CHARTS = ROOT / 'charts'
+ROWS = json.loads((ROOT / 'data/trails.json').read_text())
+CODES = [f'C{i}' for i in range(1, 7)] + ['3', 'Unknown']
+COLOURS = ['#0072B2','#E69F00','#009E73','#CC79A7','#252525','#6f52a3','#ad6f3b','#9daca9']
+TERRAINS = ['Flat','Gentle hills','Short steep hills','Very steep','Very steep and difficult']
+DURATIONS = ['Under 1 hour','1–4 hours','Over 4 hours','Overnight','Multiple days','Not recorded']
+COLOUR = {'field':'track_code','type':'nominal','scale':{'domain':CODES,'range':COLOURS},
+          'legend':{'title':'Recorded track code','orient':'bottom','columns':4,'symbolType':'circle','titleLimit':220}}
+TOOLTIP = [{'field':'name','title':'Trail'},{'field':'track_code','title':'Source code'},
+           {'field':'length_km','title':'Distance (km)','format':'.2f'},
+           {'field':'duration_group','title':'Source duration category'},
+           {'field':'gradient','title':'Terrain'},{'field':'lga','title':'Council'}]
+
+def base(height=300):
+    return {'$schema':'https://vega.github.io/schema/vega-lite/v5.json','width':'container','height':height,
+            'background':None,'autosize':{'type':'fit','contains':'padding'},
+            'config':{'view':{'stroke':None},'font':'Inter','axis':{'labelFontSize':12,'titleFontSize':12,
+            'labelColor':'#405652','titleColor':'#24443f','gridColor':'#e4ebe7'},
+            'legend':{'labelFontSize':12,'titleFontSize':12}}}
+
+def save(n, spec):
+    p=next(CHARTS.glob(f'{n:02d}_*.json'))
+    p.write_text(json.dumps(spec,ensure_ascii=False,indent=2)+'\n')
+
+def main():
+    # Preserve geographic layout, callout badges, selections and data. Replace only
+    # the semantics of the old difficulty field and the unsupported time tooltip.
+    def change(x):
+        if isinstance(x,list):
+            out=[change(v) for v in x]
+            if 'C5' in out and 'C1' in out and 'C6' not in out:
+                out.insert(out.index('C5')+1,'C6')
+            if 'C1' in out and 'Unknown' in out and '3' not in out:
+                out.insert(out.index('Unknown'),'3')
+            if '#0072B2' in out and '#252525' in out and '#6f52a3' not in out:
+                out.insert(out.index('#252525')+1,'#6f52a3')
+            if '#0072B2' in out and '#9daca9' in out and '#ad6f3b' not in out:
+                out.insert(out.index('#9daca9'),'#ad6f3b')
+            if out and isinstance(out[0],dict) and 'legend_grade' in out[0]:
+                out=[{'legend_grade':code} for code in CODES]
+            return out
+        if isinstance(x,dict):
+            d={k:change(v) for k,v in x.items()}
+            scale=d.get('scale',{})
+            if isinstance(scale,dict) and 'C1' in scale.get('domain',[]) and 'Unknown' in scale.get('domain',[]):
+                scale['domain']=CODES
+                if scale.get('range') and all(isinstance(v,str) and v.startswith('#') for v in scale['range']):
+                    scale['range']=COLOURS
+            if d.get('field') in ['hours','properties.hours']:
+                d['field']=d['field'].replace('hours','duration_group')
+                d['title']='Source duration category'
+                d.pop('format',None)
+                d['type']='nominal'
+            if d.get('field') in ['track_code','properties.track_code'] and d.get('type')=='ordinal':
+                d['type']='nominal'
+            if d.get('field') in ['track_code','properties.track_code'] and 'shape' not in d:
+                sc=d.get('scale',{})
+                if sc.get('range') and 'circle' in sc['range']:
+                    sc['domain']=CODES
+                    sc['range']=['circle','square','triangle-up','diamond','cross','triangle-down','triangle-right','triangle-left']
+            return d
+        if isinstance(x,str):
+            x=x.replace('datum.properties.grade','datum.properties.track_code').replace('datum.grade','datum.track_code')
+            if x=='grade':x='track_code'
+            if x=='properties.grade':x='properties.track_code'
+            for i in range(1,6):x=x.replace(f'Grade {i}',f'C{i}')
+            x=x.replace('Walking grade','Recorded track code').replace('Walking grade','Recorded track code')
+            x=x.replace('Grade','Track code').replace('grade-coloured','code-coloured')
+            x=x.replace('chosenTrack code','chosenCode')
+            x=x.replace('194','195').replace('179 rated','180 rated').replace('8.4%','8.3%')
+            return x
+        return x
+    for n in [1,2,3,7,10,11,13,14]:
+        p=next(CHARTS.glob(f'{n:02d}_*.json'))
+        p.write_text(json.dumps(change(json.loads(p.read_text())),ensure_ascii=False,indent=2)+'\n')
+    detail_path=CHARTS/'13_region_detail.json'
+    detail=json.loads(detail_path.read_text())
+    for param in detail.get('params',[]):
+        if param['name']=='chosenLga':
+            areas=sorted({r['lga'] for r in ROWS})
+            param['bind']['options']=['All']+areas
+            param['bind']['labels']=['All Victoria']+areas
+    detail_path.write_text(json.dumps(detail,ensure_ascii=False,indent=2)+'\n')
+    supply_path=CHARTS/'02_trail_supply.json'
+    def supply_labels(value):
+        if isinstance(value,dict):return {k:supply_labels(v) for k,v in value.items()}
+        if isinstance(value,list):return [supply_labels(v) for v in value]
+        if isinstance(value,str):return value.replace('Baw Baw','Yarra Ranges').replace('233.3 km','95.5 km').replace('146.5 km','153.7 km')
+        return value
+    supply_path.write_text(json.dumps(supply_labels(json.loads(supply_path.read_text())),ensure_ascii=False,indent=2)+'\n')
+
+    heat=base(340)
+    heat.update(data={'url':'data/trails.json'},transform=[{'filter':"datum.track_code !== 'Unknown' && datum.gradient !== 'Unknown'"},
+        {'aggregate':[{'op':'count','as':'trail_count'}],'groupby':['track_code','gradient']}])
+    enc={'x':{'field':'track_code','type':'ordinal','sort':CODES[:-1],'title':'Recorded source code'},
+         'y':{'field':'gradient','type':'ordinal','sort':TERRAINS,'title':None,
+              'axis':{'labelLimit':145,'labelExpr':"datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label"}}}
+    heat['layer']=[{'mark':{'type':'rect','stroke':'#ffffff','strokeWidth':2},'encoding':{**enc,
+        'color':{'field':'trail_count','type':'quantitative','scale':{'scheme':'blues'},'legend':{'title':'Trails','orient':'bottom'}},
+        'tooltip':[{'field':'track_code','title':'Source code'},{'field':'gradient','title':'Terrain'},{'field':'trail_count','title':'Trails'}]}},
+        {'mark':{'type':'text','fontSize':12,'fontWeight':600},'encoding':{**enc,'text':{'field':'trail_count'},
+        'color':{'condition':{'test':'datum.trail_count >= 20','value':'white'},'value':'#183e3b'}}}]
+    heat['description']='Joint counts of unmodified source track codes and terrain. Missing codes are excluded, not assigned a difficulty grade.'
+    save(4,heat)
+
+    median=base(340)
+    median.update(data={'url':'data/trails.json'},transform=[{'filter':"datum.track_code !== 'Unknown'"},
+        {'aggregate':[{'op':'median','field':'length_km','as':'median_km'},{'op':'count','as':'n'}],'groupby':['track_code']},
+        {'calculate':"format(datum.median_km,'.1f') + ' km (n=' + datum.n + ')'",'as':'label'}])
+    enc={'y':{'field':'track_code','type':'ordinal','sort':CODES[:-1],'title':'Source code'},
+         'x':{'field':'median_km','type':'quantitative','title':'Median distance (km)','scale':{'domain':[0,10]}}}
+    median['layer']=[{'mark':{'type':'rule','strokeWidth':3,'color':'#bccfc8'},'encoding':{**enc,'x2':{'datum':0}}},
+        {'mark':{'type':'point','filled':True,'size':95},'encoding':{**enc,'color':{**COLOUR,'legend':None}}},
+        {'mark':{'type':'text','align':'left','dx':10,'fontSize':12,'color':'#24443f'},'encoding':{**enc,'text':{'field':'label'}}}]
+    median['description']='Median distance by source code. Small C1 and C6 groups are shown with their counts; code is not relabelled as public walking grade.'
+    save(5,median)
+
+    pc=base(470)
+    pc.update(data={'url':'data/parallel_points.json'},padding={'left':34,'right':88,'top':35,'bottom':45},
+              resolve={'axis':{'x':'independent','y':'independent'},'legend':{'color':'independent'}})
+    labels=['Longest matching']+[r['name'] for r in sorted(ROWS,key=lambda r:r['name'])]
+    ids=[0]+[r['id'] for r in sorted(ROWS,key=lambda r:r['name'])]
+    pc['params']=[{'name':'chosenCode','value':'All','bind':{'input':'select','options':['All']+CODES,'name':'Source code: '}},
+        {'name':'chosenLga','value':'All','bind':{'input':'select','options':['All']+sorted({r['lga'] for r in ROWS}),'name':'Area: '}},
+        {'name':'pickTrail','value':0,'bind':{'input':'select','options':ids,'labels':labels,'name':'Trail: '}}]
+    pc['transform']=[{'filter':"(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga)"},
+        {'joinaggregate':[{'op':'max','field':'length_km','as':'max_length'}]}]
+    xy={'x':{'field':'axis','type':'quantitative','scale':{'domain':[0,3],'nice':False},'axis':None},
+        'y':{'field':'position','type':'quantitative','scale':{'domain':[-20,115],'nice':False},'axis':None}}
+    ticks=[]
+    for axis,vals in [(0,[(i*100/(len(CODES)-2),code) for i,code in enumerate(CODES[:-1])]),
+        (1,[(100*(v/95)**.5,str(v)+' km') for v in [0,1,5,20,50,95]]),
+        (2,[(i*25,t) for i,t in enumerate(['Under 1 h','1–4 h','Over 4 h','Overnight','Multiple days'])]),
+        (3,[(i*25,t) for i,t in enumerate(['Flat','Gentle hills','Short steep','Very steep','Very steep + difficult'])])]:
+        for pos,label in vals:ticks.append({'axis':axis,'position':pos,'label':label})
+        if axis!=1:ticks.append({'axis':axis,'position':-15,'label':'Not recorded'})
+    selected="pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
+    pc['layer']=[{'data':{'values':[{'axis':i,'position':-15,'upper':100} for i in range(4)]},'mark':{'type':'rule','color':'#b8c8c1'},
+        'encoding':{**xy,'y2':{'field':'upper'}}},
+        {'mark':{'type':'line','opacity':.09,'strokeWidth':1},'encoding':{**xy,'detail':{'field':'id'},'order':{'field':'axis'},'color':{**COLOUR,'legend':None}}},
+        {'transform':[{'filter':selected}],'mark':{'type':'line','strokeWidth':3,'strokeDash':[8,4]},
+        'encoding':{**xy,'detail':{'field':'id'},'order':{'field':'axis'},'color':COLOUR,'tooltip':TOOLTIP}},
+        {'transform':[{'filter':selected}],'mark':{'type':'point','filled':True,'size':70},
+        'encoding':{**xy,'color':{**COLOUR,'legend':None},'tooltip':TOOLTIP}},
+        {'data':{'values':ticks},'mark':{'type':'text','align':'left','dx':5,'fontSize':11,'color':'#36544e'},
+        'encoding':{**xy,'text':{'field':'label'}}},
+        {'data':{'values':[{'axis':i,'position':111,'label':t} for i,t in enumerate(['Source code','Distance','Duration category','Terrain'])]},
+        'mark':{'type':'text','align':'left','fontWeight':600,'fontSize':12,'color':'#143f3a'},'encoding':{**xy,'text':{'field':'label'}}},
+        {'transform':[{'filter':selected},{'filter':'datum.axis === 0'}],
+        'mark':{'type':'text','align':'left','fontSize':12,'color':'#143f3a'},
+        'encoding':{'x':{'value':0},'y':{'value':-17},'text':{'field':'name'}}},
+        {'data':{'values':[{'track_code':r['track_code'],'lga':r['lga']} for r in ROWS]},
+         'transform':[{'calculate':"(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga) ? 1 : 0",'as':'matches'},
+                      {'aggregate':[{'op':'sum','field':'matches','as':'n'}]},{'filter':'datum.n === 0'}],
+         'mark':{'type':'text','fontSize':14},'encoding':{'x':{'value':30},'y':{'value':180},'text':{'value':'No trails match these filters'}}}]
+    pc['description']='One line per trail across source track code, square-root distance, source duration category and terrain. Categorical spacing is not an effort or time scale.'
+    save(6,pc)
+
+    mosaic=base(340)
+    blocks=json.loads((ROOT/'data/mosaic.json').read_text())
+    centres=[]
+    for terrain in TERRAINS:
+        rows=[r for r in blocks if r['gradient']==terrain]
+        if rows:
+            centres.append(((min(r['x0'] for r in rows)+max(r['x1'] for r in rows))/2,
+                            terrain.replace('Short steep hills','Short steep').replace('Very steep and difficult','Steep + difficult')))
+    labels=' : '.join(f'abs(datum.value - {x}) < 0.000001 ? {json.dumps(label)}' for x,label in centres)+" : ''"
+    mosaic['data']={'url':'data/mosaic.json'}
+    mosaic['layer']=[{'mark':{'type':'rect','stroke':'white','strokeWidth':2},'encoding':{
+        'x':{'field':'x0','type':'quantitative','title':'Terrain (width shows kilometre share)',
+             'axis':{'values':[x for x,label in centres],'labelExpr':labels,'labelAngle':-30,'labelLimit':140,'labelFontSize':10},'scale':{'domain':[0,1]}},
+        'x2':{'field':'x1'},'y':{'field':'y0','type':'quantitative','title':'Source-code mix within terrain','axis':{'format':'.0%'},'scale':{'domain':[0,1]}},
+        'y2':{'field':'y1'},'color':COLOUR,'tooltip':[{'field':'gradient','title':'Terrain'},{'field':'track_code','title':'Source code'},{'field':'km','format':'.2f','title':'Kilometres'}]}},
+        {'transform':[{'calculate':'(datum.x0+datum.x1)/2','as':'cx'},{'calculate':'(datum.y0+datum.y1)/2','as':'cy'},
+            {'filter':'(datum.x1-datum.x0) > 0.13 && (datum.y1-datum.y0) > 0.12'}],
+        'mark':{'type':'text','fontSize':11,'fontWeight':600},
+        'encoding':{'x':{'field':'cx','type':'quantitative'},'y':{'field':'cy','type':'quantitative'},'text':{'field':'track_code'},
+             'color':{'condition':{'test':"datum.track_code === 'C5' || datum.track_code === 'C6'",'value':'white'},'value':'#152d2a'}}}]
+    mosaic['description']='Mosaic area represents kilometres among records with known terrain and source code. Missing source codes are excluded explicitly.'
+    save(8,mosaic)
+
+    strip=base(340)
+    strip.update(data={'url':'data/distance_points.json'},mark={'type':'point','filled':True,'size':50,'opacity':.65},
+        encoding={'x':{'field':'length_km','type':'quantitative','title':'Recorded distance (km; square-root spacing)',
+            'scale':{'type':'sqrt','domain':[0,100]},'axis':{'values':[0,1,5,10,20,40,60,95]}},
+        'y':{'field':'track_code','type':'ordinal','sort':CODES,'title':'Source code'},
+        'yOffset':{'field':'lane','type':'quantitative'},'color':{**COLOUR,'legend':None},'tooltip':TOOLTIP})
+    strip['description']='Individual trail distances including missing source-code records. Vertical offsets only separate overlapping points.'
+    save(9,strip)
+
+    duration=base(350)
+    duration.update(data={'url':'data/trails.json'},layer=[{
+        'mark':{'type':'boxplot','extent':1.5,'size':18,'color':'#407b73'},
+        'encoding':{'y':{'field':'duration_group','type':'ordinal','sort':DURATIONS,'title':None,'axis':{'labelLimit':130}},
+        'x':{'field':'length_km','type':'quantitative','title':'Recorded distance (km)','scale':{'domain':[0,100]}}}},
+        {'transform':[{'filter':'datum.length_km === 95'}],
+        'mark':{'type':'point','size':110,'filled':False,'stroke':'#D55E00','strokeWidth':2},
+        'encoding':{'y':{'field':'duration_group','type':'ordinal','sort':DURATIONS},'x':{'field':'length_km','type':'quantitative'},'tooltip':TOOLTIP}}])
+    duration['description']='Distance distributions within official duration categories. Boxes show the middle half of distances and a median line; no exact hours are inferred.'
+    save(12,duration)
+    # Rank denominators follow the complete walking cohort and midpoint councils.
+    rank_path=CHARTS/'11_rank_gap.json'
+    rank=json.loads(rank_path.read_text())
+    count=sum(r['trail_count']>0 for r in json.loads((ROOT/'data/lga_stats.json').read_text()))
+    def ranks(value):
+        if isinstance(value,list):
+            for item in value:ranks(item)
+        elif isinstance(value,dict):
+            if value.get('field') in ['population_rank','supply_rank','rank']:
+                if 'scale' in value:value['scale']['domain']=[0,count+1]
+                if 'axis' in value and 'values' in value['axis']:
+                    value['axis']['values']=[1]+list(range(5,count,5))+[count]
+            for item in value.values():ranks(item)
+    ranks(rank)
+    rank['description']=f'Population and resident-adjusted walking supply ranks among {count} councils with walking records.'
+    rank_path.write_text(json.dumps(rank,ensure_ascii=False,indent=2)+'\n')
+    # The ordinary experience and access comparisons do not require source codes.
+    for p in CHARTS.glob('*.json'):
+        study=ROOT/'study/annotated_charts'/p.with_suffix('.jsonc').name
+        study.write_text('// Displayed Vega-Lite specification. See source_audit.json for verification.\n'+p.read_text())
+
+if __name__=='__main__':
+    main()

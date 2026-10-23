@@ -1,578 +1,137 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 350,
+  "height": 340,
+  "background": null,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
-  "background": null,
-  "data": {
-    "url": "data/distance_points.json"
-  },
-  "params": [
-    {
-      "name": "chosenGrade",
-      "value": "All",
-      "bind": {
-        "input": "select",
-        "options": [
-          "All",
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
-          "Unknown"
-        ],
-        "name": "Grade: "
-      }
-    }
-  ],
-  "transform": [
-    {
-      "filter": "chosenGrade === 'All' || datum.grade === chosenGrade"
-    }
-  ],
-  "layer": [
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 65,
-        "opacity": 0.82,
-        "stroke": "white",
-        "strokeWidth": 0.5
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          },
-          "axis": {
-            "tickCount": 7,
-            "grid": true,
-            "labelFontSize": 12,
-            "titleFontSize": 13,
-            "title": [
-              "Trail distance (km)",
-              "square-root scale"
-            ]
-          }
-        },
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              68,
-              {
-                "expr": "height-52"
-              }
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
-        },
-        "color": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#0072B2",
-              "#E69F00",
-              "#009E73",
-              "#CC79A7",
-              "#252525",
-              "#9B9B9B"
-            ]
-          },
-          "legend": null
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)",
-            "format": ".1f"
-          }
-        ],
-        "shape": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "circle",
-              "square",
-              "triangle-up",
-              "diamond",
-              "triangle-down",
-              "cross"
-            ]
-          },
-          "legend": null
-        }
-      },
-      "name": "distancePoints"
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "distance": 5
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "stroke": "#52716a",
-        "strokeDash": [
-          4,
-          4
-        ],
-        "strokeWidth": 1.5
-      },
-      "encoding": {
-        "x": {
-          "field": "distance",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "value": 68
-        },
-        "y2": {
-          "value": {
-            "expr": "height-52"
-          }
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "distance": 5,
-            "label": "5 km guide"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 6,
-        "dy": -8,
-        "fontSize": 12,
-        "color": "#52716a",
-        "limit": 135
-      },
-      "encoding": {
-        "x": {
-          "field": "distance",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "value": 68
-        },
-        "text": {
-          "field": "label"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "calculate": "datum.name + '\\n' + format(datum.length_km, '.1f') + ' km'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "filled": false,
-        "stroke": "#b34e2d",
-        "strokeWidth": 2.5,
-        "size": 230
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          },
-          "axis": {
-            "title": [
-              "Trail distance (km)",
-              "square-root scale"
-            ]
-          }
-        },
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null,
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              68,
-              {
-                "expr": "height-52"
-              }
-            ]
-          }
-        },
-        "yOffset": {
-          "field": "lane",
-          "type": "quantitative"
-        }
-      },
-      "name": "longestPoint"
-    },
-    {
-      "name": "longestLeader",
-      "transform": [
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "lookup": "id",
-          "from": {
-            "data": {
-              "url": "data/route_label_points.json"
-            },
-            "key": "id",
-            "fields": [
-              "name_label"
-            ]
-          }
-        },
-        {
-          "calculate": "datum.name_label + '\\nLongest matching walk · ' + format(datum.length_km,'.1f') + ' km'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "stroke": "#173b37",
-        "strokeWidth": 1.1
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          },
-          "axis": {
-            "title": [
-              "Trail distance (km)",
-              "square-root scale"
-            ]
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "scale('y',datum.grade)+scale('yOffset',datum.lane)-10"
-          }
-        },
-        "y2": {
-          "value": {
-            "expr": "8+13*length(split(datum.annotation,'\\n'))+3"
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "annotation_rank"
-            }
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            }
-          ]
-        },
-        {
-          "filter": "datum.annotation_rank === 1"
-        },
-        {
-          "lookup": "id",
-          "from": {
-            "data": {
-              "url": "data/route_label_points.json"
-            },
-            "key": "id",
-            "fields": [
-              "name_label"
-            ]
-          }
-        },
-        {
-          "calculate": "datum.name_label + '\\nLongest matching walk · ' + format(datum.length_km,'.1f') + ' km'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": {
-          "expr": "datum.length_km > 26.25 ? 'right' : 'left'"
-        },
-        "dx": 0,
-        "dy": 0,
-        "fontSize": 12,
-        "fontWeight": 700,
-        "lineBreak": "\n",
-        "color": "#173b37",
-        "lineHeight": 15,
-        "baseline": "top"
-      },
-      "encoding": {
-        "x": {
-          "field": "length_km",
-          "type": "quantitative",
-          "scale": {
-            "type": "sqrt",
-            "domain": [
-              0,
-              105
-            ],
-            "nice": false
-          },
-          "axis": {
-            "title": [
-              "Trail distance (km)",
-              "square-root scale"
-            ]
-          }
-        },
-        "y": {
-          "value": 8
-        },
-        "text": {
-          "field": "annotation"
-        }
-      },
-      "name": "longestNote"
-    },
-    {
-      "transform": [
-        {
-          "calculate": "datum.length_km <= 5 ? 1 : 0",
-          "as": "short_walk"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "sum",
-              "field": "short_walk",
-              "as": "short_count"
-            },
-            {
-              "op": "count",
-              "as": "total"
-            }
-          ]
-        },
-        {
-          "filter": "datum.total > 0"
-        },
-        {
-          "calculate": "datum.short_count + ' of ' + datum.total + ' selected walks are ≤5 km\\nShort outings dominate this selection'",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#52716a",
-        "lineBreak": "\n",
-        "lineHeight": 15
-      },
-      "encoding": {
-        "x": {
-          "value": {
-            "expr": "width - 8"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height-24"
-          }
-        },
-        "text": {
-          "field": "annotation"
-        }
-      }
-    }
-  ],
   "config": {
     "view": {
       "stroke": null
     },
+    "font": "Inter",
     "axis": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "gridColor": "#d9e2df",
-      "domainColor": "#9aa7a4",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
       "labelFontSize": 12,
-      "titleFontSize": 13,
-      "titlePadding": 10,
-      "labelPadding": 6
+      "titleFontSize": 12,
+      "labelColor": "#405652",
+      "titleColor": "#24443f",
+      "gridColor": "#e4ebe7"
     },
     "legend": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "orient": "bottom",
       "labelFontSize": 12,
-      "titleFontSize": 13,
-      "padding": 8,
-      "columns": 2,
-      "labelLimit": 150,
-      "symbolType": "circle",
-      "symbolStrokeWidth": 0,
-      "symbolOpacity": 1
-    },
-    "header": {
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelColor": "#0f172a"
-    },
-    "text": {
-      "font": "Inter",
-      "fontSize": 11,
-      "color": "#20343A"
+      "titleFontSize": 12
     }
   },
-  "description": "Distance strip with a reserved annotation band above the grade rows. The longest-walk caption uses adaptive alignment and a vertical pointer; the 5 km guide stays inside the data region. The horizontal domain includes a margin beyond the 95 km maximum."
+  "data": {
+    "url": "data/distance_points.json"
+  },
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 50,
+    "opacity": 0.65
+  },
+  "encoding": {
+    "x": {
+      "field": "length_km",
+      "type": "quantitative",
+      "title": "Recorded distance (km; square-root spacing)",
+      "scale": {
+        "type": "sqrt",
+        "domain": [
+          0,
+          100
+        ]
+      },
+      "axis": {
+        "values": [
+          0,
+          1,
+          5,
+          10,
+          20,
+          40,
+          60,
+          95
+        ]
+      }
+    },
+    "y": {
+      "field": "track_code",
+      "type": "ordinal",
+      "sort": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "3",
+        "Unknown"
+      ],
+      "title": "Source code"
+    },
+    "yOffset": {
+      "field": "lane",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "track_code",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "3",
+          "Unknown"
+        ],
+        "range": [
+          "#0072B2",
+          "#E69F00",
+          "#009E73",
+          "#CC79A7",
+          "#252525",
+          "#6f52a3",
+          "#ad6f3b",
+          "#9daca9"
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "name",
+        "title": "Trail"
+      },
+      {
+        "field": "track_code",
+        "title": "Source code"
+      },
+      {
+        "field": "length_km",
+        "title": "Distance (km)",
+        "format": ".2f"
+      },
+      {
+        "field": "duration_group",
+        "title": "Source duration category"
+      },
+      {
+        "field": "gradient",
+        "title": "Terrain"
+      },
+      {
+        "field": "lga",
+        "title": "Council"
+      }
+    ]
+  },
+  "description": "Individual trail distances including missing source-code records. Vertical offsets only separate overlapping points."
 }

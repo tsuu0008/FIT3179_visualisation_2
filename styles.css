@@ -1010,6 +1010,58 @@ h3 {
   gap: 22px;
   align-items: start;
 }
+
+/* The full-resolution overview needs room for paths and geographic context. */
+.overview-layout > div:first-child {
+  grid-column: 1 / -1;
+}
+.overview-layout #network-inset {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+}
+.overview-map-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.overview-map-controls label {
+  font-size: .85rem;
+  font-weight: 600;
+}
+.overview-map-controls select {
+  flex: 1 1 240px;
+  max-width: 520px;
+  min-width: 0;
+  padding: 9px;
+}
+.overview-map-controls button {
+  padding: 10px 14px;
+  border: 1px solid #a9bfb7;
+  border-radius: 5px;
+  background: #f4f8f5;
+  color: #173b37;
+  cursor: pointer;
+}
+#chart-01.official-route-map {
+  height: 580px;
+  width: 100%;
+  max-width: none;
+  border: 1px solid #b7c9be;
+  border-radius: 6px;
+  z-index: 0;
+}
+.official-route-map svg {
+  max-width: none;
+}
+.official-route-map .leaflet-control-attribution {
+  font-size: 10px;
+}
+@media (max-width: 650px) {
+  #chart-01.official-route-map { height: 450px; }
+}
 .figure-label {
   margin: 0 0 7px;
   font-size: 0.8rem;
@@ -1430,6 +1482,16 @@ h3 {
 }
 .grid-map-card .chart { max-width: none; margin: 0; }
 .grid-map-card .chart-reading { margin-top: 18px; }
+
+/* Leaflet positions its children absolutely and needs an explicit map height. */
+.plot-scroll > #chart-01.official-route-map {
+  height: 580px !important;
+  min-height: 450px;
+  min-width: 0;
+}
+@media (max-width: 650px) {
+  .plot-scroll > #chart-01.official-route-map { height: 450px !important; }
+}
 .grid-map-card .figure-note { margin-top: 16px; }
 
 /* Balance the compact bin-map panel without a large blank block below its copy. */

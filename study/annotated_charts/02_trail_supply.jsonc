@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -34,7 +34,7 @@
     },
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
     }
   ],
   "projection": {
@@ -139,7 +139,7 @@
       },
       "transform": [
         {
-          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Baw Baw'"
+          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Yarra Ranges'"
         }
       ],
       "mark": {
@@ -159,7 +159,7 @@
       },
       "transform": [
         {
-          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Baw Baw'"
+          "filter": "datum.properties.name === 'Murrindindi' || datum.properties.name === 'Yarra Ranges'"
         }
       ],
       "mark": {
@@ -376,7 +376,7 @@
       "data": {
         "values": [
           {
-            "region_name": "Baw Baw"
+            "region_name": "Yarra Ranges"
           }
         ]
       },
@@ -395,7 +395,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
           "as": "annotation"
         }
       ],
@@ -425,7 +425,7 @@
       "data": {
         "values": [
           {
-            "region_name": "Baw Baw"
+            "region_name": "Yarra Ranges"
           }
         ]
       },
@@ -444,7 +444,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
           "as": "annotation"
         }
       ],
@@ -498,7 +498,7 @@
       "data": {
         "values": [
           {
-            "region_name": "Baw Baw"
+            "region_name": "Yarra Ranges"
           }
         ]
       },
@@ -517,7 +517,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
           "as": "annotation"
         }
       ]
@@ -551,7 +551,7 @@
       "data": {
         "values": [
           {
-            "region_name": "Baw Baw"
+            "region_name": "Yarra Ranges"
           }
         ]
       },
@@ -570,7 +570,7 @@
           }
         },
         {
-          "calculate": "metric === 'resident' ? 'Baw Baw · 233.3 km / 100k\\nPopulation changes the comparison' : 'Baw Baw · 146.5 km\\nLargest total recorded distance'",
+          "calculate": "metric === 'resident' ? 'Yarra Ranges · 95.5 km / 100k\\nPopulation changes the comparison' : 'Yarra Ranges · 153.7 km\\nLargest total recorded distance'",
           "as": "annotation"
         }
       ]

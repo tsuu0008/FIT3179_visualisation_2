@@ -1,93 +1,13 @@
-# Data and caveats
+# Data and display notes - 23 October 2026
 
-| Item | Meaning |
-| --- | --- |
-| trails.json | 194 records: name/id, length_km, hours, grade, gradient, experience, access, assigned area and representative coordinates. |
-| trails.geojson | Actual route geometry and metadata. |
-| lga.geojson | 80 boundary features including the unincorporated area; source of population/supply fields. |
-| map_regions.json | Area features plus the Victoria outline; used for the regional detail boundary. |
-| trail_labels.json | Trail records with shorter names for map annotations; original names remain in tooltips. |
-| parallel_points.json | Four prepared rows per trail (776 total), with an axis number and display position; original values remain in tooltips. |
-| distance_points.json | Trail records with precomputed lane offsets for the strip plot. |
-| mosaic.json | Prepared rectangle coordinates and rounded kilometre labels. |
-| lga_stats.json | Prepared area totals and ranks. |
-| access_waffle.json | 100 prepared percentage cells. |
-| trail_grid.json | 65 occupied 25 km equal-area cells; projected outline and reproducibility metadata. |
-
-The browser starts from processed data. Current plotting-table derivations are included in `scripts/rebuild_data.py`; the original raw-data cleaning, simplification and boundary assignment history remains unavailable. `data/sources.json` explicitly distinguishes verified source pages from retained observations whose lineage is unverified. Official export requests failed during this revision. No new official snapshot is claimed. See `DATA_SOURCES.md` for download links and import instructions. The supplied lga attribute uses a route midpoint assignment; a route can cross boundaries.
-
-## Denominators
-
-- All trails: 194; exact distance sum 871.905 km (headline 872 km), median 2.15 km (headline 2.2 km).
-- Grades 1–5: 4, 42, 115, 27, 2 records; Unknown: 4.
-- Positive recorded times: 149; missing time: 45.
-- Missing terrain: 7.
-- Heatmap: 186 records with known grade and terrain.
-- Experience bars: 187 records with known terrain and experience.
-- Mosaic: both block measurements and coordinates are now rebuilt from the exact 853.805 km with known grade and terrain. Labels round only at display time. This is not the full-network denominator.
-- Access: 2 Full + 13 Partial = 15, among 179 rated records. Another 15 have no rating. 100 waffle cells round the share to eight highlighted cells.
-- Rank comparison: ranks among 31 positive-trail areas; 18 most populous are displayed.
-- At or below 5 km: 150 of 194 trails initially.
-
-The mosaic excludes both unknown terrain and unknown grade. Per-block rounding explains small differences between printed totals and precise rectangle areas.
-
-## Simple local interactions
-
-The regional detail has an area dropdown; the supply map has a measure dropdown; the circle map has grade/access controls; the strip has a grade dropdown; parallel coordinates has an example-trail dropdown. The overview and time chart remain fixed. Each control affects one chart. The regional dropdown includes areas with recorded trails.
-
-Parallel-coordinate prepared positions are 100 × sqrt(km/95), 100 × sqrt(hours/48), 25 × (grade−1), and 25 × terrain index (flat=0, difficult=4). Missing values use −15, below the valid range. Raw-unit axis labels use the same conversions. These display positions are not additional measurements. These conversions are reproduced by scripts/rebuild_data.py when preparing parallel_points.json; the website reads the resulting values.
-
-## Snapshot-specific and perceptual limits
-
-Some count denominators, the 69-trail heatmap note, named outliers, mosaic total and 15/179 label are fixed to this snapshot. Replacing the dataset requires reviewing them. Grade 5 has only two records. Recorded durations are estimates. Mercator is not equal-area, and the browser does not calculate geographic statistics from its displayed polygons.
-
-Square-root axes keep short routes distinguishable but make spacing nonlinear. Grade/terrain are ordered categories with no equal-effort interpretation. Rank gaps lose underlying magnitudes. Colour consistency is provided, but no formal colour-vision evaluation is claimed. Annotations use fixed positions and offsets; they do not use an automatic collision solver.
-
-
-## Direct annotations and grade accessibility
-
-All 14 chart specifications now include a highlighted feature plus an explanatory label inside the plotting area. Map callouts use pointer lines or matching numbered area/trail highlights. Filtered chart labels recompute from the matching records; empty selections do not retain a stale trail label. Static regional findings describe the retained snapshot.
-
-Grades use blue (#0072B2), amber (#E69F00), teal (#009E73), magenta (#CC79A7) and charcoal (#252525), with unknown in grey. Point charts add different symbols; axes, guide cards and tooltips retain grade numbers. This uses several colours from the Okabe–Ito palette plus charcoal, and avoids a red–green opposing pair. It is not a guarantee for every colour-vision condition; direct labels and shape redundancy carry meaning independently. Sequential colour remains appropriate for numeric supply and heatmap counts.
-
-Callouts reserve separate annotation space. Responsive cards and chart widths were checked in the browser at 1280 px and 1024 px: all 14 views fit without horizontal plot overflow or text clipped by their SVG frames. Headless Vega rendering additionally checks filter states. This does not claim exhaustive collision detection on every possible screen.
-
-## Map and selection refinements
-
-The statewide overview and local detail map occupy equal-width columns on desktop and stack below 900 px. The statewide plot uses a 530 px height and its regional detail uses 440 px so the geography fills the two panels. The supply map places the ratio explanation in its northeast corner and pairs the coverage note with the colour scale in a compact footer. Its 520 px height avoids a separate, distant legend row. The rank plot fills the available horizontal space using a 0–32 domain around the observed ranks 1–31, with vertical rank guides and horizontal row guides. Highlighted-row explanations sit directly above their connectors. The concise supply-map narrative explains population normalisation and dataset coverage. The heatmap leader stops at the highlighted cell's left border, and counts render above leader rules.
-
-The proportional-symbol map pairs its grade and distance legends on the lower left with numbered explanatory callouts on the lower right. Number 1 labels the shaded council polygon; number 2 identifies the exact plotted longest-trail symbol. The latter has a ring sized from the same distance encoding to surround the full symbol. Its geographic content is fitted above this footer. The local detail map retains unboxed callouts above its geography. Leader lines avoid annotation text. Murrindindi is explicitly labelled as an LGA; general council borders remain quiet, while selected areas have a separate fill or outline. Region pointers use a geometry-derived interior point, rather than an average of trail coordinates or a guessed location. Local trail pointers use a nearest point on the displayed route geometry, not an entrance. `scripts/prepare_map_annotations.py` reproduces these anchors and projection frames and is called by the data rebuild. The two anchor tables are derived display aids, not additional observations.
-
-Parallel coordinates now has a persistent six-entry grade legend, 194 named trail choices plus None and Longest matching, and filters for grade, recorded LGA and known/missing time. A live count describes the matching records. If a selected named trail is outside the filters, the chart explains that; empty filters produce an explicit message. The selected time label is positioned on the opposite side of the incoming profile segment.
-
-Validation: all 81 regional anchors were checked inside their polygons; all 194 route anchors were checked on their displayed route lines. All 194 named parallel-coordinate choices and 44 grade/area/time/empty filter states were evaluated. All 46 map filter/area states were checked for separated callout text, leader-to-marker alignment and leader endpoints at the annotation band. Map labels and the heatmap leader were visually inspected in rendered SVGs. Browser layout checks were completed for the current revision at 1280 px and 1024 px.
-
-Map refinements: council borders use thin, light strokes behind the trail marks; the northern overview callout has a reserved top margin. The symbol map uses numbered, unboxed callouts beside its legends; the regional detail map keeps them above its geography. Grade legends on route and parallel-coordinate charts use solid circles.
-
-Final symbol-map callouts: 28 grade/access/width combinations were checked for complete labels, separated notes, matching numbered geographic markers and absence of leader lines. The regional count now highlights the entire matching council polygon; the route circle remains centred on the exact selected point.
-
-The distance–time scatterplot uses short vertical pointer lines. Track Ninety Six’s note sits above its highlighted point, and Great Dividing Trail’s note sits below its point. Both notes share their point’s horizontal anchor. Each pointer meets the ring edge and leaves a small gap before the annotation text; the pointers remain on their respective sides of the dashed regression line. The point data and fitted trend are unchanged.
-
-Supply-map area highlights use orange strokes over a wider white casing for contrast against both ends of the teal colour scale. The symbol map uses stronger base boundaries and fully opaque trail symbols, shades the selected council polygon, and sizes the longest-route ring to contain the selected symbol.
-
-The distance strip reserves an annotation band above its grade rows. Adaptive left/right alignment keeps the longest-walk label clear of grade labels for every grade selection, and the 5 km guide stays below that band. Its distance domain extends to 105 km to leave room around the 95 km highlight. The median-distance chart uses a 360 px height aligned with its paired heatmap, a 0–28 km distance axis and responsive width so it fits its comparison card.
-
-Chart heights are sized individually to their mark density. Heatmap, parallel-coordinate, experience, mosaic, strip, waffle and rank plots are sized to their content. Map narratives align at the top, controls sit above each SVG, and paired comparison cards share aligned content rows on desktop. Data files and source attribution are unchanged.
-
-The challenge heatmap fits the actual card width rather than enforcing the shared 620 px minimum. Its terrain labels wrap, all five grade columns stay visible, and a reserved annotation band keeps the callout out of the data cells.
-
-The shortlist map has a larger 680 px plotting specification and a wider desktop column beside the narrative. The first overview retains equal-width panels. Enlarged map geometry, legends, labels and pointer targets use the same projection and source data.
-
-## Criteria refinement — 23 October 2026
-
-A fourth geographic idiom uses a fixed 25 km Lambert azimuthal equal-area grid. Each of the original 194 trail midpoints contributes to exactly one of 65 occupied cells. The highest-count cell contains 13 trails, all assigned to Murrindindi. A short numbered pointer identifies that cell without crossing other occupied cells. Cells are not clipped to council or coastal boundaries. The cell size and origin affect the aggregation; the map does not infer entrances, connectivity, visitation or coverage of all Victorian walks. `scripts/prepare_grid_map.py` rebuilds the display file without writing the inputs.
-
-Chart reading instructions now explain the mosaic areas, parallel-coordinate axes, square-root scales, rank comparison group, and access denominators beside the relevant views. The access waffle still depicts the rated subset (179), with eight cells representing 8.4% rounded. The original data files and reference URLs are unchanged. Laptop layouts stack comparison cards when their labels need more room, and no chart requires horizontal scrolling.
-
-Visible-grid refinement: the 25 km rules are clipped to the land outline using even/odd polygon intersections, including holes and islands. This display geometry does not reassign observations. All 65 occupied bins and their 194 trail memberships are unchanged. A pale “0 recorded” legend entry describes empty land bins. Occupied edge bins remain full squares, so equal bin area is preserved; some cross the coast. The map is enlarged beside its explanatory text, and its lettered note sits beside the legend.
-
-The peak-bin marker uses a circled A, distinct from numeric bin counts. Its short pointer meets the highlighted bin; the matching A note states 13 trails, all assigned to Murrindindi, and 6.7% of the full dataset.
-
-Matching circled letter badges now identify annotations both on maps and beside their footer explanations. On the symbol map A identifies the selected council and B identifies the longest-route ring; B and its ring use deep purple, distinct from Grade 2 amber. The waffle uses orange for its eight highlighted percentage squares, with the legend and reading guide updated to match.
-
-The bin-map plotting specification is 550 px high, with the adjacent narrative vertically centred on desktop. This reduces the panel height and the blank space under its text while retaining square bins and the same counts.
+- All 195 official walking records are included: 875.905 km, median 2.2 km. The full recreation layer contains 366 records; the other 171 do not carry the walking flag.
+- The first map uses full official route coordinates over OpenStreetMap, with zoom, pan, route selection and popups. Its blue/orange lines encode the network and selection. The regional route map uses the same source geometry.
+- Other views treat C1-C6 and the literal source code `3` as separate categories. There are 56 missing codes. No public walking grade is inferred.
+- Source duration categories: 111 under one hour, 67 one to four hours, five over four hours, two overnight, five multiple days, five not recorded. MCG is the only record with numeric hours (five); categorical comparisons do not invent exact times for other records.
+- The heatmap includes 135 records with code and terrain; experience bars include 188 with terrain and experience. The mosaic covers 706.52 km with known code and terrain.
+- Parallel-coordinate category spacing is not an effort or elapsed-time scale. Distance uses square-root spacing. Missing values have a separate lane. Strip offsets only reduce overlap.
+- Fifteen of 180 rated records have full or partial access (8.3333%); 15 are unrated. The waffle rounds to eight cells out of 100 and states the exact denominator. These source fields are not an independent accessibility audit.
+- All 80 population counts match ABS Table 2, column D (30 June 2025). Supply per resident does not measure visitor demand or travel time.
+- The 195 official-geometry midpoints occupy 65 fixed 25 km equal-area cells. The peak cell contains 13 routes. Grid origin, cell size and midpoint method affect the pattern.
+- Councils are assigned by a reproducible length-weighted midpoint. Cross-boundary routes are counted once. Council polygon vintage remains unverified. The resulting Upper Yarra assignment is Yarra Ranges, superseding the earlier Baw Baw assignment.
+- Controls affect their own view. The original sketch and raw source archives are linked artifacts; only the processed route geometry is loaded by the overview.

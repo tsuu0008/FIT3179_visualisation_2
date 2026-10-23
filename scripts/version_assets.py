@@ -21,7 +21,7 @@ def main():
         return path + '?v=' + digest
 
     content, count = re.subn(
-        r'(styles\.css|charts/[A-Za-z0-9_]+\.json)(?:\?v=[A-Za-z0-9_-]+)?',
+        r'(styles\.css|scripts/overview_map\.js|data/trails\.geojson|charts/[A-Za-z0-9_]+\.json)(?:\?v=[A-Za-z0-9_-]+)?',
         version, content)
     page.write_text(content)
     print(f'Versioned {count} local chart/stylesheet references.')

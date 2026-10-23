@@ -1,38 +1,73 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Parallel coordinates with a visible grade legend, all 194 trail choices, grade/area/time filters, live counts and a selected-profile label.",
   "width": "container",
-  "height": 490,
+  "height": 470,
+  "background": null,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
-  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#405652",
+      "titleColor": "#24443f",
+      "gridColor": "#e4ebe7"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  },
+  "data": {
+    "url": "data/parallel_points.json"
+  },
+  "padding": {
+    "left": 34,
+    "right": 88,
+    "top": 35,
+    "bottom": 45
+  },
+  "resolve": {
+    "axis": {
+      "x": "independent",
+      "y": "independent"
+    },
+    "legend": {
+      "color": "independent"
+    }
+  },
   "params": [
     {
-      "name": "pcGrade",
+      "name": "chosenCode",
       "value": "All",
       "bind": {
         "input": "select",
-        "name": "Grade: ",
         "options": [
           "All",
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "3",
           "Unknown"
-        ]
+        ],
+        "name": "Source code: "
       }
     },
     {
-      "name": "pcArea",
+      "name": "chosenLga",
       "value": "All",
       "bind": {
         "input": "select",
-        "name": "Area: ",
         "options": [
           "All",
           "Alpine",
@@ -54,6 +89,7 @@
           "Loddon",
           "Macedon Ranges",
           "Mansfield",
+          "Melbourne",
           "Mildura",
           "Mitchell",
           "Moorabool",
@@ -67,68 +103,213 @@
           "Whittlesea",
           "Yarra Ranges"
         ],
-        "labels": [
-          "All Victoria",
-          "Alpine",
-          "Ararat",
-          "Baw Baw",
-          "Benalla",
-          "Cardinia",
-          "Central Goldfields",
-          "Colac Otway",
-          "East Gippsland",
-          "Gannawarra",
-          "Glenelg",
-          "Golden Plains",
-          "Greater Bendigo",
-          "Hindmarsh",
-          "Horsham",
-          "Indigo",
-          "Latrobe (Vic.)",
-          "Loddon",
-          "Macedon Ranges",
-          "Mansfield",
-          "Mildura",
-          "Mitchell",
-          "Moorabool",
-          "Mount Alexander",
-          "Murrindindi",
-          "Northern Grampians",
-          "Pyrenees",
-          "Towong",
-          "Unincorporated Vic",
-          "Wellington",
-          "Whittlesea",
-          "Yarra Ranges"
-        ]
+        "name": "Area: "
       }
     },
     {
-      "name": "pcTime",
-      "value": "All",
+      "name": "pickTrail",
+      "value": 0,
       "bind": {
         "input": "select",
-        "name": "Time records: ",
         "options": [
-          "All",
-          "Known",
-          "Missing"
+          0,
+          235,
+          155,
+          223,
+          256,
+          73,
+          58,
+          49,
+          109,
+          56,
+          198,
+          299,
+          26,
+          319,
+          34,
+          66,
+          24,
+          123,
+          349,
+          60,
+          68,
+          278,
+          206,
+          240,
+          52,
+          340,
+          302,
+          178,
+          338,
+          351,
+          275,
+          208,
+          142,
+          363,
+          132,
+          105,
+          177,
+          70,
+          264,
+          220,
+          224,
+          65,
+          364,
+          112,
+          212,
+          339,
+          362,
+          211,
+          357,
+          222,
+          332,
+          51,
+          22,
+          46,
+          135,
+          225,
+          35,
+          324,
+          140,
+          358,
+          50,
+          28,
+          343,
+          196,
+          219,
+          200,
+          113,
+          33,
+          341,
+          151,
+          260,
+          202,
+          288,
+          36,
+          279,
+          138,
+          31,
+          107,
+          204,
+          213,
+          281,
+          131,
+          54,
+          221,
+          171,
+          354,
+          267,
+          187,
+          210,
+          361,
+          1,
+          67,
+          61,
+          53,
+          133,
+          37,
+          119,
+          159,
+          330,
+          176,
+          312,
+          146,
+          266,
+          344,
+          47,
+          195,
+          303,
+          239,
+          350,
+          209,
+          48,
+          255,
+          231,
+          244,
+          261,
+          69,
+          285,
+          76,
+          166,
+          27,
+          45,
+          143,
+          314,
+          289,
+          139,
+          23,
+          136,
+          189,
+          243,
+          283,
+          335,
+          134,
+          295,
+          20,
+          164,
+          352,
+          236,
+          55,
+          57,
+          290,
+          71,
+          32,
+          322,
+          103,
+          170,
+          287,
+          59,
+          355,
+          318,
+          233,
+          74,
+          321,
+          41,
+          348,
+          226,
+          62,
+          301,
+          157,
+          40,
+          257,
+          72,
+          203,
+          181,
+          185,
+          29,
+          30,
+          304,
+          251,
+          325,
+          75,
+          238,
+          77,
+          141,
+          282,
+          346,
+          228,
+          280,
+          182,
+          174,
+          277,
+          315,
+          329,
+          43,
+          44,
+          217,
+          25,
+          145,
+          258,
+          39,
+          292,
+          308,
+          38,
+          214,
+          42,
+          63,
+          64
         ],
         "labels": [
-          "All records",
-          "Recorded time only",
-          "Missing time only"
-        ]
-      }
-    },
-    {
-      "name": "focusTrail",
-      "value": "Track Ninety Six",
-      "bind": {
-        "input": "select",
-        "name": "Highlight trail: ",
-        "options": [
-          "None",
           "Longest matching",
           "Access track to Stevensons Falls and day visitor area",
           "Ada Tree Walk",
@@ -219,6 +400,7 @@
           "Little Cabbage Tree Creek Falls",
           "Loves Creek Walk",
           "Lower Howqua Feeder Walking Track",
+          "MCG",
           "Marlo Walking Track Network",
           "Mcleans Loop",
           "Memorial Arboretum Walk",
@@ -325,273 +507,53 @@
           "Youngs Creek Falls",
           "Youngs Creek Loop"
         ],
-        "labels": [
-          "None",
-          "Longest matching trail",
-          "Access track to Stevensons Falls and day visitor area · Grade 3 · Colac Otway",
-          "Ada Tree Walk · Grade 3 · Baw Baw",
-          "Alistair Fielding Walk · Grade 3 · Wellington",
-          "Anderson Mill Walk · Grade 4 · Macedon Ranges",
-          "Annya Walk · Grade 2 · Glenelg",
-          "Apex Lookout Walk · Grade 3 · Alpine",
-          "Avon River Walking Track · Grade 3 · Wellington",
-          "Avro Anson Memorial Track · Grade 4 · Murrindindi",
-          "Bakers Gully Reservoirs Lower Loop · Grade 3 · Alpine",
-          "Bakers Gully Reservoirs Upper Loop · Grade 3 · Alpine",
-          "Bates Dam Historic Walk · Grade 2 · Indigo",
-          "Battery Dam Historical Walk · Grade 3 · Central Goldfields",
-          "Beauchamp Falls Walk · Grade 3 · Colac Otway",
-          "Beauty Spot Nature Trail Long Loop · Grade 2 · Murrindindi",
-          "Beauty Spot Nature Trail Short Loop · Grade 2 · Murrindindi",
-          "Beeripmo Walk · Grade 3 · Pyrenees",
-          "Bentley Plain Walk · Grade 3 · East Gippsland",
-          "Berrook Walk · Grade 3 · Mildura",
-          "Berry Farm Loop · Grade 3 · East Gippsland",
-          "Big Billy Bore Track · Grade 3 · Mildura",
-          "Bilstons Tree Walk · Grade 2 · Glenelg",
-          "Bindaree Falls · Grade 3 · Mansfield",
-          "Birnam Walk · Grade 3 · Colac Otway",
-          "Black Snake Creek Walk · Grade 4 · Wellington",
-          "Blue Spruce Walk · Grade 2 · Colac Otway",
-          "Bodens Water Race · Grade 2 · Golden Plains",
-          "Borella Walk · Grade 3 · Ararat",
-          "Boroondara Track · Grade 4 · Murrindindi",
-          "Bruntons Bridge Walk · Grade 2 · Baw Baw",
-          "Bull Gully Rock Wells Walk · Grade 3 · Central Goldfields",
-          "Bullockys Grave Walk · Grade 2 · Wellington",
-          "Cascades Walk · Grade 3 · Murrindindi",
-          "Cassinia Sec Link Track · Grade 3 · Murrindindi",
-          "Casuarina · Grade 3 · East Gippsland",
-          "Choof Choof · Grade 3 · East Gippsland",
-          "Cicada Circuit Trail · Grade 3 · Murrindindi",
-          "Coopers Creek River Walk · Grade 2 · Baw Baw",
-          "Craigs Hut Walking Track · Grade 4 · Unincorporated Vic",
-          "Crinoline Walk · Unknown · Wellington",
-          "Deep Gully Walk · Grade 3 · Towong",
-          "Delegate River Tunnel · Grade 3 · East Gippsland",
-          "Donkey Orchid walk · Grade 3 · East Gippsland",
-          "Douglas Reserve Walk · Grade 3 · East Gippsland",
-          "Drummer Rainforest Walk · Grade 4 · East Gippsland",
-          "Dustys Lookout · Grade 2 · Mansfield",
-          "Easy Magic Walk · Grade 1 · East Gippsland",
-          "Elevator · Grade 3 · East Gippsland",
-          "Enoch Falls Walk · Grade 3 · Murrindindi",
-          "Explosive Magazine Loop · Grade 3 · East Gippsland",
-          "Falls Creek Memorial · Unknown · East Gippsland",
-          "Fern Gully Walk · Grade 3 · Wellington",
-          "Fiery Loop · Grade 3 · Pyrenees",
-          "Forest Camp · Grade 3 · Mansfield",
-          "Forest Walk · Grade 3 · Wellington",
-          "Freestone Creek Walking Track · Grade 3 · Wellington",
-          "Gilberts Gully Trail · Grade 2 · Murrindindi",
-          "Gippsland Lakes Discovery Trail · Grade 3 · East Gippsland",
-          "Goughs Bay Lookout · Grade 3 · Mansfield",
-          "Goulburn River Walk · Grade 2 · Mansfield",
-          "Granite Creek · Grade 3 · Wellington",
-          "Great Dividing Trail · Grade 3 · Moorabool",
-          "Green Hills Walking Track · Grade 4 · Wellington",
-          "Grevillea Walk · Grade 3 · Pyrenees",
-          "Hanging Rock Walk · Grade 4 · Baw Baw",
-          "Hermans Hill Walking Track · Grade 3 · Hindmarsh",
-          "Historic Youngs Creek Reservoir · Grade 3 · East Gippsland",
-          "Horseshoe Bend Tunnel · Grade 3 · Baw Baw",
-          "Howqua River Walking Track · Grade 4 · Mansfield",
-          "Huggins Lookout Walk · Grade 3 · Alpine",
-          "Junction Walking Track · Grade 3 · Mount Alexander",
-          "Kalatha Giant Tree Walk · Grade 2 · Murrindindi",
-          "Kendalls Link Track · Grade 2 · Murrindindi",
-          "Keppel Lookout Trail · Grade 4 · Murrindindi",
-          "Kerami Link Trail · Grade 3 · Murrindindi",
-          "Klingsporn Bridle Track · Grade 4 · Mansfield",
-          "Koondrook Red Gum Forest Walk - Eagle Loop · Grade 3 · Gannawarra",
-          "Koondrook Red Gum Forest Walk - Turtle Loop · Grade 3 · Gannawarra",
-          "La La Falls · Grade 3 · Yarra Ranges",
-          "Latrobe River Walk · Grade 3 · Baw Baw",
-          "Lerderderg Heritage River Walk · Grade 3 · Moorabool",
-          "Lima East Boulders Walk · Grade 3 · Benalla",
-          "Lima Falls · Grade 3 · Benalla",
-          "Limestone Box Forest Walk · Grade 2 · East Gippsland",
-          "Link track between picnic area and campground · Grade 2 · Murrindindi",
-          "Link trail to Rocky Ned Falls Walk · Grade 3 · Benalla",
-          "Linton Firefighter Memorial Walk · Grade 2 · Golden Plains",
-          "Little Cabbage Tree Creek Falls · Grade 2 · East Gippsland",
-          "Loves Creek Walk · Grade 2 · Colac Otway",
-          "Lower Howqua Feeder Walking Track · Grade 4 · Mansfield",
-          "Marlo Walking Track Network · Grade 2 · East Gippsland",
-          "Mcleans Loop · Grade 3 · East Gippsland",
-          "Memorial Arboretum Walk · Grade 1 · Alpine",
-          "Meringtons Walk · Grade 4 · Baw Baw",
-          "Michaeldene · Grade 2 · Murrindindi",
-          "Mill Track · Grade 4 · Murrindindi",
-          "Mitchells Bridle Trail · Grade 4 · Mansfield",
-          "Montane Walking Track · Grade 4 · Alpine",
-          "Moolerr Nature Drive · Grade 3 · Northern Grampians",
-          "Moonee Creek Walking Track · Unknown · Benalla",
-          "Morning Star Walk · Grade 3 · Wellington",
-          "Mount Hedrick Walking Track · Grade 4 · Wellington",
-          "Mountain Monarchs Walk · Grade 3 · Baw Baw",
-          "Mt Timbertop Walking Track · Grade 4 · Mansfield",
-          "Mt Torbreck Summit Track · Grade 4 · Murrindindi",
-          "Mt Welcome Hike · Grade 5 · Towong",
-          "Murrindindi River Walk · Grade 3 · Murrindindi",
-          "Myrtle Gully Circuit · Grade 3 · Murrindindi",
-          "New Federal Mill Walk · Grade 3 · Baw Baw",
-          "Nicholson Rocks Walking Track · Grade 3 · Wellington",
-          "Noojee Rail Trail · Grade 2 · Baw Baw",
-          "Noorinbee · Grade 2 · East Gippsland",
-          "Nowa Nowa Walk Banksia Boulevard · Grade 3 · East Gippsland",
-          "Okeefe Rail Trail - Longlea · Grade 2 · Greater Bendigo",
-          "Orbost North Walking Track · Grade 2 · East Gippsland",
-          "Paradise Walk · Grade 3 · Pyrenees",
-          "Pioneer Sawmill Loop Walk · Unknown · Moorabool",
-          "Pipe Gully Walk · Grade 3 · Northern Grampians",
-          "Pipeline Walk · Grade 4 · Mount Alexander",
-          "Plain Creek Loop Walk · Grade 3 · Mansfield",
-          "Plain Creek Tramway Bridge Walk · Grade 3 · Mansfield",
-          "Plain Creek Waterfall · Grade 2 · Mansfield",
-          "Plane Crash Loop · Grade 3 · East Gippsland",
-          "Poverty Point Walk · Grade 3 · Baw Baw",
-          "Pyrenees Endurance Walk · Grade 4 · Pyrenees",
-          "Ralph Cornwall Walk · Grade 2 · Baw Baw",
-          "Red Gums Walk Middle · Grade 2 · Wellington",
-          "Red Gums Walk North Block · Grade 2 · Wellington",
-          "Red Gums Walk South Block · Grade 2 · Wellington",
-          "Red Hill Trail · Grade 3 · Murrindindi",
-          "Red Jacket Cemetery Access Track · Grade 3 · Baw Baw",
-          "Red Jacket Relics Access Track · Grade 3 · Baw Baw",
-          "Red White And Blue Walk · Grade 3 · Mount Alexander",
-          "Redwoods Boardwalk · Grade 2 · Colac Otway",
-          "Redwoods Walk · Grade 2 · Murrindindi",
-          "Reed walking track · Grade 2 · East Gippsland",
-          "Reform Hill Lookout Loop · Grade 3 · Alpine",
-          "Reform Hill Mining Loop · Grade 3 · Alpine",
-          "Reform Hill Monument Walk · Grade 3 · Alpine",
-          "Reform Hill Poverty Reef Loop · Grade 3 · Alpine",
-          "Reids Tramline Walk · Grade 4 · Yarra Ranges",
-          "Richards Curves Walk · Grade 3 · Yarra Ranges",
-          "Richards Tramline · Grade 3 · Yarra Ranges",
-          "Richards Tramline Link · Grade 3 · Yarra Ranges",
-          "River Walk · Grade 3 · Towong",
-          "Rockpools · Grade 3 · Alpine",
-          "Rocky Knob · Grade 3 · East Gippsland",
-          "Rocky Ned · Grade 3 · Benalla",
-          "Rocky Ned Falls Walk · Grade 3 · Benalla",
-          "Rubicon Dam Walk · Grade 3 · Murrindindi",
-          "Rubicon Heritage Walk · Grade 3 · Murrindindi",
-          "Sculpture Trail · Grade 2 · Murrindindi",
-          "Seven Acre Rock Walk · Grade 3 · Cardinia",
-          "Short Basin Walk · Grade 3 · Northern Grampians",
-          "Slaughter Walking Track · Grade 3 · East Gippsland",
-          "Snobs Banyarmbite Falls · Grade 3 · Murrindindi",
-          "Star Of West Goldmine Walk · Grade 4 · Mansfield",
-          "Steavenson Falls Walk · Grade 1 · Murrindindi",
-          "Stevensons Falls Walk · Grade 1 · Colac Otway",
-          "Store Point Historic Loop · Grade 3 · Wellington",
-          "Strath Creek Falls Walk · Grade 3 · Mitchell",
-          "Stringybark Creek Historic Loop · Grade 3 · Benalla",
-          "Stringybark Creek Linking Track · Grade 3 · Benalla",
-          "Summit Walk · Grade 3 · Whittlesea",
-          "Sunday Creek Walk · Grade 3 · Mitchell",
-          "Tanglefoot Loop · Grade 3 · Murrindindi",
-          "Tanjil Bren Tramway Walk · Grade 4 · Baw Baw",
-          "The Channel Loop Walking Track · Grade 3 · Wellington",
-          "Thowgla Falls Walking Track · Grade 3 · Towong",
-          "Toombon Historic Walk · Grade 3 · Baw Baw",
-          "Toorongo Falls Walk · Grade 3 · Baw Baw",
-          "Toorongo River Walk · Grade 3 · Baw Baw",
-          "Track Ninety Six · Grade 5 · Wellington",
-          "Tree Fern Gully · Grade 2 · Murrindindi",
-          "Tubal Cain Walk · Grade 4 · East Gippsland",
-          "Upper Yarra Walking Track · Grade 4 · Baw Baw",
-          "Valley View Walk · Grade 3 · Alpine",
-          "Valley Walk · Grade 3 · Pyrenees",
-          "Waanyarra Walk · Grade 3 · Loddon",
-          "Wail Scenic Loop · Grade 3 · Horsham",
-          "Wail Trail · Grade 3 · Horsham",
-          "Walk Into History · Grade 3 · Yarra Ranges",
-          "Water Race Walk · Grade 2 · Mansfield",
-          "Waterhole Walk · Grade 2 · Wellington",
-          "Werribee River Walk · Grade 3 · Moorabool",
-          "Whalers Lookout Walking Track · Grade 2 · Glenelg",
-          "Whipstick Loop · Grade 3 · Moorabool",
-          "Wilhelmina Falls · Grade 4 · Murrindindi",
-          "Wilks Creek Trail · Grade 3 · Murrindindi",
-          "Wirilda Walking Track · Grade 3 · Latrobe (Vic.)",
-          "Wirrawilla · Grade 2 · Murrindindi",
-          "Yackandandah Creek Trail · Grade 2 · Indigo",
-          "Yea River Walk · Grade 2 · Murrindindi",
-          "Youngs Creek Falls · Grade 3 · East Gippsland",
-          "Youngs Creek Loop · Grade 3 · East Gippsland"
-        ]
+        "name": "Trail: "
       }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga)"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "length_km",
+          "as": "max_length"
+        }
+      ]
     }
   ],
   "layer": [
     {
       "data": {
         "values": [
-          {}
-        ]
-      },
-      "mark": {
-        "type": "rect",
-        "color": "#eef3f0"
-      },
-      "encoding": {
-        "x": {
-          "datum": -0.05,
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -0.05,
-              3.4
-            ]
-          }
-        },
-        "y": {
-          "datum": -21,
-          "type": "quantitative",
-          "axis": null,
-          "scale": {
-            "domain": [
-              -22,
-              145
-            ]
-          }
-        },
-        "x2": {
-          "datum": 3.4
-        },
-        "y2": {
-          "datum": -8
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
           {
             "axis": 0,
-            "label": "Walking grade"
+            "position": -15,
+            "upper": 100
           },
           {
             "axis": 1,
-            "label": "Distance (km)¹"
+            "position": -15,
+            "upper": 100
           },
           {
             "axis": 2,
-            "label": "Time (hours)¹"
+            "position": -15,
+            "upper": 100
           },
           {
             "axis": 3,
-            "label": "Terrain"
+            "position": -15,
+            "upper": 100
           }
         ]
       },
       "mark": {
         "type": "rule",
-        "color": "#a9bfb4"
+        "color": "#b8c8c1"
       },
       "encoding": {
         "x": {
@@ -599,35 +561,34 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -0.05,
-              3.4
-            ]
+              0,
+              3
+            ],
+            "nice": false
           },
           "axis": null
         },
         "y": {
-          "datum": 0,
+          "field": "position",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
-              -22,
-              145
-            ]
-          }
+              -20,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
         },
         "y2": {
-          "datum": 100
+          "field": "upper"
         }
       }
     },
     {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
       "mark": {
         "type": "line",
-        "opacity": 0.13,
+        "opacity": 0.09,
         "strokeWidth": 1
       },
       "encoding": {
@@ -636,9 +597,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -0.05,
-              3.4
-            ]
+              0,
+              3
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -647,9 +609,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -22,
-              145
-            ]
+              -20,
+              115
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -660,15 +623,17 @@
           "field": "axis"
         },
         "color": {
-          "field": "grade",
+          "field": "track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -677,176 +642,27 @@
               "#009E73",
               "#CC79A7",
               "#252525",
-              "#9B9B9B"
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
-          "title": "Grade",
           "legend": null
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)"
-          },
-          {
-            "field": "hours",
-            "title": "Hours"
-          },
-          {
-            "field": "gradient",
-            "title": "Terrain"
-          }
-        ]
-      },
-      "transform": [
-        {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
         }
-      ]
-    },
-    {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
-      "transform": [
-        {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "focus_rank"
-            }
-          ],
-          "groupby": [
-            "axis"
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
-        }
-      ],
-      "mark": {
-        "type": "line",
-        "strokeWidth": 6,
-        "color": "white"
-      },
-      "encoding": {
-        "x": {
-          "field": "axis",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -0.05,
-              3.4
-            ]
-          },
-          "axis": null
-        },
-        "y": {
-          "field": "position",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -22,
-              145
-            ]
-          },
-          "axis": null
-        },
-        "detail": {
-          "field": "id"
-        },
-        "order": {
-          "field": "axis"
-        },
-        "tooltip": [
-          {
-            "field": "name",
-            "title": "Trail"
-          },
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "length_km",
-            "title": "Distance (km)"
-          },
-          {
-            "field": "hours",
-            "title": "Hours"
-          },
-          {
-            "field": "gradient",
-            "title": "Terrain"
-          }
-        ]
       }
     },
     {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
       "transform": [
         {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "focus_rank"
-            }
-          ],
-          "groupby": [
-            "axis"
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
+          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
         }
       ],
       "mark": {
         "type": "line",
-        "strokeWidth": 3.5,
-        "point": {
-          "filled": true,
-          "size": 50,
-          "stroke": "white"
-        },
+        "strokeWidth": 3,
         "strokeDash": [
-          7,
-          3
+          8,
+          4
         ]
       },
       "encoding": {
@@ -855,9 +671,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -0.05,
-              3.4
-            ]
+              0,
+              3
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -866,9 +683,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -22,
-              145
-            ]
+              -20,
+              115
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -879,15 +697,17 @@
           "field": "axis"
         },
         "color": {
-          "field": "grade",
+          "field": "track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -896,10 +716,109 @@
               "#009E73",
               "#CC79A7",
               "#252525",
-              "#9B9B9B"
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
-          "title": "Grade",
+          "legend": {
+            "title": "Recorded track code",
+            "orient": "bottom",
+            "columns": 4,
+            "symbolType": "circle",
+            "titleLimit": 220
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Trail"
+          },
+          {
+            "field": "track_code",
+            "title": "Source code"
+          },
+          {
+            "field": "length_km",
+            "title": "Distance (km)",
+            "format": ".2f"
+          },
+          {
+            "field": "duration_group",
+            "title": "Source duration category"
+          },
+          {
+            "field": "gradient",
+            "title": "Terrain"
+          },
+          {
+            "field": "lga",
+            "title": "Council"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70
+      },
+      "encoding": {
+        "x": {
+          "field": "axis",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              3
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "position",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -20,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
+        },
+        "color": {
+          "field": "track_code",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
+              "Unknown"
+            ],
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7",
+              "#252525",
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
+            ]
+          },
           "legend": null
         },
         "tooltip": [
@@ -908,20 +827,25 @@
             "title": "Trail"
           },
           {
-            "field": "grade",
-            "title": "Grade"
+            "field": "track_code",
+            "title": "Source code"
           },
           {
             "field": "length_km",
-            "title": "Distance (km)"
+            "title": "Distance (km)",
+            "format": ".2f"
           },
           {
-            "field": "hours",
-            "title": "Hours"
+            "field": "duration_group",
+            "title": "Source duration category"
           },
           {
             "field": "gradient",
             "title": "Terrain"
+          },
+          {
+            "field": "lga",
+            "title": "Council"
           }
         ]
       }
@@ -932,97 +856,97 @@
           {
             "axis": 0,
             "position": 0.0,
-            "label": "1"
+            "label": "C1"
           },
           {
             "axis": 0,
-            "position": 25.0,
-            "label": "2"
+            "position": 16.666666666666668,
+            "label": "C2"
+          },
+          {
+            "axis": 0,
+            "position": 33.333333333333336,
+            "label": "C3"
           },
           {
             "axis": 0,
             "position": 50.0,
+            "label": "C4"
+          },
+          {
+            "axis": 0,
+            "position": 66.66666666666667,
+            "label": "C5"
+          },
+          {
+            "axis": 0,
+            "position": 83.33333333333333,
+            "label": "C6"
+          },
+          {
+            "axis": 0,
+            "position": 100.0,
             "label": "3"
           },
           {
             "axis": 0,
-            "position": 75.0,
-            "label": "4"
-          },
-          {
-            "axis": 0,
-            "position": 100.0,
-            "label": "5"
-          },
-          {
-            "axis": 0,
             "position": -15,
             "label": "Not recorded"
           },
           {
             "axis": 1,
             "position": 0.0,
-            "label": "0"
+            "label": "0 km"
           },
           {
             "axis": 1,
             "position": 10.259783520851542,
-            "label": "1"
+            "label": "1 km"
           },
           {
             "axis": 1,
             "position": 22.941573387056177,
-            "label": "5"
+            "label": "5 km"
           },
           {
             "axis": 1,
-            "position": 32.44428422615251,
-            "label": "10"
-          },
-          {
-            "axis": 1,
-            "position": 51.298917604257696,
-            "label": "25"
+            "position": 45.883146774112355,
+            "label": "20 km"
           },
           {
             "axis": 1,
             "position": 72.54762501100116,
-            "label": "50"
+            "label": "50 km"
           },
           {
             "axis": 1,
             "position": 100.0,
-            "label": "95"
+            "label": "95 km"
           },
           {
             "axis": 2,
-            "position": 0.0,
-            "label": "0"
+            "position": 0,
+            "label": "Under 1 h"
           },
           {
             "axis": 2,
-            "position": 14.433756729740644,
-            "label": "1"
+            "position": 25,
+            "label": "1–4 h"
           },
           {
             "axis": 2,
-            "position": 28.867513459481287,
-            "label": "4"
+            "position": 50,
+            "label": "Over 4 h"
           },
           {
             "axis": 2,
-            "position": 50.0,
-            "label": "12"
+            "position": 75,
+            "label": "Overnight"
           },
           {
             "axis": 2,
-            "position": 70.71067811865476,
-            "label": "24"
-          },
-          {
-            "axis": 2,
-            "position": 100.0,
-            "label": "48"
+            "position": 100,
+            "label": "Multiple days"
           },
           {
             "axis": 2,
@@ -1031,28 +955,28 @@
           },
           {
             "axis": 3,
-            "position": 0.0,
+            "position": 0,
             "label": "Flat"
           },
           {
             "axis": 3,
-            "position": 25.0,
+            "position": 25,
             "label": "Gentle hills"
           },
           {
             "axis": 3,
-            "position": 50.0,
-            "label": "Short steep hills"
+            "position": 50,
+            "label": "Short steep"
           },
           {
             "axis": 3,
-            "position": 75.0,
+            "position": 75,
             "label": "Very steep"
           },
           {
             "axis": 3,
-            "position": 100.0,
-            "label": "Steep + difficult"
+            "position": 100,
+            "label": "Very steep + difficult"
           },
           {
             "axis": 3,
@@ -1064,11 +988,9 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 7,
+        "dx": 5,
         "fontSize": 11,
-        "color": "#334d43",
-        "stroke": "white",
-        "strokeWidth": 3
+        "color": "#36544e"
       },
       "encoding": {
         "x": {
@@ -1076,9 +998,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -0.05,
-              3.4
-            ]
+              0,
+              3
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -1087,9 +1010,10 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -22,
-              145
-            ]
+              -20,
+              115
+            ],
+            "nice": false
           },
           "axis": null
         },
@@ -1103,188 +1027,22 @@
         "values": [
           {
             "axis": 0,
-            "position": 0.0,
-            "label": "1"
-          },
-          {
-            "axis": 0,
-            "position": 25.0,
-            "label": "2"
-          },
-          {
-            "axis": 0,
-            "position": 50.0,
-            "label": "3"
-          },
-          {
-            "axis": 0,
-            "position": 75.0,
-            "label": "4"
-          },
-          {
-            "axis": 0,
-            "position": 100.0,
-            "label": "5"
-          },
-          {
-            "axis": 0,
-            "position": -15,
-            "label": "Not recorded"
+            "position": 111,
+            "label": "Source code"
           },
           {
             "axis": 1,
-            "position": 0.0,
-            "label": "0"
-          },
-          {
-            "axis": 1,
-            "position": 10.259783520851542,
-            "label": "1"
-          },
-          {
-            "axis": 1,
-            "position": 22.941573387056177,
-            "label": "5"
-          },
-          {
-            "axis": 1,
-            "position": 32.44428422615251,
-            "label": "10"
-          },
-          {
-            "axis": 1,
-            "position": 51.298917604257696,
-            "label": "25"
-          },
-          {
-            "axis": 1,
-            "position": 72.54762501100116,
-            "label": "50"
-          },
-          {
-            "axis": 1,
-            "position": 100.0,
-            "label": "95"
+            "position": 111,
+            "label": "Distance"
           },
           {
             "axis": 2,
-            "position": 0.0,
-            "label": "0"
-          },
-          {
-            "axis": 2,
-            "position": 14.433756729740644,
-            "label": "1"
-          },
-          {
-            "axis": 2,
-            "position": 28.867513459481287,
-            "label": "4"
-          },
-          {
-            "axis": 2,
-            "position": 50.0,
-            "label": "12"
-          },
-          {
-            "axis": 2,
-            "position": 70.71067811865476,
-            "label": "24"
-          },
-          {
-            "axis": 2,
-            "position": 100.0,
-            "label": "48"
-          },
-          {
-            "axis": 2,
-            "position": -15,
-            "label": "Not recorded"
+            "position": 111,
+            "label": "Duration category"
           },
           {
             "axis": 3,
-            "position": 0.0,
-            "label": "Flat"
-          },
-          {
-            "axis": 3,
-            "position": 25.0,
-            "label": "Gentle hills"
-          },
-          {
-            "axis": 3,
-            "position": 50.0,
-            "label": "Short steep hills"
-          },
-          {
-            "axis": 3,
-            "position": 75.0,
-            "label": "Very steep"
-          },
-          {
-            "axis": 3,
-            "position": 100.0,
-            "label": "Steep + difficult"
-          },
-          {
-            "axis": 3,
-            "position": -15,
-            "label": "Not recorded"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 7,
-        "fontSize": 11,
-        "color": "#334d43"
-      },
-      "encoding": {
-        "x": {
-          "field": "axis",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -0.05,
-              3.4
-            ]
-          },
-          "axis": null
-        },
-        "y": {
-          "field": "position",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -22,
-              145
-            ]
-          },
-          "axis": null
-        },
-        "text": {
-          "field": "label"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "axis": 0,
-            "label": "Walking grade"
-          },
-          {
-            "axis": 1,
-            "label": "Distance (km)¹"
-          },
-          {
-            "axis": 2,
-            "label": "Time (hours)¹"
-          },
-          {
-            "axis": 3,
+            "position": 111,
             "label": "Terrain"
           }
         ]
@@ -1292,9 +1050,9 @@
       "mark": {
         "type": "text",
         "align": "left",
+        "fontWeight": 600,
         "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#173b37"
+        "color": "#143f3a"
       },
       "encoding": {
         "x": {
@@ -1302,22 +1060,24 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              -0.05,
-              3.4
-            ]
+              0,
+              3
+            ],
+            "nice": false
           },
           "axis": null
         },
         "y": {
-          "datum": 112,
+          "field": "position",
           "type": "quantitative",
-          "axis": null,
           "scale": {
             "domain": [
-              -22,
-              145
-            ]
-          }
+              -20,
+              115
+            ],
+            "nice": false
+          },
+          "axis": null
         },
         "text": {
           "field": "label"
@@ -1325,460 +1085,851 @@
       }
     },
     {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
       "transform": [
         {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
+          "filter": "pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
         },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "focus_rank"
-            }
-          ],
-          "groupby": [
-            "axis"
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
-        },
-        {
-          "filter": "datum.axis === 2"
-        },
-        {
-          "calculate": "datum.name + ' · ' + datum.grade + ' · ' + format(datum.length_km,'.1f') + ' km\\n' + (isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h recorded; follow the thick dashed profile' : 'Time is missing; distance alone cannot describe the commitment')",
-          "as": "annotation"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "font": "Inter",
-        "fontSize": 12,
-        "fontWeight": 600,
-        "color": "#20343A",
-        "lineBreak": "\n",
-        "lineHeight": 16
-      },
-      "encoding": {
-        "x": {
-          "value": 8
-        },
-        "y": {
-          "value": 9
-        },
-        "text": {
-          "field": "annotation"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
-      "transform": [
-        {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "focus_rank"
-            }
-          ],
-          "groupby": [
-            "axis"
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
-        },
-        {
-          "filter": "datum.axis === 2"
-        },
-        {
-          "calculate": "isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h selected' : 'Time not recorded'",
-          "as": "selected_time"
-        },
-        {
-          "filter": "isValid(datum.hours) && datum.hours > 0"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -10,
-        "dy": {
-          "expr": "datum.position >= 100*sqrt(datum.length_km/95) ? -14 : 18"
-        },
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
-      },
-      "encoding": {
-        "x": {
-          "field": "axis",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -0.05,
-              3.4
-            ]
-          },
-          "axis": null
-        },
-        "y": {
-          "field": "position",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -22,
-              145
-            ]
-          },
-          "axis": null
-        },
-        "text": {
-          "field": "selected_time"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
-      "transform": [
-        {
-          "filter": "(pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))"
-        },
-        {
-          "window": [
-            {
-              "op": "row_number",
-              "as": "focus_rank"
-            }
-          ],
-          "groupby": [
-            "axis"
-          ],
-          "sort": [
-            {
-              "field": "length_km",
-              "order": "descending"
-            },
-            {
-              "field": "id",
-              "order": "ascending"
-            }
-          ]
-        },
-        {
-          "filter": "focusTrail === 'Longest matching' ? datum.focus_rank === 1 : datum.name === focusTrail"
-        },
-        {
-          "filter": "datum.axis === 2"
-        },
-        {
-          "calculate": "isValid(datum.hours) && datum.hours > 0 ? format(datum.hours,'.1f') + ' h selected' : 'Time not recorded'",
-          "as": "selected_time"
-        },
-        {
-          "filter": "isValid(datum.hours) && datum.hours > 0"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -10,
-        "dy": {
-          "expr": "datum.position >= 100*sqrt(datum.length_km/95) ? -14 : 18"
-        },
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "color": "#20343A"
-      },
-      "encoding": {
-        "x": {
-          "field": "axis",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -0.05,
-              3.4
-            ]
-          },
-          "axis": null
-        },
-        "y": {
-          "field": "position",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -22,
-              145
-            ]
-          },
-          "axis": null
-        },
-        "text": {
-          "field": "selected_time"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
-      "transform": [
         {
           "filter": "datum.axis === 0"
-        },
-        {
-          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) ? 1 : 0",
-          "as": "matches_filter"
-        },
-        {
-          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) && datum.name === focusTrail ? 1 : 0",
-          "as": "is_focused"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "sum",
-              "field": "matches_filter",
-              "as": "n"
-            },
-            {
-              "op": "sum",
-              "field": "is_focused",
-              "as": "focused_count"
-            }
-          ]
-        },
-        {
-          "calculate": "datum.n === 0 ? 'No trails match these filters. Reset a filter to restore the profiles.' : format(datum.n,'d') + ' matching trails · ' + (pcArea === 'All' ? 'All Victoria' : pcArea) + ' · ' + (pcGrade === 'All' ? 'All grades' : pcGrade) + ' · ' + pcTime + ' time records'",
-          "as": "status"
         }
       ],
       "mark": {
         "type": "text",
         "align": "left",
-        "font": "Inter",
-        "fontSize": 11,
-        "color": "#334d43"
-      },
-      "encoding": {
-        "x": {
-          "value": 8
-        },
-        "y": {
-          "value": {
-            "expr": "height-3"
-          }
-        },
-        "text": {
-          "field": "status"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/parallel_points.json"
-      },
-      "transform": [
-        {
-          "filter": "datum.axis === 0"
-        },
-        {
-          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) ? 1 : 0",
-          "as": "matches_filter"
-        },
-        {
-          "calculate": "((pcGrade === 'All' || datum.grade === pcGrade) && (pcArea === 'All' || datum.lga === pcArea) && (pcTime === 'All' || (pcTime === 'Known' ? isValid(datum.hours) && datum.hours > 0 : !isValid(datum.hours) || datum.hours <= 0))) && datum.name === focusTrail ? 1 : 0",
-          "as": "is_focused"
-        },
-        {
-          "aggregate": [
-            {
-              "op": "sum",
-              "field": "matches_filter",
-              "as": "n"
-            },
-            {
-              "op": "sum",
-              "field": "is_focused",
-              "as": "focused_count"
-            }
-          ]
-        },
-        {
-          "filter": "datum.n > 0 && datum.focused_count === 0 && focusTrail !== 'None' && focusTrail !== 'Longest matching'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "lineBreak": "\n",
-        "lineHeight": 16,
         "fontSize": 12,
-        "fontWeight": 600,
-        "color": "#20343A"
+        "color": "#143f3a"
       },
       "encoding": {
         "x": {
-          "value": 8
+          "value": 0
         },
         "y": {
-          "value": 9
+          "value": -17
         },
         "text": {
-          "value": "The selected trail is outside these filters.\nChoose “Longest matching trail” or another trail to highlight."
+          "field": "name"
         }
       }
     },
     {
-      "name": "solidGradeLegend",
       "data": {
         "values": [
           {
-            "legend_grade": "Grade 1"
+            "track_code": "3",
+            "lga": "Melbourne"
           },
           {
-            "legend_grade": "Grade 2"
+            "track_code": "C2",
+            "lga": "Mount Alexander"
           },
           {
-            "legend_grade": "Grade 3"
+            "track_code": "C4",
+            "lga": "Pyrenees"
           },
           {
-            "legend_grade": "Grade 4"
+            "track_code": "C5",
+            "lga": "Pyrenees"
           },
           {
-            "legend_grade": "Grade 5"
+            "track_code": "C3",
+            "lga": "Pyrenees"
           },
           {
-            "legend_grade": "Unknown"
+            "track_code": "C4",
+            "lga": "Moorabool"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Central Goldfields"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Mount Alexander"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Moorabool"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Whittlesea"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Mitchell"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Gannawarra"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C1",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C1",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C6",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mildura"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Glenelg"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Towong"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Moorabool"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Gannawarra"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Glenelg"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Northern Grampians"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Pyrenees"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Northern Grampians"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Ararat"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Pyrenees"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Hindmarsh"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Mitchell"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Indigo"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Towong"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Northern Grampians"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Macedon Ranges"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Moorabool"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mount Alexander"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Greater Bendigo"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Unincorporated Vic"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Golden Plains"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Central Goldfields"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Loddon"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Glenelg"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Moorabool"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Pyrenees"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Towong"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Indigo"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Golden Plains"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Towong"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Latrobe (Vic.)"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Horsham"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Yarra Ranges"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Horsham"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Alpine"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Colac Otway"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Wellington"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "C2",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "C4",
+            "lga": "Cardinia"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mildura"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Baw Baw"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Benalla"
+          },
+          {
+            "track_code": "C3",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "C3",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C5",
+            "lga": "Mansfield"
+          },
+          {
+            "track_code": "C2",
+            "lga": "East Gippsland"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "Murrindindi"
+          },
+          {
+            "track_code": "Unknown",
+            "lga": "East Gippsland"
           }
         ]
       },
+      "transform": [
+        {
+          "calculate": "(chosenCode === 'All' || datum.track_code === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga) ? 1 : 0",
+          "as": "matches"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "matches",
+              "as": "n"
+            }
+          ]
+        },
+        {
+          "filter": "datum.n === 0"
+        }
+      ],
       "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 0,
-        "opacity": 0
+        "type": "text",
+        "fontSize": 14
       },
       "encoding": {
         "x": {
-          "value": 0
+          "value": 30
         },
         "y": {
-          "value": 0
+          "value": 180
         },
-        "color": {
-          "field": "legend_grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "#0072B2",
-              "#E69F00",
-              "#009E73",
-              "#CC79A7",
-              "#252525",
-              "#9B9B9B"
-            ]
-          },
-          "title": "Grade",
-          "legend": {
-            "title": "Walking grade",
-            "orient": "bottom",
-            "direction": "horizontal",
-            "columns": 6,
-            "symbolType": "circle",
-            "symbolStrokeWidth": 0,
-            "symbolOpacity": 1,
-            "labelFontSize": 12,
-            "titleFontSize": 12,
-            "labelLimit": 100,
-            "offset": 16,
-            "symbolSize": 95
-          }
+        "text": {
+          "value": "No trails match these filters"
         }
       }
     }
   ],
-  "config": {
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "gridColor": "#d9e2df",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "titlePadding": 10,
-      "labelPadding": 6,
-      "tickCount": 7
-    },
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "padding": 8,
-      "columns": 3,
-      "labelLimit": 100,
-      "orient": "bottom",
-      "symbolOpacity": 1
-    },
-    "text": {
-      "font": "Inter",
-      "fontSize": 11,
-      "color": "#20343A"
-    }
-  },
-  "resolve": {
-    "legend": {
-      "color": "independent"
-    }
-  }
+  "description": "One line per trail across source track code, square-root distance, source duration category and terrain. Categorical spacing is not an effort or time scale."
 }

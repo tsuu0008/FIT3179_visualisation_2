@@ -1,1359 +1,1366 @@
 [
   {
+    "id": 1,
+    "lon": 144.98203420846804,
+    "lat": -37.8176929262595,
+    "name_label": "MCG",
+    "meaning": "Point on displayed route geometry, not an entrance"
+  },
+  {
     "id": 20,
-    "lon": 144.1148190038711,
-    "lat": -37.05184997308759,
+    "lon": 144.1147950835014,
+    "lat": -37.05247839922053,
     "name_label": "Red White And Blue Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 22,
-    "lon": 143.28883115775255,
-    "lat": -37.29865598788988,
+    "lon": 143.28784393581316,
+    "lat": -37.29831978910035,
     "name_label": "Fiery Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 23,
-    "lon": 143.33952363156152,
-    "lat": -37.103863060795,
+    "lon": 143.3349997996026,
+    "lat": -37.10096008842566,
     "name_label": "Pyrenees Endurance Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 24,
-    "lon": 143.25616440760842,
-    "lat": -37.31445215333632,
+    "lon": 143.24419759514302,
+    "lat": -37.29927621910415,
     "name_label": "Beeripmo Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 25,
-    "lon": 144.16653472022296,
-    "lat": -37.498969664014375,
+    "lon": 144.16764509856472,
+    "lat": -37.50007700054117,
     "name_label": "Werribee River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 26,
-    "lon": 143.74833111221938,
-    "lat": -37.08466206800737,
+    "lon": 143.74836100154397,
+    "lat": -37.08458980219031,
     "name_label": "Battery Dam Historical\nWalk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 27,
-    "lon": 144.21198849054917,
-    "lat": -37.02417557288042,
+    "lon": 144.21369987684085,
+    "lat": -37.022276290170396,
     "name_label": "Pipeline Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 28,
-    "lon": 144.19083502135743,
-    "lat": -37.4600505554667,
+    "lon": 144.16012899145394,
+    "lat": -37.43563236814651,
     "name_label": "Great Dividing Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 29,
-    "lon": 145.1306242768506,
-    "lat": -37.42062973778192,
+    "lon": 145.13075954146578,
+    "lat": -37.420536114464795,
     "name_label": "Summit Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 30,
-    "lon": 145.10812273310708,
-    "lat": -37.35438242791456,
+    "lon": 145.10798781062718,
+    "lat": -37.35378336495554,
     "name_label": "Sunday Creek Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 31,
-    "lon": 144.14874992930277,
-    "lat": -35.664555058364805,
+    "lon": 144.14739961355738,
+    "lat": -35.66248210267329,
     "name_label": "Koondrook Red Gum Forest\nWalk - Eagle Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 32,
-    "lon": 145.76113568650158,
-    "lat": -37.855556481479795,
+    "lon": 145.76164242121135,
+    "lat": -37.85680261398719,
     "name_label": "Reids Tramline Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 33,
-    "lon": 146.42352719942593,
-    "lat": -37.970764157295854,
+    "lon": 146.4251265,
+    "lat": -37.973677,
     "name_label": "Horseshoe Bend Tunnel",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 34,
-    "lon": 145.74428224875396,
-    "lat": -37.51756732736678,
+    "lon": 145.7439655077416,
+    "lat": -37.51757520555259,
     "name_label": "Beauty Spot Nature Trail\nLong Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 35,
-    "lon": 145.7323035162277,
-    "lat": -37.51191936836015,
+    "lon": 145.73125351536686,
+    "lat": -37.51340171147025,
     "name_label": "Gilberts Gully Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 36,
-    "lon": 145.76121317963288,
-    "lat": -37.52895072734271,
+    "lon": 145.7608039075142,
+    "lat": -37.52958340364089,
     "name_label": "Keppel Lookout Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 37,
-    "lon": 145.75792109890858,
-    "lat": -37.505089545357585,
+    "lon": 145.75785096602965,
+    "lat": -37.505575992540635,
     "name_label": "Michaeldene",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 38,
-    "lon": 145.52156852703507,
-    "lat": -37.52718273033796,
+    "lon": 145.52018860077538,
+    "lat": -37.52759640291904,
     "name_label": "Wirrawilla",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 39,
-    "lon": 145.56973666152436,
-    "lat": -37.40417911461124,
+    "lon": 145.56327016334853,
+    "lat": -37.401188083396605,
     "name_label": "Wilhelmina Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 40,
-    "lon": 145.77273852437827,
-    "lat": -37.531102651924705,
+    "lon": 145.77280000626544,
+    "lat": -37.531242902206145,
     "name_label": "Steavenson Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 41,
-    "lon": 145.47513974762597,
-    "lat": -37.54253387181985,
+    "lon": 145.47533130841964,
+    "lat": -37.541757885867014,
     "name_label": "Sculpture Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 42,
-    "lon": 145.47912388530818,
-    "lat": -37.540055279854265,
+    "lon": 145.47958631351352,
+    "lat": -37.54011291891892,
     "name_label": "Yea River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 43,
-    "lon": 145.7303931565668,
-    "lat": -37.74992979806373,
+    "lon": 145.73032886969366,
+    "lat": -37.74988449197292,
     "name_label": "Walk Into History",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 44,
-    "lon": 146.25155371016953,
-    "lat": -37.56452358189889,
+    "lon": 146.25115697661877,
+    "lat": -37.5647505955127,
     "name_label": "Water Race Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 45,
-    "lon": 146.36855124741953,
-    "lat": -37.09995172456367,
+    "lon": 146.36979595638005,
+    "lat": -37.09801318119829,
     "name_label": "Plain Creek Loop Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 46,
-    "lon": 146.08489819794946,
-    "lat": -37.161278216332796,
+    "lon": 146.08463300140824,
+    "lat": -37.16111259536453,
     "name_label": "Forest Camp",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 47,
-    "lon": 146.31456092718847,
-    "lat": -37.153010618403414,
+    "lon": 146.3215870023633,
+    "lat": -37.1521788736816,
     "name_label": "Mt Timbertop Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 48,
-    "lon": 146.8577535634097,
-    "lat": -37.85034829938886,
+    "lon": 146.85794459756215,
+    "lat": -37.850305526680806,
     "name_label": "Nicholson Rocks Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 49,
-    "lon": 146.887754542448,
-    "lat": -37.80328276712721,
+    "lon": 146.88833648108178,
+    "lat": -37.80329122817171,
     "name_label": "Avon River Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 50,
-    "lon": 147.18394010021453,
-    "lat": -37.613160419355765,
+    "lon": 147.18341752263825,
+    "lat": -37.61391362139441,
     "name_label": "Granite Creek",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 51,
-    "lon": 147.10817553754538,
-    "lat": -37.77314841940902,
+    "lon": 147.107735613522,
+    "lat": -37.77077158284184,
     "name_label": "Fern Gully Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 52,
-    "lon": 147.1639166286066,
-    "lat": -37.43486428228574,
+    "lon": 147.17515070195833,
+    "lat": -37.43779898781473,
     "name_label": "Black Snake Creek Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 53,
-    "lon": 146.97095772240277,
-    "lat": -36.72526444498692,
+    "lon": 146.9711373956786,
+    "lat": -36.72518559054692,
     "name_label": "Memorial Arboretum Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 54,
-    "lon": 145.87724777082553,
-    "lat": -36.81295571458484,
+    "lon": 145.87620223936747,
+    "lat": -36.81540970972185,
     "name_label": "Lima Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 55,
-    "lon": 146.73485093682527,
-    "lat": -36.5627256879717,
+    "lon": 146.733496262801,
+    "lat": -36.5624058380847,
     "name_label": "Reform Hill Lookout Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 56,
-    "lon": 146.956910799592,
-    "lat": -36.740780511316316,
+    "lon": 146.95731979660212,
+    "lat": -36.74181439918614,
     "name_label": "Bakers Gully Reservoirs\nLower Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 57,
-    "lon": 146.7328622323261,
-    "lat": -36.568301122462586,
+    "lon": 146.7329164146512,
+    "lat": -36.568486599892665,
     "name_label": "Reform Hill Mining Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 58,
-    "lon": 146.9701047058596,
-    "lat": -36.716699775355494,
+    "lon": 146.969914,
+    "lat": -36.716201,
     "name_label": "Apex Lookout Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 59,
-    "lon": 147.1891098030065,
-    "lat": -36.73457261722684,
+    "lon": 147.1881958011257,
+    "lat": -36.73523428705441,
     "name_label": "Rockpools",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 60,
-    "lon": 147.8327008309854,
-    "lat": -37.68904001307448,
+    "lon": 147.83050427829622,
+    "lat": -37.683853186801755,
     "name_label": "Berry Farm Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 61,
-    "lon": 147.83535886464924,
-    "lat": -37.68758237180831,
+    "lon": 147.83631087904962,
+    "lat": -37.68672728553202,
     "name_label": "Mcleans Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 62,
-    "lon": 147.70267025918594,
-    "lat": -37.60810710060048,
+    "lon": 147.7030835938856,
+    "lat": -37.60808209212768,
     "name_label": "Slaughter Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 63,
-    "lon": 148.51426329636416,
-    "lat": -37.65907069027215,
+    "lon": 148.51505172394775,
+    "lat": -37.65671620464442,
     "name_label": "Youngs Creek Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 64,
-    "lon": 148.51429566245898,
-    "lat": -37.65609393950764,
+    "lon": 148.5142894985715,
+    "lat": -37.65611310709493,
     "name_label": "Youngs Creek Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 65,
-    "lon": 148.7840968242633,
-    "lat": -37.16240210508824,
+    "lon": 148.78413821,
+    "lat": -37.16236593,
     "name_label": "Delegate River Tunnel",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 66,
-    "lon": 145.7457286675521,
-    "lat": -37.51574666403778,
+    "lon": 145.74561400000002,
+    "lat": -37.515531200000005,
     "name_label": "Beauty Spot Nature Trail\nShort Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 67,
-    "lon": 148.54645713255178,
-    "lat": -37.79222099746945,
+    "lon": 148.55365129411766,
+    "lat": -37.79528367647059,
     "name_label": "Marlo Walking Track\nNetwork",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 68,
-    "lon": 141.3242844957206,
-    "lat": -35.51264604234556,
+    "lon": 141.3243488,
+    "lat": -35.5126468,
     "name_label": "Big Billy Bore Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 69,
-    "lon": 148.47212282198663,
-    "lat": -37.67794843095022,
+    "lon": 148.47195337162162,
+    "lat": -37.67791487972974,
     "name_label": "Orbost North Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 70,
-    "lon": 146.42571942246488,
-    "lat": -37.980987571044174,
+    "lon": 146.42567019213115,
+    "lat": -37.98096363344263,
     "name_label": "Coopers Creek River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 71,
-    "lon": 146.73152566804367,
-    "lat": -36.558899080246974,
+    "lon": 146.73086289974574,
+    "lat": -36.55854460188885,
     "name_label": "Reform Hill Poverty Reef\nLoop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 72,
-    "lon": 146.50485030207938,
-    "lat": -37.759049416471996,
+    "lon": 146.50504619334305,
+    "lat": -37.758999336417546,
     "name_label": "Store Point Historic Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 73,
-    "lon": 141.57622474282482,
-    "lat": -38.01219182664506,
+    "lon": 141.57593770330863,
+    "lat": -38.01211210590464,
     "name_label": "Annya Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 74,
-    "lon": 145.87068916764684,
-    "lat": -37.37135339621338,
+    "lon": 145.872553031112,
+    "lat": -37.37254641409763,
     "name_label": "Rubicon Dam Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 75,
-    "lon": 147.9518738544873,
-    "lat": -36.488042007785104,
+    "lon": 147.9522399092888,
+    "lat": -36.48796877097243,
     "name_label": "Thowgla Falls Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 76,
-    "lon": 144.23840283422805,
-    "lat": -37.450701557937236,
+    "lon": 144.23853770931507,
+    "lat": -37.450548288493145,
     "name_label": "Pioneer Sawmill Loop Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 77,
-    "lon": 146.0472160558904,
-    "lat": -37.848572396693605,
+    "lon": 146.0475872415464,
+    "lat": -37.84729149597938,
     "name_label": "Toorongo Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 103,
-    "lon": 145.78789656789746,
-    "lat": -37.777906471333324,
+    "lon": 145.79562241726083,
+    "lat": -37.778295496926155,
     "name_label": "Richards Tramline",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 105,
-    "lon": 149.13085593864417,
-    "lat": -37.72120032356946,
+    "lon": 149.13062508663367,
+    "lat": -37.72111661633664,
     "name_label": "Choof Choof",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 107,
-    "lon": 144.14743580925176,
-    "lat": -35.68150685749754,
+    "lon": 144.14658279169458,
+    "lat": -35.68412098794373,
     "name_label": "Koondrook Red Gum Forest\nWalk - Turtle Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 109,
-    "lon": 145.9334770218602,
-    "lat": -37.34873567974243,
+    "lon": 145.9337458893756,
+    "lat": -37.34902642453274,
     "name_label": "Avro Anson Memorial Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 112,
-    "lon": 147.9189052912374,
-    "lat": -37.225033715014355,
+    "lon": 147.91932789573295,
+    "lat": -37.22521050583455,
     "name_label": "Douglas Reserve Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 113,
-    "lon": 148.51309796690376,
-    "lat": -37.64810836981715,
+    "lon": 148.51256280496014,
+    "lat": -37.64656420131685,
     "name_label": "Historic Youngs Creek\nReservoir",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 119,
-    "lon": 145.5797599606077,
-    "lat": -37.39731282677296,
+    "lon": 145.58184599920128,
+    "lat": -37.392929319968054,
     "name_label": "Mill Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 123,
-    "lon": 147.91720925746728,
-    "lat": -37.232511189457085,
+    "lon": 147.91722203293295,
+    "lat": -37.23260829407207,
     "name_label": "Bentley Plain Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 131,
-    "lon": 145.94334038807114,
-    "lat": -36.840107807862005,
+    "lon": 145.94338637624435,
+    "lat": -36.84011209886878,
     "name_label": "Lima East Boulders Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 132,
-    "lon": 149.74915271774324,
-    "lat": -37.56427949316383,
+    "lon": 149.74913783472186,
+    "lat": -37.56548299316947,
     "name_label": "Casuarina",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 133,
-    "lon": 146.40257968468364,
-    "lat": -37.76339031787901,
+    "lon": 146.40238390703183,
+    "lat": -37.763102782313865,
     "name_label": "Meringtons Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 134,
-    "lon": 146.2951774722074,
-    "lat": -37.65519763733275,
+    "lon": 146.29523420896,
+    "lat": -37.655353230719996,
     "name_label": "Red Jacket Cemetery Access\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 135,
-    "lon": 146.77427137169587,
-    "lat": -38.476229697012165,
+    "lon": 146.77414582677463,
+    "lat": -38.4757444068318,
     "name_label": "Forest Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 136,
-    "lon": 145.99847243027662,
-    "lat": -37.88178873138047,
+    "lon": 145.997360593028,
+    "lat": -37.882289790573054,
     "name_label": "Ralph Cornwall Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 138,
-    "lon": 146.43205399614286,
-    "lat": -37.12449623954859,
+    "lon": 146.4332708803479,
+    "lat": -37.12380528098871,
     "name_label": "Klingsporn Bridle Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 139,
-    "lon": 146.41847635689183,
-    "lat": -37.9433660425638,
+    "lon": 146.41889510544112,
+    "lat": -37.94340209492775,
     "name_label": "Poverty Point Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 140,
-    "lon": 146.0575380777332,
-    "lat": -37.187298469049864,
+    "lon": 146.05325610420056,
+    "lat": -37.185065195064325,
     "name_label": "Goughs Bay Lookout",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 141,
-    "lon": 146.04296582563,
-    "lat": -37.85250525338319,
+    "lon": 146.04298591534655,
+    "lat": -37.85286619653465,
     "name_label": "Toorongo River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 142,
-    "lon": 145.57286136960835,
-    "lat": -37.45825952407572,
+    "lon": 145.57280582424454,
+    "lat": -37.45867700957428,
     "name_label": "Cascades Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 143,
-    "lon": 146.37106296281942,
-    "lat": -37.09012048073219,
+    "lon": 146.37073648440864,
+    "lat": -37.091015191027616,
     "name_label": "Plain Creek Tramway Bridge\nWalk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 145,
-    "lon": 141.6839884979232,
-    "lat": -38.24019547002395,
+    "lon": 141.68591769854862,
+    "lat": -38.24016387953556,
     "name_label": "Whalers Lookout Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 146,
-    "lon": 146.50065729609037,
-    "lat": -37.746651157331485,
+    "lon": 146.50000172410037,
+    "lat": -37.746937708913826,
     "name_label": "Morning Star Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 151,
-    "lon": 146.96454727130077,
-    "lat": -36.73866570429851,
+    "lon": 146.96454101298824,
+    "lat": -36.738968365552935,
     "name_label": "Huggins Lookout Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 155,
-    "lon": 145.86186870678262,
-    "lat": -37.81624812487492,
+    "lon": 145.8615275563387,
+    "lat": -37.816525781944584,
     "name_label": "Ada Tree Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 157,
-    "lon": 146.16202422061073,
-    "lat": -37.36998281322264,
+    "lon": 146.16200294960072,
+    "lat": -37.36990097084526,
     "name_label": "Star Of West Goldmine Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 159,
-    "lon": 146.2387637915132,
-    "lat": -37.298603467176704,
+    "lon": 146.24251636544923,
+    "lat": -37.299951434016485,
     "name_label": "Mitchells Bridle Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 164,
-    "lon": 143.6580964849621,
-    "lat": -38.57311107428952,
+    "lon": 143.65808788750374,
+    "lat": -38.573049393992186,
     "name_label": "Redwoods Boardwalk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 166,
-    "lon": 143.26219678690245,
-    "lat": -36.647168075294864,
+    "lon": 143.26348249164033,
+    "lat": -36.64738761257407,
     "name_label": "Pipe Gully Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 170,
-    "lon": 145.8082903993106,
-    "lat": -37.77925278499755,
+    "lon": 145.80832802141262,
+    "lat": -37.779222604163564,
     "name_label": "Richards Tramline Link",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 171,
-    "lon": 145.58352646741469,
-    "lat": -37.52769418842392,
+    "lon": 145.58374361171292,
+    "lat": -37.527841819703994,
     "name_label": "Link track between picnic\narea and campground",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 174,
-    "lon": 143.36581417513153,
-    "lat": -37.10003502071271,
+    "lon": 143.36584541155497,
+    "lat": -37.099737105315285,
     "name_label": "Valley Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 176,
-    "lon": 143.26033055968915,
-    "lat": -36.64962198743237,
+    "lon": 143.26204059654782,
+    "lat": -36.64720042154634,
     "name_label": "Moolerr Nature Drive",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 177,
-    "lon": 145.84779989496693,
-    "lat": -37.30485000314664,
+    "lon": 145.8469739,
+    "lat": -37.303619600000005,
     "name_label": "Cicada Circuit Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 178,
-    "lon": 143.1874235235668,
-    "lat": -37.2370818208725,
+    "lon": 143.18626719852966,
+    "lat": -37.23679647096053,
     "name_label": "Borella Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 181,
-    "lon": 146.19638671125708,
-    "lat": -36.87327598985006,
+    "lon": 146.19619139397363,
+    "lat": -36.871885498636566,
     "name_label": "Stringybark Creek Historic\nLoop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 182,
-    "lon": 146.95446998412913,
-    "lat": -36.735169829475666,
+    "lon": 146.9538851006279,
+    "lat": -36.73533143453404,
     "name_label": "Valley View Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 185,
-    "lon": 146.19956459018113,
-    "lat": -36.87327607254135,
+    "lon": 146.19999549938842,
+    "lat": -36.873174098392134,
     "name_label": "Stringybark Creek Linking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 187,
-    "lon": 148.69375512562848,
-    "lat": -37.65364625783804,
+    "lon": 148.6937020446776,
+    "lat": -37.65390588782907,
     "name_label": "Little Cabbage Tree Creek\nFalls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 189,
-    "lon": 147.07696819082847,
-    "lat": -37.85182223426903,
+    "lon": 147.0769996515367,
+    "lat": -37.85183359936511,
     "name_label": "Red Gums Walk Middle",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 195,
-    "lon": 145.9362514272718,
-    "lat": -37.36108937388194,
+    "lon": 145.93489587706333,
+    "lat": -37.36092172890975,
     "name_label": "Mt Torbreck Summit Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 196,
-    "lon": 143.26708358884667,
-    "lat": -37.296392204336826,
+    "lon": 143.26934229418964,
+    "lat": -37.296951184718765,
     "name_label": "Grevillea Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 198,
-    "lon": 146.95596435776875,
-    "lat": -36.745325553765966,
+    "lon": 146.95614163433163,
+    "lat": -36.74555661680059,
     "name_label": "Bakers Gully Reservoirs\nUpper Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 200,
-    "lon": 141.73615437804156,
-    "lat": -35.9918368667863,
+    "lon": 141.73634122187846,
+    "lat": -35.99197110430939,
     "name_label": "Hermans Hill Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 202,
-    "lon": 145.53665343992105,
-    "lat": -37.494923631353934,
+    "lon": 145.53664368681302,
+    "lat": -37.494673609053756,
     "name_label": "Kalatha Giant Tree Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 203,
-    "lon": 145.18941968272023,
-    "lat": -37.30699782110863,
+    "lon": 145.1893029206182,
+    "lat": -37.30670509864628,
     "name_label": "Strath Creek Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 204,
-    "lon": 145.70575421460606,
-    "lat": -37.77283821422031,
+    "lon": 145.70521878659352,
+    "lat": -37.77063631612968,
     "name_label": "La La Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 206,
-    "lon": 146.55336207100004,
-    "lat": -37.15035382359287,
+    "lon": 146.5532979060805,
+    "lat": -37.15034239383618,
     "name_label": "Bindaree Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 208,
-    "lon": 146.83283957538154,
-    "lat": -38.36570955790463,
+    "lon": 146.8327205165139,
+    "lat": -38.365998582368626,
     "name_label": "Bullockys Grave Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 209,
-    "lon": 145.8588645160562,
-    "lat": -37.82647474047642,
+    "lon": 145.8600362997849,
+    "lat": -37.82702700802995,
     "name_label": "New Federal Mill Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 210,
-    "lon": 143.58171232933842,
-    "lat": -38.47968977307323,
+    "lon": 143.58201345323837,
+    "lat": -38.47998799092391,
     "name_label": "Loves Creek Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 211,
-    "lon": 147.57473439842275,
-    "lat": -37.7060379927497,
+    "lon": 147.56916789515313,
+    "lat": -37.70701751565411,
     "name_label": "Elevator",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 212,
-    "lon": 149.27076263026345,
-    "lat": -37.5669608270815,
+    "lon": 149.2705001017927,
+    "lat": -37.56705258769843,
     "name_label": "Drummer Rainforest Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 213,
-    "lon": 145.89260830020896,
-    "lat": -37.882172038534364,
+    "lon": 145.89227030315257,
+    "lat": -37.8817136960908,
     "name_label": "Latrobe River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 214,
-    "lon": 146.81138743147076,
-    "lat": -36.33657121023533,
+    "lon": 146.81205940676938,
+    "lat": -36.336402656876594,
     "name_label": "Yackandandah Creek Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 217,
-    "lon": 146.77177694592555,
-    "lat": -38.480165933180736,
+    "lon": 146.77180029580688,
+    "lat": -38.48004172145316,
     "name_label": "Waterhole Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 219,
-    "lon": 146.39509014037293,
-    "lat": -37.70959078348204,
+    "lon": 146.39512336465728,
+    "lat": -37.70968099399314,
     "name_label": "Hanging Rock Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 220,
-    "lon": 146.50811774192357,
-    "lat": -37.742753900146866,
+    "lon": 146.50800631005362,
+    "lat": -37.74285320442359,
     "name_label": "Crinoline Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 221,
-    "lon": 147.93643363335502,
-    "lat": -37.8341097227014,
+    "lon": 147.93434459332673,
+    "lat": -37.83494549430204,
     "name_label": "Limestone Box Forest Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 222,
-    "lon": 147.82691727675382,
-    "lat": -37.690357677928596,
+    "lon": 147.8273756992665,
+    "lat": -37.69043579511003,
     "name_label": "Explosive Magazine Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 223,
-    "lon": 147.14730926297239,
-    "lat": -37.649318886198955,
+    "lon": 147.14893030462426,
+    "lat": -37.6470460300578,
     "name_label": "Alistair Fielding Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 224,
-    "lon": 147.36359340045644,
-    "lat": -36.539273202250236,
+    "lon": 147.36349440104777,
+    "lat": -36.539718300386674,
     "name_label": "Deep Gully Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 225,
-    "lon": 147.09804735180902,
-    "lat": -37.76537013015488,
+    "lon": 147.10252279310345,
+    "lat": -37.76410211724138,
     "name_label": "Freestone Creek Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 226,
-    "lon": 143.26508242617578,
-    "lat": -36.64664687550269,
+    "lon": 143.26530088984705,
+    "lat": -36.646445382170434,
     "name_label": "Short Basin Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 228,
-    "lon": 147.69858428371984,
-    "lat": -37.59123934754606,
+    "lon": 147.69823669701114,
+    "lat": -37.59056560192241,
     "name_label": "Tubal Cain Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 231,
-    "lon": 149.16749558331307,
-    "lat": -37.52221153923655,
+    "lon": 149.16725118286695,
+    "lat": -37.52221839435279,
     "name_label": "Noorinbee",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 233,
-    "lon": 145.91417850084832,
-    "lat": -36.83485483422254,
+    "lon": 145.9142867029703,
+    "lat": -36.834850570297036,
     "name_label": "Rocky Ned Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 235,
-    "lon": 143.65601847036834,
-    "lat": -38.56839146171191,
+    "lon": 143.65561361240069,
+    "lat": -38.56817966011381,
     "name_label": "Access track to Stevensons\nFalls and day visitor area",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 236,
-    "lon": 147.94574107718273,
-    "lat": -37.83409320963985,
+    "lon": 147.9456982970297,
+    "lat": -37.83402312970297,
     "name_label": "Reed walking track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 238,
-    "lon": 146.39787891732814,
-    "lat": -37.739218431679845,
+    "lon": 146.39790079854055,
+    "lat": -37.73905939919383,
     "name_label": "Toombon Historic Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 239,
-    "lon": 145.57308932513217,
-    "lat": -37.42554458895272,
+    "lon": 145.57579569365808,
+    "lat": -37.42776300824964,
     "name_label": "Murrindindi River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 240,
-    "lon": 143.59815272821217,
-    "lat": -38.46002277641347,
+    "lon": 143.59842558549053,
+    "lat": -38.45973521780709,
     "name_label": "Birnam Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 243,
-    "lon": 147.07550480755606,
-    "lat": -37.84970030401586,
+    "lon": 147.0767150045106,
+    "lat": -37.8482085703054,
     "name_label": "Red Gums Walk North Block",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 244,
-    "lon": 148.06561124163682,
-    "lat": -37.74698528862898,
+    "lon": 148.065837096886,
+    "lat": -37.745275899895454,
     "name_label": "Nowa Nowa Walk Banksia\nBoulevard",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 251,
-    "lon": 146.17581960710712,
-    "lat": -37.80007343259424,
+    "lon": 146.17170483306634,
+    "lat": -37.80478550779867,
     "name_label": "Tanjil Bren Tramway Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 255,
-    "lon": 145.99117499990814,
-    "lat": -37.895969525110196,
+    "lon": 145.9935896240003,
+    "lat": -37.89477424534618,
     "name_label": "Noojee Rail Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 256,
-    "lon": 144.423256959996,
-    "lat": -37.43299825616233,
+    "lon": 144.4233964974837,
+    "lat": -37.433088211085256,
     "name_label": "Anderson Mill Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 257,
-    "lon": 143.65754833386814,
-    "lat": -38.57282771407684,
+    "lon": 143.65746715743578,
+    "lat": -38.57305209812216,
     "name_label": "Stevensons Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 258,
-    "lon": 144.2970772629278,
-    "lat": -37.48754685271525,
+    "lon": 144.2982280898139,
+    "lat": -37.48635909853764,
     "name_label": "Whipstick Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 260,
-    "lon": 144.30409320954308,
-    "lat": -37.10956678971658,
+    "lon": 144.30496009930607,
+    "lat": -37.109699275019274,
     "name_label": "Junction Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 261,
-    "lon": 144.47260644467448,
-    "lat": -36.781192158569695,
+    "lon": 144.46686300008216,
+    "lat": -36.78113917897648,
     "name_label": "Okeefe Rail Trail -\nLonglea",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 264,
-    "lon": 146.53381243313984,
-    "lat": -37.10188437089937,
+    "lon": 146.5345488042991,
+    "lat": -37.104829395652445,
     "name_label": "Craigs Hut Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 266,
-    "lon": 146.82803990666758,
-    "lat": -37.83761431495512,
+    "lon": 146.82818958858005,
+    "lat": -37.837581483422646,
     "name_label": "Mount Hedrick Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 267,
-    "lon": 143.56748548546474,
-    "lat": -37.65690950001728,
+    "lon": 143.56762270019738,
+    "lat": -37.657026302803004,
     "name_label": "Linton Firefighter\nMemorial Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 275,
-    "lon": 143.74120540078576,
-    "lat": -37.08240202623789,
+    "lon": 143.74349410865688,
+    "lat": -37.08196057633788,
     "name_label": "Bull Gully Rock Wells Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 277,
-    "lon": 143.79565751124153,
-    "lat": -36.813154597304035,
+    "lon": 143.78924051106742,
+    "lat": -36.80850218774118,
     "name_label": "Waanyarra Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 278,
-    "lon": 141.32646842476572,
-    "lat": -37.37681323312633,
+    "lon": 141.32662060151438,
+    "lat": -37.376810126349746,
     "name_label": "Bilstons Tree Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 279,
-    "lon": 145.7532663459196,
-    "lat": -37.51203353943457,
+    "lon": 145.75332292308042,
+    "lat": -37.511981990455936,
     "name_label": "Kerami Link Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 280,
-    "lon": 146.13509164239917,
-    "lat": -37.78620690280779,
+    "lon": 146.0150304890351,
+    "lat": -37.770033015924014,
     "name_label": "Upper Yarra Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 281,
-    "lon": 144.2758030307428,
-    "lat": -37.457969803121216,
+    "lon": 144.27527433321137,
+    "lat": -37.46127800201281,
     "name_label": "Lerderderg Heritage River\nWalk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 282,
-    "lon": 147.13055957483982,
-    "lat": -37.677565081737484,
+    "lon": 147.14411308,
+    "lat": -37.69651604,
     "name_label": "Track Ninety Six",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 283,
-    "lon": 147.07840591428553,
-    "lat": -37.85964785813809,
+    "lon": 147.07854685135572,
+    "lat": -37.85954448885678,
     "name_label": "Red Gums Walk South Block",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 285,
-    "lon": 143.2751058740644,
-    "lat": -37.285868284146844,
+    "lon": 143.27323280376663,
+    "lat": -37.2864463108086,
     "name_label": "Paradise Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 287,
-    "lon": 147.368482684876,
-    "lat": -36.5369594323316,
+    "lon": 147.3685933263746,
+    "lat": -36.537027889498994,
     "name_label": "River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 288,
-    "lon": 145.85766724465748,
-    "lat": -37.31599256029414,
+    "lon": 145.8579481093994,
+    "lat": -37.31635658644958,
     "name_label": "Kendalls Link Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 289,
-    "lon": 147.82233290368927,
-    "lat": -37.68828749059036,
+    "lon": 147.82577490754716,
+    "lat": -37.68944997358491,
     "name_label": "Plane Crash Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 290,
-    "lon": 146.73246866609446,
-    "lat": -36.565270901346274,
+    "lon": 146.73226470624752,
+    "lat": -36.56392936811607,
     "name_label": "Reform Hill Monument Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 292,
-    "lon": 145.74720358900225,
-    "lat": -37.52232429204928,
+    "lon": 145.7484518,
+    "lat": -37.5168786,
     "name_label": "Wilks Creek Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 295,
-    "lon": 146.29584844242578,
-    "lat": -37.6559504879662,
+    "lon": 146.2959617239194,
+    "lat": -37.6558067838804,
     "name_label": "Red Jacket Relics Access\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 299,
-    "lon": 146.6994269379584,
-    "lat": -36.41021910288797,
+    "lon": 146.69936292607557,
+    "lat": -36.4103701753935,
     "name_label": "Bates Dam Historic Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 301,
-    "lon": 145.8882634935427,
-    "lat": -37.30371405721729,
+    "lon": 145.88863180069043,
+    "lat": -37.30362565374165,
     "name_label": "Snobs Banyarmbite Falls",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 302,
-    "lon": 143.71712911020725,
-    "lat": -37.65863078739621,
+    "lon": 143.71500360009446,
+    "lat": -37.657837204345775,
     "name_label": "Bodens Water Race",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 303,
-    "lon": 147.3735785881092,
-    "lat": -36.548412709782674,
+    "lon": 147.37393829138597,
+    "lat": -36.54880320586333,
     "name_label": "Mt Welcome Hike",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 304,
-    "lon": 145.52797057329434,
-    "lat": -37.52886468072905,
+    "lon": 145.52597390321463,
+    "lat": -37.52816688731611,
     "name_label": "Tanglefoot Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 308,
-    "lon": 146.4248543859222,
-    "lat": -38.11199937405431,
+    "lon": 146.42523642954276,
+    "lat": -38.10940810529915,
     "name_label": "Wirilda Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 312,
-    "lon": 145.94503043457246,
-    "lat": -36.838699887188056,
+    "lon": 145.94500257772827,
+    "lat": -36.838786492204896,
     "name_label": "Moonee Creek Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 314,
-    "lon": 146.3732304848878,
-    "lat": -37.08299290928681,
+    "lon": 146.3730740052799,
+    "lat": -37.08305790694473,
     "name_label": "Plain Creek Waterfall",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 315,
-    "lon": 142.06415411538106,
-    "lat": -36.51061719078888,
+    "lon": 142.06426221943158,
+    "lat": -36.51021279008592,
     "name_label": "Wail Scenic Loop",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 318,
-    "lon": 145.91040978867542,
-    "lat": -36.82574171825731,
+    "lon": 145.90952184615384,
+    "lat": -36.82666523076923,
     "name_label": "Rocky Ned",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 319,
-    "lon": 143.60892685173235,
-    "lat": -38.64787724027921,
+    "lon": 143.60973107571266,
+    "lat": -38.64654547990775,
     "name_label": "Beauchamp Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 321,
-    "lon": 145.86426399964768,
-    "lat": -37.37406088008878,
+    "lon": 145.86299188959265,
+    "lat": -37.37343603411301,
     "name_label": "Rubicon Heritage Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 322,
-    "lon": 145.75960726417904,
-    "lat": -37.76902331060934,
+    "lon": 145.75931636929673,
+    "lat": -37.7698990002548,
     "name_label": "Richards Curves Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 324,
-    "lon": 147.92638864333415,
-    "lat": -37.81117946778109,
+    "lon": 147.94694488833625,
+    "lat": -37.830732627589306,
     "name_label": "Gippsland Lakes Discovery\nTrail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 325,
-    "lon": 146.8784334593461,
-    "lat": -37.80586046306867,
+    "lon": 146.87826472469507,
+    "lat": -37.80563021094442,
     "name_label": "The Channel Loop Walking\nTrack",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 329,
-    "lon": 142.07468286333383,
-    "lat": -36.50728824008686,
+    "lon": 142.07469453278577,
+    "lat": -36.50700875305673,
     "name_label": "Wail Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 330,
-    "lon": 147.26991338668944,
-    "lat": -37.02650939986849,
+    "lon": 147.26955289283273,
+    "lat": -37.024033804858156,
     "name_label": "Montane Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 332,
-    "lon": 148.72883954959482,
-    "lat": -37.681228004290716,
+    "lon": 148.72896609780105,
+    "lat": -37.68122039409199,
     "name_label": "Falls Creek Memorial",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 335,
-    "lon": 145.75247645744057,
-    "lat": -37.503561296576024,
+    "lon": 145.75047018868403,
+    "lat": -37.50232660281685,
     "name_label": "Red Hill Trail",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 338,
-    "lon": 145.57916744993148,
-    "lat": -37.40070440198213,
+    "lon": 145.57643821346525,
+    "lat": -37.39887854118201,
     "name_label": "Boroondara Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 339,
-    "lon": 146.25363328956797,
-    "lat": -37.56827180039009,
+    "lon": 146.2536775764151,
+    "lat": -37.56825054245283,
     "name_label": "Dustys Lookout",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 340,
-    "lon": 143.6572555526405,
-    "lat": -38.57224977137773,
+    "lon": 143.6572689,
+    "lat": -38.572160100000005,
     "name_label": "Blue Spruce Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 341,
-    "lon": 146.26950430613346,
-    "lat": -37.22023539092714,
+    "lon": 146.26861089192565,
+    "lat": -37.220496884728966,
     "name_label": "Howqua River Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 343,
-    "lon": 146.8585816483817,
-    "lat": -37.82261654168814,
+    "lon": 146.85869177377984,
+    "lat": -37.82307050450408,
     "name_label": "Green Hills Walking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 344,
-    "lon": 146.3423877505995,
-    "lat": -37.90104259650152,
+    "lon": 146.34323449569965,
+    "lat": -37.90045339344711,
     "name_label": "Mountain Monarchs Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 346,
-    "lon": 145.76411922105672,
-    "lat": -37.52098925942794,
+    "lon": 145.76481651048877,
+    "lat": -37.52132546600186,
     "name_label": "Tree Fern Gully",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 348,
-    "lon": 145.74871730698726,
-    "lat": -37.910037949766675,
+    "lon": 145.74886127995586,
+    "lat": -37.910498108502004,
     "name_label": "Seven Acre Rock Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 349,
-    "lon": 141.02126684698027,
-    "lat": -34.98891079989672,
+    "lon": 141.0215262785626,
+    "lat": -34.98875766362867,
     "name_label": "Berrook Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 350,
-    "lon": 145.52252718835604,
-    "lat": -37.526989654148096,
+    "lon": 145.5244390760705,
+    "lat": -37.52508328342627,
     "name_label": "Myrtle Gully Circuit",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 351,
-    "lon": 146.47321815561295,
-    "lat": -37.99876458416756,
+    "lon": 146.47318208482613,
+    "lat": -37.99879057892519,
     "name_label": "Bruntons Bridge Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 352,
-    "lon": 145.5832404588661,
-    "lat": -37.53033932596083,
+    "lon": 145.58310622494974,
+    "lat": -37.52986038437357,
     "name_label": "Redwoods Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 354,
-    "lon": 145.91396617229168,
-    "lat": -36.83289238375763,
+    "lon": 145.91402564,
+    "lat": -36.83277628,
     "name_label": "Link trail to Rocky Ned\nFalls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 355,
-    "lon": 148.25122920594308,
-    "lat": -37.49417833951974,
+    "lon": 148.25169800092024,
+    "lat": -37.494151313745924,
     "name_label": "Rocky Knob",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 357,
-    "lon": 146.1010221351975,
-    "lat": -37.42475970862532,
+    "lon": 146.10132019386003,
+    "lat": -37.425005231644484,
     "name_label": "Enoch Falls Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 358,
-    "lon": 146.25181994024274,
-    "lat": -37.56738689559872,
+    "lon": 146.25170202864103,
+    "lat": -37.567305188407204,
     "name_label": "Goulburn River Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 361,
-    "lon": 146.2657109361157,
-    "lat": -37.232225661857456,
+    "lon": 146.26586188631003,
+    "lat": -37.225713186540396,
     "name_label": "Lower Howqua Feeder\nWalking Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 362,
-    "lon": 147.83509447727417,
-    "lat": -37.69136303603318,
+    "lon": 147.83518960252852,
+    "lat": -37.69108470968467,
     "name_label": "Easy Magic Walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 363,
-    "lon": 145.55711252816891,
-    "lat": -37.394279228049925,
+    "lon": 145.55694891417184,
+    "lat": -37.394073380868036,
     "name_label": "Cassinia Sec Link Track",
     "meaning": "Point on displayed route geometry, not an entrance"
   },
   {
     "id": 364,
-    "lon": 147.58266272899186,
-    "lat": -37.70830847617844,
+    "lon": 147.58250530081855,
+    "lat": -37.708251311050475,
     "name_label": "Donkey Orchid walk",
     "meaning": "Point on displayed route geometry, not an entrance"
   }

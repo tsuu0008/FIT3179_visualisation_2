@@ -1,18 +1,35 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 340,
+  "background": null,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
-  "background": null,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#405652",
+      "titleColor": "#24443f",
+      "gridColor": "#e4ebe7"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  },
   "data": {
     "url": "data/trails.json"
   },
   "transform": [
     {
-      "filter": "datum.grade !== 'Unknown' && isValid(datum.length_km)"
+      "filter": "datum.track_code !== 'Unknown'"
     },
     {
       "aggregate": [
@@ -23,69 +40,53 @@
         },
         {
           "op": "count",
-          "as": "trail_count"
+          "as": "n"
         }
       ],
       "groupby": [
-        "grade"
+        "track_code"
       ]
+    },
+    {
+      "calculate": "format(datum.median_km,'.1f') + ' km (n=' + datum.n + ')'",
+      "as": "label"
     }
   ],
   "layer": [
     {
       "mark": {
         "type": "rule",
-        "strokeWidth": 4,
-        "strokeCap": "round"
+        "strokeWidth": 3,
+        "color": "#bccfc8"
       },
       "encoding": {
         "y": {
-          "field": "grade",
+          "field": "track_code",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": null
+          "title": "Source code"
         },
         "x": {
           "field": "median_km",
           "type": "quantitative",
-          "title": "Median trail distance (km)",
+          "title": "Median distance (km)",
           "scale": {
             "domain": [
               0,
-              28
-            ],
-            "nice": false
+              10
+            ]
           }
         },
         "x2": {
           "datum": 0
-        },
-        "color": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5"
-            ],
-            "range": [
-              "#0072B2",
-              "#E69F00",
-              "#009E73",
-              "#CC79A7",
-              "#252525"
-            ]
-          },
-          "legend": null
         }
       }
     },
@@ -93,89 +94,57 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 170,
-        "stroke": "#ffffff",
-        "strokeWidth": 1.5
+        "size": 95
       },
       "encoding": {
         "y": {
-          "field": "grade",
+          "field": "track_code",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": null
+          "title": "Source code"
         },
         "x": {
           "field": "median_km",
           "type": "quantitative",
+          "title": "Median distance (km)",
           "scale": {
             "domain": [
               0,
-              28
-            ],
-            "nice": false
+              10
+            ]
           }
         },
         "color": {
-          "field": "grade",
+          "field": "track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5"
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
+              "Unknown"
             ],
             "range": [
               "#0072B2",
               "#E69F00",
               "#009E73",
               "#CC79A7",
-              "#252525"
-            ]
-          },
-          "legend": null
-        },
-        "tooltip": [
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "median_km",
-            "title": "Median distance (km)",
-            "format": ".1f"
-          },
-          {
-            "field": "trail_count",
-            "title": "Trails"
-          }
-        ],
-        "shape": {
-          "field": "grade",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unknown"
-            ],
-            "range": [
-              "circle",
-              "square",
-              "triangle-up",
-              "diamond",
-              "triangle-down",
-              "cross"
+              "#252525",
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
           "legend": null
@@ -184,143 +153,43 @@
     },
     {
       "mark": {
-        "type": "point",
-        "filled": false,
-        "stroke": "#a64629",
-        "strokeWidth": 2,
-        "size": 360
-      },
-      "encoding": {
-        "y": {
-          "field": "grade",
-          "type": "ordinal",
-          "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ],
-          "title": null
-        },
-        "x": {
-          "field": "median_km",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0,
-              28
-            ],
-            "nice": false
-          }
-        },
-        "tooltip": [
-          {
-            "field": "grade",
-            "title": "Grade"
-          },
-          {
-            "field": "median_km",
-            "title": "Median distance (km)",
-            "format": ".1f"
-          },
-          {
-            "field": "trail_count",
-            "title": "Trails"
-          }
-        ]
-      },
-      "transform": [
-        {
-          "filter": "datum.grade === 'Grade 5'"
-        }
-      ]
-    },
-    {
-      "mark": {
         "type": "text",
-        "align": {
-          "expr": "datum.grade === 'Grade 5' ? 'right' : 'left'"
-        },
-        "dx": {
-          "expr": "datum.grade === 'Grade 5' ? -12 : 10"
-        },
-        "font": "Inter",
+        "align": "left",
+        "dx": 10,
         "fontSize": 12,
-        "fontWeight": 700,
-        "color": "#173b37",
-        "lineBreak": "\n",
-        "lineHeight": 15,
-        "dy": {
-          "expr": "datum.grade === 'Grade 5' ? -25 : 0"
-        }
+        "color": "#24443f"
       },
       "encoding": {
         "y": {
-          "field": "grade",
+          "field": "track_code",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5"
-          ]
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
+          ],
+          "title": "Source code"
         },
         "x": {
           "field": "median_km",
           "type": "quantitative",
+          "title": "Median distance (km)",
           "scale": {
             "domain": [
               0,
-              28
-            ],
-            "nice": false
+              10
+            ]
           }
         },
         "text": {
-          "field": "annotation"
+          "field": "label"
         }
-      },
-      "transform": [
-        {
-          "calculate": "format(datum.median_km,'.1f') + ' km · n=' + datum.trail_count + (datum.grade === 'Grade 5' ? '\\nSmall sample; use caution' : datum.grade === 'Grade 2' ? '\\nTypical short outing' : '')",
-          "as": "annotation"
-        }
-      ]
+      }
     }
   ],
-  "config": {
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelColor": "#334155",
-      "titleColor": "#0f172a",
-      "gridColor": "#d9e2df",
-      "labelFont": "Inter",
-      "titleFont": "Inter",
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "titlePadding": 10,
-      "labelPadding": 6,
-      "tickCount": 7
-    },
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 13,
-      "padding": 8,
-      "columns": 2,
-      "labelLimit": 150,
-      "symbolType": "circle",
-      "symbolStrokeWidth": 0,
-      "symbolOpacity": 1
-    },
-    "text": {
-      "font": "Inter",
-      "fontSize": 11,
-      "color": "#20343A"
-    }
-  },
-  "description": "Compact median-distance lollipop chart with a 0–28 km axis, full grade labels, direct value annotations and a caution beside the two-trail Grade 5 sample."
+  "description": "Median distance by source code. Small C1 and C6 groups are shown with their counts; code is not relabelled as public walking grade."
 }

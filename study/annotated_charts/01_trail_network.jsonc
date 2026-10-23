@@ -1,4 +1,4 @@
-// Current displayed specification; see DATA_AND_CAVEATS.md for methods.
+// Displayed Vega-Lite specification. See source_audit.json for verification.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -73,15 +73,17 @@
       },
       "encoding": {
         "color": {
-          "field": "properties.grade",
+          "field": "properties.track_code",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -90,10 +92,12 @@
               "#009E73",
               "#CC79A7",
               "#252525",
-              "#9B9B9B"
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
-          "title": "Grade",
+          "title": "Track code",
           "legend": null
         },
         "opacity": {
@@ -106,9 +110,9 @@
             "title": "Trail"
           },
           {
-            "field": "properties.grade",
+            "field": "properties.track_code",
             "type": "nominal",
-            "title": "Grade"
+            "title": "Track code"
           },
           {
             "field": "properties.length_km",
@@ -117,10 +121,9 @@
             "format": ".1f"
           },
           {
-            "field": "properties.hours",
-            "type": "quantitative",
-            "title": "Time (hours)",
-            "format": ".1f"
+            "field": "properties.duration_group",
+            "type": "nominal",
+            "title": "Source duration category"
           },
           {
             "field": "properties.lga",
@@ -750,23 +753,29 @@
       ]
     },
     {
-      "name": "solidGradeLegend",
+      "name": "solidTrack codeLegend",
       "data": {
         "values": [
           {
-            "legend_grade": "Grade 1"
+            "legend_grade": "C1"
           },
           {
-            "legend_grade": "Grade 2"
+            "legend_grade": "C2"
           },
           {
-            "legend_grade": "Grade 3"
+            "legend_grade": "C3"
           },
           {
-            "legend_grade": "Grade 4"
+            "legend_grade": "C4"
           },
           {
-            "legend_grade": "Grade 5"
+            "legend_grade": "C5"
+          },
+          {
+            "legend_grade": "C6"
+          },
+          {
+            "legend_grade": "3"
           },
           {
             "legend_grade": "Unknown"
@@ -791,11 +800,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -804,14 +815,16 @@
               "#009E73",
               "#CC79A7",
               "#252525",
-              "#9B9B9B"
+              "#6f52a3",
+              "#ad6f3b",
+              "#9daca9"
             ]
           },
-          "title": "Grade",
+          "title": "Track code",
           "legend": {
             "orient": "bottom",
             "columns": 3,
-            "title": "Walking grade",
+            "title": "Recorded track code",
             "direction": "horizontal",
             "symbolType": "circle",
             "symbolStrokeWidth": 0,
@@ -860,11 +873,11 @@
       "color": "#20343A"
     }
   },
-  "description": "Light council boundaries sit behind the grade-coloured trail geometry. The northern callout has a clear top margin, all three regional pointers use interior anchors, and the grade legend uses solid circles.",
+  "description": "Light council boundaries sit behind the code-coloured trail geometry. The northern callout has a clear top margin, all three regional pointers use interior anchors, and the grade legend uses solid circles.",
   "params": [
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.11261841622677582]"
+      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
     }
   ],
   "resolve": {
