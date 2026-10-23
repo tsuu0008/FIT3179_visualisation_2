@@ -580,7 +580,7 @@
       },
       "mark": {
         "type": "text",
-        "align": "right",
+        "align": "left",
         "baseline": "top",
         "fontSize": 12,
         "fontWeight": 600,
@@ -591,7 +591,7 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-8"
+            "expr": "width-226"
           }
         },
         "y": {
@@ -600,7 +600,70 @@
           }
         },
         "text": {
-          "value": "A · Busiest bin: 13 trails\nAll 13 assigned to Murrindindi\n6.7% of the full trail dataset"
+          "value": "Busiest bin: 13 trails\nAll 13 assigned to Murrindindi\n6.7% of the full trail dataset"
+        }
+      }
+    },
+    {
+      "name": "gridFooterABadge",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 240,
+        "fill": "white",
+        "stroke": "#9b4200",
+        "strokeWidth": 1.6,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-242"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height+17"
+          }
+        }
+      }
+    },
+    {
+      "name": "gridFooterALetter",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#9b4200"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-242"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height+17"
+          }
+        },
+        "text": {
+          "value": "A"
         }
       }
     }

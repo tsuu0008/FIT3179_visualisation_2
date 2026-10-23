@@ -380,7 +380,7 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#203f4b",
+        "stroke": "#D55E00",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -448,10 +448,6 @@
         {
           "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
           "as": "annotation"
-        },
-        {
-          "calculate": "'2 · ' + datum.annotation",
-          "as": "numbered_annotation"
         }
       ],
       "mark": {
@@ -461,14 +457,14 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "color": "#20343A",
+        "color": "#9b4200",
         "align": "left",
         "baseline": "top"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-258"
+            "expr": "width-238"
           }
         },
         "y": {
@@ -477,7 +473,7 @@
           }
         },
         "text": {
-          "field": "numbered_annotation"
+          "field": "annotation"
         }
       }
     },
@@ -537,10 +533,6 @@
               "lat"
             ]
           }
-        },
-        {
-          "calculate": "'1 · ' + datum.annotation",
-          "as": "numbered_annotation"
         }
       ],
       "mark": {
@@ -550,14 +542,14 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "color": "#20343A",
+        "color": "#355b72",
         "align": "left",
         "baseline": "top"
       },
       "encoding": {
         "x": {
           "value": {
-            "expr": "width-258"
+            "expr": "width-238"
           }
         },
         "y": {
@@ -566,7 +558,7 @@
           }
         },
         "text": {
-          "field": "numbered_annotation"
+          "field": "annotation"
         }
       }
     },
@@ -673,18 +665,14 @@
         }
       ],
       "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 12,
-        "fontWeight": 700,
-        "dx": 0,
-        "dy": 0,
-        "baseline": "middle",
-        "align": "center",
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 240,
+        "fill": "white",
+        "stroke": "#355b72",
+        "strokeWidth": 1.6,
+        "opacity": 1
       },
       "encoding": {
         "longitude": {
@@ -694,9 +682,6 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
-        },
-        "text": {
-          "value": "1"
         }
       },
       "name": "areaNumberHalo"
@@ -762,13 +747,13 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 12,
+        "fontSize": 10,
         "fontWeight": 700,
         "dx": 0,
         "dy": 0,
         "baseline": "middle",
         "align": "center",
-        "color": "#20343A"
+        "color": "#355b72"
       },
       "encoding": {
         "longitude": {
@@ -780,7 +765,10 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "1"
+          "value": "A"
+        },
+        "tooltip": {
+          "value": "A: highlighted council with the most matching trails."
         }
       },
       "name": "areaNumber"
@@ -836,35 +824,30 @@
         {
           "calculate": "pow(sqrt(2 * (40 + 610 * datum.length_km / 95)) + 8, 2)",
           "as": "ring_size"
+        },
+        {
+          "calculate": "datum.longitude + (sqrt(datum.ring_size)/2+12) / min((width-28)/mapFrame[2],(height-154)/mapFrame[3]) * 180 / 3.141592653589793",
+          "as": "badge_lon"
         }
       ],
       "mark": {
-        "type": "text",
-        "font": "Inter",
-        "fontSize": 11,
-        "fontWeight": 700,
-        "dx": {
-          "expr": "sqrt(datum.ring_size)/2+8"
-        },
-        "dy": 0,
-        "baseline": "middle",
-        "align": "center",
-        "color": "#20343A",
-        "stroke": "white",
-        "strokeWidth": 4,
-        "strokeJoin": "round"
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 240,
+        "fill": "white",
+        "stroke": "#9b4200",
+        "strokeWidth": 1.6,
+        "opacity": 1
       },
       "encoding": {
         "longitude": {
-          "field": "longitude",
+          "field": "badge_lon",
           "type": "quantitative"
         },
         "latitude": {
           "field": "latitude",
           "type": "quantitative"
-        },
-        "text": {
-          "value": "2"
         }
       },
       "name": "routeNumberHalo"
@@ -925,15 +908,15 @@
       "mark": {
         "type": "text",
         "font": "Inter",
-        "fontSize": 11,
+        "fontSize": 10,
         "fontWeight": 700,
         "dx": {
-          "expr": "sqrt(datum.ring_size)/2+8"
+          "expr": "sqrt(datum.ring_size)/2+12"
         },
         "dy": 0,
         "baseline": "middle",
         "align": "center",
-        "color": "#20343A"
+        "color": "#9b4200"
       },
       "encoding": {
         "longitude": {
@@ -945,10 +928,325 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "2"
+          "value": "B"
+        },
+        "tooltip": {
+          "value": "B: ring around the longest matching trail; see the matching note below."
         }
       },
       "name": "routeNumber"
+    },
+    {
+      "name": "symbolFooterBBadge",
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 240,
+        "fill": "white",
+        "stroke": "#9b4200",
+        "strokeWidth": 1.6,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-252"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-64"
+          }
+        }
+      }
+    },
+    {
+      "name": "symbolFooterBLetter",
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "length_km",
+              "order": "descending"
+            },
+            {
+              "field": "id",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/route_label_points.json"
+            },
+            "key": "id",
+            "fields": [
+              "name_label"
+            ]
+          },
+          "as": [
+            "annotation_name"
+          ]
+        },
+        {
+          "calculate": "datum.annotation_name + '\\n' + format(datum.length_km,'.1f') + ' km · ' + datum.grade + '\\nLongest matching route'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#9b4200"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-252"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-64"
+          }
+        },
+        "text": {
+          "value": "B"
+        }
+      }
+    },
+    {
+      "name": "symbolFooterABadge",
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 240,
+        "fill": "white",
+        "stroke": "#355b72",
+        "strokeWidth": 1.6,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-252"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-126"
+          }
+        }
+      }
+    },
+    {
+      "name": "symbolFooterALetter",
+      "data": {
+        "url": "data/trails.json"
+      },
+      "transform": [
+        {
+          "filter": "(chosenGrade === 'All' || datum.grade === chosenGrade) && (!accessOnly || datum.access === 'Full' || datum.access === 'Partial')"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "lga"
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "n",
+              "order": "descending"
+            },
+            {
+              "field": "lga",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "datum.lga + ' LGA\\n' + datum.n + (datum.n === 1 ? ' matching trail' : ' matching trails') + '\\nLargest regional cluster\\nShaded area · whole LGA count'",
+          "as": "annotation"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_label_points.json"
+            },
+            "key": "name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "baseline": "middle",
+        "align": "center",
+        "color": "#355b72"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-252"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height-126"
+          }
+        },
+        "text": {
+          "value": "A"
+        }
+      }
     }
   ],
   "config": {
@@ -991,7 +1289,7 @@
       "color": "#20343A"
     }
   },
-  "description": "Higher-contrast trail map. Callout 1 highlights the actual largest-cluster council polygon rather than a point. Callout 2 surrounds the longest matching trail symbol at its exact plotted coordinates, with a ring sized to enclose the symbol. Numbered notes remain beside the legends.",
+  "description": "Circled A identifies the council with the most matching trails; circled B identifies the orange ring around the longest matching trail. Matching circled letters sit beside the explanatory notes, to the right of the legends.",
   "resolve": {
     "legend": {
       "size": "independent"

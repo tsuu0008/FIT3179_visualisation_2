@@ -87,3 +87,5 @@ Chart reading instructions now explain the mosaic areas, parallel-coordinate axe
 Visible-grid refinement: the 25 km rules are clipped to the land outline using even/odd polygon intersections, including holes and islands. This display geometry does not reassign observations. All 65 occupied bins and their 194 trail memberships are unchanged. A pale “0 recorded” legend entry describes empty land bins. Occupied edge bins remain full squares, so equal bin area is preserved; some cross the coast. The map is enlarged beside its explanatory text, and its lettered note sits beside the legend.
 
 The peak-bin marker uses a circled A, distinct from numeric bin counts. Its short pointer meets the highlighted bin; the matching A note states 13 trails, all assigned to Murrindindi, and 6.7% of the full dataset.
+
+Matching circled letter badges now identify annotations both on maps and beside their footer explanations. On the symbol map A identifies the selected council and B identifies the longest-route ring; B and its ring use orange. The waffle uses orange for its eight highlighted percentage squares, with the legend and reading guide updated to match.
