@@ -1431,3 +1431,9 @@ h3 {
 .grid-map-card .chart { max-width: none; margin: 0; }
 .grid-map-card .chart-reading { margin-top: 18px; }
 .grid-map-card .figure-note { margin-top: 16px; }
+
+/* Balance the compact bin-map panel without a large blank block below its copy. */
+@media (min-width: 1151px) {
+ .grid-map-card > .chart-copy { align-self: center; margin-block: 0; }
+ .grid-map-card > .plot-scroll { align-self: center; }
+}

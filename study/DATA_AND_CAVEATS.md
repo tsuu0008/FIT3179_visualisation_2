@@ -88,4 +88,6 @@ Visible-grid refinement: the 25 km rules are clipped to the land outline using e
 
 The peak-bin marker uses a circled A, distinct from numeric bin counts. Its short pointer meets the highlighted bin; the matching A note states 13 trails, all assigned to Murrindindi, and 6.7% of the full dataset.
 
-Matching circled letter badges now identify annotations both on maps and beside their footer explanations. On the symbol map A identifies the selected council and B identifies the longest-route ring; B and its ring use orange. The waffle uses orange for its eight highlighted percentage squares, with the legend and reading guide updated to match.
+Matching circled letter badges now identify annotations both on maps and beside their footer explanations. On the symbol map A identifies the selected council and B identifies the longest-route ring; B and its ring use deep purple, distinct from Grade 2 amber. The waffle uses orange for its eight highlighted percentage squares, with the legend and reading guide updated to match.
+
+The bin-map plotting specification is 550 px high, with the adjacent narrative vertically centred on desktop. This reduces the panel height and the blank space under its text while retaining square bins and the same counts.

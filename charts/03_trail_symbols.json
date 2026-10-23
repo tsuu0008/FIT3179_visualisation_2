@@ -380,8 +380,8 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "stroke": "#D55E00",
-        "strokeWidth": 1.5
+        "stroke": "#5B2C83",
+        "strokeWidth": 1.8
       },
       "encoding": {
         "longitude": {
@@ -457,7 +457,7 @@
         "fontWeight": 600,
         "lineBreak": "\n",
         "lineHeight": 13,
-        "color": "#9b4200",
+        "color": "#5B2C83",
         "align": "left",
         "baseline": "top"
       },
@@ -836,7 +836,7 @@
         "filled": true,
         "size": 240,
         "fill": "white",
-        "stroke": "#9b4200",
+        "stroke": "#5B2C83",
         "strokeWidth": 1.6,
         "opacity": 1
       },
@@ -916,7 +916,7 @@
         "dy": 0,
         "baseline": "middle",
         "align": "center",
-        "color": "#9b4200"
+        "color": "#5B2C83"
       },
       "encoding": {
         "longitude": {
@@ -992,7 +992,7 @@
         "filled": true,
         "size": 240,
         "fill": "white",
-        "stroke": "#9b4200",
+        "stroke": "#5B2C83",
         "strokeWidth": 1.6,
         "opacity": 1
       },
@@ -1065,7 +1065,7 @@
         "fontWeight": 700,
         "baseline": "middle",
         "align": "center",
-        "color": "#9b4200"
+        "color": "#5B2C83"
       },
       "encoding": {
         "x": {
@@ -1289,7 +1289,7 @@
       "color": "#20343A"
     }
   },
-  "description": "Circled A identifies the council with the most matching trails; circled B identifies the orange ring around the longest matching trail. Matching circled letters sit beside the explanatory notes, to the right of the legends.",
+  "description": "Circled A identifies the council with the most matching trails; circled B identifies the deep-purple ring around the longest matching trail. Matching circled letters sit beside the explanatory notes, to the right of the legends.",
   "resolve": {
     "legend": {
       "size": "independent"
