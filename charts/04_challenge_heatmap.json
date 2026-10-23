@@ -315,7 +315,7 @@
           "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
         },
         {
-          "calculate": "width < 240 ? 'Grade 3\\nShort steep hills\\n' + datum.trail_count + ' trails\\nLargest group' : 'Grade 3 · short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
+          "calculate": "width < 240 ? 'Grade 3 + steep hills\\n' + datum.trail_count + ' trails\\nA common demand\\nin this network' : 'Grade 3 + short steep hills · ' + datum.trail_count + ' trails\\nA common walking demand in this network'",
           "as": "annotation"
         }
       ]
@@ -348,7 +348,7 @@
           "filter": "datum.grade === 'Grade 3' && datum.gradient === 'Short steep hills'"
         },
         {
-          "calculate": "width < 240 ? 'Grade 3\\nShort steep hills\\n' + datum.trail_count + ' trails\\nLargest group' : 'Grade 3 · short steep hills\\n' + datum.trail_count + ' trails: the largest group'",
+          "calculate": "width < 240 ? 'Grade 3 + steep hills\\n' + datum.trail_count + ' trails\\nA common demand\\nin this network' : 'Grade 3 + short steep hills · ' + datum.trail_count + ' trails\\nA common walking demand in this network'",
           "as": "annotation"
         }
       ]

@@ -58,7 +58,15 @@
               "#D9DEDF"
             ]
           },
-          "title": "Recorded access"
+          "title": "Recorded access",
+          "legend": {
+            "title": "Recorded access",
+            "labelExpr": "datum.label === 'No disabled access' ? 'Rated as no access' : 'Full or partial access'",
+            "labelLimit": 260,
+            "symbolType": "circle",
+            "symbolOpacity": 1,
+            "symbolStrokeWidth": 0
+          }
         },
         "tooltip": [
           {
@@ -163,7 +171,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 179 rated trails\n8.4% record full\nor partial access\n\nDocumented options\nare a small minority."
+          "value": "15 of 179 rated trails\n8.4% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
         }
       },
       "data": {
@@ -194,7 +202,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "15 of 179 rated trails\n8.4% record full\nor partial access\n\nDocumented options\nare a small minority."
+          "value": "15 of 179 rated trails\n8.4% full or partial\naccess recorded\n\n8 coloured cells:\npercentage rounded"
         }
       },
       "data": {
@@ -229,8 +237,11 @@
       "labelFontSize": 12,
       "titleFontSize": 13,
       "padding": 8,
-      "columns": 2,
-      "labelLimit": 150
+      "columns": 1,
+      "labelLimit": 260,
+      "symbolType": "circle",
+      "symbolStrokeWidth": 0,
+      "symbolOpacity": 1
     },
     "header": {
       "labelFont": "Inter",

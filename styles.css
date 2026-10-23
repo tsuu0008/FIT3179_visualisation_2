@@ -1389,3 +1389,30 @@ h3 {
 
 /* Give the shortlist map more area alongside its narrative. */
 @media (min-width: 901px) { .trail-map-card { grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.5fr); gap: 24px; } }
+
+/* Presentation layout: all chart content fits the laptop viewport. */
+.chart-reading { margin: 0 0 12px; color: var(--ink-2); font-size: .83rem; line-height: 1.55; max-width: 95ch; }
+.plot-scroll, .parallel-scroll { overflow: visible; max-width: 100%; }
+.plot-scroll > .chart, .plot-scroll > #detail-map, .plot-scroll > #chart-01, .plot-scroll > #chart-03,
+.plot-scroll > #chart-05, .plot-scroll > #chart-06, .plot-scroll > #chart-10, .plot-scroll > #chart-11 { min-width: 0; width: 100%; }
+.plot-scroll > .vega-embed { min-width: 0; max-width: 100%; }
+.plot-scroll > .vega-embed > svg { max-width: 100%; }
+#chart-06 { min-width: 0; overflow: visible; }
+#chart-06 .vega-bindings { gap: 10px 16px; }
+#chart-06 .vega-bind { flex: 1 1 200px; min-width: 0; }
+#chart-06 .vega-bind label { align-items: flex-start; flex-direction: column; gap: 4px; }
+#chart-06 .vega-bind select { width: 100%; max-width: 100%; min-width: 0; }
+.parallel-scroll-hint { display: block; max-width: 95ch; }
+.grid-map-card .chart-copy { max-width: 980px; }
+.grid-map-card .chart { max-width: 980px; margin-inline: auto; }
+.map-story-card { grid-template-columns: minmax(250px,.8fr) minmax(0,1.5fr); gap: 24px; }
+.chart-copy .chart-narrative { margin-bottom: 0; }
+@media (max-width: 1150px) {
+ .terrain-comparison { grid-template-columns: 1fr; }
+ .map-story-card { display: block; }
+ .map-story-card .chart-copy { max-width: 900px; margin-bottom: 18px; }
+ .map-story-card .chart { max-width: 920px; }
+ .access-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 1020px) { .challenge-comparison { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .overview-layout { grid-template-columns: 1fr; } }

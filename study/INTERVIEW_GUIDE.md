@@ -21,6 +21,7 @@
 | 11 Dumbbell | Show the gap between two rankings. | rule joins population/supply ranks; two coloured endpoints. |
 | 12 Scatterplot | Show distance/time relationships and outliers. | x/y quantitative positions, regression line and labels. |
 | 13 Regional detail | Separate routes that overlap statewide. | filter by area; fit the projection to the remaining shapes. |
+| 14 Equal-area grid map | Reveal local concentrations without unequal council sizes. | project midpoints to equal-area coordinates; bin into 25 km squares; colour = trail count. |
 
 ## One interaction to explain
 
@@ -68,3 +69,9 @@ Example: “I wanted to find common grade/terrain combinations. A heatmap uses t
 
 The supplied inputs are already processed. Do not claim the website performs the original cleaning or spatial boundary assignment. The full dataset has 194 trails; only 149 have positive recorded times, so the time plot has a different denominator.
 
+
+## Explaining the new map
+
+“Council totals depend on council size. A fixed 25 km equal-area grid compares equally sized locations. Each trail contributes its representative midpoint once, giving 194 trails in 65 occupied cells. The busiest cell contains 13 trails, all assigned to Murrindindi. The orange outline identifies that exact cell. The short numbered pointer links it to the explanation above the map.”
+
+The preprocessing uses a spherical Lambert azimuthal equal-area projection centred on 145°E, 37°S. Vega uses an identity projection with the same scale and translation as the rectangle axes. Grid size and origin affect counts. Midpoints are not entrances; empty cells do not establish that no walks exist there. Source observations have not been refreshed.

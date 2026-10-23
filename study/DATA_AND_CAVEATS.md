@@ -12,6 +12,7 @@
 | mosaic.json | Prepared rectangle coordinates and rounded kilometre labels. |
 | lga_stats.json | Prepared area totals and ranks. |
 | access_waffle.json | 100 prepared percentage cells. |
+| trail_grid.json | 65 occupied 25 km equal-area cells; projected outline and reproducibility metadata. |
 
 The browser starts from processed data. Current plotting-table derivations are included in `scripts/rebuild_data.py`; the original raw-data cleaning, simplification and boundary assignment history remains unavailable. `data/sources.json` explicitly distinguishes verified source pages from retained observations whose lineage is unverified. Official export requests failed during this revision. No new official snapshot is claimed. See `DATA_SOURCES.md` for download links and import instructions. The supplied lga attribute uses a route midpoint assignment; a route can cross boundaries.
 
@@ -45,11 +46,11 @@ Square-root axes keep short routes distinguishable but make spacing nonlinear. G
 
 ## Direct annotations and grade accessibility
 
-All 13 chart specifications now include a highlighted feature plus an explanatory label inside the plotting area. Map callouts use pointer lines or matching numbered area/trail highlights. Filtered chart labels recompute from the matching records; empty selections do not retain a stale trail label. Static regional findings describe the retained snapshot.
+All 14 chart specifications now include a highlighted feature plus an explanatory label inside the plotting area. Map callouts use pointer lines or matching numbered area/trail highlights. Filtered chart labels recompute from the matching records; empty selections do not retain a stale trail label. Static regional findings describe the retained snapshot.
 
 Grades use blue (#0072B2), amber (#E69F00), teal (#009E73), magenta (#CC79A7) and charcoal (#252525), with unknown in grey. Point charts add different symbols; axes, guide cards and tooltips retain grade numbers. This uses several colours from the Okabe–Ito palette plus charcoal, and avoids a red–green opposing pair. It is not a guarantee for every colour-vision condition; direct labels and shape redundancy carry meaning independently. Sequential colour remains appropriate for numeric supply and heatmap counts.
 
-Callouts have a readable minimum plotting width. Small screens scroll the individual chart horizontally rather than shrinking or overlapping its annotations. Figures were rendered with Vega-Lite 5.20.1 and Vega 5.30.0 at the actual minimum plotting widths; grade/access and region selections were evaluated. Full browser layout QA was unavailable.
+Callouts reserve separate annotation space. Responsive cards and chart widths were checked in the browser at 1280 px and 1024 px: all 14 views fit without horizontal plot overflow or text clipped by their SVG frames. Headless Vega rendering additionally checks filter states. This does not claim exhaustive collision detection on every possible screen.
 
 ## Map and selection refinements
 
@@ -59,7 +60,7 @@ The proportional-symbol map pairs its grade and distance legends on the lower le
 
 Parallel coordinates now has a persistent six-entry grade legend, 194 named trail choices plus None and Longest matching, and filters for grade, recorded LGA and known/missing time. A live count describes the matching records. If a selected named trail is outside the filters, the chart explains that; empty filters produce an explicit message. The selected time label is positioned on the opposite side of the incoming profile segment.
 
-Validation: all 81 regional anchors were checked inside their polygons; all 194 route anchors were checked on their displayed route lines. All 194 named parallel-coordinate choices and 44 grade/area/time/empty filter states were evaluated. All 46 map filter/area states were checked for separated callout text, leader-to-marker alignment and leader endpoints at the annotation band. Map labels and the heatmap leader were visually inspected in rendered SVGs. Full browser layout QA remains unavailable.
+Validation: all 81 regional anchors were checked inside their polygons; all 194 route anchors were checked on their displayed route lines. All 194 named parallel-coordinate choices and 44 grade/area/time/empty filter states were evaluated. All 46 map filter/area states were checked for separated callout text, leader-to-marker alignment and leader endpoints at the annotation band. Map labels and the heatmap leader were visually inspected in rendered SVGs. Browser layout checks were completed for the current revision at 1280 px and 1024 px.
 
 Map refinements: council borders use thin, light strokes behind the trail marks; the northern overview callout has a reserved top margin. The symbol map uses numbered, unboxed callouts beside its legends; the regional detail map keeps them above its geography. Grade legends on route and parallel-coordinate charts use solid circles.
 
@@ -69,10 +70,16 @@ The distance–time scatterplot uses short vertical pointer lines. Track Ninety 
 
 Supply-map area highlights use orange strokes over a wider white casing for contrast against both ends of the teal colour scale. The symbol map uses stronger base boundaries and fully opaque trail symbols, shades the selected council polygon, and sizes the longest-route ring to contain the selected symbol.
 
-The distance strip reserves an annotation band above its grade rows. Adaptive left/right alignment keeps the longest-walk label clear of grade labels for every grade selection, and the 5 km guide stays below that band. Its distance domain extends to 105 km to leave room around the 95 km highlight. The median-distance chart uses a compact 290 px height, a 0–28 km distance axis and a 480 px minimum width so it fits its comparison card.
+The distance strip reserves an annotation band above its grade rows. Adaptive left/right alignment keeps the longest-walk label clear of grade labels for every grade selection, and the 5 km guide stays below that band. Its distance domain extends to 105 km to leave room around the 95 km highlight. The median-distance chart uses a compact 290 px height, a 0–28 km distance axis and responsive width so it fits its comparison card.
 
 Chart heights are sized individually to their mark density. Compact heatmap, parallel-coordinate, experience, mosaic, strip, waffle and rank plots reduce unused space. Map narratives align at the top, controls sit above each SVG, and comparison cards keep their own content height. Data files and source attribution are unchanged.
 
 The challenge heatmap fits the actual card width rather than enforcing the shared 620 px minimum. Its terrain labels wrap, all five grade columns stay visible, and a reserved annotation band keeps the callout out of the data cells.
 
 The shortlist map has a larger 680 px plotting specification and a wider desktop column beside the narrative. The first overview retains equal-width panels. Enlarged map geometry, legends, labels and pointer targets use the same projection and source data.
+
+## Criteria refinement — 23 October 2026
+
+A fourth geographic idiom uses a fixed 25 km Lambert azimuthal equal-area grid. Each of the original 194 trail midpoints contributes to exactly one of 65 occupied cells. The highest-count cell contains 13 trails, all assigned to Murrindindi. A short numbered pointer identifies that cell without crossing other occupied cells. Cells are not clipped to council or coastal boundaries. The cell size and origin affect the aggregation; the map does not infer entrances, connectivity, visitation or coverage of all Victorian walks. `scripts/prepare_grid_map.py` rebuilds the display file without writing the inputs.
+
+Chart reading instructions now explain the mosaic areas, parallel-coordinate axes, square-root scales, rank comparison group, and access denominators beside the relevant views. The access waffle still depicts the rated subset (179), with eight cells representing 8.4% rounded. The original data files and reference URLs are unchanged. Laptop layouts stack comparison cards when their labels need more room, and no chart requires horizontal scrolling.

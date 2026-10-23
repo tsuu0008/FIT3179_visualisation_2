@@ -1,0 +1,650 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 570,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "background": null,
+  "description": "A fixed 25 km spherical Lambert azimuthal equal-area grid counts the original trail midpoints once each. A short leader identifies the exact peak cell without crossing other occupied cells. The numbered explanation is reserved above the map.",
+  "projection": {
+    "type": "identity",
+    "reflectY": true,
+    "scale": {
+      "expr": "min((width-20)/840000,(height-90)/600000)"
+    },
+    "translate": {
+      "expr": "[width/2-30000*(min((width-20)/840000,(height-90)/600000)),84+340000*(min((width-20)/840000,(height-90)/600000))]"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/trail_grid.json",
+        "format": {
+          "type": "json",
+          "property": "outline"
+        },
+        "name": "grid_outline"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef3f1",
+        "stroke": "#9badab",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "name": "gridCells",
+      "data": {
+        "url": "data/trail_grid.json",
+        "format": {
+          "type": "json",
+          "property": "cells"
+        },
+        "name": "grid_cells"
+      },
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "count_band",
+          "type": "ordinal",
+          "scale": {
+            "domain": [
+              "1",
+              "2–3",
+              "4–6",
+              "7–13"
+            ],
+            "range": [
+              "#d3e4ed",
+              "#8abbd5",
+              "#3e87b0",
+              "#13557c"
+            ]
+          },
+          "legend": {
+            "title": "Trails per 25 km cell",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 4,
+            "symbolType": "circle",
+            "symbolSize": 110,
+            "titleLimit": 300
+          }
+        },
+        "tooltip": [
+          {
+            "field": "trail_count",
+            "title": "Recorded trails"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "format": ".1%",
+            "title": "Share of all 194 trails"
+          },
+          {
+            "field": "areas",
+            "title": "Council counts"
+          },
+          {
+            "field": "trail_km",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Combined trail km"
+          },
+          {
+            "field": "cell_id",
+            "title": "Grid cell"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gridPeakHalo",
+      "data": {
+        "url": "data/trail_grid.json",
+        "format": {
+          "type": "json",
+          "property": "cells"
+        },
+        "name": "grid_cells"
+      },
+      "transform": [
+        {
+          "filter": "datum.cell_id === '2:-3'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fillOpacity": 0,
+        "stroke": "white",
+        "strokeWidth": 4.5
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y2": {
+          "field": "y1"
+        }
+      }
+    },
+    {
+      "name": "gridPeak",
+      "data": {
+        "url": "data/trail_grid.json",
+        "format": {
+          "type": "json",
+          "property": "cells"
+        },
+        "name": "grid_cells"
+      },
+      "transform": [
+        {
+          "filter": "datum.cell_id === '2:-3'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fillOpacity": 0,
+        "stroke": "#D55E00",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y2": {
+          "field": "y1"
+        }
+      }
+    },
+    {
+      "name": "gridCounts",
+      "data": {
+        "url": "data/trail_grid.json",
+        "format": {
+          "type": "json",
+          "property": "cells"
+        },
+        "name": "grid_cells"
+      },
+      "transform": [
+        {
+          "filter": "datum.trail_count >= 4"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "white"
+      },
+      "encoding": {
+        "x": {
+          "field": "cx",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "cy",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "text": {
+          "field": "trail_count"
+        }
+      }
+    },
+    {
+      "name": "gridPeakLeader",
+      "data": {
+        "values": [
+          {
+            "x": 75000,
+            "y": -62500,
+            "end": 82500
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#9b4200",
+        "strokeWidth": 1.6
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "x2": {
+          "field": "end"
+        }
+      }
+    },
+    {
+      "name": "gridPeakNumber",
+      "data": {
+        "values": [
+          {
+            "x": 87500,
+            "y": -62500
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#9b4200",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "stroke": "white",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "text": {
+          "value": "1"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 87500,
+            "y": -62500
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#9b4200",
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -390000,
+              450000
+            ],
+            "range": [
+              {
+                "expr": "width/2-420000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              {
+                "expr": "width/2+420000*(min((width-20)/840000,(height-90)/600000))"
+              }
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              -260000,
+              340000
+            ],
+            "range": [
+              {
+                "expr": "84+600000*(min((width-20)/840000,(height-90)/600000))"
+              },
+              84
+            ],
+            "nice": false,
+            "zero": false
+          }
+        },
+        "text": {
+          "value": "1"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "lineBreak": "\n",
+        "lineHeight": 17,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "value": 8
+        },
+        "text": {
+          "value": "194 trails · 65 occupied cells\nEqual-area cells reveal local clusters"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineBreak": "\n",
+        "lineHeight": 17,
+        "color": "#20343A"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width-8"
+          }
+        },
+        "y": {
+          "value": 8
+        },
+        "text": {
+          "value": "1 · The busiest cell contains 13 trails\nAll 13 are assigned to Murrindindi\n6.7% of the entire snapshot in one cell"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "gridColor": "#d9e2df",
+      "domainColor": "#9aa7a4",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titlePadding": 10,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelColor": "#334155",
+      "titleColor": "#0f172a",
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "orient": "bottom",
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "padding": 8,
+      "columns": 4,
+      "labelLimit": 150,
+      "symbolType": "circle",
+      "symbolStrokeWidth": 0,
+      "symbolOpacity": 1
+    },
+    "header": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#0f172a"
+    },
+    "text": {
+      "font": "Inter",
+      "fontSize": 11,
+      "color": "#20343A"
+    }
+  }
+}

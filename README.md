@@ -1,6 +1,6 @@
 # Walking the Uneven Map — annotated revision
 
-Updated **21 October 2026** (map and interaction refinement). All 13 Vega-Lite charts include direct explanatory annotations. Grade colours are blue, amber, teal, magenta and charcoal; point charts also use distinct symbols. Smaller screens scroll each plotting surface horizontally to preserve readable labels.
+Updated **23 October 2026** (criteria and readability refinement). All 14 Vega-Lite views include direct explanatory annotations. Grade colours are blue, amber, teal, magenta and charcoal; point charts also use distinct symbols. Laptop layouts resize plots and stack comparison cards to keep labels visible without horizontal scrolling.
 
 Open `index.html` with **VS Code Live Server**. The site remains buildless HTML, CSS and Vega-Lite JSON specifications. No bundler or custom chart event handler is required.
 
@@ -20,8 +20,8 @@ The downloader and importer can retrieve and process a complete official WGS84 t
 
 | File | Purpose |
 | --- | --- |
-| index.html | Narrative, grade guide, source references and 13 embed calls. |
-| styles.css | Layout, chart scroll surfaces and responsive styles. |
+| index.html | Narrative, grade guide, source references and 14 embed calls. |
+| styles.css | Layout, chart sizing and responsive styles. |
 | charts/*.json | Displayed Vega-Lite specifications, controls and annotations. |
 | data/* | Retained observations/geometry, rebuilt plotting tables, sources and statistics. |
 | scripts/rebuild_data.py | Reproducible plotting-table derivations and optional official GeoJSON import. |
@@ -39,3 +39,11 @@ Local chart controls affect their own plot. Returning to All/All Victoria/None c
 - Unboxed map annotations keep text clear of routes and light council boundaries. The final map groups its callouts to the right of its grade and distance legends, using matching numbered geographic markers instead of long leader lines. Regional pointers identify an LGA using a geometry-derived interior anchor; the final symbol map highlights the actual council polygon. Local trail pointers sit on displayed route geometry.
 - Parallel coordinates has a visible grade legend, all 194 named trail choices, Longest matching, and grade/area/time filters with live counts and empty-state messages.
 - `scripts/prepare_map_annotations.py` prepares geographic label anchors and map frames, and runs during the data rebuild.
+
+## Criteria refinement
+
+A fixed 25 km equal-area grid adds a fourth geographic idiom: counts of trail midpoints in equal-size cells. It contains all 194 retained trails across 65 occupied cells, with 13 in the busiest cell. Run `python scripts/prepare_grid_map.py` to rebuild this derived file; the original inputs are not changed.
+
+Reading instructions explain the more complex encodings beside their charts. Annotations interpret highlighted patterns, and the access panel states both the rated denominator and rounding. The first overview stays in equal-width panels on desktop. Browser checks at 1280 px and 1024 px found all 14 views visible without horizontal plot overflow or text clipped by their SVG frames.
+
+See [criteria review](study/CRITERIA_CHECK.md) for the idiom inventory and remaining submission responsibilities.

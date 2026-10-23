@@ -233,6 +233,8 @@ def main():
     write('sources.json', provenance)
     from prepare_map_annotations import main as prepare_annotation_geometry
     prepare_annotation_geometry()
+    from prepare_grid_map import main as prepare_grid
+    prepare_grid()
     print(json.dumps(summary, indent=2))
 
 

@@ -627,8 +627,8 @@
       },
       "mark": {
         "type": "line",
-        "opacity": 0.22,
-        "strokeWidth": 1.2
+        "opacity": 0.13,
+        "strokeWidth": 1
       },
       "encoding": {
         "x": {

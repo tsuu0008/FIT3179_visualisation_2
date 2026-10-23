@@ -250,7 +250,10 @@
       "titleFontSize": 13,
       "padding": 8,
       "labelLimit": 200,
-      "direction": "horizontal"
+      "direction": "horizontal",
+      "symbolType": "circle",
+      "symbolStrokeWidth": 0,
+      "symbolOpacity": 1
     },
     "text": {
       "font": "Inter",

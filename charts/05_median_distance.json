@@ -311,7 +311,10 @@
       "titleFontSize": 13,
       "padding": 8,
       "columns": 2,
-      "labelLimit": 150
+      "labelLimit": 150,
+      "symbolType": "circle",
+      "symbolStrokeWidth": 0,
+      "symbolOpacity": 1
     },
     "text": {
       "font": "Inter",

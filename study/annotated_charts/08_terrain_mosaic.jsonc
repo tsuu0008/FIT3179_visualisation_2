@@ -2,7 +2,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 390,
   "autosize": {
     "type": "fit",
     "contains": "padding"
@@ -78,13 +78,10 @@
             "format": ".0%",
             "values": [
               0,
-              0.2,
-              0.4,
-              0.6,
-              0.8,
+              0.5,
               1
             ],
-            "title": "Grade share within each terrain (%)",
+            "title": "Grade mix (%)",
             "titleFontSize": 12,
             "titlePadding": 10,
             "grid": false,
@@ -174,7 +171,7 @@
           "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 3'"
         },
         {
-          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nLargest block of recorded kilometres'",
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\n' + (width < 550 ? 'The biggest block\\nof walking distance' : 'The biggest block of walking distance')",
           "as": "annotation"
         }
       ]
@@ -209,7 +206,7 @@
           "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 3'"
         },
         {
-          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nLargest block of recorded kilometres'",
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\n' + (width < 550 ? 'The biggest block\\nof walking distance' : 'The biggest block of walking distance')",
           "as": "annotation"
         }
       ]
@@ -247,7 +244,7 @@
           "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 4'"
         },
         {
-          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nSame terrain, higher walking grade'",
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\n' + (width < 550 ? 'Same terrain,\\nhigher difficulty' : 'Same terrain, higher difficulty')",
           "as": "annotation"
         }
       ]
@@ -282,7 +279,7 @@
           "filter": "datum.gradient === 'Short steep hills' && datum.grade === 'Grade 4'"
         },
         {
-          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\nSame terrain, higher walking grade'",
+          "calculate": "datum.grade + ' · ' + format(datum.km,'.1f') + ' km\\n' + (width < 550 ? 'Same terrain,\\nhigher difficulty' : 'Same terrain, higher difficulty')",
           "as": "annotation"
         }
       ]
@@ -314,7 +311,10 @@
       "direction": "horizontal",
       "padding": 8,
       "columns": 3,
-      "labelLimit": 150
+      "labelLimit": 150,
+      "symbolType": "circle",
+      "symbolStrokeWidth": 0,
+      "symbolOpacity": 1
     },
     "text": {
       "font": "Inter",
