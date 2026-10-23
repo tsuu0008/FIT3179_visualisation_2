@@ -22,7 +22,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -38,7 +38,7 @@
     },
     {
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -58,7 +58,7 @@
     },
     {
       "data": {
-        "url": "data/trails.geojson",
+        "url": "data/trails.geojson?v=f714013dd937",
         "format": {
           "type": "json",
           "property": "features"
@@ -148,7 +148,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -204,7 +204,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -280,7 +280,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -330,7 +330,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -357,7 +357,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -405,7 +405,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -483,7 +483,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -535,7 +535,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -562,7 +562,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -610,7 +610,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -688,7 +688,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -740,7 +740,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [

@@ -1,4 +1,4 @@
-// Displayed Vega-Lite specification. See source_audit.json for verification.
+// Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -9,7 +9,7 @@
   },
   "background": null,
   "data": {
-    "url": "data/lga.geojson",
+    "url": "data/lga.geojson?v=51221f0590b5",
     "format": {
       "type": "json",
       "property": "features"
@@ -131,7 +131,7 @@
     },
     {
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -151,7 +151,7 @@
     },
     {
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -182,7 +182,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -231,7 +231,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -304,7 +304,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -357,7 +357,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -385,7 +385,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -434,7 +434,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -507,7 +507,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -560,7 +560,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [

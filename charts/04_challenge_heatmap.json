@@ -25,7 +25,7 @@
     }
   },
   "data": {
-    "url": "data/trails.json"
+    "url": "data/trails.json?v=e01251be5932"
   },
   "transform": [
     {

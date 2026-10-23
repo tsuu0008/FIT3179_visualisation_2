@@ -1,4 +1,4 @@
-// Displayed Vega-Lite specification. See source_audit.json for verification.
+// Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/trails.json"
+    "url": "data/trails.json?v=e01251be5932"
   },
   "transform": [
     {

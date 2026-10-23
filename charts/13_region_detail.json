@@ -107,7 +107,7 @@
     {
       "name": "detailBase",
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -135,7 +135,7 @@
     },
     {
       "data": {
-        "url": "data/lga_label_points.json"
+        "url": "data/lga_label_points.json?v=187b42ec8618"
       },
       "transform": [
         {
@@ -178,7 +178,7 @@
     },
     {
       "data": {
-        "url": "data/trail_labels.json"
+        "url": "data/trail_labels.json?v=124c6d7a3cff"
       },
       "transform": [
         {
@@ -209,7 +209,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -266,7 +266,7 @@
     {
       "name": "detailRegion",
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -295,7 +295,7 @@
     {
       "name": "detailVictoria",
       "data": {
-        "url": "data/victoria_outline.geojson",
+        "url": "data/victoria_outline.geojson?v=6254d438eaa2",
         "format": {
           "type": "json"
         }
@@ -322,7 +322,7 @@
     },
     {
       "data": {
-        "url": "data/trails.geojson",
+        "url": "data/trails.geojson?v=f714013dd937",
         "format": {
           "type": "json",
           "property": "features"
@@ -384,7 +384,7 @@
     },
     {
       "data": {
-        "url": "data/lga_label_points.json"
+        "url": "data/lga_label_points.json?v=187b42ec8618"
       },
       "transform": [
         {
@@ -411,7 +411,7 @@
     },
     {
       "data": {
-        "url": "data/trail_labels.json"
+        "url": "data/trail_labels.json?v=124c6d7a3cff"
       },
       "transform": [
         {
@@ -442,7 +442,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -482,7 +482,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -531,7 +531,7 @@
     },
     {
       "data": {
-        "url": "data/trail_labels.json"
+        "url": "data/trail_labels.json?v=124c6d7a3cff"
       },
       "transform": [
         {
@@ -562,7 +562,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [

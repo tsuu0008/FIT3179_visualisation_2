@@ -30,4 +30,6 @@ python3 scripts/version_assets.py
 
 The archived official export is `data/raw/official_recweb_tracks_20261023.geojson.gz`; decompress it to obtain `official_export.geojson`. The verifier checks the full response, source units, unique names, existing comparison attributes and all 80 ABS population values. The audit stores the source response hash and record-level evidence. `scripts/overview_map.js` implements the first map; the remaining displayed charts are in `charts/`.
 
+Run the versioning step after data or chart edits. It versions data URLs inside every chart before versioning the page's chart URLs, so a cached table cannot be mixed with a newer specification.
+
 The original two-page sketch is copied unchanged to its submission link. Transfer the prepared description into the unit's official submission template after review. This local revision does not itself publish or submit the work.

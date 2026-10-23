@@ -8,7 +8,7 @@
   },
   "background": null,
   "data": {
-    "url": "data/lga_stats.json"
+    "url": "data/lga_stats.json?v=525e054c9344"
   },
   "transform": [
     {

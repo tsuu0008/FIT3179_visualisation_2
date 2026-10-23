@@ -1,4 +1,4 @@
-// Displayed Vega-Lite specification. See source_audit.json for verification.
+// Vega-Lite specification with versioned source-data URLs.
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
@@ -22,7 +22,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "format": {
           "type": "json",
           "property": "outline"
@@ -39,7 +39,7 @@
     {
       "name": "landGrid",
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "name": "grid_lines",
         "format": {
           "type": "json",
@@ -56,7 +56,7 @@
     {
       "name": "gridCells",
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "format": {
           "type": "json",
           "property": "cells"
@@ -176,7 +176,7 @@
     {
       "name": "gridPeakHalo",
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "format": {
           "type": "json",
           "property": "cells"
@@ -246,7 +246,7 @@
     {
       "name": "gridPeak",
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "format": {
           "type": "json",
           "property": "cells"
@@ -316,7 +316,7 @@
     {
       "name": "gridCounts",
       "data": {
-        "url": "data/trail_grid.json",
+        "url": "data/trail_grid.json?v=afcdeb1e2476",
         "format": {
           "type": "json",
           "property": "cells"

@@ -55,7 +55,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson",
+        "url": "data/lga.geojson?v=51221f0590b5",
         "format": {
           "type": "json",
           "property": "features"
@@ -71,7 +71,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -117,7 +117,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -130,7 +130,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga.geojson",
+              "url": "data/lga.geojson?v=51221f0590b5",
               "format": {
                 "type": "json",
                 "property": "features"
@@ -169,7 +169,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "mark": {
         "type": "point",
@@ -336,7 +336,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -367,7 +367,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -413,7 +413,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -444,7 +444,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -489,7 +489,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -535,7 +535,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -574,7 +574,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -618,7 +618,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -664,7 +664,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -698,7 +698,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -744,7 +744,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -785,7 +785,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -816,7 +816,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -864,7 +864,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -895,7 +895,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -949,7 +949,7 @@
     {
       "name": "symbolFooterBBadge",
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -980,7 +980,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -1022,7 +1022,7 @@
     {
       "name": "symbolFooterBLetter",
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -1053,7 +1053,7 @@
           "lookup": "id",
           "from": {
             "data": {
-              "url": "data/route_label_points.json"
+              "url": "data/route_label_points.json?v=5097fd9f4489"
             },
             "key": "id",
             "fields": [
@@ -1096,7 +1096,7 @@
     {
       "name": "symbolFooterABadge",
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -1142,7 +1142,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [
@@ -1178,7 +1178,7 @@
     {
       "name": "symbolFooterALetter",
       "data": {
-        "url": "data/trails.json"
+        "url": "data/trails.json?v=e01251be5932"
       },
       "transform": [
         {
@@ -1224,7 +1224,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json"
+              "url": "data/lga_label_points.json?v=187b42ec8618"
             },
             "key": "name",
             "fields": [

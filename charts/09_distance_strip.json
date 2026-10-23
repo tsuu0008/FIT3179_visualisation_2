@@ -25,7 +25,7 @@
     }
   },
   "data": {
-    "url": "data/distance_points.json"
+    "url": "data/distance_points.json?v=c8ce4de661be"
   },
   "mark": {
     "type": "point",
