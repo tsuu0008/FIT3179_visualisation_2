@@ -51,3 +51,5 @@ See [criteria review](study/CRITERIA_CHECK.md) for the idiom inventory and remai
 ## Visible bin grid and balanced comparison cards
 
 The square bin map now draws the complete 25 km grid over land, with a pale zero-recorded category and darker occupied bins. The grid is clipped to the existing Victoria outline; trail assignments and counts are unchanged. A compact side-by-side narrative and map replaces the previous full-width map card. Paired comparison cards share text and chart rows, matching their top and bottom edges on desktop; narrow screens stack them.
+
+After chart or stylesheet edits, run `python scripts/version_assets.py` before publishing. The HTML uses content-based asset versions to prevent an older chart or stylesheet remaining cached. The original data and source URLs are unaffected.

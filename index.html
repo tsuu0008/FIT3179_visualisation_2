@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1e6bd7dc818b">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23143f3a'/%3E%3Cpath%20d='M5%2025%2013%208l4%208%203-6%207%2015Z'%20fill='%23f4a261'/%3E%3Cpath%20d='M9%2025%2016%2012l3%206%202-4%205%2011Z'%20fill='%23f8faf7'/%3E%3C/svg%3E">
   </head>
@@ -383,27 +383,27 @@
           should be reviewed by the author before submission.
         </p>
         <p>
-          <a href="charts/01_trail_network.json">View chart specifications</a><br><a href="data/trails.json">View processed trail data</a><br><a href="study/DATA_SOURCES.md">Sources, downloads and refresh instructions</a>
+          <a href="charts/01_trail_network.json?v=7f6d94c97aba">View chart specifications</a><br><a href="data/trails.json">View processed trail data</a><br><a href="study/DATA_SOURCES.md">Sources, downloads and refresh instructions</a>
         </p>
       </div>
     </footer>
 <!-- These explicit calls insert the charts. The chart JSON files contain their own simple dropdowns. -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script><script>
       // INSERT THE CHARTS: HTML container, then chart JSON file.
-      vegaEmbed("#chart-01", "charts/01_trail_network.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-02", "charts/02_trail_supply.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-03", "charts/03_trail_symbols.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-05", "charts/05_median_distance.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-06", "charts/06_parallel_coordinates.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-07", "charts/07_experience_bars.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-08", "charts/08_terrain_mosaic.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-09", "charts/09_distance_strip.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-10", "charts/10_access_waffle.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-11", "charts/11_rank_gap.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-12", "charts/12_distance_time.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#chart-14", "charts/14_trail_grid.json", {actions: false, renderer: "svg"});
-      vegaEmbed("#detail-map", "charts/13_region_detail.json", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-01", "charts/01_trail_network.json?v=7f6d94c97aba", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-02", "charts/02_trail_supply.json?v=375b6c94d3cd", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-03", "charts/03_trail_symbols.json?v=22ca96971892", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-04", "charts/04_challenge_heatmap.json?v=d4c8f86e1054", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-05", "charts/05_median_distance.json?v=d43fd5d3bf41", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-06", "charts/06_parallel_coordinates.json?v=11dd78afc026", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-07", "charts/07_experience_bars.json?v=75790d89921d", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-08", "charts/08_terrain_mosaic.json?v=bb98d59e0d66", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-09", "charts/09_distance_strip.json?v=e41d64ed28da", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-10", "charts/10_access_waffle.json?v=e08e3f082731", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-11", "charts/11_rank_gap.json?v=439cfa75332f", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-12", "charts/12_distance_time.json?v=d374812c4d22", {actions: false, renderer: "svg"});
+      vegaEmbed("#chart-14", "charts/14_trail_grid.json?v=fc8110d6b294", {actions: false, renderer: "svg"});
+      vegaEmbed("#detail-map", "charts/13_region_detail.json?v=7e9055d8c734", {actions: false, renderer: "svg"});
 </script>
 </body>
 </html>
