@@ -1424,6 +1424,14 @@
           "expr": "pickTrail===0 && zoom<=8 && width>650"
         }
       ]
+    },
+    {
+      "name": "boundaryFallback",
+      "url": "data/lga.geojson?v=152086eeafcf",
+      "format": {
+        "type": "json",
+        "property": "features"
+      }
     }
   ],
   "marks": [
@@ -1442,6 +1450,32 @@
         }
       },
       "marks": [
+        {
+          "name": "boundaryFallbackMarks",
+          "type": "shape",
+          "from": {
+            "data": "boundaryFallback"
+          },
+          "transform": [
+            {
+              "type": "geoshape",
+              "projection": "mapProjection"
+            }
+          ],
+          "encode": {
+            "update": {
+              "fill": {
+                "value": "#f0f4f1"
+              },
+              "stroke": {
+                "value": "#bdcbc8"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              }
+            }
+          }
+        },
         {
           "type": "image",
           "interactive": false,
