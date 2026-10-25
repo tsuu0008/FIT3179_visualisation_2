@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/distance_points.json?v=748f57556a6d"
+    "url": "data/distance_points.json?v=b2454b34a0a0"
   },
   "description": "Individual trail distances including missing grade records. Vertical offsets only separate overlapping points.",
   "layer": [
@@ -96,15 +96,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "yOffset": {
           "field": "lane",
@@ -115,12 +116,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -130,6 +132,7 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
@@ -142,7 +145,7 @@
           },
           {
             "field": "grade",
-            "title": "Recorded grade"
+            "title": "Recorded code"
           },
           {
             "field": "length_km",
@@ -200,12 +203,13 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ]
         },
@@ -251,12 +255,13 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ]
         },
@@ -301,12 +306,13 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ]
         },
@@ -352,12 +358,13 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ]
         },
@@ -366,7 +373,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Grade 5 maximum: Track Ninety Six · 34 km\nFar above its group’s 7.36 km middle distance"
+          "value": "C5 maximum: Track Ninety Six · 34 km\nFar above its group’s 7.36 km middle distance"
         }
       }
     },

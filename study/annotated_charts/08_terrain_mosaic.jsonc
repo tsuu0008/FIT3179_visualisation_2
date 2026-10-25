@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/mosaic.json?v=1ca390e74399"
+    "url": "data/mosaic.json?v=a6a3d88e8771"
   },
   "layer": [
     {
@@ -42,13 +42,13 @@
           "title": "Terrain (width shows kilometre share)",
           "axis": {
             "values": [
-              0.02639698805412443,
-              0.1718988846741776,
-              0.5675847817471549,
-              0.8852827945422631,
-              0.9631999094151612
+              0.02639698805412444,
+              0.17189888467417766,
+              0.5675847817471551,
+              0.8852827945422637,
+              0.9631999094151618
             ],
-            "labelExpr": "abs(datum.value - 0.02639698805412443) < 0.000001 ? \"Flat\" : abs(datum.value - 0.1718988846741776) < 0.000001 ? \"Gentle hills\" : abs(datum.value - 0.5675847817471549) < 0.000001 ? \"Short steep\" : abs(datum.value - 0.8852827945422631) < 0.000001 ? \"Very steep\" : abs(datum.value - 0.9631999094151612) < 0.000001 ? \"Steep + difficult\" : ''",
+            "labelExpr": "abs(datum.value - 0.02639698805412444) < 0.000001 ? \"Flat\" : abs(datum.value - 0.17189888467417766) < 0.000001 ? \"Gentle hills\" : abs(datum.value - 0.5675847817471551) < 0.000001 ? \"Short steep\" : abs(datum.value - 0.8852827945422637) < 0.000001 ? \"Very steep\" : abs(datum.value - 0.9631999094151618) < 0.000001 ? \"Steep + difficult\" : ''",
             "labelAngle": -45,
             "labelOverlap": false,
             "labelLimit": 140,
@@ -67,7 +67,7 @@
         "y": {
           "field": "y0",
           "type": "quantitative",
-          "title": "Grade mix within terrain",
+          "title": "Code mix within terrain",
           "axis": {
             "format": ".0%"
           },
@@ -86,12 +86,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -101,11 +102,12 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
           "legend": {
-            "title": "Recorded grade",
+            "title": "Recorded code",
             "orient": "bottom",
             "columns": 4,
             "symbolType": "circle",
@@ -119,7 +121,7 @@
           },
           {
             "field": "grade",
-            "title": "Grade"
+            "title": "Code"
           },
           {
             "field": "km",
@@ -162,7 +164,7 @@
         },
         "color": {
           "condition": {
-            "test": "datum.grade === 'Grade 5' || datum.grade === 'Unclassified'",
+            "test": "datum.grade === 'C5' || datum.grade === 'C6'",
             "value": "white"
           },
           "value": "#152d2a"
@@ -174,8 +176,8 @@
       "data": {
         "values": [
           {
-            "left": 0.29100379324010633,
-            "right": 0.8441657702542034
+            "left": 0.29100379324010645,
+            "right": 0.8441657702542038
           }
         ]
       },
@@ -296,28 +298,28 @@
       "data": {
         "values": [
           {
-            "center": 0.02639698805412443,
-            "share": 0.05279397610824887,
+            "center": 0.02639698805412444,
+            "share": 0.05279397610824888,
             "terrain": "Flat"
           },
           {
-            "center": 0.1718988846741776,
-            "share": 0.23820981713185754,
+            "center": 0.17189888467417766,
+            "share": 0.23820981713185757,
             "terrain": "Gentle hills"
           },
           {
-            "center": 0.5675847817471549,
+            "center": 0.5675847817471551,
             "share": 0.5531619770140973,
             "terrain": "Short steep hills"
           },
           {
-            "center": 0.8852827945422631,
-            "share": 0.08223404857611956,
+            "center": 0.8852827945422637,
+            "share": 0.08223404857611957,
             "terrain": "Very steep"
           },
           {
-            "center": 0.9631999094151612,
-            "share": 0.07360018116967672,
+            "center": 0.9631999094151618,
+            "share": 0.07360018116967673,
             "terrain": "Very steep and difficult"
           }
         ]
@@ -361,7 +363,7 @@
       }
     }
   ],
-  "description": "Mosaic area represents kilometres among records with known terrain and recorded grade. Missing recorded grades are excluded explicitly.",
+  "description": "Mosaic area represents kilometres among records with known terrain and recorded grade. Missing recorded codes are excluded explicitly.",
   "padding": {
     "left": 8,
     "right": 8,

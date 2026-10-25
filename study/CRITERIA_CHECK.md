@@ -4,9 +4,9 @@ Reviewed against the supplied **FIT3179 Data Visualisation 2 v1.2** brief. This 
 
 | Rubric item | Weight | Current evidence and remaining limits |
 | --- | --- | --- |
-| Hand-drawn sketch | 2% | The original two-page hand-drawn PDF is preserved unchanged at `submission/DV2sketch.pdf`. The walking topic, title, grade guide, overview/detail maps, population comparison, short-but-demanding theme, conclusion and references remain recognisable. The original sketch itself is assessed by the teaching team. |
+| Hand-drawn sketch | 2% | The original two-page hand-drawn PDF is preserved unchanged at `submission/DV2sketch.pdf`. The walking topic, title, classification guide, overview/detail maps, population comparison, short-but-demanding theme, conclusion and references remain recognisable. The original sketch itself is assessed by the teaching team. |
 | Idioms and complexity | 8% | 14 displayed Vega/Vega-Lite views. Four geographic types: route map, choropleth, sized-symbol map and equal-area grid. Heatmap, parallel coordinates, mosaic and waffle bring the candidate advanced-idiom total to eight. Repeated statewide/regional route maps count once. Effectiveness and final idiom classification remain marking decisions. |
-| Layout, colour and figure-ground | 3% | Shared margins, responsive columns, paired chart boundaries, consistent grade colours, clear cards and map-margin callouts. Laptop views have been checked at 1024, 1096 and 1280 px without horizontal page overflow. See `LAYOUT_REVIEW.md`. |
+| Layout, colour and figure-ground | 3% | Shared margins, responsive columns, paired chart boundaries, consistent code colours, clear cards and map-margin callouts. Laptop views have been checked at 1024, 1096 and 1280 px without horizontal page overflow. See `LAYOUT_REVIEW.md`. |
 | Typography | 2% | DM Serif Display distinguishes major story headings; Inter supports body text, controls and diagrams. Reading guides have a secondary hierarchy, and conclusion paragraphs are left aligned in a constrained reading column. Compact diagram labels need to be judged at the actual laptop size. |
 | Story, annotations, grammar and style | 5% | Explicit everyday Victorian audience; a free-afternoon opening connects place, route demands, time and access; recurring examples develop the argument; the conclusion answers the opening. Grade meanings precede first use. All 14 views include an on-chart finding and its significance, with circled references where needed. Author, date, sources and AI acknowledgement are visible. See `NARRATIVE_REVIEW.md` and `ANNOTATIONS.md`. |
 | Domain, who, what, why and how | 2% | `submission/WHAT_WHY_HOW.md` now provides a shorter, task-led description with source details, idiom rationale, interactions, limitations, sketch relationship and AI acknowledgement. It is prepared text, not the unit's official submission template. |
@@ -34,6 +34,12 @@ Reviewed against the supplied **FIT3179 Data Visualisation 2 v1.2** brief. This 
 
 1. **Publish and verify:** after the author publishes the intended revision, check the public page, all embedded charts, the JSON links, data links and original-sketch PDF from an unsigned-in browser. Public accessibility is an explicit submission requirement.
 2. **Official template:** transfer the reviewed description and final URLs into the template supplied by the unit before Moodle submission.
-3. **Boundary provenance:** the retained council geometry's vintage remains unverified. Midpoint assignment also counts a whole cross-boundary route in one council. Both limitations are disclosed; they are not resolved by layout or narrative changes.
+3. **Boundary provenance:** Official ABS 2025 Local Government Area polygons are used; full polygons determine midpoint assignment and display copies are simplified by 100 metres. Midpoint assignment also counts a whole cross-boundary route in one council. Both limitations are disclosed; they are not resolved by layout or narrative changes.
 
 No additional charts, decorative filler or repeated caveats were added to chase a rubric count. The current evidence should be assessed on whether each view contributes to the connected story.
+
+## Final accuracy revision — 25 October 2026
+
+- All 195 observations and all original route coordinates are preserved. C1–C6 and “3” are separate source categories; public grades are not inferred.
+- Official ABS 2025 GDA2020 boundaries replace geometry of unknown vintage. All 80 population joins and 195 midpoint assignments were checked; assignments did not change. The audit records the source archive checksum and processing details.
+- Screenshot pagination is rebuilt at chart-card boundaries, with updated screenshots matching the corrected public page.

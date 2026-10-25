@@ -13,8 +13,8 @@ COLOURS = GRADE_COLOURS
 TERRAINS = ['Flat','Gentle hills','Short steep hills','Very steep','Very steep and difficult']
 DURATIONS = ['Under 1 hour','1–4 hours','Over 4 hours','Overnight','Multiple days','Not recorded']
 COLOUR = {'field':'grade','type':'nominal','scale':{'domain':CODES,'range':COLOURS},
-          'legend':{'title':'Recorded grade','orient':'bottom','columns':4,'symbolType':'circle','titleLimit':220}}
-TOOLTIP = [{'field':'name','title':'Trail'},{'field':'grade','title':'Recorded grade'},
+          'legend':{'title':'Recorded code','orient':'bottom','columns':4,'symbolType':'circle','titleLimit':220}}
+TOOLTIP = [{'field':'name','title':'Trail'},{'field':'grade','title':'Recorded code'},
            {'field':'length_km','title':'Distance (km)','format':'.2f'},
            {'field':'duration_group','title':'Source duration category'},
            {'field':'gradient','title':'Terrain'},{'field':'lga','title':'Council'},
@@ -32,46 +32,14 @@ def save(n, spec):
     p.write_text(json.dumps(spec,ensure_ascii=False,indent=2)+'\n')
 
 def main():
-    # Change presentation labels while preserving raw source values in the data.
-    def change(x):
-        if isinstance(x,list):
-            out=[change(v) for v in x]
-            if out and isinstance(out[0],dict) and 'legend_grade' in out[0]:
-                return [{'legend_grade':grade} for grade in GRADES]
-            if 'Grade 1' in out and all(isinstance(v,str) for v in out):
-                out=list(dict.fromkeys(out))
-            return out
-        if isinstance(x,dict):
-            d={k:change(v) for k,v in x.items()}
-            scale=d.get('scale',{})
-            if isinstance(scale,dict) and 'Grade 1' in scale.get('domain',[]):
-                scale['domain']=GRADES
-                if scale.get('range') and all(isinstance(v,str) and v.startswith('#') for v in scale['range']):
-                    scale['range']=GRADE_COLOURS
-                elif scale.get('range') and 'circle' in scale['range']:
-                    scale['range']=['circle','square','triangle-up','diamond','cross','triangle-down','triangle-left']
-            if d.get('field') in ['grade','properties.grade'] and d.get('type')=='ordinal':
-                d['type']='nominal'
-            return d
-        if isinstance(x,str):
-            if x in [f'C{i}' for i in range(1,7)]+['3']:
-                return grade_label(x)
-            x=x.replace('track_code','grade').replace('Recorded track code','Recorded grade')
-            x=x.replace('Source code','Grade').replace('Source-code','Grade').replace('source-code','grade')
-            x=x.replace('Track code','Grade').replace('Source Code','Grade').replace('source code','recorded grade')
-            for i in range(1,6):x=x.replace(f'C{i}',f'Grade {i}')
-            return x.replace('C6','Unclassified')
-        return x
-    for n in [2,3,7,10,11,13,14]:
-        p=next(CHARTS.glob(f'{n:02d}_*.json'))
-        p.write_text(json.dumps(change(json.loads(p.read_text())),ensure_ascii=False,indent=2)+'\n')
+    # Source codes are displayed verbatim; never translate C1-C6 into public grades.
     symbol_path=CHARTS/'03_trail_symbols.json'
     symbols=json.loads(symbol_path.read_text())
     symbols['height']=600
     for layer in symbols.get('layer',[]):
         for encoding in layer.get('encoding',{}).values():
             if isinstance(encoding,dict) and encoding.get('field')=='grade' and isinstance(encoding.get('legend'),dict):
-                encoding['title']='Recorded grade'
+                encoding['title']='Recorded code'
     symbol_path.write_text(json.dumps(symbols,ensure_ascii=False,indent=2)+'\n')
     detail_path=CHARTS/'13_region_detail.json'
     detail=json.loads(detail_path.read_text())
@@ -87,7 +55,7 @@ def main():
     for layer in detail.get('layer',[]):
         colour=layer.get('encoding',{}).get('color',{})
         if colour.get('field')=='properties.grade':
-            colour['legend']={'title':'Recorded grade','orient':'bottom','columns':3,
+            colour['legend']={'title':'Recorded code','orient':'bottom','columns':3,
                               'symbolType':'stroke','symbolStrokeWidth':3,'labelFontSize':12,
                               'titleFontSize':12,'labelLimit':125}
     detail_path.write_text(json.dumps(detail,ensure_ascii=False,indent=2)+'\n')
@@ -102,32 +70,32 @@ def main():
     heat=base(340)
     heat.update(data={'url':'data/trails.json'},transform=[{'filter':"datum.grade !== 'Unknown' && datum.gradient !== 'Unknown'"},
         {'aggregate':[{'op':'count','as':'trail_count'}],'groupby':['grade','gradient']}])
-    enc={'x':{'field':'grade','type':'ordinal','sort':CODES[:-1],'title':'Recorded grade'},
+    enc={'x':{'field':'grade','type':'ordinal','sort':CODES[:-1],'title':'Recorded code'},
          'y':{'field':'gradient','type':'ordinal','sort':TERRAINS,'title':None,
               'axis':{'labelLimit':145,'labelExpr':"datum.label === 'Very steep and difficult' ? 'Very steep + difficult' : datum.label"}}}
     heat['layer']=[{'mark':{'type':'rect','stroke':'#ffffff','strokeWidth':2},'encoding':{**enc,
         'color':{'field':'trail_count','type':'quantitative','scale':{'scheme':'blues'},'legend':{'title':'Trails','orient':'bottom'}},
-        'tooltip':[{'field':'grade','title':'Grade'},{'field':'gradient','title':'Terrain'},{'field':'trail_count','title':'Trails'}]}},
+        'tooltip':[{'field':'grade','title':'Code'},{'field':'gradient','title':'Terrain'},{'field':'trail_count','title':'Trails'}]}},
         {'mark':{'type':'text','fontSize':12,'fontWeight':600},'encoding':{**enc,'text':{'field':'trail_count'},
         'color':{'condition':{'test':'datum.trail_count >= 20','value':'white'},'value':'#183e3b'}}}]
-    heat['description']='Joint counts of recorded grades and terrain. Missing grades are excluded; the unclassified record stays separate.'
+    heat['description']='Joint counts of recorded grades and terrain. Missing grades are excluded; the C6 record stays separate.'
     heat['padding']={'left':8,'right':8,'top':48,'bottom':8}
-    heat['layer'].append({'data':{'values':[{'grade':'Grade 4','gradient':'Short steep hills'}]},
+    heat['layer'].append({'data':{'values':[{'grade':'C4','gradient':'Short steep hills'}]},
         'mark':{'type':'rect','fill':None,'stroke':'#D55E00','strokeWidth':2.5},'encoding':enc})
     heat['layer'].append({'data':{'values':[{}]},'mark':{'type':'text','align':'left','fontSize':12,'fontWeight':600,'lineBreak':'\n','lineHeight':15,'color':'#24443f'},
-        'encoding':{'x':{'value':0},'y':{'value':-28},'text':{'value':'Outlined cell: 20 Grade 4 routes\nrecord short steep hills'}}})
+        'encoding':{'x':{'value':0},'y':{'value':-28},'text':{'value':'Outlined cell: 20 C4 routes\nrecord short steep hills'}}})
     save(4,heat)
 
     median=base(340)
     median.update(data={'url':'data/trails.json'},transform=[
         {'aggregate':[{'op':'median','field':'length_km','as':'median_km'},{'op':'count','as':'n'}],'groupby':['grade']},
         {'calculate':"format(datum.median_km,'.1f') + ' km · ' + datum.n + (datum.n === 1 ? ' route' : ' routes')",'as':'label'}])
-    enc={'y':{'field':'grade','type':'ordinal','sort':CODES,'title':'Grade'},
+    enc={'y':{'field':'grade','type':'ordinal','sort':CODES,'title':'Code'},
          'x':{'field':'median_km','type':'quantitative','title':'Median distance (km)','scale':{'domain':[0,10]}}}
     median['layer']=[{'mark':{'type':'rule','strokeWidth':3,'color':'#bccfc8'},'encoding':{**enc,'x2':{'datum':0}}},
         {'mark':{'type':'point','filled':True,'size':95},'encoding':{**enc,'color':{**COLOUR,'legend':None}}},
         {'mark':{'type':'text','align':'left','dx':10,'fontSize':12,'color':'#24443f'},'encoding':{**enc,'text':{'field':'label'}}}]
-    median['description']='Median distance by recorded grade, with group counts. Unclassified and unknown source values remain visible.'
+    median['description']='Median distance by recorded grade, with group counts. C6 and unknown source values remain visible.'
     save(5,median)
 
     pc=base(470)
@@ -135,7 +103,7 @@ def main():
               resolve={'axis':{'x':'independent','y':'independent'},'legend':{'color':'independent'}})
     labels=['Longest matching']+[r['name'] for r in sorted(ROWS,key=lambda r:r['name'])]
     ids=[0]+[r['id'] for r in sorted(ROWS,key=lambda r:r['name'])]
-    pc['params']=[{'name':'chosenCode','value':'All','bind':{'input':'select','options':['All']+CODES,'name':'Grade: '}},
+    pc['params']=[{'name':'chosenCode','value':'All','bind':{'input':'select','options':['All']+CODES,'name':'Code: '}},
         {'name':'chosenLga','value':'All','bind':{'input':'select','options':['All']+sorted({r['lga'] for r in ROWS}),'name':'Area: '}},
         {'name':'pickTrail','value':0,'bind':{'input':'select','options':ids,'labels':labels,'name':'Trail: '}}]
     pc['transform']=[{'filter':"(chosenCode === 'All' || datum.grade === chosenCode) && (chosenLga === 'All' || datum.lga === chosenLga)"},
@@ -143,12 +111,12 @@ def main():
     xy={'x':{'field':'axis','type':'quantitative','scale':{'domain':[0,3],'nice':False},'axis':None},
         'y':{'field':'position','type':'quantitative','scale':{'domain':[-40,115],'nice':False},'axis':None}}
     ticks=[]
-    for axis,vals in [(0,[(i*25,f'Grade {i+1}') for i in range(5)]+[(-30,'Unclassified')]),
+    for axis,vals in [(0,[(i*20,f'C{i+1}') for i in range(6)]+[(-15,'3')]),
         (1,[(100*(v/95)**.5,str(v)+' km') for v in [0,1,5,20,50,95]]),
         (2,[(i*25,t) for i,t in enumerate(['Under 1 h','1–4 h','Over 4 h','Overnight','Multiple days'])]),
         (3,[(i*25,t) for i,t in enumerate(['Flat','Gentle hills','Short steep','Very steep','Very steep + difficult'])])]:
         for pos,label in vals:ticks.append({'axis':axis,'position':pos,'label':label})
-        if axis!=1:ticks.append({'axis':axis,'position':-15,'label':'Unknown' if axis==0 else 'Not recorded'})
+        if axis!=1:ticks.append({'axis':axis,'position':-30 if axis==0 else -15,'label':'Unknown' if axis==0 else 'Not recorded'})
     selected="pickTrail === datum.id || (pickTrail === 0 && datum.length_km === datum.max_length)"
     pc['layer']=[{'data':{'values':[{'axis':i,'position':-15,'upper':100} for i in range(4)]},'mark':{'type':'rule','color':'#b8c8c1'},
         'encoding':{**xy,'y2':{'field':'upper'}}},
@@ -159,7 +127,7 @@ def main():
         'encoding':{**xy,'color':{**COLOUR,'legend':None},'tooltip':TOOLTIP}},
         {'data':{'values':ticks},'mark':{'type':'text','align':'left','dx':5,'fontSize':11,'color':'#36544e'},
         'encoding':{**xy,'text':{'field':'label'}}},
-        {'data':{'values':[{'axis':i,'position':111,'label':t} for i,t in enumerate(['Grade','Distance','Duration','Terrain'])]},
+        {'data':{'values':[{'axis':i,'position':111,'label':t} for i,t in enumerate(['Code','Distance','Duration','Terrain'])]},
         'mark':{'type':'text','align':'left','fontWeight':600,'fontSize':12,'color':'#143f3a'},'encoding':{**xy,'text':{'field':'label'}}},
         {'transform':[{'filter':selected},{'filter':'datum.axis === 0'}],
         'mark':{'type':'text','align':'left','fontSize':12,'lineBreak':'\n','lineHeight':15,'color':'#143f3a'},
@@ -184,13 +152,13 @@ def main():
     mosaic['layer']=[{'mark':{'type':'rect','stroke':'white','strokeWidth':2},'encoding':{
         'x':{'field':'x0','type':'quantitative','title':'Terrain (width shows kilometre share)',
              'axis':{'values':[x for x,label in centres],'labelExpr':labels,'labelAngle':-45,'labelOverlap':False,'labelLimit':140,'labelFontSize':10},'scale':{'domain':[0,1]}},
-        'x2':{'field':'x1'},'y':{'field':'y0','type':'quantitative','title':'Grade mix within terrain','axis':{'format':'.0%'},'scale':{'domain':[0,1]}},
-        'y2':{'field':'y1'},'color':COLOUR,'tooltip':[{'field':'gradient','title':'Terrain'},{'field':'grade','title':'Grade'},{'field':'km','format':'.2f','title':'Kilometres'}]}},
+        'x2':{'field':'x1'},'y':{'field':'y0','type':'quantitative','title':'Code mix within terrain','axis':{'format':'.0%'},'scale':{'domain':[0,1]}},
+        'y2':{'field':'y1'},'color':COLOUR,'tooltip':[{'field':'gradient','title':'Terrain'},{'field':'grade','title':'Code'},{'field':'km','format':'.2f','title':'Kilometres'}]}},
         {'transform':[{'calculate':'(datum.x0+datum.x1)/2','as':'cx'},{'calculate':'(datum.y0+datum.y1)/2','as':'cy'},
             {'filter':'(datum.x1-datum.x0) > 0.13 && (datum.y1-datum.y0) > 0.12'}],
         'mark':{'type':'text','fontSize':11,'fontWeight':600},
         'encoding':{'x':{'field':'cx','type':'quantitative'},'y':{'field':'cy','type':'quantitative'},'text':{'field':'grade'},
-             'color':{'condition':{'test':"datum.grade === 'Grade 5' || datum.grade === 'Unclassified'",'value':'white'},'value':'#152d2a'}}}]
+             'color':{'condition':{'test':"datum.grade === 'C5' || datum.grade === 'C6'",'value':'white'},'value':'#152d2a'}}}]
     mosaic['description']='Mosaic area represents kilometres among records with known terrain and recorded grade. Missing recorded grades are excluded explicitly.'
     mosaic['padding']={'left':8,'right':8,'top':48,'bottom':8}
     mosaic['layer'].append({'data':{'values':[{}]},'mark':{'type':'text','align':'left','fontSize':12,'fontWeight':600,'lineBreak':'\n','lineHeight':15,'color':'#24443f'},
@@ -201,7 +169,7 @@ def main():
     strip.update(data={'url':'data/distance_points.json'},mark={'type':'point','filled':True,'size':50,'opacity':.65},
         encoding={'x':{'field':'length_km','type':'quantitative','title':'Recorded distance (km; square-root spacing)',
             'scale':{'type':'sqrt','domain':[0,100]},'axis':{'values':[0,1,5,10,20,40,60,95]}},
-        'y':{'field':'grade','type':'ordinal','sort':CODES,'title':'Grade'},
+        'y':{'field':'grade','type':'ordinal','sort':CODES,'title':'Code'},
         'yOffset':{'field':'lane','type':'quantitative'},'color':{**COLOUR,'legend':None},'tooltip':TOOLTIP})
     strip['description']='Individual trail distances including missing grade records. Vertical offsets only separate overlapping points.'
     strip['layer']=[{'mark':strip.pop('mark'),'encoding':strip.pop('encoding')}]

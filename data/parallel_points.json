@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "MCG",
-    "grade": "Grade 3",
+    "grade": "3",
     "track_code": "3",
     "length_km": 4.0,
     "hours": 5.0,
@@ -11,13 +11,13 @@
     "lga": "Melbourne",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": -15,
     "annotation": "MCG\n4 km · Over 4 hours"
   },
   {
     "id": 1,
     "name": "MCG",
-    "grade": "Grade 3",
+    "grade": "3",
     "track_code": "3",
     "length_km": 4.0,
     "hours": 5.0,
@@ -32,7 +32,7 @@
   {
     "id": 1,
     "name": "MCG",
-    "grade": "Grade 3",
+    "grade": "3",
     "track_code": "3",
     "length_km": 4.0,
     "hours": 5.0,
@@ -47,7 +47,7 @@
   {
     "id": 1,
     "name": "MCG",
-    "grade": "Grade 3",
+    "grade": "3",
     "track_code": "3",
     "length_km": 4.0,
     "hours": 5.0,
@@ -62,7 +62,7 @@
   {
     "id": 20,
     "name": "Red White And Blue Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 5.0,
     "hours": null,
@@ -71,13 +71,13 @@
     "lga": "Mount Alexander",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Red White And Blue Walk\n5 km · 1–4 hours"
   },
   {
     "id": 20,
     "name": "Red White And Blue Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 5.0,
     "hours": null,
@@ -92,7 +92,7 @@
   {
     "id": 20,
     "name": "Red White And Blue Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 5.0,
     "hours": null,
@@ -107,7 +107,7 @@
   {
     "id": 20,
     "name": "Red White And Blue Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 5.0,
     "hours": null,
@@ -122,7 +122,7 @@
   {
     "id": 22,
     "name": "Fiery Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -131,13 +131,13 @@
     "lga": "Pyrenees",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Fiery Loop\n3.2 km · Under 1 hour"
   },
   {
     "id": 22,
     "name": "Fiery Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -152,7 +152,7 @@
   {
     "id": 22,
     "name": "Fiery Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -167,7 +167,7 @@
   {
     "id": 22,
     "name": "Fiery Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -182,7 +182,7 @@
   {
     "id": 23,
     "name": "Pyrenees Endurance Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 18.0,
     "hours": null,
@@ -191,13 +191,13 @@
     "lga": "Pyrenees",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Pyrenees Endurance Walk\n18 km · Overnight"
   },
   {
     "id": 23,
     "name": "Pyrenees Endurance Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 18.0,
     "hours": null,
@@ -212,7 +212,7 @@
   {
     "id": 23,
     "name": "Pyrenees Endurance Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 18.0,
     "hours": null,
@@ -227,7 +227,7 @@
   {
     "id": 23,
     "name": "Pyrenees Endurance Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 18.0,
     "hours": null,
@@ -242,7 +242,7 @@
   {
     "id": 24,
     "name": "Beeripmo Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 21.0,
     "hours": null,
@@ -251,13 +251,13 @@
     "lga": "Pyrenees",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Beeripmo Walk\n21 km · Overnight"
   },
   {
     "id": 24,
     "name": "Beeripmo Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 21.0,
     "hours": null,
@@ -272,7 +272,7 @@
   {
     "id": 24,
     "name": "Beeripmo Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 21.0,
     "hours": null,
@@ -287,7 +287,7 @@
   {
     "id": 24,
     "name": "Beeripmo Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 21.0,
     "hours": null,
@@ -302,7 +302,7 @@
   {
     "id": 25,
     "name": "Werribee River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.5,
     "hours": null,
@@ -311,13 +311,13 @@
     "lga": "Moorabool",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Werribee River Walk\n4.5 km · 1–4 hours"
   },
   {
     "id": 25,
     "name": "Werribee River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.5,
     "hours": null,
@@ -332,7 +332,7 @@
   {
     "id": 25,
     "name": "Werribee River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.5,
     "hours": null,
@@ -347,7 +347,7 @@
   {
     "id": 25,
     "name": "Werribee River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.5,
     "hours": null,
@@ -362,7 +362,7 @@
   {
     "id": 26,
     "name": "Battery Dam Historical Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.3,
     "hours": null,
@@ -371,13 +371,13 @@
     "lga": "Central Goldfields",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Battery Dam Historical Walk\n0.3 km · Under 1 hour"
   },
   {
     "id": 26,
     "name": "Battery Dam Historical Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.3,
     "hours": null,
@@ -392,7 +392,7 @@
   {
     "id": 26,
     "name": "Battery Dam Historical Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.3,
     "hours": null,
@@ -407,7 +407,7 @@
   {
     "id": 26,
     "name": "Battery Dam Historical Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.3,
     "hours": null,
@@ -422,7 +422,7 @@
   {
     "id": 27,
     "name": "Pipeline Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 3.4,
     "hours": null,
@@ -431,13 +431,13 @@
     "lga": "Mount Alexander",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Pipeline Walk\n3.4 km · 1–4 hours"
   },
   {
     "id": 27,
     "name": "Pipeline Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 3.4,
     "hours": null,
@@ -452,7 +452,7 @@
   {
     "id": 27,
     "name": "Pipeline Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 3.4,
     "hours": null,
@@ -467,7 +467,7 @@
   {
     "id": 27,
     "name": "Pipeline Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 3.4,
     "hours": null,
@@ -482,7 +482,7 @@
   {
     "id": 28,
     "name": "Great Dividing Trail",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 38.7,
     "hours": null,
@@ -491,13 +491,13 @@
     "lga": "Moorabool",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Great Dividing Trail\n38.7 km · Multiple days"
   },
   {
     "id": 28,
     "name": "Great Dividing Trail",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 38.7,
     "hours": null,
@@ -512,7 +512,7 @@
   {
     "id": 28,
     "name": "Great Dividing Trail",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 38.7,
     "hours": null,
@@ -527,7 +527,7 @@
   {
     "id": 28,
     "name": "Great Dividing Trail",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 38.7,
     "hours": null,
@@ -542,7 +542,7 @@
   {
     "id": 29,
     "name": "Summit Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.5,
     "hours": null,
@@ -551,13 +551,13 @@
     "lga": "Whittlesea",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Summit Walk\n3.5 km · 1–4 hours"
   },
   {
     "id": 29,
     "name": "Summit Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.5,
     "hours": null,
@@ -572,7 +572,7 @@
   {
     "id": 29,
     "name": "Summit Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.5,
     "hours": null,
@@ -587,7 +587,7 @@
   {
     "id": 29,
     "name": "Summit Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.5,
     "hours": null,
@@ -602,7 +602,7 @@
   {
     "id": 30,
     "name": "Sunday Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.3,
     "hours": null,
@@ -611,13 +611,13 @@
     "lga": "Mitchell",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Sunday Creek Walk\n3.3 km · 1–4 hours"
   },
   {
     "id": 30,
     "name": "Sunday Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.3,
     "hours": null,
@@ -632,7 +632,7 @@
   {
     "id": 30,
     "name": "Sunday Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.3,
     "hours": null,
@@ -647,7 +647,7 @@
   {
     "id": 30,
     "name": "Sunday Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.3,
     "hours": null,
@@ -671,7 +671,7 @@
     "lga": "Gannawarra",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Koondrook Red Gum Forest Walk - Eagle Loop\n9.1 km · 1–4 hours"
   },
   {
@@ -722,7 +722,7 @@
   {
     "id": 32,
     "name": "Reids Tramline Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -731,13 +731,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Reids Tramline Walk\n6 km · 1–4 hours"
   },
   {
     "id": 32,
     "name": "Reids Tramline Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -752,7 +752,7 @@
   {
     "id": 32,
     "name": "Reids Tramline Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -767,7 +767,7 @@
   {
     "id": 32,
     "name": "Reids Tramline Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -782,7 +782,7 @@
   {
     "id": 33,
     "name": "Horseshoe Bend Tunnel",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.3,
     "hours": null,
@@ -791,13 +791,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Horseshoe Bend Tunnel\n4.3 km · 1–4 hours"
   },
   {
     "id": 33,
     "name": "Horseshoe Bend Tunnel",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.3,
     "hours": null,
@@ -812,7 +812,7 @@
   {
     "id": 33,
     "name": "Horseshoe Bend Tunnel",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.3,
     "hours": null,
@@ -827,7 +827,7 @@
   {
     "id": 33,
     "name": "Horseshoe Bend Tunnel",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.3,
     "hours": null,
@@ -842,7 +842,7 @@
   {
     "id": 34,
     "name": "Beauty Spot Nature Trail Long Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.4,
     "hours": null,
@@ -851,13 +851,13 @@
     "lga": "Murrindindi",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Beauty Spot Nature Trail Long Loop\n1.4 km · Under 1 hour"
   },
   {
     "id": 34,
     "name": "Beauty Spot Nature Trail Long Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.4,
     "hours": null,
@@ -872,7 +872,7 @@
   {
     "id": 34,
     "name": "Beauty Spot Nature Trail Long Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.4,
     "hours": null,
@@ -887,7 +887,7 @@
   {
     "id": 34,
     "name": "Beauty Spot Nature Trail Long Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.4,
     "hours": null,
@@ -902,7 +902,7 @@
   {
     "id": 35,
     "name": "Gilberts Gully Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.2,
     "hours": null,
@@ -911,13 +911,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Gilberts Gully Trail\n2.2 km · Under 1 hour"
   },
   {
     "id": 35,
     "name": "Gilberts Gully Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.2,
     "hours": null,
@@ -932,7 +932,7 @@
   {
     "id": 35,
     "name": "Gilberts Gully Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.2,
     "hours": null,
@@ -947,7 +947,7 @@
   {
     "id": 35,
     "name": "Gilberts Gully Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.2,
     "hours": null,
@@ -962,7 +962,7 @@
   {
     "id": 36,
     "name": "Keppel Lookout Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.0,
     "hours": null,
@@ -971,13 +971,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Keppel Lookout Trail\n11 km · 1–4 hours"
   },
   {
     "id": 36,
     "name": "Keppel Lookout Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.0,
     "hours": null,
@@ -992,7 +992,7 @@
   {
     "id": 36,
     "name": "Keppel Lookout Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.0,
     "hours": null,
@@ -1007,7 +1007,7 @@
   {
     "id": 36,
     "name": "Keppel Lookout Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.0,
     "hours": null,
@@ -1022,7 +1022,7 @@
   {
     "id": 37,
     "name": "Michaeldene",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 4.3,
     "hours": null,
@@ -1031,13 +1031,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Michaeldene\n4.3 km · 1–4 hours"
   },
   {
     "id": 37,
     "name": "Michaeldene",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 4.3,
     "hours": null,
@@ -1052,7 +1052,7 @@
   {
     "id": 37,
     "name": "Michaeldene",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 4.3,
     "hours": null,
@@ -1067,7 +1067,7 @@
   {
     "id": 37,
     "name": "Michaeldene",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 4.3,
     "hours": null,
@@ -1082,7 +1082,7 @@
   {
     "id": 38,
     "name": "Wirrawilla",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1097,7 +1097,7 @@
   {
     "id": 38,
     "name": "Wirrawilla",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1112,7 +1112,7 @@
   {
     "id": 38,
     "name": "Wirrawilla",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1127,7 +1127,7 @@
   {
     "id": 38,
     "name": "Wirrawilla",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1142,7 +1142,7 @@
   {
     "id": 39,
     "name": "Wilhelmina Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -1151,13 +1151,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Wilhelmina Falls\n6 km · 1–4 hours"
   },
   {
     "id": 39,
     "name": "Wilhelmina Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -1172,7 +1172,7 @@
   {
     "id": 39,
     "name": "Wilhelmina Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -1187,7 +1187,7 @@
   {
     "id": 39,
     "name": "Wilhelmina Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -1202,7 +1202,7 @@
   {
     "id": 40,
     "name": "Steavenson Falls Walk",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1217,7 +1217,7 @@
   {
     "id": 40,
     "name": "Steavenson Falls Walk",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1232,7 +1232,7 @@
   {
     "id": 40,
     "name": "Steavenson Falls Walk",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1247,7 +1247,7 @@
   {
     "id": 40,
     "name": "Steavenson Falls Walk",
-    "grade": "Grade 1",
+    "grade": "C1",
     "track_code": "C1",
     "length_km": 0.7,
     "hours": null,
@@ -1262,7 +1262,7 @@
   {
     "id": 41,
     "name": "Sculpture Trail",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 1.5,
     "hours": null,
@@ -1271,13 +1271,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Sculpture Trail\n1.5 km · Under 1 hour"
   },
   {
     "id": 41,
     "name": "Sculpture Trail",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 1.5,
     "hours": null,
@@ -1292,7 +1292,7 @@
   {
     "id": 41,
     "name": "Sculpture Trail",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 1.5,
     "hours": null,
@@ -1307,7 +1307,7 @@
   {
     "id": 41,
     "name": "Sculpture Trail",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 1.5,
     "hours": null,
@@ -1322,7 +1322,7 @@
   {
     "id": 42,
     "name": "Yea River Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.6,
     "hours": null,
@@ -1331,13 +1331,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Yea River Walk\n1.6 km · Under 1 hour"
   },
   {
     "id": 42,
     "name": "Yea River Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.6,
     "hours": null,
@@ -1352,7 +1352,7 @@
   {
     "id": 42,
     "name": "Yea River Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.6,
     "hours": null,
@@ -1367,7 +1367,7 @@
   {
     "id": 42,
     "name": "Yea River Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.6,
     "hours": null,
@@ -1382,7 +1382,7 @@
   {
     "id": 43,
     "name": "Walk Into History",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 33.0,
     "hours": null,
@@ -1391,13 +1391,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Walk Into History\n33 km · Multiple days"
   },
   {
     "id": 43,
     "name": "Walk Into History",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 33.0,
     "hours": null,
@@ -1412,7 +1412,7 @@
   {
     "id": 43,
     "name": "Walk Into History",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 33.0,
     "hours": null,
@@ -1427,7 +1427,7 @@
   {
     "id": 43,
     "name": "Walk Into History",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 33.0,
     "hours": null,
@@ -1451,7 +1451,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Water Race Walk\n1.2 km · Under 1 hour"
   },
   {
@@ -1502,7 +1502,7 @@
   {
     "id": 45,
     "name": "Plain Creek Loop Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -1511,13 +1511,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Plain Creek Loop Walk\n1.8 km · 1–4 hours"
   },
   {
     "id": 45,
     "name": "Plain Creek Loop Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -1532,7 +1532,7 @@
   {
     "id": 45,
     "name": "Plain Creek Loop Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -1547,7 +1547,7 @@
   {
     "id": 45,
     "name": "Plain Creek Loop Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -1562,7 +1562,7 @@
   {
     "id": 46,
     "name": "Forest Camp",
-    "grade": "Unclassified",
+    "grade": "C6",
     "track_code": "C6",
     "length_km": 0.8,
     "hours": null,
@@ -1571,13 +1571,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -30,
+    "position": 100,
     "annotation": "Forest Camp\n0.8 km · Under 1 hour"
   },
   {
     "id": 46,
     "name": "Forest Camp",
-    "grade": "Unclassified",
+    "grade": "C6",
     "track_code": "C6",
     "length_km": 0.8,
     "hours": null,
@@ -1592,7 +1592,7 @@
   {
     "id": 46,
     "name": "Forest Camp",
-    "grade": "Unclassified",
+    "grade": "C6",
     "track_code": "C6",
     "length_km": 0.8,
     "hours": null,
@@ -1607,7 +1607,7 @@
   {
     "id": 46,
     "name": "Forest Camp",
-    "grade": "Unclassified",
+    "grade": "C6",
     "track_code": "C6",
     "length_km": 0.8,
     "hours": null,
@@ -1622,7 +1622,7 @@
   {
     "id": 47,
     "name": "Mt Timbertop Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.52,
     "hours": null,
@@ -1631,13 +1631,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Mt Timbertop Walking Track\n5.52 km · 1–4 hours"
   },
   {
     "id": 47,
     "name": "Mt Timbertop Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.52,
     "hours": null,
@@ -1652,7 +1652,7 @@
   {
     "id": 47,
     "name": "Mt Timbertop Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.52,
     "hours": null,
@@ -1667,7 +1667,7 @@
   {
     "id": 47,
     "name": "Mt Timbertop Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.52,
     "hours": null,
@@ -1682,7 +1682,7 @@
   {
     "id": 48,
     "name": "Nicholson Rocks Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.5,
     "hours": null,
@@ -1691,13 +1691,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Nicholson Rocks Walking Track\n1.5 km · Under 1 hour"
   },
   {
     "id": 48,
     "name": "Nicholson Rocks Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.5,
     "hours": null,
@@ -1712,7 +1712,7 @@
   {
     "id": 48,
     "name": "Nicholson Rocks Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.5,
     "hours": null,
@@ -1727,7 +1727,7 @@
   {
     "id": 48,
     "name": "Nicholson Rocks Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.5,
     "hours": null,
@@ -1742,7 +1742,7 @@
   {
     "id": 49,
     "name": "Avon River Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.5,
     "hours": null,
@@ -1751,13 +1751,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Avon River Walking Track\n10.5 km · 1–4 hours"
   },
   {
     "id": 49,
     "name": "Avon River Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.5,
     "hours": null,
@@ -1772,7 +1772,7 @@
   {
     "id": 49,
     "name": "Avon River Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.5,
     "hours": null,
@@ -1787,7 +1787,7 @@
   {
     "id": 49,
     "name": "Avon River Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.5,
     "hours": null,
@@ -1802,7 +1802,7 @@
   {
     "id": 50,
     "name": "Granite Creek",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -1811,13 +1811,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Granite Creek\n3.5 km · 1–4 hours"
   },
   {
     "id": 50,
     "name": "Granite Creek",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -1832,7 +1832,7 @@
   {
     "id": 50,
     "name": "Granite Creek",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -1847,7 +1847,7 @@
   {
     "id": 50,
     "name": "Granite Creek",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -1862,7 +1862,7 @@
   {
     "id": 51,
     "name": "Fern Gully Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -1871,13 +1871,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Fern Gully Walk\n2 km · Under 1 hour"
   },
   {
     "id": 51,
     "name": "Fern Gully Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -1892,7 +1892,7 @@
   {
     "id": 51,
     "name": "Fern Gully Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -1907,7 +1907,7 @@
   {
     "id": 51,
     "name": "Fern Gully Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -1922,7 +1922,7 @@
   {
     "id": 52,
     "name": "Black Snake Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.4,
     "hours": null,
@@ -1931,13 +1931,13 @@
     "lga": "Wellington",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Black Snake Creek Walk\n4.4 km · 1–4 hours"
   },
   {
     "id": 52,
     "name": "Black Snake Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.4,
     "hours": null,
@@ -1952,7 +1952,7 @@
   {
     "id": 52,
     "name": "Black Snake Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.4,
     "hours": null,
@@ -1967,7 +1967,7 @@
   {
     "id": 52,
     "name": "Black Snake Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.4,
     "hours": null,
@@ -1982,7 +1982,7 @@
   {
     "id": 53,
     "name": "Memorial Arboretum Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -1991,13 +1991,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Memorial Arboretum Walk\n0.5 km · Under 1 hour"
   },
   {
     "id": 53,
     "name": "Memorial Arboretum Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -2012,7 +2012,7 @@
   {
     "id": 53,
     "name": "Memorial Arboretum Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -2027,7 +2027,7 @@
   {
     "id": 53,
     "name": "Memorial Arboretum Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -2051,7 +2051,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Lima Falls\n1.2 km · Not recorded"
   },
   {
@@ -2102,7 +2102,7 @@
   {
     "id": 55,
     "name": "Reform Hill Lookout Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.7,
     "hours": null,
@@ -2111,13 +2111,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Reform Hill Lookout Loop\n3.7 km · 1–4 hours"
   },
   {
     "id": 55,
     "name": "Reform Hill Lookout Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.7,
     "hours": null,
@@ -2132,7 +2132,7 @@
   {
     "id": 55,
     "name": "Reform Hill Lookout Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.7,
     "hours": null,
@@ -2147,7 +2147,7 @@
   {
     "id": 55,
     "name": "Reform Hill Lookout Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.7,
     "hours": null,
@@ -2162,7 +2162,7 @@
   {
     "id": 56,
     "name": "Bakers Gully Reservoirs Lower Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -2171,13 +2171,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Bakers Gully Reservoirs Lower Loop\n1.2 km · Under 1 hour"
   },
   {
     "id": 56,
     "name": "Bakers Gully Reservoirs Lower Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -2192,7 +2192,7 @@
   {
     "id": 56,
     "name": "Bakers Gully Reservoirs Lower Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -2207,7 +2207,7 @@
   {
     "id": 56,
     "name": "Bakers Gully Reservoirs Lower Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -2222,7 +2222,7 @@
   {
     "id": 57,
     "name": "Reform Hill Mining Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -2231,13 +2231,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Reform Hill Mining Loop\n2 km · 1–4 hours"
   },
   {
     "id": 57,
     "name": "Reform Hill Mining Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -2252,7 +2252,7 @@
   {
     "id": 57,
     "name": "Reform Hill Mining Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -2267,7 +2267,7 @@
   {
     "id": 57,
     "name": "Reform Hill Mining Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -2282,7 +2282,7 @@
   {
     "id": 58,
     "name": "Apex Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2291,13 +2291,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Apex Lookout Walk\n3.2 km · 1–4 hours"
   },
   {
     "id": 58,
     "name": "Apex Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2312,7 +2312,7 @@
   {
     "id": 58,
     "name": "Apex Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2327,7 +2327,7 @@
   {
     "id": 58,
     "name": "Apex Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2351,7 +2351,7 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Rockpools\n2.8 km · Under 1 hour"
   },
   {
@@ -2402,7 +2402,7 @@
   {
     "id": 60,
     "name": "Berry Farm Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2411,13 +2411,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Berry Farm Loop\n3.2 km · 1–4 hours"
   },
   {
     "id": 60,
     "name": "Berry Farm Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2432,7 +2432,7 @@
   {
     "id": 60,
     "name": "Berry Farm Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2447,7 +2447,7 @@
   {
     "id": 60,
     "name": "Berry Farm Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.2,
     "hours": null,
@@ -2462,7 +2462,7 @@
   {
     "id": 61,
     "name": "Mcleans Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -2471,13 +2471,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Mcleans Loop\n1.6 km · Under 1 hour"
   },
   {
     "id": 61,
     "name": "Mcleans Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -2492,7 +2492,7 @@
   {
     "id": 61,
     "name": "Mcleans Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -2507,7 +2507,7 @@
   {
     "id": 61,
     "name": "Mcleans Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -2522,7 +2522,7 @@
   {
     "id": 62,
     "name": "Slaughter Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.5,
     "hours": null,
@@ -2531,13 +2531,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Slaughter Walking Track\n4.5 km · 1–4 hours"
   },
   {
     "id": 62,
     "name": "Slaughter Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.5,
     "hours": null,
@@ -2552,7 +2552,7 @@
   {
     "id": 62,
     "name": "Slaughter Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.5,
     "hours": null,
@@ -2567,7 +2567,7 @@
   {
     "id": 62,
     "name": "Slaughter Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.5,
     "hours": null,
@@ -2582,7 +2582,7 @@
   {
     "id": 63,
     "name": "Youngs Creek Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.1,
     "hours": null,
@@ -2591,13 +2591,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Youngs Creek Falls\n1.1 km · Under 1 hour"
   },
   {
     "id": 63,
     "name": "Youngs Creek Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.1,
     "hours": null,
@@ -2612,7 +2612,7 @@
   {
     "id": 63,
     "name": "Youngs Creek Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.1,
     "hours": null,
@@ -2627,7 +2627,7 @@
   {
     "id": 63,
     "name": "Youngs Creek Falls",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.1,
     "hours": null,
@@ -2642,7 +2642,7 @@
   {
     "id": 64,
     "name": "Youngs Creek Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -2651,13 +2651,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Youngs Creek Loop\n0.8 km · Under 1 hour"
   },
   {
     "id": 64,
     "name": "Youngs Creek Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -2672,7 +2672,7 @@
   {
     "id": 64,
     "name": "Youngs Creek Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -2687,7 +2687,7 @@
   {
     "id": 64,
     "name": "Youngs Creek Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -2711,7 +2711,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Delegate River Tunnel\n2.2 km · Under 1 hour"
   },
   {
@@ -2762,7 +2762,7 @@
   {
     "id": 66,
     "name": "Beauty Spot Nature Trail Short Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.4,
     "hours": null,
@@ -2771,13 +2771,13 @@
     "lga": "Murrindindi",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Beauty Spot Nature Trail Short Loop\n0.4 km · Under 1 hour"
   },
   {
     "id": 66,
     "name": "Beauty Spot Nature Trail Short Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.4,
     "hours": null,
@@ -2792,7 +2792,7 @@
   {
     "id": 66,
     "name": "Beauty Spot Nature Trail Short Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.4,
     "hours": null,
@@ -2807,7 +2807,7 @@
   {
     "id": 66,
     "name": "Beauty Spot Nature Trail Short Loop",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.4,
     "hours": null,
@@ -2822,7 +2822,7 @@
   {
     "id": 67,
     "name": "Marlo Walking Track Network",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.8,
     "hours": null,
@@ -2831,13 +2831,13 @@
     "lga": "East Gippsland",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Marlo Walking Track Network\n5.8 km · Under 1 hour"
   },
   {
     "id": 67,
     "name": "Marlo Walking Track Network",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.8,
     "hours": null,
@@ -2852,7 +2852,7 @@
   {
     "id": 67,
     "name": "Marlo Walking Track Network",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.8,
     "hours": null,
@@ -2867,7 +2867,7 @@
   {
     "id": 67,
     "name": "Marlo Walking Track Network",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.8,
     "hours": null,
@@ -2891,7 +2891,7 @@
     "lga": "Mildura",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Big Billy Bore Track\n0.6 km · Under 1 hour"
   },
   {
@@ -2951,7 +2951,7 @@
     "lga": "East Gippsland",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Orbost North Walking Track\n4.2 km · Under 1 hour"
   },
   {
@@ -3011,7 +3011,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Coopers Creek River Walk\n0.2 km · Under 1 hour"
   },
   {
@@ -3071,7 +3071,7 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Reform Hill Poverty Reef Loop\n1.5 km · Under 1 hour"
   },
   {
@@ -3131,7 +3131,7 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Store Point Historic Loop\n2.4 km · Under 1 hour"
   },
   {
@@ -3191,7 +3191,7 @@
     "lga": "Glenelg",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Annya Walk\n2.6 km · 1–4 hours"
   },
   {
@@ -3251,7 +3251,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Rubicon Dam Walk\n11.6 km · 1–4 hours"
   },
   {
@@ -3311,7 +3311,7 @@
     "lga": "Towong",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Thowgla Falls Walking Track\n0.8 km · Under 1 hour"
   },
   {
@@ -3371,7 +3371,7 @@
     "lga": "Moorabool",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Pioneer Sawmill Loop Walk\n0.3 km · Under 1 hour"
   },
   {
@@ -3422,7 +3422,7 @@
   {
     "id": 77,
     "name": "Toorongo Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 2.5,
     "hours": null,
@@ -3431,13 +3431,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Toorongo Falls Walk\n2.5 km · Under 1 hour"
   },
   {
     "id": 77,
     "name": "Toorongo Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 2.5,
     "hours": null,
@@ -3452,7 +3452,7 @@
   {
     "id": 77,
     "name": "Toorongo Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 2.5,
     "hours": null,
@@ -3467,7 +3467,7 @@
   {
     "id": 77,
     "name": "Toorongo Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 2.5,
     "hours": null,
@@ -3482,7 +3482,7 @@
   {
     "id": 103,
     "name": "Richards Tramline",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -3491,13 +3491,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Richards Tramline\n12 km · 1–4 hours"
   },
   {
     "id": 103,
     "name": "Richards Tramline",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -3512,7 +3512,7 @@
   {
     "id": 103,
     "name": "Richards Tramline",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -3527,7 +3527,7 @@
   {
     "id": 103,
     "name": "Richards Tramline",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -3551,7 +3551,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Choof Choof\n2.4 km · Under 1 hour"
   },
   {
@@ -3611,7 +3611,7 @@
     "lga": "Gannawarra",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Koondrook Red Gum Forest Walk - Turtle Loop\n13.2 km · 1–4 hours"
   },
   {
@@ -3662,7 +3662,7 @@
   {
     "id": 109,
     "name": "Avro Anson Memorial Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -3671,13 +3671,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Avro Anson Memorial Track\n3.2 km · 1–4 hours"
   },
   {
     "id": 109,
     "name": "Avro Anson Memorial Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -3692,7 +3692,7 @@
   {
     "id": 109,
     "name": "Avro Anson Memorial Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -3707,7 +3707,7 @@
   {
     "id": 109,
     "name": "Avro Anson Memorial Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.2,
     "hours": null,
@@ -3722,7 +3722,7 @@
   {
     "id": 112,
     "name": "Douglas Reserve Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -3731,13 +3731,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Douglas Reserve Walk\n0.4 km · Under 1 hour"
   },
   {
     "id": 112,
     "name": "Douglas Reserve Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -3752,7 +3752,7 @@
   {
     "id": 112,
     "name": "Douglas Reserve Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -3767,7 +3767,7 @@
   {
     "id": 112,
     "name": "Douglas Reserve Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -3782,7 +3782,7 @@
   {
     "id": 113,
     "name": "Historic Youngs Creek Reservoir",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -3791,13 +3791,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Historic Youngs Creek Reservoir\n4.6 km · 1–4 hours"
   },
   {
     "id": 113,
     "name": "Historic Youngs Creek Reservoir",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -3812,7 +3812,7 @@
   {
     "id": 113,
     "name": "Historic Youngs Creek Reservoir",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -3827,7 +3827,7 @@
   {
     "id": 113,
     "name": "Historic Youngs Creek Reservoir",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -3842,7 +3842,7 @@
   {
     "id": 119,
     "name": "Mill Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -3851,13 +3851,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Mill Track\n10 km · 1–4 hours"
   },
   {
     "id": 119,
     "name": "Mill Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -3872,7 +3872,7 @@
   {
     "id": 119,
     "name": "Mill Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -3887,7 +3887,7 @@
   {
     "id": 119,
     "name": "Mill Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -3902,7 +3902,7 @@
   {
     "id": 123,
     "name": "Bentley Plain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -3911,13 +3911,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Bentley Plain Walk\n2.5 km · 1–4 hours"
   },
   {
     "id": 123,
     "name": "Bentley Plain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -3932,7 +3932,7 @@
   {
     "id": 123,
     "name": "Bentley Plain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -3947,7 +3947,7 @@
   {
     "id": 123,
     "name": "Bentley Plain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -3971,7 +3971,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Lima East Boulders Walk\n1.1 km · Under 1 hour"
   },
   {
@@ -4031,7 +4031,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Casuarina\n3.6 km · Under 1 hour"
   },
   {
@@ -4091,7 +4091,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Meringtons Walk\n0.4 km · Under 1 hour"
   },
   {
@@ -4151,7 +4151,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Red Jacket Cemetery Access Track\n0.14 km · Under 1 hour"
   },
   {
@@ -4202,7 +4202,7 @@
   {
     "id": 135,
     "name": "Forest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -4211,13 +4211,13 @@
     "lga": "Wellington",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Forest Walk\n2 km · Under 1 hour"
   },
   {
     "id": 135,
     "name": "Forest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -4232,7 +4232,7 @@
   {
     "id": 135,
     "name": "Forest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -4247,7 +4247,7 @@
   {
     "id": 135,
     "name": "Forest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.0,
     "hours": null,
@@ -4262,7 +4262,7 @@
   {
     "id": 136,
     "name": "Ralph Cornwall Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.0,
     "hours": null,
@@ -4271,13 +4271,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Ralph Cornwall Walk\n5 km · Under 1 hour"
   },
   {
     "id": 136,
     "name": "Ralph Cornwall Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.0,
     "hours": null,
@@ -4292,7 +4292,7 @@
   {
     "id": 136,
     "name": "Ralph Cornwall Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.0,
     "hours": null,
@@ -4307,7 +4307,7 @@
   {
     "id": 136,
     "name": "Ralph Cornwall Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.0,
     "hours": null,
@@ -4322,7 +4322,7 @@
   {
     "id": 138,
     "name": "Klingsporn Bridle Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.5,
     "hours": null,
@@ -4331,13 +4331,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Klingsporn Bridle Track\n8.5 km · 1–4 hours"
   },
   {
     "id": 138,
     "name": "Klingsporn Bridle Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.5,
     "hours": null,
@@ -4352,7 +4352,7 @@
   {
     "id": 138,
     "name": "Klingsporn Bridle Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.5,
     "hours": null,
@@ -4367,7 +4367,7 @@
   {
     "id": 138,
     "name": "Klingsporn Bridle Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.5,
     "hours": null,
@@ -4391,7 +4391,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Poverty Point Walk\n6.6 km · 1–4 hours"
   },
   {
@@ -4451,7 +4451,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Goughs Bay Lookout\n0.84 km · Under 1 hour"
   },
   {
@@ -4511,7 +4511,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Toorongo River Walk\n1.6 km · Under 1 hour"
   },
   {
@@ -4571,7 +4571,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Cascades Walk\n0.6 km · Under 1 hour"
   },
   {
@@ -4622,7 +4622,7 @@
   {
     "id": 143,
     "name": "Plain Creek Tramway Bridge Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4631,13 +4631,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Plain Creek Tramway Bridge Walk\n1.6 km · 1–4 hours"
   },
   {
     "id": 143,
     "name": "Plain Creek Tramway Bridge Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4652,7 +4652,7 @@
   {
     "id": 143,
     "name": "Plain Creek Tramway Bridge Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4667,7 +4667,7 @@
   {
     "id": 143,
     "name": "Plain Creek Tramway Bridge Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4682,7 +4682,7 @@
   {
     "id": 145,
     "name": "Whalers Lookout Walking Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -4691,13 +4691,13 @@
     "lga": "Glenelg",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Whalers Lookout Walking Track\n1.5 km · Under 1 hour"
   },
   {
     "id": 145,
     "name": "Whalers Lookout Walking Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -4712,7 +4712,7 @@
   {
     "id": 145,
     "name": "Whalers Lookout Walking Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -4727,7 +4727,7 @@
   {
     "id": 145,
     "name": "Whalers Lookout Walking Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -4742,7 +4742,7 @@
   {
     "id": 146,
     "name": "Morning Star Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.2,
     "hours": null,
@@ -4751,13 +4751,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Morning Star Walk\n4.2 km · 1–4 hours"
   },
   {
     "id": 146,
     "name": "Morning Star Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.2,
     "hours": null,
@@ -4772,7 +4772,7 @@
   {
     "id": 146,
     "name": "Morning Star Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.2,
     "hours": null,
@@ -4787,7 +4787,7 @@
   {
     "id": 146,
     "name": "Morning Star Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.2,
     "hours": null,
@@ -4802,7 +4802,7 @@
   {
     "id": 151,
     "name": "Huggins Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.6,
     "hours": null,
@@ -4811,13 +4811,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Huggins Lookout Walk\n1.6 km · Under 1 hour"
   },
   {
     "id": 151,
     "name": "Huggins Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.6,
     "hours": null,
@@ -4832,7 +4832,7 @@
   {
     "id": 151,
     "name": "Huggins Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.6,
     "hours": null,
@@ -4847,7 +4847,7 @@
   {
     "id": 151,
     "name": "Huggins Lookout Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.6,
     "hours": null,
@@ -4862,7 +4862,7 @@
   {
     "id": 155,
     "name": "Ada Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.6,
     "hours": null,
@@ -4871,13 +4871,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Ada Tree Walk\n3.6 km · 1–4 hours"
   },
   {
     "id": 155,
     "name": "Ada Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.6,
     "hours": null,
@@ -4892,7 +4892,7 @@
   {
     "id": 155,
     "name": "Ada Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.6,
     "hours": null,
@@ -4907,7 +4907,7 @@
   {
     "id": 155,
     "name": "Ada Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.6,
     "hours": null,
@@ -4922,7 +4922,7 @@
   {
     "id": 157,
     "name": "Star Of West Goldmine Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4931,13 +4931,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Star Of West Goldmine Walk\n1.6 km · 1–4 hours"
   },
   {
     "id": 157,
     "name": "Star Of West Goldmine Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4952,7 +4952,7 @@
   {
     "id": 157,
     "name": "Star Of West Goldmine Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4967,7 +4967,7 @@
   {
     "id": 157,
     "name": "Star Of West Goldmine Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.6,
     "hours": null,
@@ -4991,7 +4991,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Mitchells Bridle Trail\n24 km · Multiple days"
   },
   {
@@ -5051,7 +5051,7 @@
     "lga": "Colac Otway",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Redwoods Boardwalk\n0.22 km · Under 1 hour"
   },
   {
@@ -5102,7 +5102,7 @@
   {
     "id": 166,
     "name": "Pipe Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -5111,13 +5111,13 @@
     "lga": "Northern Grampians",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Pipe Gully Walk\n2 km · Not recorded"
   },
   {
     "id": 166,
     "name": "Pipe Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -5132,7 +5132,7 @@
   {
     "id": 166,
     "name": "Pipe Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -5147,7 +5147,7 @@
   {
     "id": 166,
     "name": "Pipe Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -5162,7 +5162,7 @@
   {
     "id": 170,
     "name": "Richards Tramline Link",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.7,
     "hours": null,
@@ -5171,13 +5171,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Richards Tramline Link\n0.7 km · Under 1 hour"
   },
   {
     "id": 170,
     "name": "Richards Tramline Link",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.7,
     "hours": null,
@@ -5192,7 +5192,7 @@
   {
     "id": 170,
     "name": "Richards Tramline Link",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.7,
     "hours": null,
@@ -5207,7 +5207,7 @@
   {
     "id": 170,
     "name": "Richards Tramline Link",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.7,
     "hours": null,
@@ -5231,7 +5231,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Link track between picnic area and campground\n0.25 km · Under 1 hour"
   },
   {
@@ -5282,7 +5282,7 @@
   {
     "id": 174,
     "name": "Valley Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -5291,13 +5291,13 @@
     "lga": "Pyrenees",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Valley Walk\n1 km · Under 1 hour"
   },
   {
     "id": 174,
     "name": "Valley Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -5312,7 +5312,7 @@
   {
     "id": 174,
     "name": "Valley Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -5327,7 +5327,7 @@
   {
     "id": 174,
     "name": "Valley Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -5342,7 +5342,7 @@
   {
     "id": 176,
     "name": "Moolerr Nature Drive",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -5351,13 +5351,13 @@
     "lga": "Northern Grampians",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Moolerr Nature Drive\n6 km · 1–4 hours"
   },
   {
     "id": 176,
     "name": "Moolerr Nature Drive",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -5372,7 +5372,7 @@
   {
     "id": 176,
     "name": "Moolerr Nature Drive",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -5387,7 +5387,7 @@
   {
     "id": 176,
     "name": "Moolerr Nature Drive",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -5402,7 +5402,7 @@
   {
     "id": 177,
     "name": "Cicada Circuit Trail",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 6.1,
     "hours": null,
@@ -5411,13 +5411,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Cicada Circuit Trail\n6.1 km · 1–4 hours"
   },
   {
     "id": 177,
     "name": "Cicada Circuit Trail",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 6.1,
     "hours": null,
@@ -5432,7 +5432,7 @@
   {
     "id": 177,
     "name": "Cicada Circuit Trail",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 6.1,
     "hours": null,
@@ -5447,7 +5447,7 @@
   {
     "id": 177,
     "name": "Cicada Circuit Trail",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 6.1,
     "hours": null,
@@ -5462,7 +5462,7 @@
   {
     "id": 178,
     "name": "Borella Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.0,
     "hours": null,
@@ -5471,13 +5471,13 @@
     "lga": "Ararat",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Borella Walk\n5 km · 1–4 hours"
   },
   {
     "id": 178,
     "name": "Borella Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.0,
     "hours": null,
@@ -5492,7 +5492,7 @@
   {
     "id": 178,
     "name": "Borella Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.0,
     "hours": null,
@@ -5507,7 +5507,7 @@
   {
     "id": 178,
     "name": "Borella Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 5.0,
     "hours": null,
@@ -5531,7 +5531,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Stringybark Creek Historic Loop\n1.55 km · Under 1 hour"
   },
   {
@@ -5582,7 +5582,7 @@
   {
     "id": 182,
     "name": "Valley View Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.4,
     "hours": null,
@@ -5591,13 +5591,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Valley View Walk\n3.4 km · 1–4 hours"
   },
   {
     "id": 182,
     "name": "Valley View Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.4,
     "hours": null,
@@ -5612,7 +5612,7 @@
   {
     "id": 182,
     "name": "Valley View Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.4,
     "hours": null,
@@ -5627,7 +5627,7 @@
   {
     "id": 182,
     "name": "Valley View Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.4,
     "hours": null,
@@ -5651,7 +5651,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Stringybark Creek Linking Track\n0.22 km · Under 1 hour"
   },
   {
@@ -5711,7 +5711,7 @@
     "lga": "East Gippsland",
     "closure": "OPEN",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Little Cabbage Tree Creek Falls\n0.8 km · Under 1 hour"
   },
   {
@@ -5762,7 +5762,7 @@
   {
     "id": 189,
     "name": "Red Gums Walk Middle",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -5771,13 +5771,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Red Gums Walk Middle\n0.8 km · Under 1 hour"
   },
   {
     "id": 189,
     "name": "Red Gums Walk Middle",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -5792,7 +5792,7 @@
   {
     "id": 189,
     "name": "Red Gums Walk Middle",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -5807,7 +5807,7 @@
   {
     "id": 189,
     "name": "Red Gums Walk Middle",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.8,
     "hours": null,
@@ -5822,7 +5822,7 @@
   {
     "id": 195,
     "name": "Mt Torbreck Summit Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -5831,13 +5831,13 @@
     "lga": "Murrindindi",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Mt Torbreck Summit Track\n4.2 km · 1–4 hours"
   },
   {
     "id": 195,
     "name": "Mt Torbreck Summit Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -5852,7 +5852,7 @@
   {
     "id": 195,
     "name": "Mt Torbreck Summit Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -5867,7 +5867,7 @@
   {
     "id": 195,
     "name": "Mt Torbreck Summit Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -5882,7 +5882,7 @@
   {
     "id": 196,
     "name": "Grevillea Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.2,
     "hours": null,
@@ -5891,13 +5891,13 @@
     "lga": "Pyrenees",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Grevillea Walk\n2.2 km · Under 1 hour"
   },
   {
     "id": 196,
     "name": "Grevillea Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.2,
     "hours": null,
@@ -5912,7 +5912,7 @@
   {
     "id": 196,
     "name": "Grevillea Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.2,
     "hours": null,
@@ -5927,7 +5927,7 @@
   {
     "id": 196,
     "name": "Grevillea Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.2,
     "hours": null,
@@ -5942,7 +5942,7 @@
   {
     "id": 198,
     "name": "Bakers Gully Reservoirs Upper Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.1,
     "hours": null,
@@ -5951,13 +5951,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Bakers Gully Reservoirs Upper Loop\n1.1 km · Under 1 hour"
   },
   {
     "id": 198,
     "name": "Bakers Gully Reservoirs Upper Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.1,
     "hours": null,
@@ -5972,7 +5972,7 @@
   {
     "id": 198,
     "name": "Bakers Gully Reservoirs Upper Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.1,
     "hours": null,
@@ -5987,7 +5987,7 @@
   {
     "id": 198,
     "name": "Bakers Gully Reservoirs Upper Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.1,
     "hours": null,
@@ -6002,7 +6002,7 @@
   {
     "id": 200,
     "name": "Hermans Hill Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.1,
     "hours": null,
@@ -6011,13 +6011,13 @@
     "lga": "Hindmarsh",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Hermans Hill Walking Track\n3.1 km · 1–4 hours"
   },
   {
     "id": 200,
     "name": "Hermans Hill Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.1,
     "hours": null,
@@ -6032,7 +6032,7 @@
   {
     "id": 200,
     "name": "Hermans Hill Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.1,
     "hours": null,
@@ -6047,7 +6047,7 @@
   {
     "id": 200,
     "name": "Hermans Hill Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.1,
     "hours": null,
@@ -6062,7 +6062,7 @@
   {
     "id": 202,
     "name": "Kalatha Giant Tree Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -6071,13 +6071,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Kalatha Giant Tree Walk\n0.5 km · Under 1 hour"
   },
   {
     "id": 202,
     "name": "Kalatha Giant Tree Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -6092,7 +6092,7 @@
   {
     "id": 202,
     "name": "Kalatha Giant Tree Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -6107,7 +6107,7 @@
   {
     "id": 202,
     "name": "Kalatha Giant Tree Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.5,
     "hours": null,
@@ -6122,7 +6122,7 @@
   {
     "id": 203,
     "name": "Strath Creek Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -6131,13 +6131,13 @@
     "lga": "Mitchell",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Strath Creek Falls Walk\n1 km · Under 1 hour"
   },
   {
     "id": 203,
     "name": "Strath Creek Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -6152,7 +6152,7 @@
   {
     "id": 203,
     "name": "Strath Creek Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -6167,7 +6167,7 @@
   {
     "id": 203,
     "name": "Strath Creek Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -6182,7 +6182,7 @@
   {
     "id": 204,
     "name": "La La Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.8,
     "hours": null,
@@ -6191,13 +6191,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "La La Falls\n2.8 km · 1–4 hours"
   },
   {
     "id": 204,
     "name": "La La Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.8,
     "hours": null,
@@ -6212,7 +6212,7 @@
   {
     "id": 204,
     "name": "La La Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.8,
     "hours": null,
@@ -6227,7 +6227,7 @@
   {
     "id": 204,
     "name": "La La Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.8,
     "hours": null,
@@ -6242,7 +6242,7 @@
   {
     "id": 206,
     "name": "Bindaree Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.4,
     "hours": null,
@@ -6251,13 +6251,13 @@
     "lga": "Mansfield",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Bindaree Falls\n0.4 km · Under 1 hour"
   },
   {
     "id": 206,
     "name": "Bindaree Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.4,
     "hours": null,
@@ -6272,7 +6272,7 @@
   {
     "id": 206,
     "name": "Bindaree Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.4,
     "hours": null,
@@ -6287,7 +6287,7 @@
   {
     "id": 206,
     "name": "Bindaree Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.4,
     "hours": null,
@@ -6302,7 +6302,7 @@
   {
     "id": 208,
     "name": "Bullockys Grave Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -6311,13 +6311,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Bullockys Grave Walk\n0.3 km · Under 1 hour"
   },
   {
     "id": 208,
     "name": "Bullockys Grave Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -6332,7 +6332,7 @@
   {
     "id": 208,
     "name": "Bullockys Grave Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -6347,7 +6347,7 @@
   {
     "id": 208,
     "name": "Bullockys Grave Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -6362,7 +6362,7 @@
   {
     "id": 209,
     "name": "New Federal Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6371,13 +6371,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "New Federal Mill Walk\n2.5 km · Not recorded"
   },
   {
     "id": 209,
     "name": "New Federal Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6392,7 +6392,7 @@
   {
     "id": 209,
     "name": "New Federal Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6407,7 +6407,7 @@
   {
     "id": 209,
     "name": "New Federal Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6422,7 +6422,7 @@
   {
     "id": 210,
     "name": "Loves Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -6431,13 +6431,13 @@
     "lga": "Colac Otway",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Loves Creek Walk\n0.5 km · Under 1 hour"
   },
   {
     "id": 210,
     "name": "Loves Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -6452,7 +6452,7 @@
   {
     "id": 210,
     "name": "Loves Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -6467,7 +6467,7 @@
   {
     "id": 210,
     "name": "Loves Creek Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -6482,7 +6482,7 @@
   {
     "id": 211,
     "name": "Elevator",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.0,
     "hours": null,
@@ -6491,13 +6491,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Elevator\n5 km · 1–4 hours"
   },
   {
     "id": 211,
     "name": "Elevator",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.0,
     "hours": null,
@@ -6512,7 +6512,7 @@
   {
     "id": 211,
     "name": "Elevator",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.0,
     "hours": null,
@@ -6527,7 +6527,7 @@
   {
     "id": 211,
     "name": "Elevator",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.0,
     "hours": null,
@@ -6542,7 +6542,7 @@
   {
     "id": 212,
     "name": "Drummer Rainforest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -6551,13 +6551,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Drummer Rainforest Walk\n1 km · Under 1 hour"
   },
   {
     "id": 212,
     "name": "Drummer Rainforest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -6572,7 +6572,7 @@
   {
     "id": 212,
     "name": "Drummer Rainforest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -6587,7 +6587,7 @@
   {
     "id": 212,
     "name": "Drummer Rainforest Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -6611,7 +6611,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Latrobe River Walk\n0.8 km · Under 1 hour"
   },
   {
@@ -6671,7 +6671,7 @@
     "lga": "Indigo",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Yackandandah Creek Trail\n1.4 km · Under 1 hour"
   },
   {
@@ -6722,7 +6722,7 @@
   {
     "id": 217,
     "name": "Waterhole Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -6731,13 +6731,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Waterhole Walk\n0.4 km · Under 1 hour"
   },
   {
     "id": 217,
     "name": "Waterhole Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -6752,7 +6752,7 @@
   {
     "id": 217,
     "name": "Waterhole Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -6767,7 +6767,7 @@
   {
     "id": 217,
     "name": "Waterhole Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.4,
     "hours": null,
@@ -6782,7 +6782,7 @@
   {
     "id": 219,
     "name": "Hanging Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.2,
     "hours": null,
@@ -6791,13 +6791,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Hanging Rock Walk\n1.2 km · Under 1 hour"
   },
   {
     "id": 219,
     "name": "Hanging Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.2,
     "hours": null,
@@ -6812,7 +6812,7 @@
   {
     "id": 219,
     "name": "Hanging Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.2,
     "hours": null,
@@ -6827,7 +6827,7 @@
   {
     "id": 219,
     "name": "Hanging Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.2,
     "hours": null,
@@ -6851,7 +6851,7 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Crinoline Walk\n0.9 km · Not recorded"
   },
   {
@@ -6902,7 +6902,7 @@
   {
     "id": 221,
     "name": "Limestone Box Forest Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.3,
     "hours": null,
@@ -6911,13 +6911,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Limestone Box Forest Walk\n2.3 km · Under 1 hour"
   },
   {
     "id": 221,
     "name": "Limestone Box Forest Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.3,
     "hours": null,
@@ -6932,7 +6932,7 @@
   {
     "id": 221,
     "name": "Limestone Box Forest Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.3,
     "hours": null,
@@ -6947,7 +6947,7 @@
   {
     "id": 221,
     "name": "Limestone Box Forest Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.3,
     "hours": null,
@@ -6962,7 +6962,7 @@
   {
     "id": 222,
     "name": "Explosive Magazine Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6971,13 +6971,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Explosive Magazine Loop\n2.5 km · Under 1 hour"
   },
   {
     "id": 222,
     "name": "Explosive Magazine Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -6992,7 +6992,7 @@
   {
     "id": 222,
     "name": "Explosive Magazine Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7007,7 +7007,7 @@
   {
     "id": 222,
     "name": "Explosive Magazine Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7022,7 +7022,7 @@
   {
     "id": 223,
     "name": "Alistair Fielding Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.4,
     "hours": null,
@@ -7031,13 +7031,13 @@
     "lga": "Wellington",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Alistair Fielding Walk\n4.4 km · 1–4 hours"
   },
   {
     "id": 223,
     "name": "Alistair Fielding Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.4,
     "hours": null,
@@ -7052,7 +7052,7 @@
   {
     "id": 223,
     "name": "Alistair Fielding Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.4,
     "hours": null,
@@ -7067,7 +7067,7 @@
   {
     "id": 223,
     "name": "Alistair Fielding Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 4.4,
     "hours": null,
@@ -7082,7 +7082,7 @@
   {
     "id": 224,
     "name": "Deep Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.1,
     "hours": null,
@@ -7091,13 +7091,13 @@
     "lga": "Towong",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Deep Gully Walk\n3.1 km · 1–4 hours"
   },
   {
     "id": 224,
     "name": "Deep Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.1,
     "hours": null,
@@ -7112,7 +7112,7 @@
   {
     "id": 224,
     "name": "Deep Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.1,
     "hours": null,
@@ -7127,7 +7127,7 @@
   {
     "id": 224,
     "name": "Deep Gully Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 3.1,
     "hours": null,
@@ -7142,7 +7142,7 @@
   {
     "id": 225,
     "name": "Freestone Creek Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.5,
     "hours": null,
@@ -7151,13 +7151,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Freestone Creek Walking Track\n6.5 km · 1–4 hours"
   },
   {
     "id": 225,
     "name": "Freestone Creek Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.5,
     "hours": null,
@@ -7172,7 +7172,7 @@
   {
     "id": 225,
     "name": "Freestone Creek Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.5,
     "hours": null,
@@ -7187,7 +7187,7 @@
   {
     "id": 225,
     "name": "Freestone Creek Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.5,
     "hours": null,
@@ -7202,7 +7202,7 @@
   {
     "id": 226,
     "name": "Short Basin Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -7211,13 +7211,13 @@
     "lga": "Northern Grampians",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Short Basin Walk\n0.5 km · Under 1 hour"
   },
   {
     "id": 226,
     "name": "Short Basin Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -7232,7 +7232,7 @@
   {
     "id": 226,
     "name": "Short Basin Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -7247,7 +7247,7 @@
   {
     "id": 226,
     "name": "Short Basin Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.5,
     "hours": null,
@@ -7262,7 +7262,7 @@
   {
     "id": 228,
     "name": "Tubal Cain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -7271,13 +7271,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Tubal Cain Walk\n1 km · Under 1 hour"
   },
   {
     "id": 228,
     "name": "Tubal Cain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -7292,7 +7292,7 @@
   {
     "id": 228,
     "name": "Tubal Cain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -7307,7 +7307,7 @@
   {
     "id": 228,
     "name": "Tubal Cain Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.0,
     "hours": null,
@@ -7331,7 +7331,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Noorinbee\n1.6 km · Under 1 hour"
   },
   {
@@ -7391,7 +7391,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Rocky Ned Falls Walk\n1.8 km · Under 1 hour"
   },
   {
@@ -7451,7 +7451,7 @@
     "lga": "Colac Otway",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Access track to Stevensons Falls and day visitor area\n1.2 km · Under 1 hour"
   },
   {
@@ -7511,7 +7511,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Reed walking track\n1.5 km · Under 1 hour"
   },
   {
@@ -7562,7 +7562,7 @@
   {
     "id": 238,
     "name": "Toombon Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7571,13 +7571,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Toombon Historic Walk\n2.5 km · Under 1 hour"
   },
   {
     "id": 238,
     "name": "Toombon Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7592,7 +7592,7 @@
   {
     "id": 238,
     "name": "Toombon Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7607,7 +7607,7 @@
   {
     "id": 238,
     "name": "Toombon Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.5,
     "hours": null,
@@ -7622,7 +7622,7 @@
   {
     "id": 239,
     "name": "Murrindindi River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.6,
     "hours": null,
@@ -7631,13 +7631,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Murrindindi River Walk\n11.6 km · 1–4 hours"
   },
   {
     "id": 239,
     "name": "Murrindindi River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.6,
     "hours": null,
@@ -7652,7 +7652,7 @@
   {
     "id": 239,
     "name": "Murrindindi River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.6,
     "hours": null,
@@ -7667,7 +7667,7 @@
   {
     "id": 239,
     "name": "Murrindindi River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 11.6,
     "hours": null,
@@ -7682,7 +7682,7 @@
   {
     "id": 240,
     "name": "Birnam Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -7691,13 +7691,13 @@
     "lga": "Colac Otway",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Birnam Walk\n0.6 km · Under 1 hour"
   },
   {
     "id": 240,
     "name": "Birnam Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -7712,7 +7712,7 @@
   {
     "id": 240,
     "name": "Birnam Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -7727,7 +7727,7 @@
   {
     "id": 240,
     "name": "Birnam Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -7742,7 +7742,7 @@
   {
     "id": 243,
     "name": "Red Gums Walk North Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.9,
     "hours": null,
@@ -7751,13 +7751,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Red Gums Walk North Block\n2.9 km · Under 1 hour"
   },
   {
     "id": 243,
     "name": "Red Gums Walk North Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.9,
     "hours": null,
@@ -7772,7 +7772,7 @@
   {
     "id": 243,
     "name": "Red Gums Walk North Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.9,
     "hours": null,
@@ -7787,7 +7787,7 @@
   {
     "id": 243,
     "name": "Red Gums Walk North Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 2.9,
     "hours": null,
@@ -7802,7 +7802,7 @@
   {
     "id": 244,
     "name": "Nowa Nowa Walk Banksia Boulevard",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -7811,13 +7811,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Nowa Nowa Walk Banksia Boulevard\n1.5 km · Under 1 hour"
   },
   {
     "id": 244,
     "name": "Nowa Nowa Walk Banksia Boulevard",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -7832,7 +7832,7 @@
   {
     "id": 244,
     "name": "Nowa Nowa Walk Banksia Boulevard",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -7847,7 +7847,7 @@
   {
     "id": 244,
     "name": "Nowa Nowa Walk Banksia Boulevard",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -7862,7 +7862,7 @@
   {
     "id": 251,
     "name": "Tanjil Bren Tramway Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -7871,13 +7871,13 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Tanjil Bren Tramway Walk\n12 km · 1–4 hours"
   },
   {
     "id": 251,
     "name": "Tanjil Bren Tramway Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -7892,7 +7892,7 @@
   {
     "id": 251,
     "name": "Tanjil Bren Tramway Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -7907,7 +7907,7 @@
   {
     "id": 251,
     "name": "Tanjil Bren Tramway Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 12.0,
     "hours": null,
@@ -7922,7 +7922,7 @@
   {
     "id": 255,
     "name": "Noojee Rail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -7931,13 +7931,13 @@
     "lga": "Baw Baw",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Noojee Rail Trail\n6 km · Under 1 hour"
   },
   {
     "id": 255,
     "name": "Noojee Rail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -7952,7 +7952,7 @@
   {
     "id": 255,
     "name": "Noojee Rail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -7967,7 +7967,7 @@
   {
     "id": 255,
     "name": "Noojee Rail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 6.0,
     "hours": null,
@@ -7982,7 +7982,7 @@
   {
     "id": 256,
     "name": "Anderson Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.6,
     "hours": null,
@@ -7991,13 +7991,13 @@
     "lga": "Macedon Ranges",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Anderson Mill Walk\n5.6 km · 1–4 hours"
   },
   {
     "id": 256,
     "name": "Anderson Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.6,
     "hours": null,
@@ -8012,7 +8012,7 @@
   {
     "id": 256,
     "name": "Anderson Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.6,
     "hours": null,
@@ -8027,7 +8027,7 @@
   {
     "id": 256,
     "name": "Anderson Mill Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 5.6,
     "hours": null,
@@ -8042,7 +8042,7 @@
   {
     "id": 257,
     "name": "Stevensons Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -8051,13 +8051,13 @@
     "lga": "Colac Otway",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Stevensons Falls Walk\n1 km · Under 1 hour"
   },
   {
     "id": 257,
     "name": "Stevensons Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -8072,7 +8072,7 @@
   {
     "id": 257,
     "name": "Stevensons Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -8087,7 +8087,7 @@
   {
     "id": 257,
     "name": "Stevensons Falls Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -8102,7 +8102,7 @@
   {
     "id": 258,
     "name": "Whipstick Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.6,
     "hours": null,
@@ -8111,13 +8111,13 @@
     "lga": "Moorabool",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Whipstick Loop\n5.6 km · 1–4 hours"
   },
   {
     "id": 258,
     "name": "Whipstick Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.6,
     "hours": null,
@@ -8132,7 +8132,7 @@
   {
     "id": 258,
     "name": "Whipstick Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.6,
     "hours": null,
@@ -8147,7 +8147,7 @@
   {
     "id": 258,
     "name": "Whipstick Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.6,
     "hours": null,
@@ -8171,7 +8171,7 @@
     "lga": "Mount Alexander",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Junction Walking Track\n2.4 km · Under 1 hour"
   },
   {
@@ -8222,7 +8222,7 @@
   {
     "id": 261,
     "name": "Okeefe Rail Trail - Longlea",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -8231,13 +8231,13 @@
     "lga": "Greater Bendigo",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Okeefe Rail Trail - Longlea\n1.5 km · Under 1 hour"
   },
   {
     "id": 261,
     "name": "Okeefe Rail Trail - Longlea",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -8252,7 +8252,7 @@
   {
     "id": 261,
     "name": "Okeefe Rail Trail - Longlea",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -8267,7 +8267,7 @@
   {
     "id": 261,
     "name": "Okeefe Rail Trail - Longlea",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.5,
     "hours": null,
@@ -8282,7 +8282,7 @@
   {
     "id": 264,
     "name": "Craigs Hut Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8291,13 +8291,13 @@
     "lga": "Unincorporated Vic",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Craigs Hut Walking Track\n3 km · 1–4 hours"
   },
   {
     "id": 264,
     "name": "Craigs Hut Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8312,7 +8312,7 @@
   {
     "id": 264,
     "name": "Craigs Hut Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8327,7 +8327,7 @@
   {
     "id": 264,
     "name": "Craigs Hut Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8342,7 +8342,7 @@
   {
     "id": 266,
     "name": "Mount Hedrick Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -8351,13 +8351,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Mount Hedrick Walking Track\n4.6 km · 1–4 hours"
   },
   {
     "id": 266,
     "name": "Mount Hedrick Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -8372,7 +8372,7 @@
   {
     "id": 266,
     "name": "Mount Hedrick Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -8387,7 +8387,7 @@
   {
     "id": 266,
     "name": "Mount Hedrick Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 4.6,
     "hours": null,
@@ -8411,7 +8411,7 @@
     "lga": "Golden Plains",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Linton Firefighter Memorial Walk\n0.3 km · Under 1 hour"
   },
   {
@@ -8462,7 +8462,7 @@
   {
     "id": 275,
     "name": "Bull Gully Rock Wells Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -8471,13 +8471,13 @@
     "lga": "Central Goldfields",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Bull Gully Rock Wells Walk\n3.5 km · Under 1 hour"
   },
   {
     "id": 275,
     "name": "Bull Gully Rock Wells Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -8492,7 +8492,7 @@
   {
     "id": 275,
     "name": "Bull Gully Rock Wells Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -8507,7 +8507,7 @@
   {
     "id": 275,
     "name": "Bull Gully Rock Wells Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.5,
     "hours": null,
@@ -8522,7 +8522,7 @@
   {
     "id": 277,
     "name": "Waanyarra Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 7.0,
     "hours": null,
@@ -8531,13 +8531,13 @@
     "lga": "Loddon",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Waanyarra Walk\n7 km · 1–4 hours"
   },
   {
     "id": 277,
     "name": "Waanyarra Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 7.0,
     "hours": null,
@@ -8552,7 +8552,7 @@
   {
     "id": 277,
     "name": "Waanyarra Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 7.0,
     "hours": null,
@@ -8567,7 +8567,7 @@
   {
     "id": 277,
     "name": "Waanyarra Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 7.0,
     "hours": null,
@@ -8582,7 +8582,7 @@
   {
     "id": 278,
     "name": "Bilstons Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -8591,13 +8591,13 @@
     "lga": "Glenelg",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Bilstons Tree Walk\n0.6 km · Under 1 hour"
   },
   {
     "id": 278,
     "name": "Bilstons Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -8612,7 +8612,7 @@
   {
     "id": 278,
     "name": "Bilstons Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -8627,7 +8627,7 @@
   {
     "id": 278,
     "name": "Bilstons Tree Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.6,
     "hours": null,
@@ -8642,7 +8642,7 @@
   {
     "id": 279,
     "name": "Kerami Link Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.2,
     "hours": null,
@@ -8651,13 +8651,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Kerami Link Trail\n0.2 km · Under 1 hour"
   },
   {
     "id": 279,
     "name": "Kerami Link Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.2,
     "hours": null,
@@ -8672,7 +8672,7 @@
   {
     "id": 279,
     "name": "Kerami Link Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.2,
     "hours": null,
@@ -8687,7 +8687,7 @@
   {
     "id": 279,
     "name": "Kerami Link Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.2,
     "hours": null,
@@ -8702,7 +8702,7 @@
   {
     "id": 280,
     "name": "Upper Yarra Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 95.0,
     "hours": null,
@@ -8711,13 +8711,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Upper Yarra Walking Track\n95 km · Multiple days"
   },
   {
     "id": 280,
     "name": "Upper Yarra Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 95.0,
     "hours": null,
@@ -8732,7 +8732,7 @@
   {
     "id": 280,
     "name": "Upper Yarra Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 95.0,
     "hours": null,
@@ -8747,7 +8747,7 @@
   {
     "id": 280,
     "name": "Upper Yarra Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 95.0,
     "hours": null,
@@ -8762,7 +8762,7 @@
   {
     "id": 281,
     "name": "Lerderderg Heritage River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.8,
     "hours": null,
@@ -8771,13 +8771,13 @@
     "lga": "Moorabool",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Lerderderg Heritage River Walk\n8.8 km · 1–4 hours"
   },
   {
     "id": 281,
     "name": "Lerderderg Heritage River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.8,
     "hours": null,
@@ -8792,7 +8792,7 @@
   {
     "id": 281,
     "name": "Lerderderg Heritage River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.8,
     "hours": null,
@@ -8807,7 +8807,7 @@
   {
     "id": 281,
     "name": "Lerderderg Heritage River Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.8,
     "hours": null,
@@ -8822,7 +8822,7 @@
   {
     "id": 282,
     "name": "Track Ninety Six",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 34.0,
     "hours": null,
@@ -8831,13 +8831,13 @@
     "lga": "Wellington",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Track Ninety Six\n34 km · Multiple days"
   },
   {
     "id": 282,
     "name": "Track Ninety Six",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 34.0,
     "hours": null,
@@ -8852,7 +8852,7 @@
   {
     "id": 282,
     "name": "Track Ninety Six",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 34.0,
     "hours": null,
@@ -8867,7 +8867,7 @@
   {
     "id": 282,
     "name": "Track Ninety Six",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 34.0,
     "hours": null,
@@ -8882,7 +8882,7 @@
   {
     "id": 283,
     "name": "Red Gums Walk South Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8891,13 +8891,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Red Gums Walk South Block\n3 km · Under 1 hour"
   },
   {
     "id": 283,
     "name": "Red Gums Walk South Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8912,7 +8912,7 @@
   {
     "id": 283,
     "name": "Red Gums Walk South Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8927,7 +8927,7 @@
   {
     "id": 283,
     "name": "Red Gums Walk South Block",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 3.0,
     "hours": null,
@@ -8942,7 +8942,7 @@
   {
     "id": 285,
     "name": "Paradise Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 9.2,
     "hours": null,
@@ -8951,13 +8951,13 @@
     "lga": "Pyrenees",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Paradise Walk\n9.2 km · 1–4 hours"
   },
   {
     "id": 285,
     "name": "Paradise Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 9.2,
     "hours": null,
@@ -8972,7 +8972,7 @@
   {
     "id": 285,
     "name": "Paradise Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 9.2,
     "hours": null,
@@ -8987,7 +8987,7 @@
   {
     "id": 285,
     "name": "Paradise Walk",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 9.2,
     "hours": null,
@@ -9002,7 +9002,7 @@
   {
     "id": 287,
     "name": "River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -9011,13 +9011,13 @@
     "lga": "Towong",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "River Walk\n1.5 km · 1–4 hours"
   },
   {
     "id": 287,
     "name": "River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -9032,7 +9032,7 @@
   {
     "id": 287,
     "name": "River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -9047,7 +9047,7 @@
   {
     "id": 287,
     "name": "River Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.5,
     "hours": null,
@@ -9062,7 +9062,7 @@
   {
     "id": 288,
     "name": "Kendalls Link Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -9071,13 +9071,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Kendalls Link Track\n1 km · Under 1 hour"
   },
   {
     "id": 288,
     "name": "Kendalls Link Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -9092,7 +9092,7 @@
   {
     "id": 288,
     "name": "Kendalls Link Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -9107,7 +9107,7 @@
   {
     "id": 288,
     "name": "Kendalls Link Track",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 1.0,
     "hours": null,
@@ -9122,7 +9122,7 @@
   {
     "id": 289,
     "name": "Plane Crash Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -9131,13 +9131,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Plane Crash Loop\n6 km · 1–4 hours"
   },
   {
     "id": 289,
     "name": "Plane Crash Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -9152,7 +9152,7 @@
   {
     "id": 289,
     "name": "Plane Crash Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -9167,7 +9167,7 @@
   {
     "id": 289,
     "name": "Plane Crash Loop",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 6.0,
     "hours": null,
@@ -9182,7 +9182,7 @@
   {
     "id": 290,
     "name": "Reform Hill Monument Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -9191,13 +9191,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Reform Hill Monument Walk\n1.2 km · Under 1 hour"
   },
   {
     "id": 290,
     "name": "Reform Hill Monument Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -9212,7 +9212,7 @@
   {
     "id": 290,
     "name": "Reform Hill Monument Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -9227,7 +9227,7 @@
   {
     "id": 290,
     "name": "Reform Hill Monument Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.2,
     "hours": null,
@@ -9242,7 +9242,7 @@
   {
     "id": 292,
     "name": "Wilks Creek Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.5,
     "hours": null,
@@ -9251,13 +9251,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Wilks Creek Trail\n8.5 km · 1–4 hours"
   },
   {
     "id": 292,
     "name": "Wilks Creek Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.5,
     "hours": null,
@@ -9272,7 +9272,7 @@
   {
     "id": 292,
     "name": "Wilks Creek Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.5,
     "hours": null,
@@ -9287,7 +9287,7 @@
   {
     "id": 292,
     "name": "Wilks Creek Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.5,
     "hours": null,
@@ -9311,7 +9311,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Red Jacket Relics Access Track\n0.15 km · Under 1 hour"
   },
   {
@@ -9362,7 +9362,7 @@
   {
     "id": 299,
     "name": "Bates Dam Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -9371,13 +9371,13 @@
     "lga": "Indigo",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Bates Dam Historic Walk\n0.3 km · Under 1 hour"
   },
   {
     "id": 299,
     "name": "Bates Dam Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -9392,7 +9392,7 @@
   {
     "id": 299,
     "name": "Bates Dam Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -9407,7 +9407,7 @@
   {
     "id": 299,
     "name": "Bates Dam Historic Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 0.3,
     "hours": null,
@@ -9422,7 +9422,7 @@
   {
     "id": 301,
     "name": "Snobs Banyarmbite Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.3,
     "hours": null,
@@ -9431,13 +9431,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Snobs Banyarmbite Falls\n0.3 km · Under 1 hour"
   },
   {
     "id": 301,
     "name": "Snobs Banyarmbite Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.3,
     "hours": null,
@@ -9452,7 +9452,7 @@
   {
     "id": 301,
     "name": "Snobs Banyarmbite Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.3,
     "hours": null,
@@ -9467,7 +9467,7 @@
   {
     "id": 301,
     "name": "Snobs Banyarmbite Falls",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.3,
     "hours": null,
@@ -9482,7 +9482,7 @@
   {
     "id": 302,
     "name": "Bodens Water Race",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.1,
     "hours": null,
@@ -9491,13 +9491,13 @@
     "lga": "Golden Plains",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Bodens Water Race\n5.1 km · 1–4 hours"
   },
   {
     "id": 302,
     "name": "Bodens Water Race",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.1,
     "hours": null,
@@ -9512,7 +9512,7 @@
   {
     "id": 302,
     "name": "Bodens Water Race",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.1,
     "hours": null,
@@ -9527,7 +9527,7 @@
   {
     "id": 302,
     "name": "Bodens Water Race",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 5.1,
     "hours": null,
@@ -9542,7 +9542,7 @@
   {
     "id": 303,
     "name": "Mt Welcome Hike",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.0,
     "hours": null,
@@ -9551,13 +9551,13 @@
     "lga": "Towong",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Mt Welcome Hike\n8 km · Over 4 hours"
   },
   {
     "id": 303,
     "name": "Mt Welcome Hike",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.0,
     "hours": null,
@@ -9572,7 +9572,7 @@
   {
     "id": 303,
     "name": "Mt Welcome Hike",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.0,
     "hours": null,
@@ -9587,7 +9587,7 @@
   {
     "id": 303,
     "name": "Mt Welcome Hike",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 8.0,
     "hours": null,
@@ -9602,7 +9602,7 @@
   {
     "id": 304,
     "name": "Tanglefoot Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.0,
     "hours": null,
@@ -9611,13 +9611,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Tanglefoot Loop\n10 km · 1–4 hours"
   },
   {
     "id": 304,
     "name": "Tanglefoot Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.0,
     "hours": null,
@@ -9632,7 +9632,7 @@
   {
     "id": 304,
     "name": "Tanglefoot Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.0,
     "hours": null,
@@ -9647,7 +9647,7 @@
   {
     "id": 304,
     "name": "Tanglefoot Loop",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 10.0,
     "hours": null,
@@ -9662,7 +9662,7 @@
   {
     "id": 308,
     "name": "Wirilda Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 12.5,
     "hours": null,
@@ -9671,13 +9671,13 @@
     "lga": "Latrobe (Vic.)",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Wirilda Walking Track\n12.5 km · Over 4 hours"
   },
   {
     "id": 308,
     "name": "Wirilda Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 12.5,
     "hours": null,
@@ -9692,7 +9692,7 @@
   {
     "id": 308,
     "name": "Wirilda Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 12.5,
     "hours": null,
@@ -9707,7 +9707,7 @@
   {
     "id": 308,
     "name": "Wirilda Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 12.5,
     "hours": null,
@@ -9731,7 +9731,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Moonee Creek Walking Track\n0.7 km · Under 1 hour"
   },
   {
@@ -9791,7 +9791,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Plain Creek Waterfall\n1.5 km · Under 1 hour"
   },
   {
@@ -9851,7 +9851,7 @@
     "lga": "Horsham",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Wail Scenic Loop\n2.5 km · Under 1 hour"
   },
   {
@@ -9902,7 +9902,7 @@
   {
     "id": 318,
     "name": "Rocky Ned",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.7,
     "hours": null,
@@ -9911,13 +9911,13 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Rocky Ned\n1.7 km · Under 1 hour"
   },
   {
     "id": 318,
     "name": "Rocky Ned",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.7,
     "hours": null,
@@ -9932,7 +9932,7 @@
   {
     "id": 318,
     "name": "Rocky Ned",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.7,
     "hours": null,
@@ -9947,7 +9947,7 @@
   {
     "id": 318,
     "name": "Rocky Ned",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.7,
     "hours": null,
@@ -9962,7 +9962,7 @@
   {
     "id": 319,
     "name": "Beauchamp Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.5,
     "hours": null,
@@ -9971,13 +9971,13 @@
     "lga": "Colac Otway",
     "closure": "FULL CLOSURE",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Beauchamp Falls Walk\n2.5 km · 1–4 hours"
   },
   {
     "id": 319,
     "name": "Beauchamp Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.5,
     "hours": null,
@@ -9992,7 +9992,7 @@
   {
     "id": 319,
     "name": "Beauchamp Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.5,
     "hours": null,
@@ -10007,7 +10007,7 @@
   {
     "id": 319,
     "name": "Beauchamp Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.5,
     "hours": null,
@@ -10031,7 +10031,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Rubicon Heritage Walk\n3.9 km · 1–4 hours"
   },
   {
@@ -10082,7 +10082,7 @@
   {
     "id": 322,
     "name": "Richards Curves Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -10091,13 +10091,13 @@
     "lga": "Yarra Ranges",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Richards Curves Walk\n4.2 km · Under 1 hour"
   },
   {
     "id": 322,
     "name": "Richards Curves Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -10112,7 +10112,7 @@
   {
     "id": 322,
     "name": "Richards Curves Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -10127,7 +10127,7 @@
   {
     "id": 322,
     "name": "Richards Curves Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 4.2,
     "hours": null,
@@ -10151,7 +10151,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Gippsland Lakes Discovery Trail\n25 km · Not recorded"
   },
   {
@@ -10202,7 +10202,7 @@
   {
     "id": 325,
     "name": "The Channel Loop Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.1,
     "hours": null,
@@ -10211,13 +10211,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "The Channel Loop Walking Track\n2.1 km · Under 1 hour"
   },
   {
     "id": 325,
     "name": "The Channel Loop Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.1,
     "hours": null,
@@ -10232,7 +10232,7 @@
   {
     "id": 325,
     "name": "The Channel Loop Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.1,
     "hours": null,
@@ -10247,7 +10247,7 @@
   {
     "id": 325,
     "name": "The Channel Loop Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.1,
     "hours": null,
@@ -10262,7 +10262,7 @@
   {
     "id": 329,
     "name": "Wail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -10271,13 +10271,13 @@
     "lga": "Horsham",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Wail Trail\n1 km · Under 1 hour"
   },
   {
     "id": 329,
     "name": "Wail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -10292,7 +10292,7 @@
   {
     "id": 329,
     "name": "Wail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -10307,7 +10307,7 @@
   {
     "id": 329,
     "name": "Wail Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.0,
     "hours": null,
@@ -10322,7 +10322,7 @@
   {
     "id": 330,
     "name": "Montane Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.0,
     "hours": null,
@@ -10331,13 +10331,13 @@
     "lga": "Alpine",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Montane Walking Track\n8 km · 1–4 hours"
   },
   {
     "id": 330,
     "name": "Montane Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.0,
     "hours": null,
@@ -10352,7 +10352,7 @@
   {
     "id": 330,
     "name": "Montane Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.0,
     "hours": null,
@@ -10367,7 +10367,7 @@
   {
     "id": 330,
     "name": "Montane Walking Track",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.0,
     "hours": null,
@@ -10391,7 +10391,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Falls Creek Memorial\n0.9 km · Under 1 hour"
   },
   {
@@ -10442,7 +10442,7 @@
   {
     "id": 335,
     "name": "Red Hill Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -10451,13 +10451,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Red Hill Trail\n2 km · Under 1 hour"
   },
   {
     "id": 335,
     "name": "Red Hill Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -10472,7 +10472,7 @@
   {
     "id": 335,
     "name": "Red Hill Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -10487,7 +10487,7 @@
   {
     "id": 335,
     "name": "Red Hill Trail",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 2.0,
     "hours": null,
@@ -10502,7 +10502,7 @@
   {
     "id": 338,
     "name": "Boroondara Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -10511,13 +10511,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Boroondara Track\n10 km · 1–4 hours"
   },
   {
     "id": 338,
     "name": "Boroondara Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -10532,7 +10532,7 @@
   {
     "id": 338,
     "name": "Boroondara Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -10547,7 +10547,7 @@
   {
     "id": 338,
     "name": "Boroondara Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 10.0,
     "hours": null,
@@ -10571,7 +10571,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Dustys Lookout\n0.25 km · Under 1 hour"
   },
   {
@@ -10631,7 +10631,7 @@
     "lga": "Colac Otway",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Blue Spruce Walk\n0.2 km · Under 1 hour"
   },
   {
@@ -10682,7 +10682,7 @@
   {
     "id": 341,
     "name": "Howqua River Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 12.0,
     "hours": null,
@@ -10691,13 +10691,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Howqua River Walking Track\n12 km · Over 4 hours"
   },
   {
     "id": 341,
     "name": "Howqua River Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 12.0,
     "hours": null,
@@ -10712,7 +10712,7 @@
   {
     "id": 341,
     "name": "Howqua River Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 12.0,
     "hours": null,
@@ -10727,7 +10727,7 @@
   {
     "id": 341,
     "name": "Howqua River Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 12.0,
     "hours": null,
@@ -10742,7 +10742,7 @@
   {
     "id": 343,
     "name": "Green Hills Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -10751,13 +10751,13 @@
     "lga": "Wellington",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Green Hills Walking Track\n1.8 km · Under 1 hour"
   },
   {
     "id": 343,
     "name": "Green Hills Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -10772,7 +10772,7 @@
   {
     "id": 343,
     "name": "Green Hills Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -10787,7 +10787,7 @@
   {
     "id": 343,
     "name": "Green Hills Walking Track",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.8,
     "hours": null,
@@ -10811,7 +10811,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Mountain Monarchs Walk\n1.8 km · Under 1 hour"
   },
   {
@@ -10862,7 +10862,7 @@
   {
     "id": 346,
     "name": "Tree Fern Gully",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 7.4,
     "hours": null,
@@ -10871,13 +10871,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Tree Fern Gully\n7.4 km · 1–4 hours"
   },
   {
     "id": 346,
     "name": "Tree Fern Gully",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 7.4,
     "hours": null,
@@ -10892,7 +10892,7 @@
   {
     "id": 346,
     "name": "Tree Fern Gully",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 7.4,
     "hours": null,
@@ -10907,7 +10907,7 @@
   {
     "id": 346,
     "name": "Tree Fern Gully",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 7.4,
     "hours": null,
@@ -10922,7 +10922,7 @@
   {
     "id": 348,
     "name": "Seven Acre Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.3,
     "hours": null,
@@ -10931,13 +10931,13 @@
     "lga": "Cardinia",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 75,
+    "position": 60,
     "annotation": "Seven Acre Rock Walk\n1.3 km · Under 1 hour"
   },
   {
     "id": 348,
     "name": "Seven Acre Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.3,
     "hours": null,
@@ -10952,7 +10952,7 @@
   {
     "id": 348,
     "name": "Seven Acre Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.3,
     "hours": null,
@@ -10967,7 +10967,7 @@
   {
     "id": 348,
     "name": "Seven Acre Rock Walk",
-    "grade": "Grade 4",
+    "grade": "C4",
     "track_code": "C4",
     "length_km": 1.3,
     "hours": null,
@@ -10991,7 +10991,7 @@
     "lga": "Mildura",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Berrook Walk\n0.72 km · Under 1 hour"
   },
   {
@@ -11042,7 +11042,7 @@
   {
     "id": 350,
     "name": "Myrtle Gully Circuit",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.6,
     "hours": null,
@@ -11051,13 +11051,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Myrtle Gully Circuit\n8.6 km · 1–4 hours"
   },
   {
     "id": 350,
     "name": "Myrtle Gully Circuit",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.6,
     "hours": null,
@@ -11072,7 +11072,7 @@
   {
     "id": 350,
     "name": "Myrtle Gully Circuit",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.6,
     "hours": null,
@@ -11087,7 +11087,7 @@
   {
     "id": 350,
     "name": "Myrtle Gully Circuit",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 8.6,
     "hours": null,
@@ -11111,7 +11111,7 @@
     "lga": "Baw Baw",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Bruntons Bridge Walk\n0.205 km · Under 1 hour"
   },
   {
@@ -11171,7 +11171,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Redwoods Walk\n0.6 km · Under 1 hour"
   },
   {
@@ -11231,7 +11231,7 @@
     "lga": "Benalla",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Link trail to Rocky Ned Falls Walk\n0.19 km · Under 1 hour"
   },
   {
@@ -11282,7 +11282,7 @@
   {
     "id": 355,
     "name": "Rocky Knob",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.8,
     "hours": null,
@@ -11291,13 +11291,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Rocky Knob\n0.8 km · Under 1 hour"
   },
   {
     "id": 355,
     "name": "Rocky Knob",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.8,
     "hours": null,
@@ -11312,7 +11312,7 @@
   {
     "id": 355,
     "name": "Rocky Knob",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.8,
     "hours": null,
@@ -11327,7 +11327,7 @@
   {
     "id": 355,
     "name": "Rocky Knob",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 0.8,
     "hours": null,
@@ -11342,7 +11342,7 @@
   {
     "id": 357,
     "name": "Enoch Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.4,
     "hours": null,
@@ -11351,13 +11351,13 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 50,
+    "position": 40,
     "annotation": "Enoch Falls Walk\n1.4 km · Under 1 hour"
   },
   {
     "id": 357,
     "name": "Enoch Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.4,
     "hours": null,
@@ -11372,7 +11372,7 @@
   {
     "id": 357,
     "name": "Enoch Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.4,
     "hours": null,
@@ -11387,7 +11387,7 @@
   {
     "id": 357,
     "name": "Enoch Falls Walk",
-    "grade": "Grade 3",
+    "grade": "C3",
     "track_code": "C3",
     "length_km": 1.4,
     "hours": null,
@@ -11411,7 +11411,7 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Goulburn River Walk\n0.5 km · Under 1 hour"
   },
   {
@@ -11462,7 +11462,7 @@
   {
     "id": 361,
     "name": "Lower Howqua Feeder Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 10.4,
     "hours": null,
@@ -11471,13 +11471,13 @@
     "lga": "Mansfield",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 100,
+    "position": 80,
     "annotation": "Lower Howqua Feeder Walking Track\n10.4 km · Over 4 hours"
   },
   {
     "id": 361,
     "name": "Lower Howqua Feeder Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 10.4,
     "hours": null,
@@ -11492,7 +11492,7 @@
   {
     "id": 361,
     "name": "Lower Howqua Feeder Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 10.4,
     "hours": null,
@@ -11507,7 +11507,7 @@
   {
     "id": 361,
     "name": "Lower Howqua Feeder Walking Track",
-    "grade": "Grade 5",
+    "grade": "C5",
     "track_code": "C5",
     "length_km": 10.4,
     "hours": null,
@@ -11522,7 +11522,7 @@
   {
     "id": 362,
     "name": "Easy Magic Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.6,
     "hours": null,
@@ -11531,13 +11531,13 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": 25,
+    "position": 20,
     "annotation": "Easy Magic Walk\n0.6 km · Under 1 hour"
   },
   {
     "id": 362,
     "name": "Easy Magic Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.6,
     "hours": null,
@@ -11552,7 +11552,7 @@
   {
     "id": 362,
     "name": "Easy Magic Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.6,
     "hours": null,
@@ -11567,7 +11567,7 @@
   {
     "id": 362,
     "name": "Easy Magic Walk",
-    "grade": "Grade 2",
+    "grade": "C2",
     "track_code": "C2",
     "length_km": 0.6,
     "hours": null,
@@ -11591,7 +11591,7 @@
     "lga": "Murrindindi",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Cassinia Sec Link Track\n0.35 km · Under 1 hour"
   },
   {
@@ -11651,7 +11651,7 @@
     "lga": "East Gippsland",
     "closure": "Not recorded",
     "axis": 0,
-    "position": -15,
+    "position": -30,
     "annotation": "Donkey Orchid walk\n4.5 km · 1–4 hours"
   },
   {

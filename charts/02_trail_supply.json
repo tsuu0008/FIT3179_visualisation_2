@@ -8,7 +8,7 @@
   },
   "background": null,
   "data": {
-    "url": "data/lga.geojson?v=51221f0590b5",
+    "url": "data/lga.geojson?v=c1c375501f56",
     "format": {
       "type": "json",
       "property": "features"
@@ -33,7 +33,7 @@
     },
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
+      "expr": "[145.46902564999868,-36.61327398827786,0.15732980049501755,0.11261417469557167]"
     }
   ],
   "projection": {
@@ -130,7 +130,7 @@
     },
     {
       "data": {
-        "url": "data/lga.geojson?v=51221f0590b5",
+        "url": "data/lga.geojson?v=c1c375501f56",
         "format": {
           "type": "json",
           "property": "features"
@@ -150,7 +150,7 @@
     },
     {
       "data": {
-        "url": "data/lga.geojson?v=51221f0590b5",
+        "url": "data/lga.geojson?v=c1c375501f56",
         "format": {
           "type": "json",
           "property": "features"
@@ -181,7 +181,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -238,7 +238,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -311,7 +311,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -364,7 +364,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -392,7 +392,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -449,7 +449,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -522,7 +522,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -575,7 +575,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -795,7 +795,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -845,7 +845,7 @@
           "lookup": "region_name",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [

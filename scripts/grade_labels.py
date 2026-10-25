@@ -1,15 +1,10 @@
-"""Plain-language display labels; raw walking-grade values remain unchanged.
+"""Preserve each published W_GRADE code as a separate display category.
 
-This is a documented label normalisation, not a new AWTGS assessment. C6 has
-no public Grade 6 counterpart and stays Unclassified rather than being reassigned.
+No public AWTGS grade or difficulty is inferred from a source code.
 """
-GRADES = [f'Grade {i}' for i in range(1, 6)] + ['Unclassified', 'Unknown']
-GRADE_COLOURS = ['#0072B2', '#E69F00', '#009E73', '#CC79A7', '#252525', '#6f52a3', '#9daca9']
+GRADES = [f'C{i}' for i in range(1, 7)] + ['3', 'Unknown']
+GRADE_COLOURS = ['#0072B2', '#E69F00', '#009E73', '#CC79A7', '#252525', '#6f52a3', '#985d3f', '#9daca9']
 
 
 def grade_label(value):
-    if value in [None, '', 'Unknown']:
-        return 'Unknown'
-    if value == 'C6':
-        return 'Unclassified'
-    return {**{f'C{i}': f'Grade {i}' for i in range(1, 6)}, '3': 'Grade 3'}[value]
+    return 'Unknown' if value in [None, '', 'Unknown'] else str(value)
