@@ -1,0 +1,1186 @@
+{
+  "status": "verified-official-ABS-2025-boundaries",
+  "boundary_year": 2025,
+  "download": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
+  "archive_sha256": "acc3015a0ac78ade978c41a2e4110269b5219b60d6a56cbb70393ae647f31b15",
+  "checked_date": "2026-10-25",
+  "input_crs": "EPSG:7844 (GDA2020)",
+  "display_crs": "EPSG:4326",
+  "simplification": "100 metres in EPSG:3111, preserve_topology=True; display geometry only, coordinates rounded to 6 decimal places",
+  "assignment": "Unsimplified official polygon covering each retained route midpoint",
+  "council_count": 80,
+  "assigned_routes": 195,
+  "assignment_changes": [],
+  "assignments": [
+    {
+      "id": 1,
+      "name": "MCG",
+      "lga_code": "24600",
+      "lga": "Melbourne"
+    },
+    {
+      "id": 20,
+      "name": "Red White And Blue Walk",
+      "lga_code": "25430",
+      "lga": "Mount Alexander"
+    },
+    {
+      "id": 22,
+      "name": "Fiery Loop",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 23,
+      "name": "Pyrenees Endurance Walk",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 24,
+      "name": "Beeripmo Walk",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 25,
+      "name": "Werribee River Walk",
+      "lga_code": "25150",
+      "lga": "Moorabool"
+    },
+    {
+      "id": 26,
+      "name": "Battery Dam Historical Walk",
+      "lga_code": "21670",
+      "lga": "Central Goldfields"
+    },
+    {
+      "id": 27,
+      "name": "Pipeline Walk",
+      "lga_code": "25430",
+      "lga": "Mount Alexander"
+    },
+    {
+      "id": 28,
+      "name": "Great Dividing Trail",
+      "lga_code": "25150",
+      "lga": "Moorabool"
+    },
+    {
+      "id": 29,
+      "name": "Summit Walk",
+      "lga_code": "27070",
+      "lga": "Whittlesea"
+    },
+    {
+      "id": 30,
+      "name": "Sunday Creek Walk",
+      "lga_code": "24850",
+      "lga": "Mitchell"
+    },
+    {
+      "id": 31,
+      "name": "Koondrook Red Gum Forest Walk - Eagle Loop",
+      "lga_code": "22250",
+      "lga": "Gannawarra"
+    },
+    {
+      "id": 32,
+      "name": "Reids Tramline Walk",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 33,
+      "name": "Horseshoe Bend Tunnel",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 34,
+      "name": "Beauty Spot Nature Trail Long Loop",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 35,
+      "name": "Gilberts Gully Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 36,
+      "name": "Keppel Lookout Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 37,
+      "name": "Michaeldene",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 38,
+      "name": "Wirrawilla",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 39,
+      "name": "Wilhelmina Falls",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 40,
+      "name": "Steavenson Falls Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 41,
+      "name": "Sculpture Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 42,
+      "name": "Yea River Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 43,
+      "name": "Walk Into History",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 44,
+      "name": "Water Race Walk",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 45,
+      "name": "Plain Creek Loop Walk",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 46,
+      "name": "Forest Camp",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 47,
+      "name": "Mt Timbertop Walking Track",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 48,
+      "name": "Nicholson Rocks Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 49,
+      "name": "Avon River Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 50,
+      "name": "Granite Creek",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 51,
+      "name": "Fern Gully Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 52,
+      "name": "Black Snake Creek Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 53,
+      "name": "Memorial Arboretum Walk",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 54,
+      "name": "Lima Falls",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 55,
+      "name": "Reform Hill Lookout Loop",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 56,
+      "name": "Bakers Gully Reservoirs Lower Loop",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 57,
+      "name": "Reform Hill Mining Loop",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 58,
+      "name": "Apex Lookout Walk",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 59,
+      "name": "Rockpools",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 60,
+      "name": "Berry Farm Loop",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 61,
+      "name": "Mcleans Loop",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 62,
+      "name": "Slaughter Walking Track",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 63,
+      "name": "Youngs Creek Falls",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 64,
+      "name": "Youngs Creek Loop",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 65,
+      "name": "Delegate River Tunnel",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 66,
+      "name": "Beauty Spot Nature Trail Short Loop",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 67,
+      "name": "Marlo Walking Track Network",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 68,
+      "name": "Big Billy Bore Track",
+      "lga_code": "24780",
+      "lga": "Mildura"
+    },
+    {
+      "id": 69,
+      "name": "Orbost North Walking Track",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 70,
+      "name": "Coopers Creek River Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 71,
+      "name": "Reform Hill Poverty Reef Loop",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 72,
+      "name": "Store Point Historic Loop",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 73,
+      "name": "Annya Walk",
+      "lga_code": "22410",
+      "lga": "Glenelg"
+    },
+    {
+      "id": 74,
+      "name": "Rubicon Dam Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 75,
+      "name": "Thowgla Falls Walking Track",
+      "lga_code": "26670",
+      "lga": "Towong"
+    },
+    {
+      "id": 76,
+      "name": "Pioneer Sawmill Loop Walk",
+      "lga_code": "25150",
+      "lga": "Moorabool"
+    },
+    {
+      "id": 77,
+      "name": "Toorongo Falls Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 103,
+      "name": "Richards Tramline",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 105,
+      "name": "Choof Choof",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 107,
+      "name": "Koondrook Red Gum Forest Walk - Turtle Loop",
+      "lga_code": "22250",
+      "lga": "Gannawarra"
+    },
+    {
+      "id": 109,
+      "name": "Avro Anson Memorial Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 112,
+      "name": "Douglas Reserve Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 113,
+      "name": "Historic Youngs Creek Reservoir",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 119,
+      "name": "Mill Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 123,
+      "name": "Bentley Plain Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 131,
+      "name": "Lima East Boulders Walk",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 132,
+      "name": "Casuarina",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 133,
+      "name": "Meringtons Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 134,
+      "name": "Red Jacket Cemetery Access Track",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 135,
+      "name": "Forest Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 136,
+      "name": "Ralph Cornwall Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 138,
+      "name": "Klingsporn Bridle Track",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 139,
+      "name": "Poverty Point Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 140,
+      "name": "Goughs Bay Lookout",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 141,
+      "name": "Toorongo River Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 142,
+      "name": "Cascades Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 143,
+      "name": "Plain Creek Tramway Bridge Walk",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 145,
+      "name": "Whalers Lookout Walking Track",
+      "lga_code": "22410",
+      "lga": "Glenelg"
+    },
+    {
+      "id": 146,
+      "name": "Morning Star Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 151,
+      "name": "Huggins Lookout Walk",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 155,
+      "name": "Ada Tree Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 157,
+      "name": "Star Of West Goldmine Walk",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 159,
+      "name": "Mitchells Bridle Trail",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 164,
+      "name": "Redwoods Boardwalk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 166,
+      "name": "Pipe Gully Walk",
+      "lga_code": "25810",
+      "lga": "Northern Grampians"
+    },
+    {
+      "id": 170,
+      "name": "Richards Tramline Link",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 171,
+      "name": "Link track between picnic area and campground",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 174,
+      "name": "Valley Walk",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 176,
+      "name": "Moolerr Nature Drive",
+      "lga_code": "25810",
+      "lga": "Northern Grampians"
+    },
+    {
+      "id": 177,
+      "name": "Cicada Circuit Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 178,
+      "name": "Borella Walk",
+      "lga_code": "20260",
+      "lga": "Ararat"
+    },
+    {
+      "id": 181,
+      "name": "Stringybark Creek Historic Loop",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 182,
+      "name": "Valley View Walk",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 185,
+      "name": "Stringybark Creek Linking Track",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 187,
+      "name": "Little Cabbage Tree Creek Falls",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 189,
+      "name": "Red Gums Walk Middle",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 195,
+      "name": "Mt Torbreck Summit Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 196,
+      "name": "Grevillea Walk",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 198,
+      "name": "Bakers Gully Reservoirs Upper Loop",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 200,
+      "name": "Hermans Hill Walking Track",
+      "lga_code": "22980",
+      "lga": "Hindmarsh"
+    },
+    {
+      "id": 202,
+      "name": "Kalatha Giant Tree Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 203,
+      "name": "Strath Creek Falls Walk",
+      "lga_code": "24850",
+      "lga": "Mitchell"
+    },
+    {
+      "id": 204,
+      "name": "La La Falls",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 206,
+      "name": "Bindaree Falls",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 208,
+      "name": "Bullockys Grave Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 209,
+      "name": "New Federal Mill Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 210,
+      "name": "Loves Creek Walk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 211,
+      "name": "Elevator",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 212,
+      "name": "Drummer Rainforest Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 213,
+      "name": "Latrobe River Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 214,
+      "name": "Yackandandah Creek Trail",
+      "lga_code": "23350",
+      "lga": "Indigo"
+    },
+    {
+      "id": 217,
+      "name": "Waterhole Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 219,
+      "name": "Hanging Rock Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 220,
+      "name": "Crinoline Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 221,
+      "name": "Limestone Box Forest Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 222,
+      "name": "Explosive Magazine Loop",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 223,
+      "name": "Alistair Fielding Walk",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 224,
+      "name": "Deep Gully Walk",
+      "lga_code": "26670",
+      "lga": "Towong"
+    },
+    {
+      "id": 225,
+      "name": "Freestone Creek Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 226,
+      "name": "Short Basin Walk",
+      "lga_code": "25810",
+      "lga": "Northern Grampians"
+    },
+    {
+      "id": 228,
+      "name": "Tubal Cain Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 231,
+      "name": "Noorinbee",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 233,
+      "name": "Rocky Ned Falls Walk",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 235,
+      "name": "Access track to Stevensons Falls and day visitor area",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 236,
+      "name": "Reed walking track",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 238,
+      "name": "Toombon Historic Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 239,
+      "name": "Murrindindi River Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 240,
+      "name": "Birnam Walk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 243,
+      "name": "Red Gums Walk North Block",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 244,
+      "name": "Nowa Nowa Walk Banksia Boulevard",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 251,
+      "name": "Tanjil Bren Tramway Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 255,
+      "name": "Noojee Rail Trail",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 256,
+      "name": "Anderson Mill Walk",
+      "lga_code": "24130",
+      "lga": "Macedon Ranges"
+    },
+    {
+      "id": 257,
+      "name": "Stevensons Falls Walk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 258,
+      "name": "Whipstick Loop",
+      "lga_code": "25150",
+      "lga": "Moorabool"
+    },
+    {
+      "id": 260,
+      "name": "Junction Walking Track",
+      "lga_code": "25430",
+      "lga": "Mount Alexander"
+    },
+    {
+      "id": 261,
+      "name": "Okeefe Rail Trail - Longlea",
+      "lga_code": "22620",
+      "lga": "Greater Bendigo"
+    },
+    {
+      "id": 264,
+      "name": "Craigs Hut Walking Track",
+      "lga_code": "29399",
+      "lga": "Unincorporated Vic"
+    },
+    {
+      "id": 266,
+      "name": "Mount Hedrick Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 267,
+      "name": "Linton Firefighter Memorial Walk",
+      "lga_code": "22490",
+      "lga": "Golden Plains"
+    },
+    {
+      "id": 275,
+      "name": "Bull Gully Rock Wells Walk",
+      "lga_code": "21670",
+      "lga": "Central Goldfields"
+    },
+    {
+      "id": 277,
+      "name": "Waanyarra Walk",
+      "lga_code": "23940",
+      "lga": "Loddon"
+    },
+    {
+      "id": 278,
+      "name": "Bilstons Tree Walk",
+      "lga_code": "22410",
+      "lga": "Glenelg"
+    },
+    {
+      "id": 279,
+      "name": "Kerami Link Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 280,
+      "name": "Upper Yarra Walking Track",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 281,
+      "name": "Lerderderg Heritage River Walk",
+      "lga_code": "25150",
+      "lga": "Moorabool"
+    },
+    {
+      "id": 282,
+      "name": "Track Ninety Six",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 283,
+      "name": "Red Gums Walk South Block",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 285,
+      "name": "Paradise Walk",
+      "lga_code": "25990",
+      "lga": "Pyrenees"
+    },
+    {
+      "id": 287,
+      "name": "River Walk",
+      "lga_code": "26670",
+      "lga": "Towong"
+    },
+    {
+      "id": 288,
+      "name": "Kendalls Link Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 289,
+      "name": "Plane Crash Loop",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 290,
+      "name": "Reform Hill Monument Walk",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 292,
+      "name": "Wilks Creek Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 295,
+      "name": "Red Jacket Relics Access Track",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 299,
+      "name": "Bates Dam Historic Walk",
+      "lga_code": "23350",
+      "lga": "Indigo"
+    },
+    {
+      "id": 301,
+      "name": "Snobs Banyarmbite Falls",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 302,
+      "name": "Bodens Water Race",
+      "lga_code": "22490",
+      "lga": "Golden Plains"
+    },
+    {
+      "id": 303,
+      "name": "Mt Welcome Hike",
+      "lga_code": "26670",
+      "lga": "Towong"
+    },
+    {
+      "id": 304,
+      "name": "Tanglefoot Loop",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 308,
+      "name": "Wirilda Walking Track",
+      "lga_code": "23810",
+      "lga": "Latrobe (Vic.)"
+    },
+    {
+      "id": 312,
+      "name": "Moonee Creek Walking Track",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 314,
+      "name": "Plain Creek Waterfall",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 315,
+      "name": "Wail Scenic Loop",
+      "lga_code": "23190",
+      "lga": "Horsham"
+    },
+    {
+      "id": 318,
+      "name": "Rocky Ned",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 319,
+      "name": "Beauchamp Falls Walk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 321,
+      "name": "Rubicon Heritage Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 322,
+      "name": "Richards Curves Walk",
+      "lga_code": "27450",
+      "lga": "Yarra Ranges"
+    },
+    {
+      "id": 324,
+      "name": "Gippsland Lakes Discovery Trail",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 325,
+      "name": "The Channel Loop Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 329,
+      "name": "Wail Trail",
+      "lga_code": "23190",
+      "lga": "Horsham"
+    },
+    {
+      "id": 330,
+      "name": "Montane Walking Track",
+      "lga_code": "20110",
+      "lga": "Alpine"
+    },
+    {
+      "id": 332,
+      "name": "Falls Creek Memorial",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 335,
+      "name": "Red Hill Trail",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 338,
+      "name": "Boroondara Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 339,
+      "name": "Dustys Lookout",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 340,
+      "name": "Blue Spruce Walk",
+      "lga_code": "21750",
+      "lga": "Colac Otway"
+    },
+    {
+      "id": 341,
+      "name": "Howqua River Walking Track",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 343,
+      "name": "Green Hills Walking Track",
+      "lga_code": "26810",
+      "lga": "Wellington"
+    },
+    {
+      "id": 344,
+      "name": "Mountain Monarchs Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 346,
+      "name": "Tree Fern Gully",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 348,
+      "name": "Seven Acre Rock Walk",
+      "lga_code": "21450",
+      "lga": "Cardinia"
+    },
+    {
+      "id": 349,
+      "name": "Berrook Walk",
+      "lga_code": "24780",
+      "lga": "Mildura"
+    },
+    {
+      "id": 350,
+      "name": "Myrtle Gully Circuit",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 351,
+      "name": "Bruntons Bridge Walk",
+      "lga_code": "20830",
+      "lga": "Baw Baw"
+    },
+    {
+      "id": 352,
+      "name": "Redwoods Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 354,
+      "name": "Link trail to Rocky Ned Falls Walk",
+      "lga_code": "21010",
+      "lga": "Benalla"
+    },
+    {
+      "id": 355,
+      "name": "Rocky Knob",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 357,
+      "name": "Enoch Falls Walk",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 358,
+      "name": "Goulburn River Walk",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 361,
+      "name": "Lower Howqua Feeder Walking Track",
+      "lga_code": "24250",
+      "lga": "Mansfield"
+    },
+    {
+      "id": 362,
+      "name": "Easy Magic Walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    },
+    {
+      "id": 363,
+      "name": "Cassinia Sec Link Track",
+      "lga_code": "25620",
+      "lga": "Murrindindi"
+    },
+    {
+      "id": 364,
+      "name": "Donkey Orchid walk",
+      "lga_code": "22110",
+      "lga": "East Gippsland"
+    }
+  ]
+}

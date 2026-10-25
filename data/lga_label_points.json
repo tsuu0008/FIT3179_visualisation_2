@@ -1,488 +1,488 @@
 [
   {
-    "name": "Mildura",
-    "lon": 141.68226418716262,
-    "lat": -34.86938924324825,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Colac Otway",
-    "lon": 143.59509621108995,
-    "lat": -38.45200627397633,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Nillumbik",
-    "lon": 145.23662626008965,
-    "lat": -37.623287731524705,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Golden Plains",
-    "lon": 143.84244377565014,
-    "lat": -37.88237715811811,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Central Goldfields",
-    "lon": 143.71361349107926,
-    "lat": -37.00733341076212,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Yarra",
-    "lon": 144.99899524111603,
-    "lat": -37.801486443196964,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Greater Bendigo",
-    "lon": 144.4225808936897,
-    "lat": -36.734442960926664,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Manningham",
-    "lon": 145.18778760772196,
-    "lat": -37.76193314797773,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Benalla",
-    "lon": 146.02374368125356,
-    "lat": -36.58718253366685,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Greater Dandenong",
-    "lon": 145.189743664837,
-    "lat": -38.005540801356666,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Banyule",
-    "lon": 145.08534877781656,
-    "lat": -37.73073340426088,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Wellington",
-    "lon": 146.92179779505477,
-    "lat": -37.886664599474116,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Whitehorse",
-    "lon": 145.1545066287694,
-    "lat": -37.82983246158645,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Hepburn",
-    "lon": 144.05789099153822,
-    "lat": -37.31661368764936,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "South Gippsland",
-    "lon": 146.07578416687986,
-    "lat": -38.62173723400853,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Campaspe",
-    "lon": 144.7165859804183,
-    "lat": -36.3450924796862,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Knox",
-    "lon": 145.25938193949295,
-    "lat": -37.888512896087526,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Wyndham",
-    "lon": 144.6182821499996,
-    "lat": -37.886760877095355,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Queenscliffe",
-    "lon": 144.62969265740762,
-    "lat": -38.273486035529494,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Melton",
-    "lon": 144.6260016624878,
-    "lat": -37.69265746548391,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Greater Shepparton",
-    "lon": 145.38630523844807,
-    "lat": -36.396911047153,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Greater Geelong",
-    "lon": 144.41748862610663,
-    "lat": -38.069177343739675,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Mansfield",
-    "lon": 146.2101308233564,
-    "lat": -37.19957142830404,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Southern Grampians",
-    "lon": 142.0330693683908,
-    "lat": -37.5362959424121,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Merri-bek",
-    "lon": 144.94921671682883,
-    "lat": -37.73115973175803,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Gannawarra",
-    "lon": 143.80410483503357,
-    "lat": -35.751631065229425,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Buloke",
-    "lon": 143.00484176951736,
-    "lat": -35.9126200160596,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Moyne",
-    "lon": 142.48994439215429,
-    "lat": -38.12254891323225,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Pyrenees",
-    "lon": 143.37490116232107,
-    "lat": -37.3160517946628,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Melbourne",
-    "lon": 144.94449627045788,
-    "lat": -37.811160904956374,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Horsham",
-    "lon": 142.09011601125823,
-    "lat": -36.82577935456869,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Northern Grampians",
-    "lon": 142.9192387300137,
-    "lat": -36.84476358098373,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Hobsons Bay",
-    "lon": 144.82988105057535,
-    "lat": -37.85443565353236,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Moorabool",
-    "lon": 144.21553454736116,
-    "lat": -37.63268726525404,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "West Wimmera",
-    "lon": 141.27933057634348,
-    "lat": -36.67580621287184,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Latrobe (Vic.)",
-    "lon": 146.43851653765117,
-    "lat": -38.27442328592298,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Glenelg",
-    "lon": 141.38593937183052,
-    "lat": -37.870657878592326,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Cardinia",
-    "lon": 145.57266226053255,
-    "lat": -38.08293430163143,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Stonnington",
-    "lon": 145.03413041423457,
-    "lat": -37.85890821663278,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Casey",
-    "lon": 145.30902650719509,
-    "lat": -38.104134854579165,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Mitchell",
-    "lon": 145.0014970426465,
-    "lat": -37.13759968097488,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Mornington Peninsula",
-    "lon": 145.0355974125468,
-    "lat": -38.34172062537077,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Kingston (Vic.)",
-    "lon": 145.10494656821422,
-    "lat": -37.9893829218462,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Maroondah",
-    "lon": 145.26545290414572,
-    "lat": -37.80445662200737,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Glen Eira",
-    "lon": 145.0426683539769,
-    "lat": -37.9019371488888,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Unincorporated Vic",
-    "lon": 145.36517817026976,
-    "lat": -38.350032633046254,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Boroondara",
-    "lon": 145.06363363084841,
-    "lat": -37.81951007816813,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Macedon Ranges",
-    "lon": 144.6171622176889,
-    "lat": -37.3357678984555,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Loddon",
-    "lon": 143.8669871203274,
-    "lat": -36.36408931699385,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Strathbogie",
-    "lon": 145.4344475109533,
-    "lat": -36.760511200795854,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Monash",
-    "lon": 145.14402796909383,
-    "lat": -37.897101774558564,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Brimbank",
-    "lon": 144.80341196482908,
-    "lat": -37.74721065350558,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Murrindindi",
-    "lon": 145.63006191166687,
-    "lat": -37.311101299761226,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
     "name": "Alpine",
-    "lon": 146.97611081052997,
-    "lat": -36.8543800956886,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Bayside (Vic.)",
-    "lon": 145.0181179256126,
-    "lat": -37.94264284789063,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Moonee Valley",
-    "lon": 144.8965427772002,
-    "lat": -37.74989212678251,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Towong",
-    "lon": 147.59902500140865,
-    "lat": -36.35445334973624,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Baw Baw",
-    "lon": 146.131498526586,
-    "lat": -37.98398067905423,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Frankston",
-    "lon": 145.17318780744765,
-    "lat": -38.134717631450286,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Port Phillip",
-    "lon": 144.96561040556583,
-    "lat": -37.85171451494443,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Swan Hill",
-    "lon": 143.1254545008762,
-    "lat": -35.11979991208183,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Wodonga",
-    "lon": 146.88171343603466,
-    "lat": -36.150138339893964,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Maribyrnong",
-    "lon": 144.8783941746806,
-    "lat": -37.79493887473436,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Yarriambiack",
-    "lon": 142.41880183219075,
-    "lat": -35.9903420496507,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Surf Coast",
-    "lon": 144.05307540839482,
-    "lat": -38.31227526400401,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Warrnambool",
-    "lon": 142.51130478748593,
-    "lat": -38.37122676460449,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Corangamite",
-    "lon": 143.19851086056073,
-    "lat": -38.204328181095626,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Hindmarsh",
-    "lon": 141.75258960692975,
-    "lat": -36.051622705197566,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Hume",
-    "lon": 144.8240864382531,
-    "lat": -37.58880681815976,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Moira",
-    "lon": 145.5501089079358,
-    "lat": -36.06171277284382,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Whittlesea",
-    "lon": 145.07750944407894,
-    "lat": -37.54736242159483,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Ballarat",
-    "lon": 143.78125475371397,
-    "lat": -37.49264159317044,
+    "lon": 146.97610370152483,
+    "lat": -36.85440383472869,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
     "name": "Ararat",
-    "lon": 142.84308715517446,
-    "lat": -37.47281727676278,
+    "lon": 142.84318841613265,
+    "lat": -37.47272093652573,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
-    "name": "Wangaratta",
-    "lon": 146.42840447353498,
-    "lat": -36.587958313778024,
+    "name": "Ballarat",
+    "lon": 143.7814118539666,
+    "lat": -37.492823710675836,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
-    "name": "Darebin",
-    "lon": 145.01425785142456,
-    "lat": -37.7333149172577,
-    "meaning": "Interior anchor for a regional label, not a trail location"
-  },
-  {
-    "name": "Yarra Ranges",
-    "lon": 145.69659148705705,
-    "lat": -37.71450408917292,
+    "name": "Banyule",
+    "lon": 145.08511991438598,
+    "lat": -37.730446284370636,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
     "name": "Bass Coast",
-    "lon": 145.59985602432758,
-    "lat": -38.50955884779793,
+    "lon": 145.59974541202493,
+    "lat": -38.50941691590427,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
-    "name": "Indigo",
-    "lon": 146.72330400823634,
-    "lat": -36.22556877026872,
+    "name": "Baw Baw",
+    "lon": 146.13165354731674,
+    "lat": -37.98381160974153,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
-    "name": "Mount Alexander",
-    "lon": 144.1934579361994,
-    "lat": -37.050843621312346,
+    "name": "Bayside (Vic.)",
+    "lon": 145.0181519995103,
+    "lat": -37.942181306191756,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Benalla",
+    "lon": 146.02377287377004,
+    "lat": -36.58701421384075,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Boroondara",
+    "lon": 145.06305766326238,
+    "lat": -37.81930966671518,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Brimbank",
+    "lon": 144.8033945026621,
+    "lat": -37.747486115249885,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Buloke",
+    "lon": 143.00485525612825,
+    "lat": -35.91247395258928,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Campaspe",
+    "lon": 144.71640042731082,
+    "lat": -36.34515633171854,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Cardinia",
+    "lon": 145.57271710848315,
+    "lat": -38.08302071865606,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Casey",
+    "lon": 145.30905220256454,
+    "lat": -38.10428767300291,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Central Goldfields",
+    "lon": 143.71381574746366,
+    "lat": -37.007134380255536,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Colac Otway",
+    "lon": 143.5951000759303,
+    "lat": -38.45190095611867,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Corangamite",
+    "lon": 143.19856810902914,
+    "lat": -38.20434487363863,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Darebin",
+    "lon": 145.01428443472668,
+    "lat": -37.73347807027087,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
     "name": "East Gippsland",
-    "lon": 148.29235722038374,
-    "lat": -37.377997687975196,
+    "lon": 148.29387964717452,
+    "lat": -37.377450630963345,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Frankston",
+    "lon": 145.1737193329357,
+    "lat": -38.13468495069089,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Gannawarra",
+    "lon": 143.8040360960592,
+    "lat": -35.75149120775519,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Glen Eira",
+    "lon": 145.04260812504853,
+    "lat": -37.90115700225005,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Glenelg",
+    "lon": 141.38562936563054,
+    "lat": -37.87050858781105,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Golden Plains",
+    "lon": 143.84249020034753,
+    "lat": -37.88206384298869,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Greater Bendigo",
+    "lon": 144.4227324234857,
+    "lat": -36.7344186922147,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Greater Dandenong",
+    "lon": 145.19000771184562,
+    "lat": -38.0057756598039,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Greater Geelong",
+    "lon": 144.41722976838253,
+    "lat": -38.068989746706386,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Greater Shepparton",
+    "lon": 145.38628848406097,
+    "lat": -36.397054684689344,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Hepburn",
+    "lon": 144.0576041315424,
+    "lat": -37.31696804955046,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Hindmarsh",
+    "lon": 141.75248826300336,
+    "lat": -36.05149840368771,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Hobsons Bay",
+    "lon": 144.82976521691606,
+    "lat": -37.854727623396236,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Horsham",
+    "lon": 142.0904412633499,
+    "lat": -36.82572451542592,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Hume",
+    "lon": 144.8245698655004,
+    "lat": -37.58910234152393,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Indigo",
+    "lon": 146.723053778654,
+    "lat": -36.2254790432292,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Kingston (Vic.)",
+    "lon": 145.1051159820591,
+    "lat": -37.98871739536299,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Knox",
+    "lon": 145.25866254359642,
+    "lat": -37.8889496218551,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Latrobe (Vic.)",
+    "lon": 146.43808975698602,
+    "lat": -38.27457905955368,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Loddon",
+    "lon": 143.86714640124228,
+    "lat": -36.36388230085259,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Macedon Ranges",
+    "lon": 144.6165929019783,
+    "lat": -37.33562076374024,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Manningham",
+    "lon": 145.18853786810143,
+    "lat": -37.76158546116799,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Mansfield",
+    "lon": 146.21010705137135,
+    "lat": -37.19950109466147,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Maribyrnong",
+    "lon": 144.87774386463366,
+    "lat": -37.79517229769319,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Maroondah",
+    "lon": 145.26528871697076,
+    "lat": -37.80489125714564,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Melbourne",
+    "lon": 144.94381996577903,
+    "lat": -37.810591824722465,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Melton",
+    "lon": 144.62584282089597,
+    "lat": -37.69293897281794,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Merri-bek",
+    "lon": 144.94893927520084,
+    "lat": -37.729978756979456,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Mildura",
+    "lon": 141.68257004056102,
+    "lat": -34.86912544726396,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Mitchell",
+    "lon": 145.00162316456863,
+    "lat": -37.137538802189994,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Moira",
+    "lon": 145.55027834342278,
+    "lat": -36.06186452337551,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Monash",
+    "lon": 145.1438175349728,
+    "lat": -37.897038816284784,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Moonee Valley",
+    "lon": 144.89582749145708,
+    "lat": -37.74949965298039,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Moorabool",
+    "lon": 144.21556604593616,
+    "lat": -37.63270689002906,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Mornington Peninsula",
+    "lon": 145.0349169358003,
+    "lat": -38.34177864236466,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Mount Alexander",
+    "lon": 144.19290869427286,
+    "lat": -37.05076425134299,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Moyne",
+    "lon": 142.49006113245065,
+    "lat": -38.122457333156575,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Murrindindi",
+    "lon": 145.63004417967855,
+    "lat": -37.31099758708114,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Nillumbik",
+    "lon": 145.2368141839249,
+    "lat": -37.622873630616205,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Northern Grampians",
+    "lon": 142.9196364932561,
+    "lat": -36.84463361665195,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Port Phillip",
+    "lon": 144.96604120613569,
+    "lat": -37.85203032591054,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Pyrenees",
+    "lon": 143.37501981673628,
+    "lat": -37.31644586406502,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Queenscliffe",
+    "lon": 144.63048274077698,
+    "lat": -38.272701407107036,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "South Gippsland",
+    "lon": 146.0759966843382,
+    "lat": -38.62140146933589,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Southern Grampians",
+    "lon": 142.0330443683362,
+    "lat": -37.536535764242856,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Stonnington",
+    "lon": 145.03357236257617,
+    "lat": -37.857979696767394,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Strathbogie",
+    "lon": 145.43487123070165,
+    "lat": -36.760318976810574,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Surf Coast",
+    "lon": 144.0531086903931,
+    "lat": -38.31229125142541,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Swan Hill",
+    "lon": 143.12542851726414,
+    "lat": -35.12010646447778,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Towong",
+    "lon": 147.5988627670718,
+    "lat": -36.35434566252389,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Wangaratta",
+    "lon": 146.42845292632697,
+    "lat": -36.588232655215656,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Warrnambool",
+    "lon": 142.51183851925757,
+    "lat": -38.37150061874894,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Wellington",
+    "lon": 146.9221801461421,
+    "lat": -37.886496355654224,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "West Wimmera",
+    "lon": 141.27923449291347,
+    "lat": -36.67567304857052,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Whitehorse",
+    "lon": 145.15498216637988,
+    "lat": -37.83028403913058,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Whittlesea",
+    "lon": 145.07764829232056,
+    "lat": -37.5473300325911,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Wodonga",
+    "lon": 146.88246751853987,
+    "lat": -36.150433928487885,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Wyndham",
+    "lon": 144.61823578164478,
+    "lat": -37.886725596267425,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Yarra",
+    "lon": 144.9986019653079,
+    "lat": -37.80222861691042,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Yarra Ranges",
+    "lon": 145.69703136976406,
+    "lat": -37.71428934933136,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Yarriambiack",
+    "lon": 142.41897866117512,
+    "lat": -35.99008863473818,
+    "meaning": "Interior anchor for a regional label, not a trail location"
+  },
+  {
+    "name": "Unincorporated Vic",
+    "lon": 145.364760692811,
+    "lat": -38.35001272690433,
     "meaning": "Interior anchor for a regional label, not a trail location"
   },
   {
     "name": "Victoria",
-    "lon": 144.3049586297393,
-    "lat": -36.84910716130615,
+    "lon": 144.30296941550165,
+    "lat": -36.847272502624165,
     "meaning": "Interior anchor for a regional label, not a trail location"
   }
 ]

@@ -37,7 +37,7 @@
     },
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
+      "expr": "[145.4690255,-36.61327428277062,0.1573297907211779,0.1126141803460976]"
     }
   ],
   "projection": {
@@ -55,7 +55,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson?v=51221f0590b5",
+        "url": "data/lga.geojson?v=152086eeafcf",
         "format": {
           "type": "json",
           "property": "features"
@@ -117,7 +117,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [
@@ -130,7 +130,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga.geojson?v=51221f0590b5",
+              "url": "data/lga.geojson?v=152086eeafcf",
               "format": {
                 "type": "json",
                 "property": "features"
@@ -553,7 +553,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [
@@ -682,7 +682,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [
@@ -762,7 +762,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [
@@ -1255,7 +1255,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [
@@ -1339,7 +1339,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=f4538861d1ab"
             },
             "key": "name",
             "fields": [

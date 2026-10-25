@@ -1,6 +1,6 @@
 # Walking the Uneven Map: Finding a Walk in Victoria
 
-**Author:** Tony Su · **Unit:** FIT3179 · **Updated:** 23 October 2026
+**Author:** Tony Su · **Unit:** FIT3179 · **Updated:** 25 October 2026
 
 **Website:** https://tsuu0008.github.io/FIT3179_visualisation_2/
 
@@ -22,7 +22,7 @@ Australian Bureau of Statistics population estimates at 30 June 2025 provide a s
 
 Full official route coordinates and raw classifications are retained. C1–C5 display as Grade 1–5; numeric 3 joins Grade 3, C6 remains Unclassified, and missing grades remain Unknown. These display labels do not independently certify equivalence to public walking grades. Duration uses published categories, without invented exact times.
 
-A length-weighted route midpoint assigns each whole route to one council. Cross-boundary routes are counted once. The retained council-boundary vintage remains unverified. Fifteen of 180 access-rated routes record full or partial access; 15 unrated routes are excluded from the 8.3% figure. The repository retains the source export, population workbook, hashes and record-level audit.
+A length-weighted route midpoint assigns each whole route to one council. Cross-boundary routes are counted once. Council geometry is the official ABS Local Government Areas 2025 GDA2020 shapefile, downloaded 25 October 2026. All 195 midpoint assignments were checked against the full polygons, with no assignment changes. Display outlines are simplified by 100 metres in EPSG:3111 and transformed to longitude/latitude. Fifteen of 180 access-rated routes record full or partial access; 15 unrated routes are excluded from the 8.3% figure. The repository retains the source export, population workbook, hashes and record-level audit.
 
 ## How: tasks and design choices
 
@@ -38,7 +38,7 @@ A length-weighted route midpoint assigns each whole route to one council. Cross-
 
 There are 14 views, using Vega or Vega-Lite. Repeated statewide/regional route maps count as one idiom. Four map types, heatmap, parallel coordinates, mosaic and waffle provide eight candidate advanced idioms; final classification belongs to the teaching team. JSON specifications are linked from the page.
 
-The four numbered chapters form one scrolling presentation. Informative chart annotations state a finding and its significance; reading guides explain unfamiliar encodings. Grade colours remain consistent, and paired annotation references use circled A/B badges. Long distances use explained square-root spacing in the strip/profile views. Category spacing is not an effort scale. Filters update their own chart; static narrative describes the full network or named examples. Laptop layouts fit without horizontal page scrolling.
+The five coloured grade cards summarise observed route counts, median distances and terrain, without assuming that the source codes certify public walking-grade definitions. The four numbered chapters form one scrolling presentation. Informative chart annotations state a finding and its significance; reading guides explain unfamiliar encodings. Grade colours remain consistent, and paired annotation references use circled A/B badges. Long distances use explained square-root spacing in the strip/profile views. Category spacing is not an effort scale. Filters update their own chart; static narrative describes the full network or named examples. Laptop layouts fit without horizontal page scrolling.
 
 ## Sketch, sources and acknowledgement
 
@@ -46,7 +46,7 @@ The original hand-drawn sketch is preserved unchanged. The title, grade guide, o
 
 - [Victorian Government Recreation Tracks](https://discover.data.vic.gov.au/dataset/recreation-tracks): route observations and geometry.
 - [ABS Regional population, 2024–25](https://www.abs.gov.au/statistics/people/population/regional-population/2024-25): Table 2, column D of the LGA workbook.
-- [ABS digital boundaries](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files): boundary reference; retained vintage is unverified.
+- [ABS digital boundaries](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files): official LGA 2025 GDA2020 boundary geometry.
 - [Parks Victoria walking grades](https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated): public grade-guide context.
 - [OpenStreetMap contributors](https://www.openstreetmap.org/copyright): overview basemap, attributed beside the map.
 

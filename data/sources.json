@@ -35,8 +35,7 @@
       "trails.geojson": "a56d45f25728fee7f2358f39c224a89a70efe9e2718572aa74ecc231d1d1b670"
     },
     "limits": [
-      "Bundled LGA boundary vintage remains unverified.",
-      "Midpoint council assignment does not divide cross-boundary routes among councils.",
+      "Whole-route midpoint assignment does not split cross-boundary routes.",
       "Source classifications are preserved as published; inclusion is not a quality certification."
     ],
     "catalogue": "https://discover.data.vic.gov.au/dataset/recreation-tracks",
@@ -44,7 +43,7 @@
     "update_frequency": "Daily",
     "geometry": "Full official coordinates, without file-level simplification",
     "representative_points": "Length-weighted midpoint along official route geometry",
-    "council_assignment": "Bundled polygon containing the route midpoint; a crossing route is assigned once"
+    "council_assignment": "Unsimplified official polygon covering each retained route midpoint"
   },
   "population": {
     "status": "verified-all-80-bundled-counts-match-official-workbook",
@@ -59,10 +58,21 @@
     "audit": "source_audit.json"
   },
   "boundaries": {
-    "status": "retained-geometry-vintage-unverified",
+    "status": "verified-official-ABS-2025-boundaries",
+    "boundary_year": 2025,
+    "download": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
+    "archive_sha256": "acc3015a0ac78ade978c41a2e4110269b5219b60d6a56cbb70393ae647f31b15",
+    "checked_date": "2026-10-25",
+    "input_crs": "EPSG:7844 (GDA2020)",
+    "display_crs": "EPSG:4326",
+    "simplification": "100 metres in EPSG:3111, preserve_topology=True; display geometry only, coordinates rounded to 6 decimal places",
+    "assignment": "Unsimplified official polygon covering each retained route midpoint",
+    "council_count": 80,
+    "assigned_routes": 195,
+    "assignment_changes": [],
     "source": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files",
-    "download_for_2025": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
-    "note": "The 2025 download is a verified available source, not a verified identification of the bundled geometry."
+    "method": "scripts/refresh_boundaries.py",
+    "audit": "boundary_audit.json"
   },
   "grade_definitions": {
     "source": "https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated",
