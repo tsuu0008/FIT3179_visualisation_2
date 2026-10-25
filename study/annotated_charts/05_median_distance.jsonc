@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/trails.json?v=d0f82fb8345d"
+    "url": "data/trails.json?v=8682a4aafe0b"
   },
   "transform": [
     {
@@ -62,15 +62,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -99,15 +100,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -125,12 +127,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -140,6 +143,7 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
@@ -151,10 +155,10 @@
       "mark": {
         "type": "text",
         "align": {
-          "expr": "datum.grade === 'Grade 5' ? 'right' : 'left'"
+          "expr": "datum.grade === 'C5' ? 'right' : 'left'"
         },
         "dx": {
-          "expr": "datum.grade === 'Grade 5' ? -10 : 10"
+          "expr": "datum.grade === 'C5' ? -10 : 10"
         },
         "fontSize": 12,
         "color": "#24443f"
@@ -164,15 +168,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -194,7 +199,7 @@
       "name": "insight_highlight",
       "transform": [
         {
-          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+          "filter": "datum.grade === 'C5' || datum.grade === 'C1'"
         }
       ],
       "mark": {
@@ -209,15 +214,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -235,12 +241,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -250,6 +257,7 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
@@ -283,7 +291,7 @@
           "value": -72
         },
         "text": {
-          "value": "Highest median: Grade 5 · 7.36 km.\nLongest typical distance among these groups.\nLowest median: Grade 1 · 0.7 km (2 routes).\nThe tiny group makes this minimum less representative."
+          "value": "Highest median: C5 · 7.36 km.\nLongest typical distance among these groups.\nLowest median: C1 · 0.7 km (2 routes).\nThe tiny group makes this minimum less representative."
         }
       }
     },
@@ -407,10 +415,10 @@
       "name": "review_median_badges",
       "transform": [
         {
-          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+          "filter": "datum.grade === 'C5' || datum.grade === 'C1'"
         },
         {
-          "calculate": "datum.grade === 'Grade 5' ? 'A' : 'B'",
+          "calculate": "datum.grade === 'C5' ? 'A' : 'B'",
           "as": "badge"
         }
       ],
@@ -427,15 +435,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -454,10 +463,10 @@
       "name": "review_median_letters",
       "transform": [
         {
-          "filter": "datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"
+          "filter": "datum.grade === 'C5' || datum.grade === 'C1'"
         },
         {
-          "calculate": "datum.grade === 'Grade 5' ? 'A' : 'B'",
+          "calculate": "datum.grade === 'C5' ? 'A' : 'B'",
           "as": "badge"
         }
       ],
@@ -474,15 +483,16 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3",
             "Unknown"
           ],
-          "title": "Grade"
+          "title": "Code"
         },
         "x": {
           "field": "median_km",
@@ -501,7 +511,7 @@
       }
     }
   ],
-  "description": "Median distance by recorded grade, with group counts. Unclassified and unknown source values remain visible.",
+  "description": "Median distance by recorded grade, with group counts. C6 and unknown source values remain visible.",
   "usermeta": {
     "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
   },

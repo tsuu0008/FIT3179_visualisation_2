@@ -1,38 +1,42 @@
-# Sources and reproducibility - 23 October 2026
+# Sources and reproduction — 25 October 2026
 
-## Official walking records
+## Walking observations
 
-Catalogue: https://discover.data.vic.gov.au/dataset/recreation-tracks . DataVic lists a last update of 23 October 2026 and daily updates.
+Victorian Government catalogue: https://discover.data.vic.gov.au/dataset/recreation-tracks
 
-Endpoint: https://opendata.maps.vic.gov.au/geoserver/wfs . Query: `service=WFS`, `version=2.0.0`, `request=GetFeature`, `typeNames=open-data-platform:recweb_tracks`, `outputFormat=application/json`, `srsName=EPSG:4326`, `count=1000`.
+The archived 23 October 2026 WFS export contains 366 records; all 195 records with `w_activity=Y` are retained, including MCG. Full route coordinates and all source observations are unchanged. Codes C1–C6 and the separate value “3” are displayed as published; missing codes are Unknown. Public AWTGS grades are not inferred. Duration charts use the source categories, never estimated numeric hours. Twenty source records state FULL CLOSURE.
 
-The complete response contains 366 recreation records. Every record with `w_activity=Y` is included: **195 walking records**, including MCG. No walking record is excluded. The previous 194-route sample is superseded. Source classifications are preserved as published; inclusion is not a data-quality certification.
+Original archive: `data/raw/official_recweb_tracks_20261023.geojson.gz`; record audit: `data/source_audit.json`; processed observations: `data/trails.json` and `data/trails.geojson`.
 
-Full official geometry is copied without file-level simplification. The first map uses Vega with an OpenStreetMap basemap so its route linework can be inspected by zooming. The blue network and orange selected route do not encode difficulty. Other charts use documented display-grade categories.
+## Population
 
-Display labels normalise C1–C5 to Grade 1–5 and the numeric value `3` to Grade 3. C6 is shown as Unclassified; absent values are Unknown. The raw fields remain unchanged. This presentation rule is not an independent certification of equivalence to public AWTGS grades. The five-card public-grade guide is contextual guidance from Parks Victoria. Numeric hours are missing for 194 records; MCG records five hours. All duration comparisons use the actual categories, without inferring hours from a category.
+ABS Regional population 2024–25: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25
 
-Route midpoints use an approximate length-weighted calculation on longitude/latitude segments, with longitude scaled by cosine of segment latitude. Each full route is assigned once to the bundled council polygon containing its midpoint. This reproducible rule moves Upper Yarra Walking Track from the old Baw Baw assignment to Yarra Ranges. Routes crossing council boundaries are not split. The bundled polygon vintage remains unverified.
+The retained workbook is `data/raw/ABS_LGA_2024-25.xlsx`. All 80 population counts match Table 2, column D, at 30 June 2025. Whole-route kilometres are divided by council population and multiplied by 100,000. This measures supply in this recorded network, not route use or crowding.
 
-The compressed raw response, source hash, processed records and full route geometry are preserved in `data/raw/official_recweb_tracks_20261023.geojson.gz`, `data/source_audit.json`, `data/trails.json` and `data/trails.geojson`.
+## Verified boundaries
 
-## Population and basemap
+ABS Local Government Areas 2025, GDA2020: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip
 
-ABS publication: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25 . Workbook: https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0002_2024-25.xlsx . All 80 bundled resident counts match Table 2, column D (30 June 2025). The original workbook and extracted counts are preserved under `data/raw/`. Area, density and growth values are not separately certified by that count comparison.
+Downloaded 25 October 2026. The archive SHA-256, processing CRS, all 80 council joins and all 195 midpoint assignments are recorded in `data/boundary_audit.json`. Full official polygons determine council assignment before simplification; the new boundaries change no retained route assignment. Display polygons are simplified by 100 metres in Victorian Lambert (EPSG:3111), transformed to EPSG:4326 and rounded to six decimal places. Route geometry is never simplified.
 
-Council boundary source: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files . This reference does not establish the vintage of the bundled polygons.
+Route midpoints retain the documented approximate length-weighted longitude/latitude segment method, scaling longitude by cosine of segment latitude. Each complete route is assigned to the polygon covering its midpoint; cross-boundary routes are not split among councils. The map grid uses one such midpoint per route in fixed 25 km equal-area cells.
 
-Basemap: https://www.openstreetmap.org/copyright . Standard HTTPS tile requests use the browser cache, visible attribution and normal browser referrer; no tile bulk download or prefetch is implemented. Vega: https://vega.github.io/vega/ . Basemap content and route data have separate sources.
+## Context and attribution
+
+Parks Victoria’s public Grade 1–5 guide is linked as context only: https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated . It is not a code-conversion table.
+
+The overview basemap is © OpenStreetMap contributors: https://www.openstreetmap.org/copyright . Attribution appears beside the map.
 
 ## Reproduce
 
-Decompress the official archive to `official_export.geojson`, then run:
+Starting from this retained source snapshot:
 
 ```bash
-python3 scripts/verify_official_sources.py official_export.geojson data/raw/abs_population_2025.json
+python3 scripts/refresh_boundaries.py /path/to/LGA_2025_AUST_GDA2020.zip
 python3 scripts/rebuild_data.py
 python3 scripts/prepare_verified_charts.py
 python3 scripts/version_assets.py
 ```
 
-The legacy ArcGIS downloader is an optional alternative utility. The verifier expects the documented lower-case WFS schema. Check any future source changes before publishing, and update the narrative if totals or categories change.
+The boundary refresh needs pyshp, shapely and pyproj. Observations and original geometry must be verified against the archived source after any future refresh. Recheck narrative values when the source cohort changes.

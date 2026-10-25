@@ -144,21 +144,21 @@ def main():
             d['padding']['top']=76
             d['layer']=[l for l in d['layer'] if not (l.get('mark',{}).get('type')=='text' and 'value' in l.get('encoding',{}).get('text',{}))]
             border=next(l for l in d['layer'] if l.get('mark',{}).get('fill','absent') is None)
-            border['data']['values']=[{'grade':'Grade 3','gradient':'Short steep hills'}, {'grade':'Grade 4','gradient':'Short steep hills'}]
-            d['layer'].append(note(['Largest cell: 31 Grade 3 routes with short steep hills.',
+            border['data']['values']=[{'grade':'C3','gradient':'Short steep hills'}, {'grade':'C4','gradient':'Short steep hills'}]
+            d['layer'].append(note(['Largest cell: 31 C3 routes with short steep hills.',
                                    'Highlights the most common grade–terrain pairing.',
-                                   'The outlined Grade 4 cell has 20: terrain crosses grades.'],y=-58))
+                                   'The outlined C4 cell has 20: terrain crosses grades.'],y=-58))
         if n == 5:
             d['height']=430
             d['padding']={'left':8,'right':8,'top':87,'bottom':8}
             # The farthest point's count label fits inside a half-width laptop card.
             for l in d['layer']:
                 if l.get('encoding',{}).get('text',{}).get('field')=='label':
-                    l['mark']['align']={'expr':"datum.grade === 'Grade 5' ? 'right' : 'left'"}
-                    l['mark']['dx']={'expr':"datum.grade === 'Grade 5' ? -10 : 10"}
+                    l['mark']['align']={'expr':"datum.grade === 'C5' ? 'right' : 'left'"}
+                    l['mark']['dx']={'expr':"datum.grade === 'C5' ? -10 : 10"}
             groups={g:[r['length_km'] for r in rows if r['grade']==g] for g in {r['grade'] for r in rows}}
             hi=max(groups,key=lambda g:statistics.median(groups[g]));lo=min(groups,key=lambda g:statistics.median(groups[g]))
-            d['layer'].append(ring("datum.grade === 'Grade 5' || datum.grade === 'Grade 1'",d['layer'][1]['encoding']))
+            d['layer'].append(ring("datum.grade === 'C5' || datum.grade === 'C1'",d['layer'][1]['encoding']))
             d['layer'].append(note([f'Highest median: {hi} · {statistics.median(groups[hi]):.2f} km.',
                                    'Highlights the longest typical distance, not every route.',
                                    f'Lowest median: {lo} · {statistics.median(groups[lo]):g} km ({len(groups[lo])} routes).',
@@ -210,7 +210,7 @@ def main():
                 if value.startswith('Upper Yarra'):
                     l['encoding']['text']['value']='Maximum: Upper Yarra · 95 km\nMultiple days: unusually long commitment'
                 elif value.startswith('Track Ninety Six'):
-                    l['encoding']['text']['value']='Grade 5 maximum: Track Ninety Six · 34 km\nFar above its group’s 7.36 km middle distance'
+                    l['encoding']['text']['value']='C5 maximum: Track Ninety Six · 34 km\nFar above its group’s 7.36 km middle distance'
                     l['mark']['dy']=-20
             d['layer'].append(note(['151 of 195 routes (77%) are 5 km or shorter.',
                                    'The 5 km guide highlights the short-route majority;',

@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/trails.json?v=d0f82fb8345d"
+    "url": "data/trails.json?v=8682a4aafe0b"
   },
   "transform": [
     {
@@ -57,14 +57,15 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": "Recorded grade"
+          "title": "Recorded code"
         },
         "y": {
           "field": "gradient",
@@ -96,7 +97,7 @@
         "tooltip": [
           {
             "field": "grade",
-            "title": "Grade"
+            "title": "Code"
           },
           {
             "field": "gradient",
@@ -120,14 +121,15 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": "Recorded grade"
+          "title": "Recorded code"
         },
         "y": {
           "field": "gradient",
@@ -161,11 +163,11 @@
       "data": {
         "values": [
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "gradient": "Short steep hills"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "gradient": "Short steep hills"
           }
         ]
@@ -181,14 +183,15 @@
           "field": "grade",
           "type": "ordinal",
           "sort": [
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Unclassified"
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "3"
           ],
-          "title": "Recorded grade"
+          "title": "Recorded code"
         },
         "y": {
           "field": "gradient",
@@ -234,12 +237,12 @@
           "value": -58
         },
         "text": {
-          "value": "Largest cell: 31 Grade 3 routes with short steep hills.\nHighlights the most common grade–terrain pairing.\nThe outlined Grade 4 cell has 20: terrain crosses grades."
+          "value": "Largest cell: 31 C3 routes with short steep hills.\nHighlights the most common code–terrain pairing.\nThe outlined C4 cell has 20: terrain crosses codes."
         }
       }
     }
   ],
-  "description": "Joint counts of recorded grades and terrain. Missing grades are excluded; the unclassified record stays separate.",
+  "description": "Joint counts of recorded codes and terrain. Missing grades are excluded; the C6 record stays separate.",
   "padding": {
     "left": 8,
     "right": 8,

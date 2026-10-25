@@ -15,15 +15,16 @@
         "input": "select",
         "options": [
           "All",
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
-          "Unclassified",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "3",
           "Unknown"
         ],
-        "name": "Grade: "
+        "name": "Code: "
       }
     },
     {
@@ -36,7 +37,7 @@
     },
     {
       "name": "mapFrame",
-      "expr": "[145.46965331000007,-36.613358521639626,0.15730806974957048,0.1126184162267756]"
+      "expr": "[145.46902564999868,-36.61327398827786,0.15732980049501755,0.11261417469557167]"
     }
   ],
   "projection": {
@@ -54,7 +55,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/lga.geojson?v=51221f0590b5",
+        "url": "data/lga.geojson?v=c1c375501f56",
         "format": {
           "type": "json",
           "property": "features"
@@ -70,7 +71,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -116,7 +117,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -129,7 +130,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga.geojson?v=51221f0590b5",
+              "url": "data/lga.geojson?v=c1c375501f56",
               "format": {
                 "type": "json",
                 "property": "features"
@@ -168,7 +169,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "mark": {
         "type": "point",
@@ -227,12 +228,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -242,10 +244,11 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
-          "title": "Recorded grade",
+          "title": "Recorded code",
           "legend": {
             "columns": 2,
             "direction": "horizontal",
@@ -274,7 +277,7 @@
           },
           {
             "field": "grade",
-            "title": "Grade"
+            "title": "Code"
           },
           {
             "field": "access",
@@ -290,12 +293,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -305,7 +309,8 @@
               "diamond",
               "cross",
               "triangle-down",
-              "triangle-left"
+              "triangle-left",
+              "triangle-right"
             ]
           },
           "legend": {
@@ -323,7 +328,7 @@
             "titleFontSize": 11,
             "columnPadding": 12
           },
-          "title": "Recorded grade"
+          "title": "Recorded code"
         }
       },
       "transform": [
@@ -335,7 +340,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -421,7 +426,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -506,7 +511,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -552,7 +557,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -591,7 +596,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -635,7 +640,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -681,7 +686,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -715,7 +720,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -761,7 +766,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -802,7 +807,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -890,7 +895,7 @@
     },
     {
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -984,7 +989,7 @@
     {
       "name": "insight_filtered_concentration",
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {
@@ -1095,7 +1100,7 @@
         }
       ],
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "name": "review_symbol_heading_B_circle",
       "mark": {
@@ -1179,7 +1184,7 @@
         }
       ],
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "name": "review_symbol_heading_B_letter",
       "mark": {
@@ -1254,7 +1259,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -1265,7 +1270,7 @@
         }
       ],
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "name": "review_symbol_heading_A_circle",
       "mark": {
@@ -1338,7 +1343,7 @@
           "lookup": "lga",
           "from": {
             "data": {
-              "url": "data/lga_label_points.json?v=187b42ec8618"
+              "url": "data/lga_label_points.json?v=97a15a2d1153"
             },
             "key": "name",
             "fields": [
@@ -1349,7 +1354,7 @@
         }
       ],
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "name": "review_symbol_heading_A_letter",
       "mark": {
@@ -1382,7 +1387,7 @@
     {
       "name": "review_selection_context",
       "data": {
-        "url": "data/trails.json?v=d0f82fb8345d"
+        "url": "data/trails.json?v=8682a4aafe0b"
       },
       "transform": [
         {

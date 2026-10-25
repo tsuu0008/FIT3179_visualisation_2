@@ -109,11 +109,11 @@ def refine(d,n,rows):
     if n==5:
         for l in d['layer']:
             if l.get('name')=='insight_explanation':
-                l['encoding']['text']['value']='Highest median: Grade 5 · 7.36 km.\nLongest typical distance among these groups.\nLowest median: Grade 1 · 0.7 km (2 routes).\nThe tiny group makes this minimum less representative.'
+                l['encoding']['text']['value']='Highest median: C5 · 7.36 km.\nLongest typical distance among these groups.\nLowest median: C1 · 0.7 km (2 routes).\nThe tiny group makes this minimum less representative.'
         for letter,y in [('A',-67),('B',-37)]:
             d['layer'].extend(badges('review_median_heading_'+letter,letter,{'x':{'value':-14},'y':{'value':y}},data={'values':[{}]}))
         encoding=copy.deepcopy(d['layer'][1]['encoding']);encoding.pop('color',None)
-        tr=[{'filter':"datum.grade === 'Grade 5' || datum.grade === 'Grade 1'"},{'calculate':"datum.grade === 'Grade 5' ? 'A' : 'B'",'as':'badge'}]
+        tr=[{'filter':"datum.grade === 'C5' || datum.grade === 'C1'"},{'calculate':"datum.grade === 'C5' ? 'A' : 'B'",'as':'badge'}]
         d['layer'].extend([
             {'name':'review_median_badges','transform':tr,'mark':{'type':'point','filled':True,'fill':'white','stroke':ORANGE,'strokeWidth':1.7,'size':250},'encoding':encoding},
             {'name':'review_median_letters','transform':tr,'mark':{'type':'text','fontWeight':700,'fontSize':10,'color':ORANGE,'align':'center','baseline':'middle'},'encoding':{**encoding,'text':{'field':'badge'}}}])

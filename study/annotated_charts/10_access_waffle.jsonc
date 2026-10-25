@@ -255,7 +255,7 @@
       "color": "#20343A"
     }
   },
-  "description": "Direct labels and explanatory callouts are part of the plotting area. Grade colours are consistent across charts.",
+  "description": "Direct labels and explanatory callouts are part of the plotting area. Code colours are consistent across charts.",
   "usermeta": {
     "annotation_design": "On-chart highlighted finding with a reason for its significance; filtered findings follow the selected cohort."
   }

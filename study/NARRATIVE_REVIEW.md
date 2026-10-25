@@ -12,7 +12,7 @@ Central question: **What turns a line on a map into a walk that fits your day an
 
 1. **Opening:** a free afternoon and an apparently generous choice of 195 routes.
 2. **Place:** choices gather unevenly; Murrindindi makes the regional concentration concrete. Population comparisons add context about the different communities living alongside those paths.
-3. **Demands:** a nearby or short walk is not automatically gentle. Grade meanings are introduced before the first map, then developed here. Douglas Reserve Walk (400 metres) and Upper Yarra Walking Track (95 km) share Grade 4 but ask for very different time commitments; hills and experience advice deepen the finding.
+3. **Demands:** a nearby or short walk is not automatically gentle. Grade meanings are introduced before the first map, then developed here. Douglas Reserve Walk (400 metres) and Upper Yarra Walking Track (95 km) share C4 but ask for very different time commitments; hills and experience advice deepen the finding.
 4. **Shortlist:** return to the reader’s afternoon. Combine place, demands and time. Return to Murrindindi’s 32 routes: only seven record full or partial access, all partial.
 5. **Access and resolution:** consider everyone coming along. The 15-of-180 access fraction reveals the smaller documented starting list. The conclusion returns to the afternoon and brings place, demands, time and companions together.
 

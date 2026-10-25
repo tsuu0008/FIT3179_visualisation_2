@@ -136,7 +136,7 @@ def main():
     max_hours = max(r['hours'] or 0 for r in rows)
     parallel = []
     for r in rows:
-        positions = [(int(r['grade'][-1])-1)*25 if r['grade'].startswith('Grade ') else -30 if r['grade']=='Unclassified' else -15,
+        positions = [(int(r['grade'][-1])-1)*20 if r['grade'].startswith('C') else -15 if r['grade']=='3' else -30,
                      100*math.sqrt(r['length_km']/max_km) if r['length_km'] is not None else -15,
                      DURATIONS.index(r['duration_group'])*25 if r['duration_group'] in DURATIONS else -15,
                      TERRAINS.index(r['gradient'])*25 if r['gradient'] in TERRAINS else -15]
@@ -189,9 +189,8 @@ def main():
         name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
         for name in ['trails.json','trails.geojson']}
     provenance['trail_records']['public_grades'] = (
-        'Display-label normalisation only: C1-C5 become Grade 1-5; numeric 3 joins Grade 3; '
-        'C6 is Unclassified; missing values are Unknown. Raw fields are unchanged. '
-        'This does not independently certify equivalence to public AWTGS grades.')
+        'Source W_GRADE values C1-C6 and the separate numeric string 3 are displayed unchanged. '
+        'Missing values are Unknown. No equivalence to public AWTGS grades is asserted.')
     write('sources.json', provenance)
     from prepare_map_annotations import main as prepare_annotation_geometry
     prepare_annotation_geometry()

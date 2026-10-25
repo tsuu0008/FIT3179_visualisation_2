@@ -29,14 +29,13 @@
       "midpoint council assignment"
     ],
     "numeric_duration": "194 records have no numeric hours; MCG records 5 hours. All duration charts use source categories.",
-    "public_grades": "Display-label normalisation only: C1-C5 become Grade 1-5; numeric 3 joins Grade 3; C6 is Unclassified; missing values are Unknown. Raw fields are unchanged. This does not independently certify equivalence to public AWTGS grades.",
+    "public_grades": "Source W_GRADE values C1-C6 and the separate numeric string 3 are displayed unchanged. Missing values are Unknown. No equivalence to public AWTGS grades is asserted.",
     "retained_file_sha256": {
-      "trails.json": "d0f82fb8345dd472b93f0a22ed083b7b345f5cd4dd55b17e963ebe1b80c9458f",
-      "trails.geojson": "a56d45f25728fee7f2358f39c224a89a70efe9e2718572aa74ecc231d1d1b670"
+      "trails.json": "8682a4aafe0bd508ff157461ed4f0d5401daa5097dd09f56e6d424d1c50c34de",
+      "trails.geojson": "8114b0aa1f8dd25847b82e5cde25d8900fac9852083a1169db465fd3a7d175f2"
     },
     "limits": [
-      "Bundled LGA boundary vintage remains unverified.",
-      "Midpoint council assignment does not divide cross-boundary routes among councils.",
+      "Whole-route midpoint assignment does not split cross-boundary routes.",
       "Source classifications are preserved as published; inclusion is not a quality certification."
     ],
     "catalogue": "https://discover.data.vic.gov.au/dataset/recreation-tracks",
@@ -44,7 +43,7 @@
     "update_frequency": "Daily",
     "geometry": "Full official coordinates, without file-level simplification",
     "representative_points": "Length-weighted midpoint along official route geometry",
-    "council_assignment": "Bundled polygon containing the route midpoint; a crossing route is assigned once"
+    "council_assignment": "Unsimplified official polygon covering each retained route midpoint"
   },
   "population": {
     "status": "verified-all-80-bundled-counts-match-official-workbook",
@@ -59,10 +58,21 @@
     "audit": "source_audit.json"
   },
   "boundaries": {
-    "status": "retained-geometry-vintage-unverified",
+    "status": "verified-official-ABS-2025-boundaries",
+    "boundary_year": 2025,
+    "download": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
+    "archive_sha256": "acc3015a0ac78ade978c41a2e4110269b5219b60d6a56cbb70393ae647f31b15",
+    "checked_date": "2026-10-25",
+    "input_crs": "EPSG:7844 (GDA2020)",
+    "display_crs": "EPSG:4326",
+    "simplification": "100 metres in EPSG:3111, preserve_topology=True; display geometry only; display coordinates rounded to 6 decimal places",
+    "assignment": "Unsimplified official polygon covering each retained route midpoint",
+    "council_count": 80,
+    "assigned_routes": 195,
+    "assignment_changes": [],
     "source": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files",
-    "download_for_2025": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/LGA_2025_AUST_GDA2020.zip",
-    "note": "The 2025 download is a verified available source, not a verified identification of the bundled geometry."
+    "method": "scripts/refresh_boundaries.py",
+    "audit": "boundary_audit.json"
   },
   "grade_definitions": {
     "source": "https://www.parks.vic.gov.au/things-to-do/hiking-and-bushwalking/choose-the-right-hike/how-walking-tracks-are-rated",

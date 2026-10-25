@@ -21,7 +21,7 @@
     "source_track_code": "3",
     "source_export_date": "2026/10/22 17:46:47.",
     "closure": "Not recorded",
-    "grade": "Grade 3"
+    "grade": "3"
   },
   {
     "id": 20,
@@ -45,7 +45,7 @@
     "source_serial_no": "121106",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 22,
@@ -69,7 +69,7 @@
     "source_serial_no": "2452",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 23,
@@ -93,7 +93,7 @@
     "source_serial_no": "3040",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 24,
@@ -117,7 +117,7 @@
     "source_serial_no": "2250",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 25,
@@ -141,7 +141,7 @@
     "source_serial_no": "1980",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 26,
@@ -165,7 +165,7 @@
     "source_serial_no": "3694",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 27,
@@ -189,7 +189,7 @@
     "source_serial_no": "70082",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 28,
@@ -213,7 +213,7 @@
     "source_serial_no": "2654",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 29,
@@ -237,7 +237,7 @@
     "source_serial_no": "9972",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 30,
@@ -261,7 +261,7 @@
     "source_serial_no": "9971",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 31,
@@ -309,7 +309,7 @@
     "source_serial_no": "201",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 33,
@@ -333,7 +333,7 @@
     "source_serial_no": "6063",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 34,
@@ -357,7 +357,7 @@
     "source_serial_no": "9054",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 35,
@@ -381,7 +381,7 @@
     "source_serial_no": "9986",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 36,
@@ -405,7 +405,7 @@
     "source_serial_no": "9985",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 37,
@@ -429,7 +429,7 @@
     "source_serial_no": "9979",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 38,
@@ -453,7 +453,7 @@
     "source_serial_no": "593",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 1"
+    "grade": "C1"
   },
   {
     "id": 39,
@@ -477,7 +477,7 @@
     "source_serial_no": "262",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 40,
@@ -501,7 +501,7 @@
     "source_serial_no": "9982",
     "source_track_code": "C1",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 1"
+    "grade": "C1"
   },
   {
     "id": 41,
@@ -525,7 +525,7 @@
     "source_serial_no": "625",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 42,
@@ -549,7 +549,7 @@
     "source_serial_no": "51237",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 43,
@@ -573,7 +573,7 @@
     "source_serial_no": "4224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 44,
@@ -621,7 +621,7 @@
     "source_serial_no": "9996",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 46,
@@ -645,7 +645,7 @@
     "source_serial_no": "8414",
     "source_track_code": "C6",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Unclassified"
+    "grade": "C6"
   },
   {
     "id": 47,
@@ -669,7 +669,7 @@
     "source_serial_no": "30144",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 48,
@@ -693,7 +693,7 @@
     "source_serial_no": "10444",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 49,
@@ -717,7 +717,7 @@
     "source_serial_no": "10318",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 50,
@@ -741,7 +741,7 @@
     "source_serial_no": "6246",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 51,
@@ -765,7 +765,7 @@
     "source_serial_no": "6200",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 52,
@@ -789,7 +789,7 @@
     "source_serial_no": "6140",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 53,
@@ -813,7 +813,7 @@
     "source_serial_no": "120007",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 54,
@@ -861,7 +861,7 @@
     "source_serial_no": "120045",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 56,
@@ -885,7 +885,7 @@
     "source_serial_no": "120278",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 57,
@@ -909,7 +909,7 @@
     "source_serial_no": "120159",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 58,
@@ -933,7 +933,7 @@
     "source_serial_no": "120086",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 59,
@@ -981,7 +981,7 @@
     "source_serial_no": "5937",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 61,
@@ -1005,7 +1005,7 @@
     "source_serial_no": "5890",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 62,
@@ -1029,7 +1029,7 @@
     "source_serial_no": "10288",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 63,
@@ -1053,7 +1053,7 @@
     "source_serial_no": "5392",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 64,
@@ -1077,7 +1077,7 @@
     "source_serial_no": "5399",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 65,
@@ -1125,7 +1125,7 @@
     "source_serial_no": "50584",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 67,
@@ -1149,7 +1149,7 @@
     "source_serial_no": "201408",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 68,
@@ -1389,7 +1389,7 @@
     "source_serial_no": "207704",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 103,
@@ -1413,7 +1413,7 @@
     "source_serial_no": "8430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 105,
@@ -1485,7 +1485,7 @@
     "source_serial_no": "99",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 112,
@@ -1509,7 +1509,7 @@
     "source_serial_no": "4895",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 113,
@@ -1533,7 +1533,7 @@
     "source_serial_no": "10206",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 119,
@@ -1557,7 +1557,7 @@
     "source_serial_no": "422",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 123,
@@ -1581,7 +1581,7 @@
     "source_serial_no": "4819",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 131,
@@ -1701,7 +1701,7 @@
     "source_serial_no": "7221",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 136,
@@ -1725,7 +1725,7 @@
     "source_serial_no": "8081",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 138,
@@ -1749,7 +1749,7 @@
     "source_serial_no": "8160",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 139,
@@ -1869,7 +1869,7 @@
     "source_serial_no": "9995",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 145,
@@ -1893,7 +1893,7 @@
     "source_serial_no": "20521",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 146,
@@ -1917,7 +1917,7 @@
     "source_serial_no": "6023",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 151,
@@ -1941,7 +1941,7 @@
     "source_serial_no": "120320",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 155,
@@ -1965,7 +1965,7 @@
     "source_serial_no": "4058",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 157,
@@ -1989,7 +1989,7 @@
     "source_serial_no": "30303",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 159,
@@ -2061,7 +2061,7 @@
     "source_serial_no": "8605",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 170,
@@ -2085,7 +2085,7 @@
     "source_serial_no": "8454",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 171,
@@ -2133,7 +2133,7 @@
     "source_serial_no": "3023",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 176,
@@ -2157,7 +2157,7 @@
     "source_serial_no": "8618",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 177,
@@ -2181,7 +2181,7 @@
     "source_serial_no": "50024",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 178,
@@ -2205,7 +2205,7 @@
     "source_serial_no": "2477",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 181,
@@ -2253,7 +2253,7 @@
     "source_serial_no": "120332",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 185,
@@ -2325,7 +2325,7 @@
     "source_serial_no": "7122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 195,
@@ -2349,7 +2349,7 @@
     "source_serial_no": "50864",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 196,
@@ -2373,7 +2373,7 @@
     "source_serial_no": "2122",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 198,
@@ -2397,7 +2397,7 @@
     "source_serial_no": "120299",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 200,
@@ -2421,7 +2421,7 @@
     "source_serial_no": "2930",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 202,
@@ -2445,7 +2445,7 @@
     "source_serial_no": "51066",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 203,
@@ -2469,7 +2469,7 @@
     "source_serial_no": "9973",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 204,
@@ -2493,7 +2493,7 @@
     "source_serial_no": "9031",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 206,
@@ -2517,7 +2517,7 @@
     "source_serial_no": "5387",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 208,
@@ -2541,7 +2541,7 @@
     "source_serial_no": "7068",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 209,
@@ -2565,7 +2565,7 @@
     "source_serial_no": "8497",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 210,
@@ -2589,7 +2589,7 @@
     "source_serial_no": "8294",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 211,
@@ -2613,7 +2613,7 @@
     "source_serial_no": "12550",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 212,
@@ -2637,7 +2637,7 @@
     "source_serial_no": "5477",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 213,
@@ -2709,7 +2709,7 @@
     "source_serial_no": "7254",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 219,
@@ -2733,7 +2733,7 @@
     "source_serial_no": "5885",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 220,
@@ -2781,7 +2781,7 @@
     "source_serial_no": "5090",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 222,
@@ -2805,7 +2805,7 @@
     "source_serial_no": "5910",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 223,
@@ -2829,7 +2829,7 @@
     "source_serial_no": "7001",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 224,
@@ -2853,7 +2853,7 @@
     "source_serial_no": "120380",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 225,
@@ -2877,7 +2877,7 @@
     "source_serial_no": "6155",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 226,
@@ -2901,7 +2901,7 @@
     "source_serial_no": "8633",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 228,
@@ -2925,7 +2925,7 @@
     "source_serial_no": "10557",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 231,
@@ -3045,7 +3045,7 @@
     "source_serial_no": "5678",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 239,
@@ -3069,7 +3069,7 @@
     "source_serial_no": "51150",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 240,
@@ -3093,7 +3093,7 @@
     "source_serial_no": "8224",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 243,
@@ -3117,7 +3117,7 @@
     "source_serial_no": "7118",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 244,
@@ -3141,7 +3141,7 @@
     "source_serial_no": "10245",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 251,
@@ -3165,7 +3165,7 @@
     "source_serial_no": "8546",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 255,
@@ -3189,7 +3189,7 @@
     "source_serial_no": "5529",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 256,
@@ -3213,7 +3213,7 @@
     "source_serial_no": "2108",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 257,
@@ -3237,7 +3237,7 @@
     "source_serial_no": "20027",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 258,
@@ -3261,7 +3261,7 @@
     "source_serial_no": "20789",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 260,
@@ -3309,7 +3309,7 @@
     "source_serial_no": "70006",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 264,
@@ -3333,7 +3333,7 @@
     "source_serial_no": "4771",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 266,
@@ -3357,7 +3357,7 @@
     "source_serial_no": "10358",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 267,
@@ -3405,7 +3405,7 @@
     "source_serial_no": "3710",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 277,
@@ -3429,7 +3429,7 @@
     "source_serial_no": "70010",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 278,
@@ -3453,7 +3453,7 @@
     "source_serial_no": "2605",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 279,
@@ -3477,7 +3477,7 @@
     "source_serial_no": "9984",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 280,
@@ -3501,7 +3501,7 @@
     "source_serial_no": "5601",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 281,
@@ -3525,7 +3525,7 @@
     "source_serial_no": "2030",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 282,
@@ -3549,7 +3549,7 @@
     "source_serial_no": "6288",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 283,
@@ -3573,7 +3573,7 @@
     "source_serial_no": "7120",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 285,
@@ -3597,7 +3597,7 @@
     "source_serial_no": "2454",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 287,
@@ -3621,7 +3621,7 @@
     "source_serial_no": "120369",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 288,
@@ -3645,7 +3645,7 @@
     "source_serial_no": "50001",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 289,
@@ -3669,7 +3669,7 @@
     "source_serial_no": "5957",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 290,
@@ -3693,7 +3693,7 @@
     "source_serial_no": "120165",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 292,
@@ -3717,7 +3717,7 @@
     "source_serial_no": "9881",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 295,
@@ -3765,7 +3765,7 @@
     "source_serial_no": "120109",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 301,
@@ -3789,7 +3789,7 @@
     "source_serial_no": "51152",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 302,
@@ -3813,7 +3813,7 @@
     "source_serial_no": "2173",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 303,
@@ -3837,7 +3837,7 @@
     "source_serial_no": "80009",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 304,
@@ -3861,7 +3861,7 @@
     "source_serial_no": "51157",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 308,
@@ -3885,7 +3885,7 @@
     "source_serial_no": "5734",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 312,
@@ -3981,7 +3981,7 @@
     "source_serial_no": "30137",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 319,
@@ -4005,7 +4005,7 @@
     "source_serial_no": "210244",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 321,
@@ -4053,7 +4053,7 @@
     "source_serial_no": "4374",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 324,
@@ -4101,7 +4101,7 @@
     "source_serial_no": "10430",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 329,
@@ -4125,7 +4125,7 @@
     "source_serial_no": "9962",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 330,
@@ -4149,7 +4149,7 @@
     "source_serial_no": "10670",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 332,
@@ -4197,7 +4197,7 @@
     "source_serial_no": "9983",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 338,
@@ -4221,7 +4221,7 @@
     "source_serial_no": "50290",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 339,
@@ -4293,7 +4293,7 @@
     "source_serial_no": "30161",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 343,
@@ -4317,7 +4317,7 @@
     "source_serial_no": "10469",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 344,
@@ -4365,7 +4365,7 @@
     "source_serial_no": "9980",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 348,
@@ -4389,7 +4389,7 @@
     "source_serial_no": "4201",
     "source_track_code": "C4",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 4"
+    "grade": "C4"
   },
   {
     "id": 349,
@@ -4437,7 +4437,7 @@
     "source_serial_no": "51158",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 351,
@@ -4533,7 +4533,7 @@
     "source_serial_no": "10200",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 357,
@@ -4557,7 +4557,7 @@
     "source_serial_no": "51156",
     "source_track_code": "C3",
     "source_export_date": "2026/10/22 17:46:47.",
-    "grade": "Grade 3"
+    "grade": "C3"
   },
   {
     "id": 358,
@@ -4605,7 +4605,7 @@
     "source_serial_no": "6008",
     "source_track_code": "C5",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 5"
+    "grade": "C5"
   },
   {
     "id": 362,
@@ -4629,7 +4629,7 @@
     "source_serial_no": "10299",
     "source_track_code": "C2",
     "source_export_date": "2026/10/22 17:46:46.",
-    "grade": "Grade 2"
+    "grade": "C2"
   },
   {
     "id": 363,

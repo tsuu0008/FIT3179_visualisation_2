@@ -1526,3 +1526,7 @@ h3 {
 
 /* Keep the story's closing paragraphs as readable as the chapter narrative. */
 .conclusion > p:not(.eyebrow) { max-width: 72ch; margin-inline: auto; text-align: left; font-size: 1rem; line-height: 1.75; }
+
+/* Published codes are categorical; no public grade equivalence is implied. */
+.grade-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 680px) { .grade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

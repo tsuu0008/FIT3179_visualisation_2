@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "data/parallel_points.json?v=e154247b95bc"
+    "url": "data/parallel_points.json?v=696b70b9638b"
   },
   "padding": {
     "left": 34,
@@ -51,15 +51,16 @@
         "input": "select",
         "options": [
           "All",
-          "Grade 1",
-          "Grade 2",
-          "Grade 3",
-          "Grade 4",
-          "Grade 5",
-          "Unclassified",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "3",
           "Unknown"
         ],
-        "name": "Grade: "
+        "name": "Code: "
       }
     },
     {
@@ -562,7 +563,7 @@
         "values": [
           {
             "axis": 0,
-            "position": -15,
+            "position": -30,
             "upper": 100
           },
           {
@@ -706,12 +707,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -721,11 +723,12 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
           "legend": {
-            "title": "Recorded grade",
+            "title": "Recorded code",
             "orient": "bottom",
             "columns": 4,
             "symbolType": "circle",
@@ -739,7 +742,7 @@
           },
           {
             "field": "grade",
-            "title": "Recorded grade"
+            "title": "Recorded code"
           },
           {
             "field": "length_km",
@@ -806,12 +809,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Grade 1",
-              "Grade 2",
-              "Grade 3",
-              "Grade 4",
-              "Grade 5",
-              "Unclassified",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "3",
               "Unknown"
             ],
             "range": [
@@ -821,6 +825,7 @@
               "#CC79A7",
               "#252525",
               "#6f52a3",
+              "#985d3f",
               "#9daca9"
             ]
           },
@@ -833,7 +838,7 @@
           },
           {
             "field": "grade",
-            "title": "Recorded grade"
+            "title": "Recorded code"
           },
           {
             "field": "length_km",
@@ -865,36 +870,41 @@
           {
             "axis": 0,
             "position": 0,
-            "label": "Grade 1"
+            "label": "C1"
           },
           {
             "axis": 0,
-            "position": 25,
-            "label": "Grade 2"
+            "position": 20,
+            "label": "C2"
           },
           {
             "axis": 0,
-            "position": 50,
-            "label": "Grade 3"
+            "position": 40,
+            "label": "C3"
           },
           {
             "axis": 0,
-            "position": 75,
-            "label": "Grade 4"
+            "position": 60,
+            "label": "C4"
+          },
+          {
+            "axis": 0,
+            "position": 80,
+            "label": "C5"
           },
           {
             "axis": 0,
             "position": 100,
-            "label": "Grade 5"
-          },
-          {
-            "axis": 0,
-            "position": -30,
-            "label": "Unclassified"
+            "label": "C6"
           },
           {
             "axis": 0,
             "position": -15,
+            "label": "3"
+          },
+          {
+            "axis": 0,
+            "position": -30,
             "label": "Unknown"
           },
           {
@@ -1032,7 +1042,7 @@
           {
             "axis": 0,
             "position": 111,
-            "label": "Grade"
+            "label": "Code"
           },
           {
             "axis": 1,
@@ -1125,47 +1135,47 @@
       "data": {
         "values": [
           {
-            "grade": "Grade 3",
+            "grade": "3",
             "lga": "Melbourne"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Mount Alexander"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Moorabool"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Central Goldfields"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Mount Alexander"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Moorabool"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Whittlesea"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Mitchell"
           },
           {
@@ -1173,51 +1183,51 @@
             "lga": "Gannawarra"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Yarra Ranges"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 1",
+            "grade": "C1",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 1",
+            "grade": "C1",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Yarra Ranges"
           },
           {
@@ -1225,39 +1235,39 @@
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Mansfield"
           },
           {
-            "grade": "Unclassified",
+            "grade": "C6",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Alpine"
           },
           {
@@ -1265,19 +1275,19 @@
             "lga": "Benalla"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
@@ -1285,23 +1295,23 @@
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
@@ -1309,11 +1319,11 @@
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
@@ -1353,11 +1363,11 @@
             "lga": "Moorabool"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Yarra Ranges"
           },
           {
@@ -1369,23 +1379,23 @@
             "lga": "Gannawarra"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
@@ -1405,15 +1415,15 @@
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Mansfield"
           },
           {
@@ -1433,27 +1443,27 @@
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Glenelg"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Mansfield"
           },
           {
@@ -1465,11 +1475,11 @@
             "lga": "Colac Otway"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Northern Grampians"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Yarra Ranges"
           },
           {
@@ -1477,19 +1487,19 @@
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Northern Grampians"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Ararat"
           },
           {
@@ -1497,7 +1507,7 @@
             "lga": "Benalla"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
@@ -1509,59 +1519,59 @@
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Hindmarsh"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Mitchell"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Yarra Ranges"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Colac Otway"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
@@ -1573,11 +1583,11 @@
             "lga": "Indigo"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Baw Baw"
           },
           {
@@ -1585,31 +1595,31 @@
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Towong"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Northern Grampians"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
@@ -1629,43 +1639,43 @@
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Colac Otway"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Macedon Ranges"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Colac Otway"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Moorabool"
           },
           {
@@ -1673,15 +1683,15 @@
             "lga": "Mount Alexander"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Greater Bendigo"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Unincorporated Vic"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Wellington"
           },
           {
@@ -1689,59 +1699,59 @@
             "lga": "Golden Plains"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Central Goldfields"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Loddon"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Glenelg"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Yarra Ranges"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Moorabool"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Pyrenees"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Towong"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
@@ -1749,27 +1759,27 @@
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Indigo"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Golden Plains"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Towong"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Latrobe (Vic.)"
           },
           {
@@ -1785,11 +1795,11 @@
             "lga": "Horsham"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Benalla"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Colac Otway"
           },
           {
@@ -1797,7 +1807,7 @@
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Yarra Ranges"
           },
           {
@@ -1805,15 +1815,15 @@
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Wellington"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Horsham"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Alpine"
           },
           {
@@ -1821,11 +1831,11 @@
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Murrindindi"
           },
           {
@@ -1837,11 +1847,11 @@
             "lga": "Colac Otway"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Wellington"
           },
           {
@@ -1849,11 +1859,11 @@
             "lga": "Baw Baw"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "Murrindindi"
           },
           {
-            "grade": "Grade 4",
+            "grade": "C4",
             "lga": "Cardinia"
           },
           {
@@ -1861,7 +1871,7 @@
             "lga": "Mildura"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
@@ -1877,11 +1887,11 @@
             "lga": "Benalla"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "East Gippsland"
           },
           {
-            "grade": "Grade 3",
+            "grade": "C3",
             "lga": "Murrindindi"
           },
           {
@@ -1889,11 +1899,11 @@
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 5",
+            "grade": "C5",
             "lga": "Mansfield"
           },
           {
-            "grade": "Grade 2",
+            "grade": "C2",
             "lga": "East Gippsland"
           },
           {
